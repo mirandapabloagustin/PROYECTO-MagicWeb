@@ -6,6 +6,7 @@ import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.co
 import { CargaClienteComponent } from './carga-cliente/carga-cliente.component';
 import { ListarClientesComponent } from './listar-clientes/listar-clientes.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
   imports: [
     CommonModule,
     HomeRoutingModule,
-    SharedModule
+    SharedModule,
+    FormsModule
   ]
 })
 export class HomeModule { }

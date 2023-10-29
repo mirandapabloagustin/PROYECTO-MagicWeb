@@ -1,5 +1,5 @@
-
-<div>
+<fieldset>
+    <legend>Lista Tareas</legend>
     <form *ngIf="tareas.length > 0; else noTareas">
         <thead>
             <tr>
@@ -17,9 +17,9 @@
             </tr>
         </tbody>
     </form>
-</div>
-<p>Mi nombre es {{item}}</p>
-<button>Agregar Tarea</button>
+
+</fieldset>
+
 <ng-template #noTareas>
     <div class="no-tareas">
         <h3>No hay tareas</h3>

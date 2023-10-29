@@ -27,5 +27,9 @@ export class ApiService {
     );
   }
 
+  public crearTareaApi(tarea: Tarea) : Observable<Tarea>{
+    return this.rutaHttp.post<Tarea>(`${this.ruta}/tareas`, tarea);
+  }
+
 
 }

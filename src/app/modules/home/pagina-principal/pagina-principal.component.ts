@@ -7,8 +7,12 @@ import { Component, Input } from '@angular/core';
 })
 export class PaginaPrincipalComponent {
   
-    caca = "caca";
+   public muestraCarga: boolean = false;
   
     constructor() { }
+
+    public muestraComponenteCarga(): void {
+      this.muestraCarga = !this.muestraCarga;
+    }
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, } from '@angular/core';
+import { Component, EventEmitter, OnInit, } from '@angular/core';
 // para conectar con la API
 import { ApiService } from 'src/app/core/service/api.service';
 //para Redireccionar
@@ -13,41 +13,36 @@ import { Usuario } from 'src/app/core/Models';
 })
 
 export class LoginComponent implements OnInit {
-
+  
+  estado: boolean | undefined;
+  
   public usuarioInicio: Usuario = {
     id: null,
     email: null,
     password: null
   };
-
+  
   ngOnInit(): void {
   }
-
+  
   constructor(
     private servicioApi: ApiService,
     private enrrutamiento: Router
-  ) { }
-
-
-
-  yesDog: boolean = false;
-
-  public inicioSesion() {
+    ) { }
+    
+    
+    public inicioSesion() {
     this.servicioApi.obtenerUsuariosPorEmailYContrasenia(this.usuarioInicio.email!, this.usuarioInicio.password!).subscribe(
       {
         next: (resultado) => {
-
-          this.yesDog = true;
-          setTimeout(() => {
-            this.yesDog = false;
-          }, 2000);
-          
+          this.estado=true;
           if (resultado.length == 1) {
-            
             setTimeout(() => {
               this.enrrutamiento.navigate(["/home/pagina-principal"]);
-            }, 2000);
-          }
+            }, 1500);
+          }else{
+            this.estado = false;
+         }
 
         }, error: (errorEncontrado) => {
           console.log(errorEncontrado);
