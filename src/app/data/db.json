@@ -1,21 +1,71 @@
 {
-    "usuarios": [
-        [
-            {
-              "id": "1",
-              "email": "john@example.com",
-              "password": "123456"
-            },
-            {
-              "id": "2",
-              "email": "jane@example.com",
-              "password": "abcdef"
-            },
-            {
-              "id": "3",
-              "email": "mike@example.com",
-              "password": "7891011"
-            }
-          ]
-    ]
+  "usuarios": [
+    {
+      "id": "1",
+      "email": "john@example.com",
+      "password": "123456"
+    },
+    {
+      "id": "2",
+      "email": "jane@example.com",
+      "password": "abcdef"
+    },
+    {
+      "id": "3",
+      "email": "mike@example.com",
+      "password": "7891011"
+    }
+  ],
+  "tareas": [
+    {
+      "id": "1",
+      "titulo": "Design System",
+      "descripcion": "Define the components and guidelines for the project"
+    },
+    {
+      "id": "2",
+      "titulo": "Database Setup",
+      "descripcion": "Create the database structure and tables"
+    },
+    {
+      "id": "3",
+      "titulo": "User Authentication",
+      "descripcion": "Implement user login and registration functionality"
+    },
+    {
+      "id": "4",
+      "titulo": "API Development",
+      "descripcion": "Build the backend APIs for data retrieval and manipulation"
+    },
+    {
+      "id": "5",
+      "titulo": "Frontend UI Design",
+      "descripcion": "Create the user interface design for the web application"
+    },
+    {
+      "id": "6",
+      "titulo": "Integration Testing",
+      "descripcion": "Test the interactions between different components of the system"
+    },
+    {
+      "id": "7",
+      "titulo": "Deployment",
+      "descripcion": "Deploy the application to a production server"
+    },
+    {
+      "id": "8",
+      "titulo": "Performance Optimization",
+      "descripcion": "Optimize the system for faster response times"
+    },
+    {
+      "id": "9",
+      "titulo": "Bug Fixing",
+      "descripcion": "Identify and resolve any issues or errors in the application"
+    },
+    {
+      "id": "10",
+      "titulo": "Documentation",
+      "descripcion": "Create detailed documentation for the project"
+    }
+  ]
 }

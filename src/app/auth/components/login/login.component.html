@@ -5,4 +5,6 @@
     <span>Contraseña</span>
     <input type="password" name="password" [(ngModel)]="usuarioInicio.password" placeholder="Contraseña">
     <button type="submit">Iniciar Sesion</button>
+    
 </form>
+<div class ="mesajeLogueo" [ngClass]="{'mostrar' : yesDog }"></div>

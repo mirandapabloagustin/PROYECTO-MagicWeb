@@ -1,0 +1,53 @@
+/* Estilo para el contenedor de la lista de tareas */
+div {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  /* Estilo para el encabezado */
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilo para cada tarea individual */
+  div div {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin: 10px 0;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  div div h3 {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+  
+  div div p {
+    font-size: 1rem;
+    margin: 10px 0;
+  }
+  
+  /* Estilo para el botón de eliminar tarea */
+  button {
+    background-color: #ff5c5c;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  button:hover {
+    background-color: #ff0000;
+  }
+  

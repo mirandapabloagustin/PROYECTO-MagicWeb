@@ -6,7 +6,7 @@ export class Usuario implements IUsuario{
     email: string | null;
     password: string | null;
 
-    constructor(usuario:IUsuario | null){
+    constructor(usuario ?: any){
         this.id = usuario?.id ? usuario.id : null;
         this.email = usuario?.email ? usuario.email : null;
         this.password = usuario?.password ? usuario.password : null;

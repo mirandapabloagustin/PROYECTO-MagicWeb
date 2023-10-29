@@ -1,0 +1,26 @@
+
+<div>
+    <form *ngIf="tareas.length > 0; else noTareas">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titulo</th>
+                <th>Descripcion</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let tarea of tareas">
+                <td>{{tarea.id}}</td>
+                <td>{{tarea.titulo}}</td>
+                <td>{{tarea.descripcion}}</td>
+                <td><button (click)="borrarTareaPag(tarea.id!)">Eliminar</button></td>
+            </tr>
+        </tbody>
+    </form>
+</div>
+<button>Agregar Tarea</button>
+<ng-template #noTareas>
+    <div class="no-tareas">
+        <h3>No hay tareas</h3>
+    </div>
+</ng-template>
