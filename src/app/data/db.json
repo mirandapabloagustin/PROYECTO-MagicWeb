@@ -56,16 +56,6 @@
       "id": "8",
       "titulo": "Performance Optimization",
       "descripcion": "Optimize the system for faster response times"
-    },
-    {
-      "id": "9",
-      "titulo": "Bug Fixing",
-      "descripcion": "Identify and resolve any issues or errors in the application"
-    },
-    {
-      "id": "10",
-      "titulo": "Documentation",
-      "descripcion": "Create detailed documentation for the project"
     }
   ]
 }

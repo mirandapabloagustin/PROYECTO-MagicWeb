@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-pagina-principal',
@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./pagina-principal.component.css']
 })
 export class PaginaPrincipalComponent {
+  
+    caca = "caca";
+  
+    constructor() { }
 
 }

@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,EventEmitter,Output, Input } from '@angular/core';
 import { Tarea } from 'src/app/core/Models';
-import { ApiService } from 'src/app/core/service/api.service';
 import { AuthTareaService } from 'src/app/core/service/auth-tarea.service';
 
 
@@ -10,6 +9,11 @@ import { AuthTareaService } from 'src/app/core/service/auth-tarea.service';
   styleUrls: ['./listar-clientes.component.css']
 })
 export class ListarClientesComponent implements OnInit {
+
+
+
+  @Input() item: string | undefined;
+
 
 
   public tareas: Tarea[] = [];

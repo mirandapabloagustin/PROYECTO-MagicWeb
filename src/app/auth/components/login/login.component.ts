@@ -1,13 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, } from '@angular/core';
 // para conectar con la API
 import { ApiService } from 'src/app/core/service/api.service';
 //para Redireccionar
 import { Router } from '@angular/router';
 //para usar las Clases
 import { Usuario } from 'src/app/core/Models';
-
-import { NgForm } from '@angular/forms';
-import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -31,6 +28,8 @@ export class LoginComponent implements OnInit {
     private enrrutamiento: Router
   ) { }
 
+
+
   yesDog: boolean = false;
 
   public inicioSesion() {
@@ -42,8 +41,9 @@ export class LoginComponent implements OnInit {
           setTimeout(() => {
             this.yesDog = false;
           }, 2000);
+          
           if (resultado.length == 1) {
-
+            
             setTimeout(() => {
               this.enrrutamiento.navigate(["/home/pagina-principal"]);
             }, 2000);
