@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+    --background-color:#1a1a1a;
+    --onHover-black-color : #2b2b2b;
+    --accent-green : #8bc400;
+    --accent-lilac-hover: #A580CA;
+    --dark-purple: #120239;
+    
+
+}

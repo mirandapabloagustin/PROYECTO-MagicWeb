@@ -1,6 +1,10 @@
-<header class="header">
-    <nav>
-      <h1>NAVBAR SUPER KAWAI</h1>
-    </nav>
-  </header>
-   
+<header [ngClass]="{'sticky': isSticky}">
+  <a href="#" class="logo">Magic App</a>
+
+  <ul>
+    <li (click)="irAlLogin()">INICIA SESION!</li>
+    <li><a href="#">Sobre Magic!</a></li>
+    <li><a href="#">Reglas!</a></li>
+    <li><a href="#">Contacto!</a></li>
+  </ul>
+</header>

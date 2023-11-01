@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { HostListener } from '@angular/core'; 
 import { AterrizajeRoutingModule } from './aterrizaje-routing.module';
 import { PaginaAterrizajeComponent } from './pagina-aterrizaje/pagina-aterrizaje.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { PaginaAterrizajeComponent } from './pagina-aterrizaje/pagina-aterrizaje
   ],
   imports: [
     CommonModule,
-    AterrizajeRoutingModule
+    AterrizajeRoutingModule,
+    SharedModule
   ]
 })
 export class AterrizajeModule { }

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PaginaAterrizajeComponent } from './modules/aterrizaje/pagina-aterrizaje/pagina-aterrizaje.component';
+import { HeaderComponent } from './shared/header/header.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,8 @@ const routes: Routes = [
     redirectTo: 'aterrizaje',
     pathMatch: 'full'
   },
+  {path:'header',
+  component:HeaderComponent},
   {
     path:'**',
     redirectTo: 'aterrizaje',

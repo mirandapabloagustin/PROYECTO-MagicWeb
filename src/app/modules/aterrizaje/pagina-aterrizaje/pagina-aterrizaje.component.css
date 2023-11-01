@@ -1,4 +1,4 @@
-/* Estilo para el encabezado */
+/* Estilo para el encabezado
 h1 {
     font-size: 24px;
     text-align: center;
@@ -6,7 +6,7 @@ h1 {
 }
 
 /* Estilo para el botón "Iniciar Sesión" */
-button {
+/* button {
     display: block;
     width: 200px;
     margin: 0 auto;
@@ -19,6 +19,77 @@ button {
 }
 
 /* Cambiar el estilo del botón al pasar el ratón por encima */
-button:hover {
+/* button:hover {
     background-color: #0056b3;
+} */
+
+/* body{
+
+    background-color: #1a1a1a;
+
 }
+
+
+
+.container {
+    display: flex;
+    border-radius: 3%;
+    background-color: aqua;
+    max-width: fit-content;
+    padding: 5px;
+    justify-content: center;
+}
+
+.button {
+    background-color: #1a1a1a;
+    display: inline-block;
+    padding: 0.5em 1.0em;
+    color: #8bc400;
+    font-family: inconsolata, monospace;
+    font-size: 12px;
+    cursor: pointer;
+    border: 3px solid #8bc400;
+    border-radius: 20px;
+    margin-bottom: 3px;
+    transition: background-color 0.5s ease-in, color 0.5s ease-in;
+    margin: 10%;
+    
+}
+
+.button:hover {
+    background-color: #4e4e4e;
+    color: #64ca35;
+}
+
+
+.flexcontainer{
+    margin-top: 10%;
+   margin-left: 30%;
+   margin-right: 30%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+
+
+.textbox{
+   
+    max-width: 600px;
+    padding: 2px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+} */
+
+
+.banner{
+    margin: 0%;
+    position: relative;
+    width: 100%; 
+    height: 100vh;
+    background: #A580CA;
+    background-size: cover; 
+    background-image: url('https://i.pinimg.com/564x/9a/56/ed/9a56ed82c5737d60151bbf4c2227391b.jpg');
+  
+  
+  }
