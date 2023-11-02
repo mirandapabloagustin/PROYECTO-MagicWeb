@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { PaginaAterrizajeComponent } from './modules/aterrizaje/pagina-aterrizaje/pagina-aterrizaje.component';
 import { HeaderComponent } from './shared/header/header.component';
 
+
 const routes: Routes = [
   {
     path:'home',
@@ -33,6 +34,9 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+   declarations: [
+
+  ]
 })
 export class AppRoutingModule { }
