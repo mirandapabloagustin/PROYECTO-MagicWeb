@@ -7,26 +7,26 @@
     <div class="logo">
         <p>Imagen</p>
     </div>
-    <form #regiterForm="ngForm" class="login-form">
+    <form #regiterForm="ngForm" class="login-form" (ngSubmit)="checkIn()">
 
         <div class="form-group">
             <label for="name">Nombre</label>
-            <input class="input-login-form" type="text" id="name" name="name" placeholder="example:  Juan" required>
+            <input class="input-login-form" type="text" id="name" [(ngModel)]="userRegistrarion.name"  name="name" placeholder="example:  Juan" required>
         </div>
 
         <div class="form-group">
             <label for="lastname">Apellido</label>
-            <input class="input-login-form" type="text" id="lastname" name="lastname" placeholder="example: Genova" required>
+            <input class="input-login-form" type="text" id="lastname" [(ngModel)]="userRegistrarion.lastName" name="lastname" placeholder="example: Genova" required>
         </div>
 
         <div class="form-group">
             <label for="username">Nombre de usuario</label>
-            <input class="input-login-form" type="text" id="username" name="username" placeholder="example: domadordejaravivis" required>
+            <input class="input-login-form" type="text" id="username" [(ngModel)]="userRegistrarion.userName" name="username" placeholder="example: domadordejaravivis" required>
         </div>
 
         <div class="form-group">
             <label for="email">Correo electrónico</label>
-            <input class="input-login-form" type="email" id="email" name="email" placeholder="example@magicweb.com" required>
+            <input class="input-login-form" type="email" id="email" [(ngModel)]="userRegistrarion.email" name="email" placeholder="example@magicweb.com" required>
         </div>
 
         <div class="form-group">
@@ -37,7 +37,7 @@
 
         <div class="form-group">
             <label for="password">Contraseña</label>
-            <input class="input-login-form" type="password" id="password" name="password" placeholder="*******" required>
+            <input class="input-login-form" type="password" id="password" [(ngModel)]="userRegistrarion.password" name="password" placeholder="*******" required>
         </div>
 
         <div class="form-group">
