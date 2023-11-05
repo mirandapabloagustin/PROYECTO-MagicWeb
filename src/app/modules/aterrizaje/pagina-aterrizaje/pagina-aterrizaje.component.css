@@ -1,100 +1,23 @@
-/* Estilo para el encabezado
-h1 {
-    font-size: 24px;
-    text-align: center;
-    margin-bottom: 20px;
+
+*{
+   viewport-fit: cover;
+   overflow-x: hidden;
+  
 }
-
-/* Estilo para el botón "Iniciar Sesión" */
-/* button {
-    display: block;
-    width: 200px;
-    margin: 0 auto;
-    padding: 10px;
-    background-color: #007BFF;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-/* Cambiar el estilo del botón al pasar el ratón por encima */
-/* button:hover {
-    background-color: #0056b3;
-} */
-
-/* body{
-
-    background-color: #1a1a1a;
-
-}
-
-
-
-.container {
-    display: flex;
-    border-radius: 3%;
-    background-color: aqua;
-    max-width: fit-content;
-    padding: 5px;
-    justify-content: center;
-}
-
-.button {
-    background-color: #1a1a1a;
-    display: inline-block;
-    padding: 0.5em 1.0em;
-    color: #8bc400;
-    font-family: inconsolata, monospace;
-    font-size: 12px;
-    cursor: pointer;
-    border: 3px solid #8bc400;
-    border-radius: 20px;
-    margin-bottom: 3px;
-    transition: background-color 0.5s ease-in, color 0.5s ease-in;
-    margin: 10%;
-    
-}
-
-.button:hover {
-    background-color: #4e4e4e;
-    color: #64ca35;
-}
-
-
-.flexcontainer{
-    margin-top: 10%;
-   margin-left: 30%;
-   margin-right: 30%;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 20px;
-}
-
-
-
-.textbox{
-   
-    max-width: 600px;
-    padding: 2px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-
-} */
-
-
-
-
-
 
 .banner {
+   
     margin: 0;
-    position:relative ;
+    position: relative ;
     width: 100%;
     height: 100vh;
-    background: #A580CA;
-    background-size: cover;
+    background-color: #1a1a1a;
+    background-size: 100%;
     background-image: url('src\assets\graphics\magic app.jpg');
+    overflow-y: hidden;
+    justify-content: space-around;
 }
+
 
 .banner::before {
     content: "";
@@ -107,36 +30,70 @@ h1 {
     background-blend-mode:darken;
 }
 
+
+.titlebox{
+    width: 100rem;
+    position: relative;
+     top: 5%; /* Adjust to vertically center the title as needed */
+    left: 20%; /* Adjust to horizontally center the title as needed */
+    overflow-y: hidden;
+}
+
 .title {
-    position: absolute;
-    top: 50%; /* Adjust to vertically center the title as needed */
-    left: 50%; /* Adjust to horizontally center the title as needed */
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: white; /* Set the text color */
-    font-size: 36px; /* Adjust the font size as needed */
-    font-weight: bold; /* Adjust font-weight as needed */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add text shadow for better visibility */
+
+   margin-bottom: 2%;
+   /* transform: translate(-50%, -50%);*/
+    color:transparent;
+    font-size: 9rem; 
+    font-family: magic;
+    background-image: linear-gradient(#d0cfcf, #8bc400);
+    background-repeat: no-repeat ;
+    -webkit-background-clip: text;
+    background-position: -1500px, 0px;
+    animation: backcolor 2s linear infinite alternate; ;
+}
+@keyframes backcolor{
+    100%{
+        background-position: 0px, 0px;
+    }
+}
+
+.sub-title
+{
+    position:relative;
+     /* Adjust to horizontally center the title as needed */
+   font-family: nunito-regular;
+   color: #f0f0f0;
+    font-size: 30px;
+    animation: easeIn 2s linear ;
+    left: 10%;
+
 }
 
 
 
 
+
+
+
+
 .button {
-    min-height:auto;
+
     background-color: #1a1a1a;
     display: inline-block;
     padding: 0.5em 1.0em;
     color: #8bc400;
     font-family:nunito-regular ;
-    font-size: 25px;
+    font-size: 20px;
     cursor: pointer;
     border: 3px solid #8bc400;
     border-radius: 20px;
     margin-bottom: 3px;
     transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out, border-color 0.5s ease-in-out, transform 0.3s ease-in;
-    margin: 10%;
     position:relative;
+    min-width: 10%;
+    height: fit-content;
+
     
 }
 
@@ -144,39 +101,55 @@ h1 {
     background-color: #4e4e4e;
     color: #fff;
     background: linear-gradient(90deg, rgba(38, 31, 50, 0.3) 0%, rgba(61, 76, 41, 0.3) 100%);
-    border: transparent;
+    border: 3px;
+    border-color: transparent;
     transform: scale(1.1);
 
 
     
 }
 
-
-.flexcontainer{
-    margin-top: 10%;
-   margin-left: 30%;
-   margin-right: 30%;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 20px;
+/*
+.button-container {
     position: relative;
-    
-   
-}
-
-/* .btnContainter{
+    top: 3%; 
+    left: 5%; 
+    max-width: 90%;
     display: flex;
-    width: 30%;
-    justify-content: space-between;
-    position: relative ;
+    flex-direction: row; /* Stack buttons vertically */ 
+   /* justify-content: space-between; /* Distribute space evenly */
+   /* margin-bottom: auto;
+    margin-top: auto;
+   */
 
-} */
-
-
-.textbox {
-    max-width: 600px;
-    padding: 20px; 
+   .button-container {
+    left: 4%;
+    position: absolute;
+    margin-bottom:3%;
+    bottom:0; /* Stick to the bottom */
+    display: flex;
+    flex-direction: row; /* Stack buttons horizontally */
+    justify-content: space-between; /* Distribute space evenly */
+    width: 90%; /* Adjust width as needed */
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 body{
     background-color: #1a1a1a;
@@ -200,11 +173,14 @@ body{
     align-items: center;
     height: 100vh;
     background-color: #1a1a1a;
+ 
 }
 
 
+
+
 body {
-    background-color: #f0f0f0;
+    background-color: #1a1a1a;
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
@@ -213,12 +189,25 @@ body {
     margin: 0;
 }
 
+
+
+
+
+
+
+
+
+
+
+
 .card {
     background-color: #fff;
     border: 2px solid #333;
     border-radius: 10px;
-    width: 70%px;
+    max-width: 50%;
+    width: moz-fit-content;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: nunito-regular;
 }
 
 .card-header {
@@ -242,19 +231,4 @@ ul {
 li {
     margin-bottom: 10px;
 }
-.title-container {
-    
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 
-.button-container {
-    margin-top: 20px; 
-    display: block;
-    justify-content: space-between;
-    /* Adjust the spacing between title and buttons */
-    align-items: flex-end;
-    margin-top: auto;
-}
