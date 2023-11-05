@@ -5,12 +5,16 @@ import { HomeRoutingModule } from './home-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { FormsModule } from '@angular/forms';
 import { HomePageComponent } from './home-page/home-page.component';
+import { SearchComponent } from './search/search.component';
+import { ListCardsComponent } from './list-cards/list-cards.component';
 
 
 @NgModule({
   declarations: [
   
-    HomePageComponent
+    HomePageComponent,
+        SearchComponent,
+        ListCardsComponent
   ],
   imports: [
     CommonModule,

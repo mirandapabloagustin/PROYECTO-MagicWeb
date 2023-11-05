@@ -9,18 +9,14 @@ import { Router} from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  isSticky = true;
     constructor(private enrutamiento : Router) { }
 
-    public irAlLogin(){
+    public goToLogin(){
       this.enrutamiento.navigate(['auth/login']);
     }
     
         
-  @HostListener('window:scroll', ['$event'])
-  handleScroll(event: Event): void {
-    this.isSticky = window.scrollY > 0;
-  }
+
 
 }
 

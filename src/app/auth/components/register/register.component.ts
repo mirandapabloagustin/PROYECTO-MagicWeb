@@ -23,7 +23,8 @@ export class RegisterComponent {
   }
 
   public registerUser() {
-    this.authTareaService.registerNewUser(this.newRegister).then((response) => {
+    this.authTareaService.registerNewUser(this.newRegister)
+    .then((response) => {
       if (response) {
         this.router.navigate(["/home/home-page"]);
       } else {

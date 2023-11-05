@@ -8,6 +8,7 @@ import { User } from '../Models';
 })
 
 export class ApiService {
+  url: string = 'http://localhost:3000';
 
   constructor(
     private http: HttpClient
@@ -15,18 +16,18 @@ export class ApiService {
 
 
   public registerUser(user: User): Observable<User> {
-    return this.http.post<User>('http://localhost:3000/users', user)
+    return this.http.post<User>(`${this.url}/users`, user)
   }
 
-  public autehnticateEmailUserRegister(email:string ): Observable<User[]> {
-    return this.http.get<User[]>(`http://localhost:3000/users?email=${email}`)
+  public authEmailUserRegister(email:string ): Observable<User[]> {
+    return this.http.get<User[]>(`${this.url}/users?email=${email}`)
   }
 
-  public autehnticateNickNameUserRegister(nickName:string ): Observable<User[]> {
-    return this.http.get<User[]>(`http://localhost:3000/users?nickName=${nickName}`)
+  public authNickNameUserRegister(nickName:string ): Observable<User[]> {
+    return this.http.get<User[]>(`${this.url}/users?nickName=${nickName}`)
   }
 
-  public autehnticateUserRegister(email:string, password:string ): Observable<User[]> {
-    return this.http.get<User[]>(`http://localhost:3000/users?email=${email}&password=${password}`)
+  public authUserRegister(email:string, password:string ): Observable<User[]> {
+    return this.http.get<User[]>(`${this.url}/users?email=${email}&password=${password}`)
   }
 }

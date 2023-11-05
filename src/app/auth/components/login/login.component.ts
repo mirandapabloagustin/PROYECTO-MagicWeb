@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
   }
 
   public loginUser(){
-    this.authTareaService.autehnticateUserLogin(this.userLogin.email!, this.userLogin.password!).then((response) => {
+    this.authTareaService.authUserLogin(this.userLogin.email!, this.userLogin.password!).then((response) => {
       if (response) {
         this.router.navigate(["/home/home-page"]);
       } else {
