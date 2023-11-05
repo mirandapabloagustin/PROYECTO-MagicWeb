@@ -22,3 +22,11 @@
     font-family:nunito-regular;
     src: url('./assets/fonts/Nunito-Regular.ttf');
 }
+@font-face {
+    font-family: ubunto-regular;
+    src: url(./assets/fonts/UbuntuMono-Regular.ttf);
+}
+@font-face {
+    font-family: varelaRound;
+    src: url(./assets/fonts/VarelaRound-Regular.ttf);
+}
