@@ -1,66 +1,10 @@
 {
-  "usuarios": [
+  "users": [
     {
-      "id": "1",
-      "email": "john@example.com",
-      "password": "123456"
-    },
-    {
-      "id": "2",
-      "email": "jane@example.com",
-      "password": "abcdef"
-    },
-    {
-      "id": "3",
-      "email": "mike@example.com",
-      "password": "7891011"
-    }
-  ],
-  "tareas": [
-    {
-      "id": "1",
-      "titulo": "Design System",
-      "descripcion": "Define the components and guidelines for the project"
-    },
-    {
-      "id": "2",
-      "titulo": "Database Setup",
-      "descripcion": "Create the database structure and tables"
-    },
-    {
-      "id": "3",
-      "titulo": "User Authentication",
-      "descripcion": "Implement user login and registration functionality"
-    },
-    {
-      "id": "4",
-      "titulo": "API Development",
-      "descripcion": "Build the backend APIs for data retrieval and manipulation"
-    },
-    {
-      "id": "5",
-      "titulo": "Frontend UI Design",
-      "descripcion": "Create the user interface design for the web application"
-    },
-    {
-      "id": "6",
-      "titulo": "Integration Testing",
-      "descripcion": "Test the interactions between different components of the system"
-    },
-    {
-      "id": "7",
-      "titulo": "Deployment",
-      "descripcion": "Deploy the application to a production server"
-    },
-    {
-      "id": "8",
-      "titulo": "Performance Optimization",
-      "descripcion": "Optimize the system for faster response times"
-    },
-    {
-      "id": 10,
-      "titulo": "LES CABE HIJOS DE RE MIL PUTAAAAA",
-      "descripcion": "LA RE CONCHA DE LA LORAAA LO PUDE HACER CARGAR UNA DE ESTAS PORONGITAS"
+      "id": 1,
+      "nickName": "PapitasConCheddar",
+      "email": "papitasconcheddar@gmail.com",
+      "password": "1234"
     }
   ]
 }

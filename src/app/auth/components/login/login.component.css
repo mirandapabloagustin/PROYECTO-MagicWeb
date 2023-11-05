@@ -23,7 +23,7 @@
   margin: 30px auto;
   height: 90%;
   width: 90%;
-  background-color: ghostwhite;
+  background-color: rgb(232, 222, 181);
   display: flex;
   flex-direction: column;
   padding: 5px;
@@ -46,7 +46,7 @@
   margin: 5px;
   height: 40px;
   width: 98%;
-  background-color: #fff;
+  background-color: rgb(237, 236, 242);
   border-radius: 30px / 70px;
   display: flex;
   align-items: center;
@@ -164,15 +164,7 @@ span{
 }
 
 .button-login:hover {
-  background-color: #cccccc;
-  ;
-}
-
-#text-entry-error {
-  display: none;
-  color: red;
-  font-size: 14px;
-  margin-top: 10px;
+  background-color: rgb(232, 222, 181);
 }
 
 #register-link {
@@ -188,7 +180,32 @@ span{
   cursor: pointer;
 }
 
+#text-entry-error{
+  color: red;
+  font-size: 20px;
+  font-weight: bold;
+}
 
+
+@keyframes tiembla {
+  0% { transform: translateX(-2px); }
+  25% { transform: translateX(2px); }
+  50% { transform: translateX(-2px); }
+  75% { transform: translateX(2px); }
+  100% { transform: translateX(0); }
+}
+
+.card-background-error {
+  animation: tiembla 0.2s ;
+  margin: auto;
+  width: 600px;
+  height: 850px;
+  background-color: rgb(24, 23, 23);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: #ff1818 0px 10px 30px 10px ;
+}
 
 
 /* Resto de estilos específicos para tu formulario */
