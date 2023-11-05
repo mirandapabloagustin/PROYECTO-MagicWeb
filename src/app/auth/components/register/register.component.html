@@ -1,0 +1,63 @@
+
+
+<div class="card">
+    <div class="card-background">
+        <div class="card-background-conteiner">
+            <div class="tittle-card">
+                <div class="conteiner-tittle-card">
+                    <h4 class="tittle-top">Recruit the Worthy </h4>
+                    <img class="land-icon" src="assets/land-white.png" alt="land">
+                </div>
+            </div>
+            <div class="conteiner-img-card">
+                <img class="img-card" src="assets/card-img-register.png" alt="imgen-inicio">
+            </div>
+            <div class="subtittle-card">
+                <div class="conteiner-tittle-card">
+                    <h4 class="tittle-top">Instant</h4>
+                </div>
+            </div>
+            <div class="container-description-card">
+                <div class="description-card">
+                    <form #loginForm="ngForm" class="login-form" (ngSubmit)="registerUser()">
+                        <div class="form-group">
+                            <label for="nickName">Nick usuario</label>
+                            <input class="input-login-form" type="text" [(ngModel)]="newRegister.nickName" id="nickName" name="nickName"
+                                placeholder="example" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Correo electrónico</label>
+                            <input class="input-login-form" type="email" [(ngModel)]="newRegister.email" id="email" name="email"
+                                placeholder="example@magicweb.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Contraseña</label>
+                            <input class="input-login-form" type="password" [(ngModel)]="newRegister.password"  id="password" name="password"
+                                placeholder="*******" required>
+                        </div>
+
+                        <span class="error-register" *ngIf="registerOk; else templateElse"></span>
+                        <ng-template #templateElse>
+                            <span class="error-register" >*Usuario existente*</span>
+                        </ng-template>
+                     
+                        <div>
+                            <span>¿Tienes cuenta con nostros?</span>
+                            <a id="login-link" (click)="goToLogin()">Ingresar</a>
+                        </div>
+
+                        <span id="text-entry-error" class="error-message">
+                            Usuario o contraseña incorrectos
+                        </span>
+
+                        <button type="submit" class="button-login">Registrarse</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<app-footer></app-footer>

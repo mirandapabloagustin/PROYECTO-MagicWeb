@@ -9,32 +9,17 @@ import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, HostListener }
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
+export class HeaderComponent {
+    constructor(private enrutamiento : Router) { }
 
-export class HeaderComponent implements OnInit{
-  constructor() { }
-
-  isSticky: boolean = false;
-  elementPosition: any;
-
-    ngOnInit(): void {
-      
-    }
-    ngAfterViewInit(){
-      this.elementPosition = this.menuElement.nativeElement.offsetTop;
+    public goToLogin(){
+      this.enrutamiento.navigate(['auth/login']);
     }
     
     @ViewChild ('stickyMenu') menuElement!: ElementRef;
     
         
-  @HostListener('window:scroll', ['$event'])
-  handleScroll() {
-    const windowScroll = window.pageYOffset;
-    if (windowScroll >= this.elementPosition) {
-      this.isSticky = true;
-    } else {
-      this.isSticky = false;
-    }
-  }
+
 
 }
 

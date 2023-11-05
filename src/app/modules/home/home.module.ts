@@ -2,18 +2,19 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { HomeRoutingModule } from './home-routing.module';
-import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.component';
-import { CargaClienteComponent } from './carga-cliente/carga-cliente.component';
-import { ListarClientesComponent } from './listar-clientes/listar-clientes.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { FormsModule } from '@angular/forms';
+import { HomePageComponent } from './home-page/home-page.component';
+import { SearchComponent } from './search/search.component';
+import { ListCardsComponent } from './list-cards/list-cards.component';
 
 
 @NgModule({
   declarations: [
-    PaginaPrincipalComponent,
-    CargaClienteComponent,
-    ListarClientesComponent
+  
+    HomePageComponent,
+        SearchComponent,
+        ListCardsComponent
   ],
   imports: [
     CommonModule,

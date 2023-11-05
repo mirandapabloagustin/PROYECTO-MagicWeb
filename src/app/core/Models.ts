@@ -1,27 +1,15 @@
-import { IUsuario,ITarea } from "./Interfaces";
+import { Iuser } from "./Interfaces";
 
-export class Usuario implements IUsuario{
-
+export class User implements Iuser {
     id: number | null;
+    nickName: string | null;
     email: string | null;
     password: string | null;
 
-    constructor(usuario ?: any){
-        this.id = usuario?.id ? usuario.id : null;
-        this.email = usuario?.email ? usuario.email : null;
-        this.password = usuario?.password ? usuario.password : null;
-    }
-}
-
-export class Tarea implements ITarea{
-
-    id: number | null;
-    titulo: string | null;
-    descripcion: string | null;
-
-    constructor(tarea:ITarea | null){
-        this.id = tarea?.id ? tarea.id : null;
-        this.titulo = tarea?.titulo ? tarea.titulo : null;
-        this.descripcion = tarea?.descripcion ? tarea.descripcion : null;
+    constructor(user ?: Iuser) {
+        this.id = user?.id == undefined ? null : user.id;
+        this.nickName = user?.nickName == undefined ? '' : user.nickName;
+        this.email = user?.email == undefined ? '' : user.email;
+        this.password = user?.password == undefined ? '' : user.password;
     }
 }

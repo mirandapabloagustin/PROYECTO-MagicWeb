@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PaginaAterrizajeComponent } from './modules/aterrizaje/pagina-aterrizaje/pagina-aterrizaje.component';
-import { HeaderComponent } from './shared/header/header.component';
-
+import { Error404Component } from './shared/error404/error404.component';
 
 const routes: Routes = [
   {
@@ -10,33 +8,26 @@ const routes: Routes = [
     loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule) //importo modulo home
   },
   {
-    path:'aterrizaje',
-    component: PaginaAterrizajeComponent, // cargo el componente
-    loadChildren: () => import('./modules/aterrizaje/aterrizaje.module').then(m => m.AterrizajeModule) //importo modulo aterrizaje
-  },
-  {
     path:'auth',
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) //importo modulo auth
+  },
+  {
+    path:'aterrizaje',
+    loadChildren: () => import('./modules/aterrizaje/aterrizaje.module').then(m => m.AterrizajeModule) //importo modulo aterrizaje
   },
   {
     path:'',
     redirectTo: 'aterrizaje',
     pathMatch: 'full'
   },
-  {path:'header',
-  component:HeaderComponent},
   {
     path:'**',
-    redirectTo: 'aterrizaje',
-    pathMatch: 'full'
+    component: Error404Component
   }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
-   declarations: [
-
-  ]
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }

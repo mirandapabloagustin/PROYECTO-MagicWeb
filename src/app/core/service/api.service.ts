@@ -1,35 +1,33 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, catchError, map, of } from 'rxjs';
-import { Usuario, Tarea } from '../Models';
+import { Observable } from 'rxjs';
+import { User } from '../Models';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class ApiService {
+  url: string = 'http://localhost:3000';
 
-  private ruta = "http://localhost:3000";
+  constructor(
+    private http: HttpClient
+  ) { }
 
-  constructor(private rutaHttp: HttpClient) { }
 
-  public obtenerUsuariosPorEmailYContrasenia(email: string, password: string): Observable<Usuario[]> {
-    return this.rutaHttp.get<Usuario[]>(`${this.ruta}/usuarios?email=${email}&password=${password}`);
+  public registerUser(user: User): Observable<User> {
+    return this.http.post<User>(`${this.url}/users`, user)
   }
 
-  public obtenerTareasApi(): Observable<Tarea[]> {
-    return this.rutaHttp.get<Tarea[]>(`${this.ruta}/tareas`);
+  public authEmailUserRegister(email:string ): Observable<User[]> {
+    return this.http.get<User[]>(`${this.url}/users?email=${email}`)
   }
 
-  public borraTareaApi(id: number): Observable<boolean> {
-    return this.rutaHttp.delete<Tarea>(`${this.ruta}/tareas/${id}`).pipe(
-      map(respuesta=> true),
-      catchError(error => of(false))
-    );
+  public authNickNameUserRegister(nickName:string ): Observable<User[]> {
+    return this.http.get<User[]>(`${this.url}/users?nickName=${nickName}`)
   }
 
-  public crearTareaApi(tarea: Tarea) : Observable<Tarea>{
-    return this.rutaHttp.post<Tarea>(`${this.ruta}/tareas`, tarea);
+  public authUserRegister(email:string, password:string ): Observable<User[]> {
+    return this.http.get<User[]>(`${this.url}/users?email=${email}&password=${password}`)
   }
-
-
 }

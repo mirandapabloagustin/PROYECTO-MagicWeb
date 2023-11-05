@@ -1,12 +1,6 @@
-
-export interface IUsuario{
+export interface Iuser{
     id: number | null;
+    nickName: string | null;
     email: string | null;
     password: string | null;
-}
-
-export interface ITarea {
-    id:number | null;
-    titulo:string | null;
-    descripcion:string | null;
 }

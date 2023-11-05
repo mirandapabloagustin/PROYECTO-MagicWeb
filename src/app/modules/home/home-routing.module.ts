@@ -1,20 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.component';
-import { CargaClienteComponent } from './carga-cliente/carga-cliente.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
 const routes: Routes = [
   {
-    path:"pagina-principal",
-    component: PaginaPrincipalComponent
-  },
-  {
-    path:"carga-cliente",
-    component: CargaClienteComponent
+    path:"home-page",
+    component: HomePageComponent,
   },
   {
     path:"",
-    redirectTo: "pagina-principal",
+    redirectTo: "home-page",
     pathMatch: "full"
   }
 ];
