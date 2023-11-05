@@ -1,25 +1,37 @@
-import { Component,NgModule,OnInit } from '@angular/core';
-import { NgModel } from '@angular/forms';
-import { Router } from '@angular/router';
-import { FooterComponent } from 'src/app/shared/footer/footer.component';
-import { SharedModule } from 'src/app/shared/shared.module';
+import { Router} from '@angular/router';
+import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, HostListener } from '@angular/core';
+
 
 @Component({
-  selector: 'app-pagina-aterrizaje',
-  templateUrl: './pagina-aterrizaje.component.html',
-  styleUrls: ['./pagina-aterrizaje.component.css']
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.css']
 })
 
+export class HeaderComponent implements OnInit{
+  constructor() { }
 
-export class PaginaAterrizajeComponent implements OnInit {
+  isSticky: boolean = false;
+  elementPosition: any;
 
-  constructor(private enrutamiento : Router) { }
-
-  ngOnInit(): void {
-  }
-
-  irAlLogin(){
-    this.enrutamiento.navigate(['auth/login']);
+    ngOnInit(): void {
+      
+    }
+    ngAfterViewInit(){
+      this.elementPosition = this.menuElement.nativeElement.offsetTop;
+    }
+    
+    @ViewChild ('stickyMenu') menuElement!: ElementRef;
+    
+        
+  @HostListener('window:scroll', ['$event'])
+  handleScroll() {
+    const windowScroll = window.pageYOffset;
+    if (windowScroll >= this.elementPosition) {
+      this.isSticky = true;
+    } else {
+      this.isSticky = false;
+    }
   }
 
 }
