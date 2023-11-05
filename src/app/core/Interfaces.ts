@@ -1,8 +1,6 @@
-export interface Iuser {
+export interface Iuser{
     id: number | null;
-    name: string |  null;
-    lastName: string | null;
-    userName: string | null;
+    nickName: string | null;
     email: string | null;
     password: string | null;
 }
