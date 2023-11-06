@@ -1,15 +1,13 @@
+
 import { Component,NgModule,OnInit } from '@angular/core';
-import { NgModel } from '@angular/forms';
 import { Router } from '@angular/router';
-import { FooterComponent } from 'src/app/shared/footer/footer.component';
-import { SharedModule } from 'src/app/shared/shared.module';
+
 
 @Component({
   selector: 'app-pagina-aterrizaje',
   templateUrl: './pagina-aterrizaje.component.html',
   styleUrls: ['./pagina-aterrizaje.component.css']
 })
-
 
 export class PaginaAterrizajeComponent implements OnInit {
 
@@ -21,6 +19,39 @@ export class PaginaAterrizajeComponent implements OnInit {
   irAlLogin(){
     this.enrutamiento.navigate(['auth/login']);
   }
+
+  scrollToSection(sectionId: string) {
+    
+    const sections = document.querySelectorAll('.container');
+    sections.forEach((section) => {
+      section.classList.add('hidden-section');
+    });
+
+ 
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.classList.remove('hidden-section');
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+
+}
+  unfixBanner(){
+    const element = document.getElementsByClassName('banner');
+    if (element) {
+      element[0].classList.remove('fixed');
+    }
+  }
+
+
+      hideSections(exceptSectionId: any) {
+        const sections = document.querySelectorAll('.container');
+        sections.forEach((section) => {
+          const sectionId = section.getAttribute('id');
+          if (sectionId !== exceptSectionId) {
+            section.classList.add('hidden-section');
+          }
+        });
+      }
 
 }
 
