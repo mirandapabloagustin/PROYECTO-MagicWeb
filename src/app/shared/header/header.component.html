@@ -1,11 +1,29 @@
-<header appScroll>
-  <a href="#" class="logo"><img class="logo-header" src="assets/logo-footer.png" alt="logoMagic"></a>
-  
+<!-- <header>
+  <a href="#" class="logo">Magic App</a>
+  <section class="sec1"></section>
+  <section class="sec2">
 
-  <ul class="conteiner-items-selector">
-    <li class="items-selector"><a class="redirecction-links" href="#">Sobre Magic!</a></li>
-    <li class="items-selector"><a class="redirecction-links" href="#">Reglas!</a></li>
-    <li class="items-selector"><a class="redirecction-links" href="#">Contacto!</a></li>
-    <li class="items-selector"><a class="redirecction-links" (click)="goToLogin()" >Inicio Sesion</a></li>
+  </section>
+
+  <ul>
+    <li><a href="#">Link 1</a></li>
+    <li><a href="#">link 2</a></li>
+    <li><a href="#">Link 3 </a></li>
   </ul>
-</header>
+</header> -->
+
+
+
+<!-- this is the sticky menu -->
+<div class="header">
+<div class="tabs is-centered is-fullwidth" #stickyMenu [class.sticky] = "isSticky">
+  <ul class="nav-bar">
+    <li class="is-active"><a>Pictures</a></li>
+    <li><a>Music</a></li>
+    <li><a>Videos</a></li>
+    <li><a>Documents</a></li>
+  </ul>
+</div>
+</div>
+
+<!-- this is a fake long content; we need it so we can scroll down -->
