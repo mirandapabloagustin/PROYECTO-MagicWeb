@@ -1,4 +1,11 @@
 <app-header></app-header>
-<app-search></app-search>
-<app-list-cards></app-list-cards>
+<div class="background-home">
+    <div class="background-container">
+        <div class="container-home">
+            <app-search (searchEvent)="searchElement($event)">
+            </app-search>
+            <app-list-cards></app-list-cards>
+        </div>
+    </div>
+</div>
 <app-footer></app-footer>

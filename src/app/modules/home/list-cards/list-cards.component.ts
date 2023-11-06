@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class ListCardsComponent {
 
+  carta:string = 'assets/prueba.jpg';
 }

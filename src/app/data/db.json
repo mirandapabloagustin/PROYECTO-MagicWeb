@@ -3,37 +3,7 @@
     {
       "id": 1,
       "nickName": "PapitasConCheddar",
-      "email": "admin@gmail.com",
-      "password": "1234"
-    },
-    {
-      "id": 2,
-      "nickName": "1231241413423",
-      "email": "admin@gmail.com",
-      "password": "1234"
-    },
-    {
-      "id": 3,
-      "nickName": "Tincho",
-      "email": "admin@gmail.com",
-      "password": "1234"
-    },
-    {
-      "id": 4,
-      "nickName": "12314124124",
-      "email": "admin@gmail.com",
-      "password": "1234"
-    },
-    {
-      "id": 5,
-      "nickName": "dsfsdfsdffds",
-      "email": "admin@gmail.com",
-      "password": "1234"
-    },
-    {
-      "id": 6,
-      "nickName": "asd",
-      "email": "admin@admin.com",
+      "email": "papitasconcheddar@gmail.com",
       "password": "1234"
     }
   ]

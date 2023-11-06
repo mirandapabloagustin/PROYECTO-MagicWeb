@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { HomePageComponent } from './home-page/home-page.component';
 import { SearchComponent } from './search/search.component';
 import { ListCardsComponent } from './list-cards/list-cards.component';
+import { CardComponent } from './card/card.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { ListCardsComponent } from './list-cards/list-cards.component';
   
     HomePageComponent,
         SearchComponent,
-        ListCardsComponent
+        ListCardsComponent,
+        CardComponent
   ],
   imports: [
     CommonModule,
