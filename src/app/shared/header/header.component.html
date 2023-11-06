@@ -1,13 +1,29 @@
-<header appScroll>
-  <a href="#" class="logo"><img class="logo-header" src="assets/logo-footer.png" alt="logoMagic"></a>
-  
+<div *ngIf="!userLoggedIn">
+<header #stickyMenu [class.sticky]="isSticky">
+  <a href="#" class="logo"><img class="logo-header" [src]="getLogoImageSource()" alt="logoMagic"> </a>
+
 
   <ul class="conteiner-items-selector">
-    <li class="items-selector"><a class="redirecction-links" href="#">Sobre Magic!</a></li>
-    <li class="items-selector"><a class="redirecction-links" href="#">Reglas!</a></li>
-    <li class="items-selector"><a class="redirecction-links" href="#">Contacto!</a></li>
-    <li class="items-selector"><a class="redirecction-links" (click)="goToLogin()" >Inicio Sesion</a></li>
+  
+    <li class="items-selector"> <a class="redirecction-links" href="#"><fa-icon [icon]="icon"></fa-icon>Sobre Magic!</a></li>
+    <li class="items-selector"><a class="redirecction-links" href="#"><fa-icon [icon]="icon5"></fa-icon>Reglas!</a></li>
+    <li class="items-selector"><a class="redirecction-links" href="#"><fa-icon [icon]="icon4"></fa-icon>Contacto!</a></li>
+    <li class="items-selector"><a class="redirecction-links"(click)="goToLogin()" ><fa-icon [icon]="icon3"></fa-icon>Iniciar Sesion!</a></li>
   </ul>
-</div>
+</header>
 </div>
 
+
+
+<div *ngIf="userLoggedIn">
+<header #stickyMenu [class.sticky]="isSticky">
+  <a href="#" class="logo"><img class="logo-header" [src]="getLogoImageSource()" alt="logoMagic"> </a>
+  <ul class="conteiner-items-selector">
+  
+
+    <li class="items-selector"><a class="redirecction-links" href="#"><fa-icon [icon]="icon4"></fa-icon>Contacto!</a></li>
+    <li class="items-selector"><a class="redirecction-links"(click)="logOut()" ><fa-icon [icon]="icon3"></fa-icon>Cerrar Sesion</a></li>
+  </ul>
+
+</header>
+</div>

@@ -1,38 +1,57 @@
-import { Router} from '@angular/router';
-import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, HostListener } from '@angular/core';
+
+import { Component,NgModule,OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  selector: 'app-pagina-aterrizaje',
+  templateUrl: './pagina-aterrizaje.component.html',
+  styleUrls: ['./pagina-aterrizaje.component.css']
 })
 
-export class HeaderComponent implements OnInit{
-  constructor() { }
+export class PaginaAterrizajeComponent implements OnInit {
 
-  isSticky: boolean = false;
-  elementPosition: any;
+  constructor(private enrutamiento : Router) { }
 
-    ngOnInit(): void {
-      
-    }
-    ngAfterViewInit(){
-      this.elementPosition = this.menuElement.nativeElement.offsetTop;
-    }
+  ngOnInit(): void {
+  }
+
+  irAlLogin(){
+    this.enrutamiento.navigate(['auth/login']);
+  }
+
+  scrollToSection(sectionId: string) {
     
-    @ViewChild ('stickyMenu') menuElement!: ElementRef;
-    
-        
-  @HostListener('window:scroll', ['$event'])
-  handleScroll() {
-    const windowScroll = window.pageYOffset;
-    if (windowScroll >= this.elementPosition) {
-      this.isSticky = true;
-    } else {
-      this.isSticky = false;
+    const sections = document.querySelectorAll('.container');
+    sections.forEach((section) => {
+      section.classList.add('hidden-section');
+    });
+
+ 
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.classList.remove('hidden-section');
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+
+}
+  unfixBanner(){
+    const element = document.getElementsByClassName('banner');
+    if (element) {
+      element[0].classList.remove('fixed');
     }
   }
+
+
+      hideSections(exceptSectionId: any) {
+        const sections = document.querySelectorAll('.container');
+        sections.forEach((section) => {
+          const sectionId = section.getAttribute('id');
+          if (sectionId !== exceptSectionId) {
+            section.classList.add('hidden-section');
+          }
+        });
+      }
 
 }
 

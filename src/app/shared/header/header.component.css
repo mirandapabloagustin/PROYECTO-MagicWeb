@@ -1,5 +1,5 @@
 *{
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family:nunito-regular;
 }
 
 header{
@@ -15,19 +15,51 @@ header{
   
 }
 
-
-
-
 .conteiner-items-selector{
   display: flex;
 }
-.items-selector{
+.conteiner-items-selector li{
+  margin-left: 10px;
+  margin-right: 30px;
+  
+  font-family: nunito-regular;
+  list-style: none;
+ 
+
+}
+.conteiner-items-selector li a{
+text-decoration: none;
+color: white;
+ 
+
+}
+.conteiner-items-selector li a:hover{
+  text-decoration: none;
+  /* color: white; */
+  cursor: pointer;
+  transition: 0.2s;
+  border-bottom: 2px solid rgb(86, 180, 124);
+  ;
+  padding-bottom: 5px;
+  font-weight: bold;
+  
+   
+  
+  }
+  
+
+/* .items-selector{
   margin-left: 10px;
   margin-right: 30px;
   list-style: none;
-}
+} */
+/* .items-selector::hover{
+  color: white;
+  cursor: pointer;
+  transition: 0.6s;
+} */
 
-.redirecction-links{
+/* .redirecction-links{
   text-decoration: none;
   color: black;
   font-size: 20px;
@@ -43,9 +75,62 @@ header{
   border-radius: 30px / 70px;
   box-shadow: whitesmoke 0px 0px 10px;
 }
+ */
 
 .logo-header{
   margin-left: 50px;
-  width: 350px;
-  height: 100px;
+  width: 330px;
+  height: 80px;
+  transition: 0.2s;
 }
+
+.sticky{
+  background-color: rgba(235, 235, 235, 0.8);
+  position:fixed;
+  width: 100%;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  transition:  0.3s all;
+  padding: 40px, 100px;
+  z-index:100000 ;
+  
+}
+.sticky .conteiner-items-selector li a:hover{
+  text-decoration: none;
+  /* color: white; */
+  cursor: pointer;
+  transition: 0.2s;
+  border-bottom: 2px solid rgb(99, 139, 174);
+  padding-bottom: 5px;
+  font-weight: bold;
+  
+   
+  
+  }
+  .sticky .conteiner-items-selector li a{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    
+    
+    }
+    .sticky .logo-header{
+      margin-left: 50px;
+     width: auto;
+     height: 40px;
+      transition: 0.6s;
+    }
+    .sticky fa-icon{
+      color: rgb(99, 139, 174);
+      margin: 8px;
+    }
+    
+    fa-icon :hover{
+      color: rgb(99, 139, 174);
+      transition: 0.6s;
+    }
+    fa-icon{
+      color: rgb(86, 180, 124);
+      margin: 8px;
+      
+    }
