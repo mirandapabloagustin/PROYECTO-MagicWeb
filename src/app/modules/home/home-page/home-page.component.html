@@ -1,11 +1,13 @@
 <app-header></app-header>
 <div class="background-home">
     <div class="background-container">
-        <div class="container-home">
+        <div class="caca">
+            <h4 class="tittle-container">Glosario de Cartas</h4>
+            <span class="text-container"> Explora cartas de toda la historia de Magic. Mira cartas de las colecciones más recientes y descubre lo que jugadores como tú dicen sobre ellas.</span>
             <app-search (searchEvent)="searchElement($event)">
             </app-search>
-            <app-list-cards></app-list-cards>
         </div>
     </div>
+        <app-list-cards></app-list-cards>
 </div>
 <app-footer></app-footer>

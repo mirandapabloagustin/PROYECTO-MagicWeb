@@ -1,28 +1,8 @@
-.grid-container-cards{
-    background-color: blueviolet;
+.grid-container-cards {
+    margin-top: 50px;
+    margin-bottom: 100px;
     display: grid;
     grid-gap: 10px;
-    justify-content: center; /* Centra la cuadrícula horizontalmente en el contenedor */
-    align-content: center;
-
-    grid-template-rows: 370px 370px 370px 370px ; /* Tres filas de 100px de alto cada una */
-    grid-template-columns: repeat(auto-fill, minmax(270px, 3fr)); /* Tres columnas de 1fr de ancho cada una */
-    margin: auto;
+    grid-template-columns: repeat(4, minmax(270px, 1fr));
 }
 
-.card-container-info{
- position: relative;
- height: 100%;
-    width: 100%;
-
-}
-
-.card-container-info:nth-child(5) {
-    grid-row: 2 / 3; /* Comienza en la fila 2 y termina en la fila 3 */
-    grid-column: 2 / 3; /* Comienza en la columna 2 y termina en la columna 3 */
-  }
-  
-  .card-container-info:nth-child(9) {
-    grid-row: 3 / 4; /* Comienza en la fila 3 y termina en la fila 4 */
-    grid-column: 3 / 4; /* Comienza en la columna 3 y termina en la columna 4 */
-  }
