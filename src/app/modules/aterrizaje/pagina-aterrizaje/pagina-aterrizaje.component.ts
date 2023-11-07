@@ -1,6 +1,9 @@
 
 import { Component,NgModule,OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import{faHeart,faWandSparkles,faLaptopCode,faScroll} from '@fortawesome/free-solid-svg-icons';
+
+
 
 
 @Component({
@@ -10,6 +13,11 @@ import { Router } from '@angular/router';
 })
 
 export class PaginaAterrizajeComponent implements OnInit {
+  icon1=faHeart;
+  icon2=faWandSparkles;
+  icon3=faLaptopCode;
+  icon4=faScroll;
+
 
   constructor(private enrutamiento : Router) { }
 

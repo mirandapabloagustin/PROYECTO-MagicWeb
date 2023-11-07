@@ -4,7 +4,7 @@
 <section class="banner">
 
   <div class="titlebox">
-      <p class="title">MagicApp</p>
+      <p class="title" id="titlebox">MagicApp</p>
     
       <p class="sub-title">A magic the gathering app</p>
     </div>
@@ -18,39 +18,87 @@
 </section>
 
 
-<div class="container" id="about" class ="hidden-section">
-<div class="card" >
+<div class="container">
+<div class="card hidden-section" id="about">
     <div class="card-header">
+      <fa-icon [icon]="icon2"></fa-icon>
        Magic: The Gathering, que es?
     </div>
     <div class="card-content">
-      <p>  In Magic: The Gathering, players take on the role of powerful wizards known as "Planeswalkers" and engage in magical duels with decks of customized cards. Each player starts with 20 life points and uses a deck of cards containing various spells, creatures, artifacts, and lands. The primary objective is to reduce the opponent's life total to zero, either by casting spells, summoning creatures, or using various card interactions.
+      <p>"Magic: The Gathering" es un juego de cartas coleccionables y estrategia creado por Richard Garfield y lanzado por Wizards of the Coast en 1993. En este juego, los jugadores asumen el papel de poderosos magos llamados "Planeswalkers" que se enfrentan en duelos mágicos. Cada jugador construye su propio mazo de cartas, que incluye hechizos, criaturas, artefactos y tierras, con el objetivo de derrotar al oponente.
       </p>
+      <p>El juego se desarrolla en un multiverso de fantasía donde los jugadores utilizan maná (energía mágica) generada por tierras para lanzar hechizos y convocar criaturas para atacar al oponente. Los jugadores comienzan con 20 puntos de vida y ganan al reducir los puntos de vida del oponente a cero.</p>
+      <p>Lo que hace que "Magic" sea único es la diversidad y complejidad de sus cartas. Hay miles de cartas diferentes, cada una con habilidades y reglas específicas, lo que permite una amplia variedad de estrategias y tácticas. Los jugadores pueden personalizar sus mazos para adaptarse a su estilo de juego y participar en torneos competitivos o partidas casuales.</p>
+      <p>"Magic: The Gathering" ha mantenido su popularidad a lo largo de los años y ha desarrollado una comunidad global de jugadores. El juego ha inspirado expansiones, adaptaciones digitales y una rica historia de fondo que se explora en novelas y otros medios. Es un juego que combina creatividad, estrategia y habilidad, lo que lo convierte en una experiencia apasionante y desafiante para jugadores de todas las edades.</p>
             
     </div>
 </div>
-<div class="card"id="reglas" class="hidden-section" >
+<div class="card hidden-section"id="reglas"  >
     <div class="card-header">
+      <fa-icon [icon]="icon4"></fa-icon>
 
-        Rules of Magic: The Gathering
+        Reglas de Magic: The Gathering
     </div>
     <div class="card-content">
+      <p>Las reglas de "Magic: The Gathering" son fundamentales para jugar este juego de cartas coleccionables. Aquí tienes una descripción general de las reglas básicas:</p>
         <ul>
-            <li>Each player starts with 20 life.</li>
-            <li>Players take turns, starting with the first player.</li>
-            <li>Players draw one card at the beginning of their turn.</li>
-            <li>Players can play lands and cast spells during their turn.</li>
-            <li>Spells require mana to cast, which comes from lands.</li>
-            <li>Each player can attack with creatures to reduce the opponent's life.</li>
-            <li>The game is won by reducing the opponent's life to 0.</li>
-            <li>There are many more rules and card interactions to explore!</li>
+            <li>El objetivo principal del juego es reducir los puntos de vida de tu oponente a cero. Cada jugador comienza con 20 puntos de vida.</li>
+            <li>  Los jugadores deben construir mazos de al menos 60 cartas. Estas cartas se dividen en cinco tipos: tierras, criaturas, hechizos instantáneos, hechizos de conjuro y artefactos.</li>
+            <li>Un turno consta de varias fases, incluyendo el mantenimiento, el robo, la fase principal y la fase de combate. Los jugadores deben seguir estas fases en su turno.</li>
+            <li> Las tierras son las cartas que generan maná, que es la energía necesaria para jugar otras cartas. Los jugadores pueden jugar una tierra por turno.</li>
+            <li> Las cartas de criatura representan seres que pueden atacar al oponente y defender al jugador. Tienen puntos de fuerza y resistencia que indican cuánto daño pueden infligir y cuánto pueden resistir.</li>
+            <li>Los hechizos son cartas mágicas que producen efectos cuando se lanzan. Los instantáneos son una subclase de hechizos que se pueden jugar en cualquier momento, incluso durante el turno del oponente.</li>
+            <li>Durante esta fase, los jugadores pueden atacar con sus criaturas. El oponente puede bloquear los ataques con sus propias criaturas. El daño infligido se resta de los puntos de vida del jugador o de las criaturas, y las criaturas que sufren daño igual o mayor a su resistencia mueren.</li>
+            <li> Existen numerosas habilidades y reglas especiales en las cartas que pueden modificar el juego. Estas incluyen volar, prisa, vigilancia, entre otras.</li>
+            <li> Algunas cartas y criaturas tienen habilidades especiales que se pueden activar. Estas habilidades a menudo requieren el pago de maná o cumplir ciertos requisitos.</li>
+            <li>Un jugador gana cuando el oponente llega a cero puntos de vida. También es posible ganar de otras formas mediante cartas o efectos específicos.</li>
         </ul>
     </div>
 </div>
+
+
+
+
+
+<div class="card hidden-section"id="appInfo">
+  <div class="card-header">
+    <fa-icon [icon]="icon1"></fa-icon>
+    Sobre La app
+  </div>
+  <div class="card-content">
+      <p> MagicApp es una aplicación diseñada para los apasionados jugadores de Magic: The Gathering. Esta aplicación combina la fascinante experiencia de construir mazos personalizados y explorar una inmensa colección de cartas de Magic.
+
+         los jugadores pueden sumergirse en un vasto catálogo de cartas de Magic. Ya sea que estés buscando tus cartas favoritas o explorando nuevas adiciones a tu colección, la aplicación te permite buscar y ver todas las cartas con facilidad. La interfaz intuitiva y las opciones de filtrado avanzadas hacen que la exploración sea sencilla y emocionante.
+        
+    La aplicación te proporciona herramientas para organizar tus cartas y mazos de manera efectiva, lo que facilita la preparación para tus próximos enfrentamientos en el juego de cartas Magic: The Gathering.
+        
+      Al iniciar sesión, los jugadores pueden acceder a sus mazos guardados y colecciones de cartas
+        
+        Esta aplicación es la herramienta definitiva para cualquier mago que quiera llevar su experiencia de juego de Magic: The Gathering al siguiente nivel. Ya sea que seas un jugador ocasional o un competidor dedicado, MagicApp es tu compañero perfecto para explorar, crear y dominar el emocionante mundo de las cartas mágicas. ¡Utilizala y descubre un nuevo reino de posibilidades en tu viaje de Magic!</p>
+  </div>
 </div>
 
 
 
+<div class="card hidden-section"id="devInfo"  >
+  <div class="card-header">
+    <fa-icon [icon]="icon3"></fa-icon>
+
+      Rules of Magic: The Gathering
+  </div>
+  <div class="card-content">
+    <p>Nuestro equipo de desarrolladores cuenta con 3 amigos que disfrutan de llorar juntos, las largas horas en vela, y sufrir por bugs que no tienen solucion</p>
+      <ul>
+          <li>Nico Versellone Aka ElDevDePanchos</li>
+          <li>Flor Aguiar Aka: La que llora</li>
+          <li>Agus Miranda Aka: papitas con cheddar</li>
+          
+      </ul>
+      DinamiTeam espera que disfruten de esta app en la cual depositaron sangre sudor y litelamente lagrimas.
+  </div>
+</div>
+
+</div>
 
 
 <div class="container">
