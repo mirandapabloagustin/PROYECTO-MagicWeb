@@ -1,4 +1,5 @@
 import { Component ,OnInit} from '@angular/core';
+import { async } from 'rxjs';
 import { AuthApiScrifallService } from 'src/app/core/service/serviceApiScryfall/auth-api-scrifall.service';
 
 @Component({
@@ -8,22 +9,27 @@ import { AuthApiScrifallService } from 'src/app/core/service/serviceApiScryfall/
 })
 export class ListCardsComponent implements OnInit{
   dataApiResponse: any;
+  dataApiResponseColection: any;
+  randomShowCard: any []= [];
 
   constructor(
     private authApiScrifallService: AuthApiScrifallService
   ) { }
 
   async ngOnInit(): Promise<void> {
-    this.getCardsLogin();
+    this.loadRandomCard();
   }
 
-  public async getCardsLogin(){
-    await this.authApiScrifallService.getApiRequestResponseCards().then
-    (data => {
-      this.dataApiResponse= data;
-    });
-  }
 
+
+  public async loadRandomCard() {
+    try {
+      this.dataApiResponseColection = await this.authApiScrifallService.getApiRequestResponseCards();
+    }
+    catch (error) {
+      console.log(error);
+    }
+  }
   
 
 

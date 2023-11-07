@@ -13,10 +13,24 @@ export class AuthApiScrifallService {
 
   public async getApiRequestResponseCards():Promise<any> {
     try {
-      this.data = await lastValueFrom(this.apiScryfallService.getApiRequestResponseCards());
+      for (let i = 0; i < 40; i++) {
+        this.data.push(await lastValueFrom(this.apiScryfallService.getApiRequestCards()));
+      }
+      console.log(this.data);
       return this.data;
     } catch (error) {
       console.log(error);
     }
   }
+
+  public async getApiRequestResponseCardsSearch():Promise<any> {
+    try {
+      this.data = await lastValueFrom(this.apiScryfallService.getApiRequestCardsSearch());
+      return this.data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+
 }
