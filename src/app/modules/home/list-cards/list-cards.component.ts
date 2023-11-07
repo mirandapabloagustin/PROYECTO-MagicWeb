@@ -14,14 +14,13 @@ export class ListCardsComponent implements OnInit{
   ) { }
 
   async ngOnInit(): Promise<void> {
-
+    this.getCardsLogin();
   }
 
-  public async getCards(){
+  public async getCardsLogin(){
     await this.authApiScrifallService.getApiRequestResponseCards().then
     (data => {
-      this.dataApiResponse = data;
-      console.log(this.dataApiResponse);
+      this.dataApiResponse= data;
     });
   }
 
