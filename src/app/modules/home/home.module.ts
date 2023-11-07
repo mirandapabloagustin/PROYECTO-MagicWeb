@@ -8,6 +8,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { SearchComponent } from './search/search.component';
 import { ListCardsComponent } from './list-cards/list-cards.component';
 import { CardComponent } from './card/card.component';
+import { RandomCardComponent } from './random-card/random-card.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { CardComponent } from './card/card.component';
     HomePageComponent,
         SearchComponent,
         ListCardsComponent,
-        CardComponent
+        CardComponent,
+        RandomCardComponent
   ],
   imports: [
     CommonModule,

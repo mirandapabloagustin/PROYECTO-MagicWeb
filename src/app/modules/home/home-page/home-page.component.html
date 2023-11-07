@@ -1,13 +1,38 @@
 <app-header></app-header>
 <div class="background-home">
-    <div class="background-container">
-        <div class="caca">
-            <h4 class="tittle-container">Glosario de Cartas</h4>
-            <span class="text-container"> Explora cartas de toda la historia de Magic. Mira cartas de las colecciones más recientes y descubre lo que jugadores como tú dicen sobre ellas.</span>
-            <app-search (searchEvent)="searchElement($event)">
-            </app-search>
+    <div class="gral-conteiner-items">
+        <div class="background-random-container">
+            <div class="random-container">
+                <h4 class="tittle-random-card">Carta Ramdom</h4>
+                <span>Pruba suerte y descrubre nuevas Cartas</span>
+                <br>
+                <br>
+                <button class="btn-random" >Random</button>
+            </div>
         </div>
+
+        <div class="background-filter-container">
+            <div class="filter-container">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste ducimus possimus sint eos cum repudiandae beatae quasi fugit laborum rem modi voluptatum, exercitationem esse consectetur doloribus aperiam! Ex, iste nesciunt.
+                
+            </div>
+        </div>
+
     </div>
+    <div class="gral-conteiner-items">
+        <div class="background-container">
+            <div class="search-element-container">
+                <h4 class="tittle-container">Glosario de Cartas</h4>
+                <span class="text-conteiner"> Explora cartas de toda la historia de Magic. Mira cartas de las
+                    colecciones más recientes y descubre lo que jugadores como tú dicen sobre ellas.</span>
+                <app-search (searchEvent)="searchElement($event)">
+                </app-search>
+            </div>
+        </div>
         <app-list-cards></app-list-cards>
+    </div>
+
+
+
 </div>
 <app-footer></app-footer>
