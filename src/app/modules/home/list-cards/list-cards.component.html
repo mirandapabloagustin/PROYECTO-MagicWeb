@@ -1,5 +1,5 @@
 
 <div class="grid-container-cards">
-
-    <app-card class="card-conteiner-info" [carta]="dataApiResponse"></app-card>
+    <app-card class="card-conteiner-info" 
+    *ngFor="let carta of dataApiResponseColection" [carta]="carta"></app-card>
 </div>

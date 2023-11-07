@@ -11,6 +11,12 @@
       "nickName": "Himner",
       "email": "joakoMetal@gmail.com",
       "password": "1234"
+    },
+    {
+      "id": 3,
+      "nickName": "Nico",
+      "email": "nico@gmail.com",
+      "password": "1234"
     }
   ]
 }

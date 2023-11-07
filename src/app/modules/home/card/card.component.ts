@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthApiScrifallService } from 'src/app/core/service/serviceApiScryfall/auth-api-scrifall.service';
 
 @Component({
   selector: 'app-card',
@@ -10,6 +9,7 @@ import { AuthApiScrifallService } from 'src/app/core/service/serviceApiScryfall/
 export class CardComponent implements OnInit {
 
   @Input() carta: any;
+  @Input() carta2: any[]=[];
 
   constructor(
     private router: Router,
@@ -17,7 +17,6 @@ export class CardComponent implements OnInit {
 
 
   async ngOnInit(): Promise<void> {
- 
   }
 
   public dataCard() {
