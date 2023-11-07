@@ -1,0 +1,121 @@
+.background-home{
+    height: 100%;
+    width: 100%;
+
+    background-image: url('/assets/background-home-page-2.jpg');
+    background-size: cover;
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    
+}
+
+.gral-conteiner-items{
+
+    margin: 10px;
+}
+
+.background-container{
+    width: 100%;
+    margin-top: 150px;
+    background-color: rgb(46, 46, 46);
+    box-shadow: rgb(201, 201, 201) 0px 0px 10px;
+    border-radius: 15px;
+    display: inline-flex;
+}
+
+.background-random-container{
+    width: 250px;
+
+    margin-top: 150px;
+    background-color: rgb(46, 46, 46);
+    box-shadow: rgb(201, 201, 201) 0px 0px 10px;
+    border-radius: 15px;
+    display: inline-flex;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.background-filter-container{
+    width: 250px;
+    margin-top: 50px;
+    background-color: rgb(46, 46, 46);
+    box-shadow: rgb(201, 201, 201) 0px 0px 10px;
+    border-radius: 15px;
+    display: inline-flex;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.random-container{
+    margin-top: 30px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 10px;
+    height: 140px;
+    background-color: rgb(218, 218, 218);
+    border-radius: 0px 0px 15px 15px;
+}
+
+.filter-container{
+    margin-top: 30px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 10px;
+    height: 140px;
+    background-color: rgb(218, 218, 218);
+    border-radius: 0px 0px 15px 15px;
+}
+
+.btn-random{
+    
+}
+
+.search-element-container{
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 10px;
+    background-color: rgb(218, 218, 218);
+    border-radius: 0px 0px 15px 15px;
+}
+
+.tittle-container{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 30px;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+}
+
+.tittle-random-card{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 30px;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+}
+
+.text-conteiner{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+.container-home{
+    height: 400px;
+    flex-direction: column;
+    border-color: black 3px solid;
+    border-radius: 0px 0px 15px 15px;
+
+
+}

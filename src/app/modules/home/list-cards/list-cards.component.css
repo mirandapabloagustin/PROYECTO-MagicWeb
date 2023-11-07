@@ -1,0 +1,8 @@
+.grid-container-cards {
+    margin-top: 50px;
+    margin-bottom: 100px;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(4, minmax(270px, 1fr));
+}
+

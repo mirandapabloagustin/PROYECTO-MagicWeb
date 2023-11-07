@@ -12,8 +12,12 @@ const routes: Routes = [
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) //importo modulo auth
   },
   {
+    path:'aterrizaje',
+    loadChildren: () => import('./modules/aterrizaje/aterrizaje.module').then(m => m.AterrizajeModule) //importo modulo aterrizaje
+  },
+  {
     path:'',
-    redirectTo: 'auth',
+    redirectTo: 'aterrizaje',
     pathMatch: 'full'
   },
   {
