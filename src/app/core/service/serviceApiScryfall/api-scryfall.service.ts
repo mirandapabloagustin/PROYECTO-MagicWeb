@@ -21,6 +21,10 @@ export class ApiScryfallService {
     return this.http.get<any>(`${this.url}/cards/random`)
   }
 
+  public getApiRequestSearchCards(searchText: string,typeOrder:string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.url}/cards/search?q=${searchText}&order=${typeOrder}&as=grid&extras=true&unique=cards`)
+  }
+
 
 
 }

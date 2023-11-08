@@ -9,6 +9,7 @@ import { SearchComponent } from './search/search.component';
 import { ListCardsComponent } from './list-cards/list-cards.component';
 import { CardComponent } from './card/card.component';
 import { RandomCardComponent } from './random-card/random-card.component';
+import { FilterComponent } from './filter/filter.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { RandomCardComponent } from './random-card/random-card.component';
         SearchComponent,
         ListCardsComponent,
         CardComponent,
-        RandomCardComponent
+        RandomCardComponent,
+        FilterComponent
   ],
   imports: [
     CommonModule,
