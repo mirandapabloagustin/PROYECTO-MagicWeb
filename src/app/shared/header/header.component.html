@@ -4,9 +4,11 @@
 
 
   <ul class="conteiner-items-selector">
-  
-    <li class="items-selector"> <a class="redirecction-links" href="#"><fa-icon [icon]="icon"></fa-icon>Sobre Magic!</a></li>
-    <li class="items-selector"><a class="redirecction-links" href="#"><fa-icon [icon]="icon5"></fa-icon>Reglas!</a></li>
+
+    <li class="items-selector"><a class="redirecction-links"(click)="scrollToSection('appInfo',['about','devInfo','reglas'])" ><fa-icon [icon]="icon7"></fa-icon>Sobre La App!</a></li>
+    <li class="items-selector"><a class="redirecction-links"(click)="scrollToSection('devInfo',['appInfo','about','reglas'])" ><fa-icon [icon]="icon6"></fa-icon>Sobre los Devs</a></li>
+    <li class="items-selector"> <a class="redirecction-links" (click)="scrollToSection('about', ['appInfo','devInfo','reglas'])"><fa-icon [icon]="icon"></fa-icon>Sobre Magic!</a></li>
+    <li class="items-selector"><a class="redirecction-links" (click)="scrollToSection('reglas',['appInfo','devInfo','about'])"><fa-icon [icon]="icon5"></fa-icon>Reglas!</a></li>
     <li class="items-selector"><a class="redirecction-links" href="#"><fa-icon [icon]="icon4"></fa-icon>Contacto!</a></li>
     <li class="items-selector"><a class="redirecction-links"(click)="goToLogin()" ><fa-icon [icon]="icon3"></fa-icon>Iniciar Sesion!</a></li>
   </ul>
@@ -19,8 +21,6 @@
 <header #stickyMenu [class.sticky]="isSticky">
   <a href="#" class="logo"><img class="logo-header" [src]="getLogoImageSource()" alt="logoMagic"> </a>
   <ul class="conteiner-items-selector">
-  
-
     <li class="items-selector"><a class="redirecction-links" href="#"><fa-icon [icon]="icon4"></fa-icon>Contacto!</a></li>
     <li class="items-selector"><a class="redirecction-links"(click)="logOut()" ><fa-icon [icon]="icon3"></fa-icon>Cerrar Sesion</a></li>
   </ul>

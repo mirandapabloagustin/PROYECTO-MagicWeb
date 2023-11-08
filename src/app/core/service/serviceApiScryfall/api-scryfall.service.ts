@@ -17,9 +17,10 @@ export class ApiScryfallService {
     // Api responde con una matriz de 75 cartas aleatorias
     // Trae un objeto llamado identifier  que contiene 
     // un id único para cada carta
-  public getApiRequestResponseCards(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.url}/cards/random`)
+  public getApiRequestCardsRandom(): Observable<any> {
+    return this.http.get<any>(`${this.url}/cards/random`)
   }
+
 
 
 }

@@ -14,4 +14,6 @@ export class SearchComponent {
     this.searchEvent.emit(this.searchText);
     this.searchText = '';
   }
+
+  
 }

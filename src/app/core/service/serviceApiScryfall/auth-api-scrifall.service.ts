@@ -13,10 +13,13 @@ export class AuthApiScrifallService {
 
   public async getApiRequestResponseCards():Promise<any> {
     try {
-      this.data = await lastValueFrom(this.apiScryfallService.getApiRequestResponseCards());
+        this.data.push(await lastValueFrom(this.apiScryfallService.getApiRequestCardsRandom()));
       return this.data;
     } catch (error) {
       console.log(error);
     }
   }
+
+
+
 }
