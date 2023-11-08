@@ -8,8 +8,8 @@ import { PopupCardComponent } from './modules/home/popup-card/popup-card.compone
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule } from '@angular/router';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -21,12 +21,13 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    HttpClientModule, //agrego el modulo
+    HttpClientModule,
     MatCheckboxModule,
     MatDialogModule,
     MatExpansionModule,
+    RouterModule,
     BrowserAnimationsModule,
-    NoopAnimationsModule,
+    NoopAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
