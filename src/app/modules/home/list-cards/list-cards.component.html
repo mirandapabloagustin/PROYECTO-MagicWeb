@@ -1,5 +1,34 @@
-
-<div class="grid-container-cards">
-    <app-card class="card-conteiner-info" 
-    *ngFor="let cartaDeData of dataApiResponseColection" [cartaComponente]="cartaDeData"></app-card>
+<div class="background-container">
+    <div class="search-element-container">
+        <h4 class="tittle-container">Glosario de Cartas</h4>
+        <span class="text-conteiner"> Explora cartas de toda la historia de Magic. Mira cartas de las
+            colecciones más recientes y descubre lo que jugadores como tú dicen sobre ellas.</span>
+        <div class="search-container">
+            <div class="search-bar">
+                <input class="input-search-bar" type="text" [(ngModel)]="searchText" placeholder="Ingrese busqueda...">
+                <button class="button-search" (click)="searchElementApi()">Search</button>
+            </div>
+        </div>
+    </div>
 </div>
+
+
+
+<ng-container *ngIf="dataApiResponseColection.length !== 0 else errorBusqueda" >
+<div class="grid-container-cards">
+        <app-card class="card-conteiner-info" *ngFor="let cartaDeData of dataApiResponseColection"
+            [cartaComponente]="cartaDeData"></app-card>
+            
+        </div>
+</ng-container>
+
+<ng-template #errorBusqueda>
+    <div class="background-container-error">
+        <div class="error-element-container">
+            <span class="error-message">No se encontraron resultados para la búsqueda.</span>
+        </div>
+    </div>
+</ng-template>
+
+<button (click)="previousPage()">Anterior Pagina</button>
+<button (click)="nextPage()">Siguiente Pagina</button>

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { AuthApiScrifallService } from 'src/app/core/service/serviceApiScryfall/auth-api-scrifall.service';
 
 @Component({
   selector: 'app-home-page',
@@ -7,14 +8,8 @@ import { Component } from '@angular/core';
 })
 export class HomePageComponent {
 
-
-  public searchElement(element: string) {
-    console.log(element);
-  }
-
-  public searchActionEvent(action: boolean) {
-    console.log(action);
-  }
-
+  constructor(
+    private authApiScrifallService: AuthApiScrifallService
+  ) { }
   
 }

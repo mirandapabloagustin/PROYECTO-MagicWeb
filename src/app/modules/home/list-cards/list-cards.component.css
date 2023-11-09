@@ -7,3 +7,107 @@
 
 }
 
+
+.background-container{
+    width: 100%;
+    margin-top: 150px;
+    background-color: rgb(46, 46, 46);
+    box-shadow: rgb(201, 201, 201) 0px 0px 10px;
+    border-radius: 15px;
+    display: inline-flex;
+}
+
+.tittle-container{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 30px;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+}
+
+.search-element-container{
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 10px;
+    background-color: rgb(218, 218, 218);
+    border-radius: 0px 0px 15px 15px;
+}
+
+.search-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-bar{
+    margin-top: 20px;
+    width: 100%;
+    display: inline-block;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.input-search-bar{
+    width: 600px;
+    border: #1b1b1b 3px solid;
+    padding: 10px 15px;
+    border-radius: 30px / 70px;
+    box-shadow: rgb(24, 23, 23) 0px 0px 10px;
+}
+
+.button-search{
+    position: absolute;
+    left: 74%;
+    
+    cursor: pointer;
+    transition: .9s ease;
+    
+    color: black;
+    border: #1b1b1b 3px solid;
+    padding: 10px 15px;
+    border-radius: 30px / 70px;
+    box-shadow: rgb(24, 23, 23) 0px 0px 10px;
+}
+
+.button-search:hover{
+    transform: scale(1.1);
+    background-color: wheat;
+}
+
+/* ---------------- ERROR ----------------------- */
+.background-container-error{
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background-color: rgb(46, 46, 46);
+    box-shadow: rgb(245, 44, 44) 0px 0px 15px;
+    border-radius: 15px;
+    display: inline-flex;
+}
+
+.error-element-container{
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 10px;
+    background-color: rgb(218, 218, 218);
+    border-radius: 0px 0px 15px 15px;
+}
+
+.error-message{
+    display: flex;
+    font-size: 20px;
+    color: rgb(245, 44, 44);
+    font-weight: bold;
+    text-align: center;
+    justify-content: center;
+}

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, switchMap,of } from 'rxjs';
+import Fuse from 'fuse.js';
 
 
 @Injectable({
@@ -8,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class ApiScryfallService {
 
-  url: string = 'https://api.scryfall.com';
+  apiUrl: string = 'https://api.magicthegathering.io/v1';
 
   constructor(
     private http: HttpClient
@@ -17,14 +18,26 @@ export class ApiScryfallService {
     // Api responde con una matriz de 75 cartas aleatorias
     // Trae un objeto llamado identifier  que contiene 
     // un id único para cada carta
-  public getApiRequestCardsRandom(): Observable<any> {
-    return this.http.get<any>(`${this.url}/cards/random`)
+  public getCardsApiResponse(): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/cards?&pageSize=20`)
   }
 
-  public getApiRequestSearchCards(searchText: string,typeOrder:string): Observable<any[]> {
-    return this.http.get<any[]>(`${this.url}/cards/search?q=${searchText}&order=${typeOrder}&as=grid&extras=true&unique=cards`)
+  public getPagePreviousApiResponse(page:number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/cards?page=${page}&pageSize=20`)
   }
+
+  public getPageNextApiResponse(page:number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/cards?page=${page}&pageSize=20`)
+  }
+
+
+  public getCardsNameApiResponse(name:string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/cards?name=${name}&pageSize=20`)
+  }
+
+
 
 
 
 }
+

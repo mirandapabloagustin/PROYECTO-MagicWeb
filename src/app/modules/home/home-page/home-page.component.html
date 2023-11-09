@@ -6,25 +6,13 @@
                 <h4 class="tittle-random-card">Carta Ramdom</h4>
                 <span>Pruba suerte y descrubre nuevas Cartas</span>
                 <br>
-                <br>
                 <button class="btn-random" >Random</button>
             </div>
         </div>
-
         <app-filter></app-filter>
-
     </div>
     
     <div class="gral-conteiner-items">
-        <div class="background-container">
-            <div class="search-element-container">
-                <h4 class="tittle-container">Glosario de Cartas</h4>
-                <span class="text-conteiner"> Explora cartas de toda la historia de Magic. Mira cartas de las
-                    colecciones más recientes y descubre lo que jugadores como tú dicen sobre ellas.</span>
-                <app-search (searchEvent)="searchElement($event)" (searchAction)="searchActionEvent($event)">
-                </app-search>
-            </div>
-        </div>
         <app-list-cards></app-list-cards>
     </div>
 </div>
