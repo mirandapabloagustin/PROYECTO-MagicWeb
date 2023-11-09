@@ -1,18 +1,6 @@
 import { Iuser,Icard, IdeckCard, Iimage_uris } from "./Interfaces";
 
-export class User implements Iuser {
-    id: number | null;
-    nickName: string | null;
-    email: string | null;
-    password: string | null;
 
-    constructor(user ?: Iuser) {
-        this.id = user?.id == undefined ? null : user.id;
-        this.nickName = user?.nickName == undefined ? '' : user.nickName;
-        this.email = user?.email == undefined ? '' : user.email;
-        this.password = user?.password == undefined ? '' : user.password;
-    }
-}
 
 export class Image_uris implements Iimage_uris{
     small: string | null;
@@ -33,14 +21,14 @@ export class Image_uris implements Iimage_uris{
 }
 
 export class Card implements Icard {
-    id: number | any;
+    id: string | any;
     nameCard: string | any;
     image_uris: Image_uris | any;
     mana_cost: string | any;
     colors: string | any;
 
     constructor(card ?: Icard) {
-        this.id = card?.id == undefined ? null : card.id;
+        this.id = card?.id == undefined ? '' : card.id;
         this.nameCard = card?.nameCard == undefined ? '' : card.nameCard;
         this.image_uris = card?.image_uris == undefined ? '' : card.image_uris;
         this.mana_cost = card?.mana_cost == undefined ? '' : card.mana_cost;
@@ -49,14 +37,33 @@ export class Card implements Icard {
 }
 
 export class DeckCard implements IdeckCard {
-    
+
     id: number | null;
+    userIdDeck: number | null;
     nameDeck: string | null;
     cards: Card[] | null;
 
     constructor(deckCard ?: IdeckCard) {
         this.id = deckCard?.id == undefined ? null : deckCard.id;
-        this.nameDeck = deckCard?.nameDeck == undefined ? '' : deckCard.nameDeck;
-        this.cards = deckCard?.cards == undefined ? [] : deckCard.cards;
+        this.userIdDeck = deckCard?.userIdDeck == undefined ? null : deckCard.userIdDeck;
+        this.nameDeck = deckCard?.nameDeck == undefined ? null : deckCard.nameDeck;
+        this.cards = deckCard?.cards == undefined ? null : deckCard.cards;
     }
+}
+
+export class User implements Iuser {
+    id: number | null;
+    nickName: string | null;
+    email: string | null;
+    password: string | null;
+    isLogin: boolean | null;
+
+    constructor(user?: Iuser) {
+        this.id = user?.id == undefined ? null : user.id;
+        this.nickName = user?.nickName == undefined ? '' : user.nickName;
+        this.email = user?.email == undefined ? '' : user.email;
+        this.password = user?.password == undefined ? '' : user.password;
+        this.isLogin = true;
+    }
+  
 }

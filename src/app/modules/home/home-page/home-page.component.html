@@ -21,7 +21,7 @@
                 <h4 class="tittle-container">Glosario de Cartas</h4>
                 <span class="text-conteiner"> Explora cartas de toda la historia de Magic. Mira cartas de las
                     colecciones más recientes y descubre lo que jugadores como tú dicen sobre ellas.</span>
-                <app-search (searchEvent)="searchElement($event)">
+                <app-search (searchEvent)="searchElement($event)" (searchAction)="searchActionEvent($event)">
                 </app-search>
             </div>
         </div>

@@ -2,21 +2,11 @@
   "users": [
     {
       "id": 1,
-      "nickName": "PapitasConCheddar",
-      "email": "papitasconcheddar@gmail.com",
-      "password": "1234"
-    },
-    {
-      "id": 2,
-      "nickName": "Himner",
-      "email": "joakoMetal@gmail.com",
-      "password": "1234"
-    },
-    {
-      "id": 3,
-      "nickName": "Nico",
-      "email": "nico@gmail.com",
-      "password": "1234"
+      "nickName": "Administrador",
+      "email": "admin@gmail.com",
+      "password": "1234",
+      "isLogin": true
     }
-  ]
+  ],
+  "mazos": []
 }
