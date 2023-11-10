@@ -1,6 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Injectable, afterNextRender } from '@angular/core';
 import { ApiScryfallService } from './api-scryfall.service';
 import { lastValueFrom } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -8,53 +9,73 @@ import { lastValueFrom } from 'rxjs';
 export class AuthApiScrifallService {
   data: any[] = [];
   constructor(
-    private apiScryfallService: ApiScryfallService
+    private apiScryfallService: ApiScryfallService,
+    private http: HttpClient
   ) { }
 
-  params: any = {
-    manaCost: '',
-    cmc: '',
-    colors: '',
-    colorIdentity: '',
-    type: '',
-    supertypes: '',
-    types: '',
-    subtypes: '',
-    rarity: '',
-    pageSide:'20',
-    originalType: ''
-  }
 
 
+
+  // Api responde con un arreglo de la cantidad de cartas solicitadas y un maximo de 100
+  // Selecciona solamente las que tengan imagen
+  //@return: retorna un arreglo con la data de la api
   public async getCardsApi(): Promise<any> {
+    let apiResponse: any;
     try {
-      this.data.push(await lastValueFrom(this.apiScryfallService.getCardsApiResponse()));
-      return this.data[0].cards;
+      apiResponse = await lastValueFrom(this.apiScryfallService.getCardsApiResponse());
+      apiResponse.cards.forEach((element: any) => {
+        if (element?.imageUrl) {
+          this.data.push(element);
+        }
+      });
+      return this.data;
     } catch (error) {
       console.log(error);
     }
   }
+
+  // obtienes el header de la api que permite saber la cantidad de cartas que hay en la api
+  public async getHeaderApi(): Promise<any> {
+    this.apiScryfallService.getHeaderApiResponse("cards").subscribe(response => {
+      const totalCount = response.headers.get('total-count');
+      console.log('Total Count:', totalCount);
+    });
+  }
+
+  public async getCardsNameApi(nameCard: string): Promise<any> {
+    this.data = [];
+
+    let paramsSeach: any = {
+      name: nameCard,
+      manaCost: '',
+      cmc: '',
+      colorIdentity: '',
+      types: '',
+      subtypes: '',
+      rarity: '',
+      pageSize: '22',
+    };
+
+    let apiResponse: any;
+    apiResponse = await lastValueFrom(this.apiScryfallService.getCardsNameApiResponse(paramsSeach));
+    apiResponse.cards.forEach((element: any) => {
+      if (element?.imageUrl) {
+        this.data.push(element);
+      }
+    });
+    return this.data;
+  }
+
+
+
+
 
   public async getPageNextApi(page: number): Promise<any> {
-    this.data = [];
-    try {
-      this.data.push(await lastValueFrom(this.apiScryfallService.getPageNextApiResponse(page)));
-      return this.data[0].cards;
-    } catch (error) {
-      console.log(error);
-      this.data.push(await lastValueFrom(this.apiScryfallService.getPageNextApiResponse(page--)));
-      return this.data[0].cards;
-    }
+
   }
 
   public async getCardByNameApi(name: string): Promise<any> {
-    this.data = [];
-    try {
-      this.data.push(await lastValueFrom(this.apiScryfallService.getCardsNameApiResponse(name)));
-      return this.data[0].cards;
-    } catch (error) {
-      console.log(error);
-    }
+
   }
 
 

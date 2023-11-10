@@ -1,3 +1,70 @@
+.custom-dialog-container{
+  width: min-content;
+  height: min-content;
+  border-radius: 50px;
+}
+
+.background-popup-container{
+  width: 100%;
+  background-color: rgb(46, 46, 46);
+  box-shadow: rgb(201, 201, 201) 0px 0px 10px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.popup-container{
+  margin-top: 30px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 10px;
+  height: min-content;
+  background-color: rgb(218, 218, 218);
+  border-radius: 0px 0px 15px 15px;
+}
+
+
+.custom-popup-content {
+  display: flex;
+  padding: 10px;
+}
+
+.info-card-container{
+  display: flex;
+  align-items: top;
+  align-items: center;
+  flex-direction: column;
+}
+
+.img-card-popUp{
+  margin: 10px;
+}
+
+.header-info-card{
+  display: flex;
+  justify-content: space-around;
+}
+
+.expansion-panel{
+  width: 100%;
+  margin: 10px;
+}
+
+.popup-container-buttons{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+
+
+
+
+
+
 
 /* CSS */
 .button-popup {
@@ -59,13 +126,6 @@
 .button-popup:not(:disabled):active {
   transform: translateY(.125rem);
 }
-
-
-
-
-
-
-
 
 .mat-mdc-form-field + .mat-mdc-form-field {
     margin-left: 8px;

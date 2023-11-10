@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 
@@ -10,13 +10,22 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 })
 
 export class PopupCardComponent implements OnInit {
-  inputdata: any;
+  @Input() cardToDeck: any;
+
+  dataComponent: any;
+
   closemessage = 'Close using directive';
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private ref: MatDialogRef<PopupCardComponent>) {
+
+  constructor(
+    @Inject(MAT_DIALOG_DATA)
+    public data: any,
+    private ref: MatDialogRef<PopupCardComponent>
+  ) {
 
   }
+
   ngOnInit(): void {
-    this.inputdata = this.data;
+    this.dataComponent = this.data;
   }
 
   closepopup() {
@@ -24,6 +33,12 @@ export class PopupCardComponent implements OnInit {
   }
 
   panelOpenState = false;
+
+
+  public sendToDeckUser(){
+    console.log(this.dataComponent);
+  }
+
 }
 
 

@@ -31,49 +31,39 @@ export class ListCardsComponent implements OnInit {
   // @return: retorna un arreglo con la data de la api
   public async loadCards() {
     try {
-      let data = await this.authApiScrifallService.getCardsApi();
-      this.dataApiResponseColection = data;
-      console.log(data);
+      if (this.dataApiResponseColection.length === 0) {
+        this.authApiScrifallService.getHeaderApi();
+        let data = await this.authApiScrifallService.getCardsApi();
+        this.dataApiResponseColection = data;
+      }
+
     } catch (error) {
       console.log(error);
     }
   }
 
   public async searchElementApi() {
-    try{
-      let data = await this.authApiScrifallService.getCardByNameApi(this.searchText);
+    try {
+      let data = await this.authApiScrifallService.getCardsNameApi(this.searchText);
+      this.dataApiResponseColection.splice(0, this.dataApiResponseColection.length);
       this.dataApiResponseColection = data;
-      console.log(data);
-    }catch(error){
+
+    } catch (error) {
       console.log(error);
     }
   }
 
+
+
+
+
   public async nextPage() {
-    this.dataApiResponseColection = [];
-    try {
-      this.page = this.page + 1;
-      let data = await this.authApiScrifallService.getPageNextApi(this.page);
-      this.dataApiResponseColection = data;
-      console.log(data);
-    } catch (error) {
-      console.log(error);
-    }
+
   }
 
 
   public async previousPage() {
-    try {
-      if (this.page > 1) {
-        this.page = this.page - 1;
-        this.dataApiResponseColection = [];
-        let data = await this.authApiScrifallService.getPageNextApi(this.page);
-        this.dataApiResponseColection = data;
-        console.log(data);
-      }
-    } catch (error) {
-      console.log(error);
-    }
+
   }
 
 

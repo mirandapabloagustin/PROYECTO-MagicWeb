@@ -1,6 +1,3 @@
 <div class="card-container" (click)="OpenPopupCard()">
- <img class="card-img" *ngIf="cartaComponente?.imageUrl else imagenAlternativa" [src]="cartaComponente.imageUrl" alt="imagen carta">
- <ng-template #imagenAlternativa>
-    <img class="card-img" src="assets/reloadCardImg.png" alt="Imagen Alternativa">
-  </ng-template>
+ <img class="card-img" [src]="cartaComponente.imageUrl" alt="imagen carta">
 </div>
