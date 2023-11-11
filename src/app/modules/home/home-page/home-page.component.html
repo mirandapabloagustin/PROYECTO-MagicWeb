@@ -9,11 +9,15 @@
                 <button class="btn-random" >Random</button>
             </div>
         </div>
-        <app-filter (sendFiltersColors)="selectFilterComponent"></app-filter>
+        <app-filter (sendFiltersColors)="sendsColorSelection($event)"
+        (sendFiltersTypes)="sendsTypeSelection($event)"
+        (sendFiltersCmc)="sendsCmcSelection($event)"></app-filter>
     </div>
     
     <div class="gral-conteiner-items">
-        <app-list-cards [filterCardsValue]="selectFilterComponent"></app-list-cards>
+        <app-list-cards [filterCardsValue]="selectCardsFilterColor"
+        [filterCardsTypeValue]="selectCardsFilterType"
+        [filterCardsCmcValue]="selectCardsFilterCmc"></app-list-cards>
     </div>
 </div>
 <app-footer></app-footer>

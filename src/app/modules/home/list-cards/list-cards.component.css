@@ -3,7 +3,7 @@
     grid-gap: 10px;
     grid-template-columns: repeat(4, minmax(270px, 1fr));
     margin-top: 40px;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
 
 }
 
@@ -110,4 +110,10 @@
     font-weight: bold;
     text-align: center;
     justify-content: center;
+}
+
+.footer-list-cards{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 80px;
 }

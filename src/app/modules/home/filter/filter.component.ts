@@ -1,23 +1,74 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit } from '@angular/core';
+import { AuthApiScrifallService } from 'src/app/core/service/serviceApiScryfall/auth-api-scrifall.service';
 
 @Component({
   selector: 'app-filter',
   templateUrl: './filter.component.html',
   styleUrls: ['./filter.component.css'],
 })
-export class FilterComponent {
-  selectedColors: string[] = [];
-  @Output() sendFiltersColors = new EventEmitter<string>();
+export class FilterComponent implements OnInit{
 
+  selectedColors: string[] = [];
+  typesSelectedCards:string[] = [];
+
+  typesCards:string[] = [
+    "Artifact",
+    "Conspiracy",
+    "Creature",
+    "Enchantment",
+    "Instant",
+    "Land",
+    "Phenomenon",
+    "Plane",
+    "Planeswalker",
+    "Scheme",
+    "Sorcery",
+    "Tribal",
+    "Vanguard"
+  ];
+
+  
+
+  cmcCards:number = 0;
+
+
+  @Output() sendFiltersColors = new EventEmitter<string[]>();
+  @Output() sendFiltersTypes = new EventEmitter<string[]>();
+  @Output() sendFiltersCmc = new EventEmitter<number>();
+
+  constructor(
+    private authApiScryfallService: AuthApiScrifallService
+  ) { }
+  ngOnInit(): void {
+  }
+
+
+  //@param: recibe un string con el tipo de carta a buscar
   public handleCheckboxChange(event: Event, value: string) {
     const checkbox = event.target as HTMLInputElement;
-    console.log(value);
     checkbox.checked
       ? this.selectedColors.push(value)
       : (this.selectedColors = this.selectedColors.filter(
           (color) => color !== value
       ));
-    console.log("soy filtro"+this.selectedColors.join(','));
-    this.sendFiltersColors.emit(this.selectedColors.join(','));
+    this.sendFiltersColors.emit(this.selectedColors);
   }
+  
+  public handleSelectChange(event: Event, value: string) {
+    const select = event.target as HTMLInputElement;
+    select.checked
+      ? this.typesSelectedCards.push(value)
+      : (this.typesSelectedCards = this.typesSelectedCards.filter(
+          (type) => type !== value
+      ));
+    console.log(this.typesSelectedCards);
+    this.sendFiltersTypes.emit(this.typesSelectedCards);
+  }
+
+  public getCardsCmc(event: Event){
+    const select = event.target as HTMLInputElement;
+    this.cmcCards = Number(select.value);
+    this.sendFiltersCmc.emit(this.cmcCards);
+  }
+
 }

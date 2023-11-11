@@ -1,30 +1,52 @@
 <div class="background-filter-container">
     <div class="filter-container">
-        <span class="text-cheack">Color cartas</span>
+
+        <span class="tittle-option-check">Color cartas</span>
         <label class="container-cheackbox">
-            <input type="checkbox" class="ui-checkbox" id="w-check"
-            (change)="handleCheckboxChange($event, 'W')">
+            <input type="checkbox" class="ui-checkbox" id="w-check" (change)="handleCheckboxChange($event, 'W')">
             <span class="text-cheack">White</span>
         </label>
+
         <label class="container-cheackbox">
-            <input type="checkbox" class="ui-checkbox" id="r-check"
-            (change)="handleCheckboxChange($event, 'R')">
+            <input type="checkbox" class="ui-checkbox" id="r-check" (change)="handleCheckboxChange($event, 'R')">
             <span class="text-cheack">Red</span>
         </label>
+
         <label class="container-cheackbox">
-            <input type="checkbox" class="ui-checkbox" id="b-check"
-            (change)="handleCheckboxChange($event, 'B')">
+            <input type="checkbox" class="ui-checkbox" id="b-check" (change)="handleCheckboxChange($event, 'B')">
             <span class="text-cheack">Black</span>
         </label>
+
         <label class="container-cheackbox">
-            <input type="checkbox" class="ui-checkbox" id="u-check"
-            (change)="handleCheckboxChange($event, 'U')">
+            <input type="checkbox" class="ui-checkbox" id="u-check" (change)="handleCheckboxChange($event, 'U')">
             <span class="text-cheack">Blue</span>
         </label>
+
         <label class="container-cheackbox">
-            <input type="checkbox" class="ui-checkbox" id="g-check"
-            (change)="handleCheckboxChange($event, 'G')">
+            <input type="checkbox" class="ui-checkbox" id="g-check" (change)="handleCheckboxChange($event, 'G')">
             <span class="text-cheack">Green</span>
         </label>
+
+        <br>
+    </div>
+</div>
+
+<div class="background-filter-container">
+    <div class="filter-container">
+
+        <span class="tittle-option-check">Tipos cartas</span>
+
+        <label class="container-cheackbox" *ngFor="let type of typesCards" >
+            <input type="checkbox" class="ui-checkbox" id="{{type}}-check"
+            (change)="handleSelectChange($event,type)">
+            <span class="text-cheack">{{type}}</span>
+        </label>
+    </div>
+</div>
+
+<div class="background-filter-container">
+    <div class="filter-container">
+        <span class="tittle-option-check">Costo mana cartas</span>
+        <input type="number" min="0" max="7" (change)="getCardsCmc($event)">
     </div>
 </div>

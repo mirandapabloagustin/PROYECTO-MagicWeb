@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { AuthApiScrifallService } from 'src/app/core/service/serviceApiScryfall/auth-api-scrifall.service';
+import { Component, } from '@angular/core';
+
 
 @Component({
   selector: 'app-home-page',
@@ -8,10 +8,28 @@ import { AuthApiScrifallService } from 'src/app/core/service/serviceApiScryfall/
 })
 export class HomePageComponent {
 
-  selectFilterComponent: string='';
-
+  selectCardsFilterColor: string []=[];
+  selectCardsFilterType: string []=[];
+  selectCardsFilterCmc: number = 0;
+  
   constructor(
-    private authApiScrifallService: AuthApiScrifallService
   ) { }
+
+  ngOnInit(): void {
+  }
+
+  public sendsColorSelection(evento : string[]){
+    this.selectCardsFilterColor = evento;
+  }
+
+  public sendsTypeSelection(evento : string[]){
+    this.selectCardsFilterType = evento;
+  }
+
+  public sendsCmcSelection(evento : number){
+    this.selectCardsFilterCmc = evento;
+  }
+
+
   
 }

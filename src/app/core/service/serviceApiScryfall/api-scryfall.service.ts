@@ -43,6 +43,9 @@ export class ApiScryfallService {
     return this.http.get<any>(`${this.apiUrl}/cards`,{params: queryParams})
   }
 
+  
+
+
 
 
 

@@ -13,7 +13,13 @@ export class AuthApiScrifallService {
     private http: HttpClient
   ) { }
 
-
+  // obtienes el header de la api que permite saber la cantidad de cartas que hay en la api
+  public async getHeaderApi(): Promise<any> {
+    this.apiScryfallService.getHeaderApiResponse("cards").subscribe(response => {
+      const totalCount = response.headers.get('total-count');
+      console.log('Total Count:', totalCount);
+    });
+  }
 
 
   // Api responde con un arreglo de la cantidad de cartas solicitadas y un maximo de 100
@@ -34,30 +40,23 @@ export class AuthApiScrifallService {
     }
   }
 
-  // obtienes el header de la api que permite saber la cantidad de cartas que hay en la api
-  public async getHeaderApi(): Promise<any> {
-    this.apiScryfallService.getHeaderApiResponse("cards").subscribe(response => {
-      const totalCount = response.headers.get('total-count');
-      console.log('Total Count:', totalCount);
-    });
-  }
-
+  
 
   //@param: nameCard: nombre de la carta a buscar
   //@return: retorna un arreglo con la data de la api segun el nombre de la carta
-  public async getCardsNameApi(nameCard: string, colorIdentityCards:string): Promise<any> {
+  public async getCardsWithParamApi(nameCard: string, colorIdentityCards: string,
+    typeCard:string, cmcCards :number): Promise<any> {
     this.data = [];
 
     let paramsSeach: any = {
       name: nameCard,
-      manaCost: '',
-      cmc: '',
+      cmc: cmcCards,
       colorIdentity: colorIdentityCards,
-      types: '',
-      subtypes: '',
-      rarity: '',
+      types: typeCard,
       pageSize: '22',
     };
+
+    console.log(paramsSeach);
 
     let apiResponse: any;
     apiResponse = await lastValueFrom(this.apiScryfallService.getCardsNameApiResponse(paramsSeach));

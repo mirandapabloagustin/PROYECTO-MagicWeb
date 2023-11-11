@@ -7,10 +7,15 @@ import { AuthApiScrifallService } from 'src/app/core/service/serviceApiScryfall/
   styleUrls: ['./list-cards.component.css']
 })
 export class ListCardsComponent implements OnInit {
-  @Input() filterCardsValue: string = '';
+
+  @Input() filterCardsValue: string []=[];
+  @Input() filterCardsTypeValue: string []=[];
+  @Input() filterCardsCmcValue: number = 0;
+
   //variables
   dataApiResponse: any;
   dataApiResponseColection: any[] = [];
+
   searchText: string = '';
   page: number = 1;
 
@@ -43,15 +48,18 @@ export class ListCardsComponent implements OnInit {
   }
 
   public async searchElementApi() {
-    console.log("soy lista" +this.filterCardsValue);
+
     try {
-      let data = await this.authApiScrifallService.getCardsNameApi(this.searchText,this.filterCardsValue);
+      let data = await this.authApiScrifallService.getCardsWithParamApi(this.searchText,this.filterCardsValue.join(","),this.filterCardsTypeValue.join(","),this.filterCardsCmcValue);
+
       this.dataApiResponseColection.splice(0, this.dataApiResponseColection.length);
+
       this.dataApiResponseColection = data;
 
     } catch (error) {
       console.log(error);
     }
+
   }
 
 

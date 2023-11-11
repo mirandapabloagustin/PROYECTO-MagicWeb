@@ -27,6 +27,13 @@
     align-items: center;
 }
 
+.tittle-option-check{
+    font-size: 20px;
+    font-weight: 500;
+    margin-left: 10px;
+
+}
+
 .text-cheack{
     margin-left: 10px;
     font-size: 15px;
