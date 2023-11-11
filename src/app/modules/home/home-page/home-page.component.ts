@@ -8,6 +8,8 @@ import { AuthApiScrifallService } from 'src/app/core/service/serviceApiScryfall/
 })
 export class HomePageComponent {
 
+  selectFilterComponent: string='';
+
   constructor(
     private authApiScrifallService: AuthApiScrifallService
   ) { }

@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Card, Image_uris } from 'src/app/core/Models';
 import { AuthApiScrifallService } from 'src/app/core/service/serviceApiScryfall/auth-api-scrifall.service';
 
 @Component({
@@ -8,6 +7,7 @@ import { AuthApiScrifallService } from 'src/app/core/service/serviceApiScryfall/
   styleUrls: ['./list-cards.component.css']
 })
 export class ListCardsComponent implements OnInit {
+  @Input() filterCardsValue: string = '';
   //variables
   dataApiResponse: any;
   dataApiResponseColection: any[] = [];
@@ -43,8 +43,9 @@ export class ListCardsComponent implements OnInit {
   }
 
   public async searchElementApi() {
+    console.log("soy lista" +this.filterCardsValue);
     try {
-      let data = await this.authApiScrifallService.getCardsNameApi(this.searchText);
+      let data = await this.authApiScrifallService.getCardsNameApi(this.searchText,this.filterCardsValue);
       this.dataApiResponseColection.splice(0, this.dataApiResponseColection.length);
       this.dataApiResponseColection = data;
 

@@ -42,14 +42,17 @@ export class AuthApiScrifallService {
     });
   }
 
-  public async getCardsNameApi(nameCard: string): Promise<any> {
+
+  //@param: nameCard: nombre de la carta a buscar
+  //@return: retorna un arreglo con la data de la api segun el nombre de la carta
+  public async getCardsNameApi(nameCard: string, colorIdentityCards:string): Promise<any> {
     this.data = [];
 
     let paramsSeach: any = {
       name: nameCard,
       manaCost: '',
       cmc: '',
-      colorIdentity: '',
+      colorIdentity: colorIdentityCards,
       types: '',
       subtypes: '',
       rarity: '',
@@ -63,6 +66,7 @@ export class AuthApiScrifallService {
         this.data.push(element);
       }
     });
+    console.log(this.data);
     return this.data;
   }
 
