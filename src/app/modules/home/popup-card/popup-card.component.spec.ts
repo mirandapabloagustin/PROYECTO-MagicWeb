@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { PopupCardComponent } from './popup-card.component';
 
 describe('PopupCardComponent', () => {
