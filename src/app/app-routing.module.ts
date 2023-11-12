@@ -5,6 +5,11 @@ import { authguardGuard } from './core/service/guards/authguard.guard';
 
 const routes: Routes = [
   {
+    path:'profile',
+    loadChildren: () => import('./modules/profile/profile.module').then(m => m.ProfileModule), //importo modulo profile
+    canActivate: [authguardGuard]
+  },
+  {
     path:'home',
     loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule), //importo modulo home
     canActivate: [authguardGuard]
