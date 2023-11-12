@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { lastValueFrom,forkJoin } from 'rxjs';
 import { ApiService } from './api.service';
 import { User } from '../Models';
@@ -7,11 +6,13 @@ import { User } from '../Models';
 @Injectable({
   providedIn: 'root'
 })
+  
+  
 export class AuthTareaService {
-  userLogin: User[] = [];
+
+  private userLogin: User | null | undefined;
   
   constructor(
-    private http: HttpClient,
     private apiService: ApiService
     ) { }
     
@@ -39,13 +40,15 @@ export class AuthTareaService {
   //@param user
   //@returns boolean
   //This method register a new user in the database
+  //and save the token in the local storage
   public async registerNewUser(user: User): Promise<boolean> {
     let registerOk = false;
     try {
       if (user.nickName && user.email) {
         registerOk = await this.authNewUserRegister(user);
         if (registerOk) {
-          await lastValueFrom(this.apiService.registerUser(user));
+          this.userLogin = await lastValueFrom(this.apiService.registerUser(user));
+          localStorage.setItem('token', this.userLogin.toString());
         }
       }
     } catch (error) {
@@ -54,18 +57,48 @@ export class AuthTareaService {
     return registerOk;
   }
 
-  //@param email
-  //@param password
+  //@param email and password
   //@returns boolean
   //This method authenticate a user in the database whit the email and password
+  //and save the token in the local storage
   public async authUserLogin(email: string, password: string): Promise<boolean> {
+    let isLogin = false;
     try {
-      this.userLogin = await lastValueFrom(this.apiService.authUserRegister(email, password));
+      let response = await lastValueFrom(this.apiService.authUserRegister(email, password));
+      this.userLogin = response[0];
+      if (this.userLogin) {
+        localStorage.setItem('token', this.userLogin.toString());
+        isLogin = true;
+      }
     } catch (error) {
       console.log(error);
     }
-    return this.userLogin.length === 1;
+    return isLogin;
   }
+
+  //@returns User | undefined
+  //This method return the current user 
+  public getCurrentUser(): User | undefined {
+    if(!this.userLogin){
+      return undefined;
+    }
+    return structuredClone(this.userLogin);
+  }
+
+  //@returns void
+  //This method logout a user
+  public logoutUser(): void {
+    this.userLogin = undefined
+    localStorage.clear();
+  }
+
+
+  //@returns boolean
+  //This method check if a user is login
+  public checkUserLogin(): boolean {
+    return localStorage.getItem('token') ? true : false;
+  }
+
 
 
 }

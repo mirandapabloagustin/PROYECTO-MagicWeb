@@ -1,4 +1,4 @@
-import { Card, Image_uris } from './Models';
+import { Card } from './Models';
 
 export interface Iimage_uris {
   small: string | null;
@@ -12,9 +12,10 @@ export interface Iimage_uris {
 export interface Icard {
   id: number | any | null;
   nameCard: string | any | null;
-  image_uris: Image_uris | null ;
-  mana_cost: string | any | null;
-  colors: string | any | null;
+  imagenUris: string | null;
+  cmc: number | null;
+  colorIdentity: string | null;
+  type: string | null;
 }
 
 export interface IdeckCard {
@@ -29,5 +30,5 @@ export interface Iuser {
   nickName: string | null;
   email: string | null;
   password: string | null;
-  isLogin: boolean | null;
+  imagUser: string | null;
 }

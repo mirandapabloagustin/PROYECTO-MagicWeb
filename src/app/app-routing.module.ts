@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { Error404Component } from './shared/error404/error404.component';
+import { authguardGuard } from './core/service/guards/authguard.guard';
 
 const routes: Routes = [
   {
     path:'home',
-    loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule) //importo modulo home
+    loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule), //importo modulo home
+    canActivate: [authguardGuard]
   },
   {
     path:'auth',
