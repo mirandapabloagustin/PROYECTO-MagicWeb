@@ -29,7 +29,7 @@ export class FilterComponent implements OnInit{
 
   
 
-  cmcCards:number = 0;
+  cmcCards:number | undefined;
 
 
   @Output() sendFiltersColors = new EventEmitter<string[]>();

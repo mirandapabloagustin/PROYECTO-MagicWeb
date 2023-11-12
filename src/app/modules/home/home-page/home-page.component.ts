@@ -16,6 +16,7 @@ export class HomePageComponent {
   ) { }
 
   ngOnInit(): void {
+
   }
 
   public sendsColorSelection(evento : string[]){

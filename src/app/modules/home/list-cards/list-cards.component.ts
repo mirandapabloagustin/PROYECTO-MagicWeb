@@ -48,18 +48,19 @@ export class ListCardsComponent implements OnInit {
   }
 
   public async searchElementApi() {
-
     try {
-      let data = await this.authApiScrifallService.getCardsWithParamApi(this.searchText,this.filterCardsValue.join(","),this.filterCardsTypeValue.join(","),this.filterCardsCmcValue);
+      let data = await this.authApiScrifallService.getCardsWithParamApi(
+        this.searchText,
+        this.filterCardsValue.join(","),
+        this.filterCardsTypeValue.join(","),
+        this.filterCardsCmcValue
+      );
 
       this.dataApiResponseColection.splice(0, this.dataApiResponseColection.length);
-
       this.dataApiResponseColection = data;
-
     } catch (error) {
       console.log(error);
     }
-
   }
 
 

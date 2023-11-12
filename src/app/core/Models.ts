@@ -47,7 +47,7 @@ export class User implements Iuser {
         this.nickName = user?.nickName == undefined ? '' : user.nickName;
         this.email = user?.email == undefined ? '' : user.email;
         this.password = user?.password == undefined ? '' : user.password;
-        this.imagUser = user?.imagUser == undefined ? null : user.imagUser;
+        this.imagUser = user?.imagUser == undefined ? "assets/iconUsers/new-user.png" : user.imagUser;
     }
   
 }

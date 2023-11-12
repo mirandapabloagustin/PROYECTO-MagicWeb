@@ -1,8 +1,9 @@
 
 import { Router} from '@angular/router';
 import { Component, OnInit, ViewChild, ElementRef, HostListener } from '@angular/core';
-import{faHatWizard, faHeart,faScroll, faDungeon, faAddressCard,faLaptopCode, faWandMagicSparkles} from '@fortawesome/free-solid-svg-icons';
+import{faHatWizard, faHeart,faScroll, faDungeon, faAddressCard,faLaptopCode, faWandMagicSparkles, faArrowRightToBracket} from '@fortawesome/free-solid-svg-icons';
 import { AuthTareaService } from 'src/app/core/service/auth-tarea.service';
+import { User } from 'src/app/core/Models';
 
 
 @Component({
@@ -19,6 +20,7 @@ export class HeaderComponent implements OnInit{
   icon5=faScroll;
   icon6 = faLaptopCode;
   icon7 = faWandMagicSparkles;
+  icon8 = faArrowRightToBracket;
 
   constructor(
     private enrutamiento:Router,
@@ -28,10 +30,12 @@ export class HeaderComponent implements OnInit{
   isSticky: boolean = false;
   elementPosition: any;
   userLoggedIn:boolean | undefined;
+  user:User | undefined;
 
 
     ngOnInit(): void {
       this.userLoggedIn = this.authTareaService.checkUserLogin();
+      this.user = this.authTareaService.getCurrentUser();
     }
 
     ngAfterViewInit(){
@@ -57,9 +61,7 @@ export class HeaderComponent implements OnInit{
   }
 
 
-  public goToLogin(){
-    this.enrutamiento.navigate(['auth/login']);
-  }
+
 
   getLogoImageSource() {
     return this.isSticky
@@ -69,18 +71,14 @@ export class HeaderComponent implements OnInit{
 
 
 logOut(){
+  let user: User | undefined = this.authTareaService.getCurrentUser();
+  console.log(user);
   this.authTareaService.logoutUser()
   this.userLoggedIn = this.authTareaService.checkUserLogin();
   this.enrutamiento.navigate(['aterrizaje']);
 }
 
-goToAbout(){
-  this.enrutamiento.navigate(['aterrizaje#about']);
-}
 
-goToReglas(){
-  this.enrutamiento.navigate([ 'aterrizaje#reglas']);
-}
 
 
 scrollToSection(sectionId: string, sectionId2 : Array<string>) {
@@ -94,12 +92,29 @@ if(element){
 }
 }
 
+goToAbout(){
+  this.enrutamiento.navigate(['aterrizaje#about']);
+}
+
+goToReglas(){
+  this.enrutamiento.navigate([ 'aterrizaje#reglas']);
+}
+
 goToHome(){
+  this.enrutamiento.navigate(['aterrizaje']);
+  return false;
+}
+
+goToGlosario(){
   this.enrutamiento.navigate(['home/home-page']);
 }
 
 goToProfile(){
-  this.enrutamiento.navigate(['home/home-page']);
+  this.enrutamiento.navigate(['profile/user-profile']);
+}
+
+public goToLogin(){
+  this.enrutamiento.navigate(['auth/login']);
 }
   
 }

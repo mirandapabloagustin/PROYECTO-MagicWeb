@@ -2,17 +2,10 @@
   "users": [
     {
       "id": 1,
-      "nickName": "Administrador",
-      "email": "admin@gmail.com",
+      "nickName": "PapitasConCheddar",
+      "email": "papitas@gmail.com",
       "password": "1234",
-      "isLogin": true
-    },
-    {
-      "id": 2,
-      "nickName": "Germo",
-      "email": "germichan@gmail.com",
-      "password": "1234",
-      "isLogin": true
+      "imagUser": "assets/iconUsers/new-user.png"
     }
   ],
   "mazos": []

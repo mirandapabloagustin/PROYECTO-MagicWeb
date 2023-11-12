@@ -1,6 +1,7 @@
 <div *ngIf="!userLoggedIn">
   <header #stickyMenu [class.sticky]="isSticky">
-    <a href="#" class="logo"><img class="logo-header" [src]="getLogoImageSource()" alt="logoMagic"> </a>
+    <a href="home" (click)="goToHome()" class="logo"><img class="logo-header" [src]="getLogoImageSource()"
+        alt="logoMagic"> </a>
 
     <ul class="conteiner-items-selector">
 
@@ -28,13 +29,23 @@
 
 <div *ngIf="userLoggedIn">
   <header #stickyMenu [class.sticky]="isSticky">
-    <a href="#" class="logo"><img class="logo-header" [src]="getLogoImageSource()" alt="logoMagic"> </a>
+
+    <a href="#" (click)="goToHome()" class="logo"><img class="logo-header" [src]="getLogoImageSource()" alt="logoMagic">
+    </a>
     <ul class="conteiner-items-selector">
-        <li class="items-selector"><a class="redirecction-links" (click)="goToHome()"><fa-icon [icon]="icon4"></fa-icon>Glosario de Cartas</a>
-      <li class="items-selector"><a class="redirecction-links" (click)="goToProfile()"><fa-icon [icon]="icon4"></fa-icon>Perfil</a>
+
+      <li class="items-selector"><a class="redirecction-links" (click)="goToGlosario()"><fa-icon
+            [icon]="icon4"></fa-icon>Glosario de Cartas</a>
+
+      <li id="item-selector-profile">
+        <a class="redirecction-links" (click)="goToProfile()">
+          {{user?.nickName}}
+        </a>
       </li>
-      <li class="items-selector"><a class="redirecction-links" (click)="logOut()"><fa-icon
-            [icon]="icon3"></fa-icon>Cerrar Sesion</a></li>
+
+      <img class="img-user" [src]="user?.imagUser" alt="imagen-user">
+      <li class="items-selector"><a class="redirecction-links" (click)="logOut()"><fa-icon [icon]="icon8"></fa-icon></a>
+      </li>
     </ul>
 
   </header>
