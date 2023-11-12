@@ -19,7 +19,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   ],
   exports: [
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    Error404Component
   ]
 })
 export class SharedModule { }
