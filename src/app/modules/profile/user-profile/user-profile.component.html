@@ -1,5 +1,79 @@
 <app-header></app-header>
-<div>
-    <p>user-profile works!</p>
+<div class="container">
+  <div class="profilecard">
+    <div class="navbar">
+      <div class="logo"><img alt="imgbar"src="https://i.pinimg.com/564x/47/7f/25/477f251932ccc73bc018721a036e5292.jpg"></div>
+
+
+      <ul>
+        <li><a href="#">Sobre</a></li>
+        <li><a href="#">Mazos</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+    </div>
+
+
+
+
+
+
+
+    <div class="profilecardbody">
+
+
+
+
+      <div class="sidebar">
+        <img src="{{user2?.imagUser}}" alt="hyunjinnie">
+
+      </div>
+
+
+
+
+
+      <div class="dataBox">
+        <div class="namedecor">
+          <p id="name">{{user2?.nickName}}</p>
+        </div>
+        <div class="textbox">
+          <p>I've heard it said that a Planeswalker is someone who can always run from danger. But Gideon's right: we're also the ones who can choose to stay.</p>
+            <div class="emailbox">
+              <p>EMAIL</p>
+              <p id="email">{{user2?.email}} </p>
+            </div>
+            <div class="Nickbox">
+              <p >NICK</p> 
+              <p id="nick">{{user2?.nickName}}</p>
+            </div>
+
+            
+        </div>
+        <div class="buttoncontainer">
+          <button class="button">Editar</button>
+          <button class="button">Eliminar</button>
+
+        </div>
+       
+      </div>
+    </div>
+
+
+
+
+
+  </div>
+
+
+
+
+
 </div>
+
+
+
+
+
 <app-footer></app-footer>
+```
+```

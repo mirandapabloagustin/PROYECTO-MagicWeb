@@ -6,6 +6,13 @@
       "email": "papitas@gmail.com",
       "password": "1234",
       "imagUser": "assets/iconUsers/new-user.png"
+    },
+    {
+      "id": 2,
+      "nickName": "florsix",
+      "email": "flor@gmail.com",
+      "password": "1234",
+      "imagUser": "https://i.pinimg.com/564x/e5/f7/c1/e5f7c1f6014a5fbbd688128ad4a51c91.jpg"
     }
   ],
   "mazos": []

@@ -5,6 +5,7 @@
 header {
   background-color: rgb(24, 23, 23, 0.8);
   position: fixed;
+  top: 0;
   width: 100%;
   justify-content: space-between;
   display: flex;

@@ -10,6 +10,15 @@ import { AuthTareaService } from 'src/app/core/service/auth-tarea.service';
 export class UserProfileComponent implements OnInit{
   //variable que va a recibir el usuario logueado
   user:User | undefined;
+  user2:User={
+    id:1,
+    nickName:'Jungkook',
+    email:'exmpl@gmail.com',
+    password:'1234',
+    imagUser:'https://i.pinimg.com/564x/5d/07/96/5d07960ab7ed41256e85e07627cadee9.jpg'
+   
+
+  }
 
   constructor(
     private authTareaService:AuthTareaService
