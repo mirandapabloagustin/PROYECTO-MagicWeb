@@ -10,17 +10,17 @@ export interface Iimage_uris {
 }
 
 export interface Icard {
-  id: number | any | null;
-  nameCard: string | any | null;
+  id: string | null;
+  nameCard: string | null;
   imagenUris: string | null;
-  cmc: number | null;
+  cmc: string | null;
   colorIdentity: string | null;
   type: string | null;
 }
 
 export interface IdeckCard {
   id: number | null;
-  userIdDeck: number | null;
+  userIdDeck: string | null;
   nameDeck: string | null;
   cards: Card[] | null;
 }

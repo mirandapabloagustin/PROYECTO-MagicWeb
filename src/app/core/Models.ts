@@ -2,10 +2,10 @@ import { Iuser,Icard, IdeckCard } from "./Interfaces";
 
 
 export class Card implements Icard {
-    id: any;
-    nameCard: any;
+    id: string | null;
+    nameCard: string | null;
     imagenUris: string | null;
-    cmc: number | null;
+    cmc: string | null;
     colorIdentity: string | null;
     type: string | null;
 
@@ -22,7 +22,7 @@ export class Card implements Icard {
 export class DeckCard implements IdeckCard {
 
     id: number | null;
-    userIdDeck: number | null;
+    userIdDeck: string | null;
     nameDeck: string | null;
     cards: Card[] | null;
 

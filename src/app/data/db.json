@@ -6,7 +6,61 @@
       "email": "papitas@gmail.com",
       "password": "1234",
       "imagUser": "assets/iconUsers/new-user.png"
+    },
+    {
+      "id": 2,
+      "nickName": "Telescopio",
+      "email": "chetos@gmail.com",
+      "password": "1234",
+      "imagUser": "assets/iconUsers/new-user.png"
     }
   ],
-  "mazos": []
+  "mazos": [
+    {
+      "id": 1,
+      "userIdDeck": "1",
+      "nameDeck": "Witch",
+      "cards": [
+        {
+          "id": "a807430a-5a37-550c-989f-72d125d7b0c8",
+          "nameCard": "Caves of Koilos",
+          "imageUrl": "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=129497&type=card",
+          "cmc": "0",
+          "colorIdentity": "B,M",
+          "type": "Land"
+        },
+        {
+          "id": "a807430a-5a37-550c-989f-72d125d7b0c8",
+          "nameCard": "Caves of Koilos",
+          "imageUrl": "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=129497&type=card",
+          "cmc": "0",
+          "colorIdentity": "B,M",
+          "type": "Land"
+        },
+        {
+          "id": "a807430a-5a37-550c-989f-72d125d7b0c8",
+          "nameCard": "Caves of Koilos",
+          "imageUrl": "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=129497&type=card",
+          "cmc": "0",
+          "colorIdentity": "B,M",
+          "type": "Land"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "userIdDeck": "1",
+      "nameDeck": "Black Banana",
+      "cards": [
+        {
+          "id": "5da5714b-e031-5563-bfec-2c6512d4b303",
+          "nameCard": "Molten Slagheap",
+          "imageUrl": "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=582533&type=card",
+          "cmc": "0",
+          "colorIdentity": "B,R",
+          "type": "Land"
+        }
+      ]
+    }
+  ]
 }

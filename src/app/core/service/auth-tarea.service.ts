@@ -1,40 +1,39 @@
 import { Injectable } from '@angular/core';
-import { lastValueFrom,forkJoin } from 'rxjs';
+import { lastValueFrom, forkJoin } from 'rxjs';
 import { ApiService } from './api.service';
 import { User } from '../Models';
 
 @Injectable({
   providedIn: 'root'
 })
-  
-  
+
+
 export class AuthTareaService {
 
   private userLogin: User | null | undefined;
-  
+
   constructor(
     private apiService: ApiService
-    ) { }
-    
-    
-    //@param user
-    //@returns boolean
-    //This method authenticate a user in the database whit the email and password 
-    public async authNewUserRegister(user: User): Promise<boolean> {
-      let newUserRegister: User[] = [];
-      try {
-          const [emailResult, nickNameResult] = await lastValueFrom(
-              forkJoin([
-                  this.apiService.authEmailUserRegister(user.email!),
-                  this.apiService.authNickNameUserRegister(user.nickName!)
-              ])
-          );
-          newUserRegister = [...emailResult, ...nickNameResult]; // Combinar los resultados
+  ) { }
 
-      } catch (error) {
-          console.log(error);
-      }
-      return newUserRegister.length === 0;
+
+  //@param user
+  //@returns boolean
+  //This method authenticate a user in the database whit the email and password 
+  public async authNewUserRegister(user: User): Promise<boolean> {
+    let newUserRegister: User[] = [];
+    try {
+      const [emailResult, nickNameResult] = await lastValueFrom(
+        forkJoin([
+          this.apiService.authEmailUserRegister(user.email!),
+          this.apiService.authNickNameUserRegister(user.nickName!)
+        ])
+      );
+      newUserRegister = [...emailResult, ...nickNameResult]; // Combinar los resultados
+    } catch (error) {
+      console.log(error);
+    }
+    return newUserRegister.length === 0;
   }
 
   //@param user
@@ -79,7 +78,7 @@ export class AuthTareaService {
   //@returns User | undefined
   //This method return the current user 
   public getCurrentUser(): User | undefined {
-    if(!this.userLogin){
+    if (!this.userLogin) {
       return undefined;
     }
     return structuredClone(this.userLogin);
@@ -91,7 +90,6 @@ export class AuthTareaService {
     this.userLogin = undefined
     localStorage.clear();
   }
-
 
   //@returns boolean
   //This method check if a user is login
