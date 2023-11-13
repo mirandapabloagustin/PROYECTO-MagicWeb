@@ -226,15 +226,19 @@ span {
 .card-background-error {
   animation: tiembla 0.2s;
   margin-top: 200px;
-  margin-bottom: 200px;
-  width: 600px;
-  height: 850px;
-  background-color: rgb(24, 23, 23);
-  border-radius: 20px;
-  display: flex;
-  flex-direction: column;
+margin-bottom: 200px;
+
+width: 600px;
+height: 920px;
+background-color: rgb(24, 23, 23);
+
+border-radius: 20px;
+display: flex;
+flex-direction: column;
+
   box-shadow: #ff1818 0px 10px 30px 10px;
 }
+
 
 
 
