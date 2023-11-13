@@ -30,7 +30,14 @@
     </div>
 </ng-template>
 
-<div class="footer-list-cards">
-    <button (click)="previousPage()">Anterior Pagina</button>
-    <button (click)="nextPage()">Siguiente Pagina</button>
+<div class="footer-list-cards" *ngIf="!searchConfirm; else buttonSearch">
+    <button id="button-previous" (click)="getPagePrevious()">Anterior</button>
+    <button id="button-next" (click)="getPageNext()">Siguiente</button>
 </div>
+
+<ng-template #buttonSearch>
+    <div class="footer-list-cards">
+        <button id="button-previous" (click)="searchPagePrevious()">Anterior</button>
+        <button id="button-next" (click)="searchPageNext()">Siguiente</button>
+    </div>
+</ng-template>

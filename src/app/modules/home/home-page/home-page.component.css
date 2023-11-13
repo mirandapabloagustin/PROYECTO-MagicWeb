@@ -10,14 +10,12 @@
     display: flex;
     display: inline-flex;
     justify-content: center;
-    
 }
 
 .gral-conteiner-items{
     margin: 10px;
     align-items: center;
     flex-direction: column;
-
 }
 
 .background-container{
@@ -28,41 +26,6 @@
     border-radius: 15px;
     display: inline-flex;
 }
-
-.background-random-container{
-    width: 250px;
-
-    margin-top: 150px;
-    background-color: rgb(46, 46, 46);
-    box-shadow: rgb(201, 201, 201) 0px 0px 10px;
-    border-radius: 15px;
-    display: inline-flex;
-    display: flex;
-    flex-direction: column;
-}
-
-
-
-.random-container{
-    margin-top: 30px;
-    margin-bottom: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
-    padding: 10px;
-    height: 140px;
-    background-color: rgb(218, 218, 218);
-    border-radius: 0px 0px 15px 15px;
-}
-
-
-
-.btn-random{
-    
-}
-
-
-
-
 
 .tittle-random-card{
     margin-top: 10px;
@@ -77,7 +40,6 @@
     font-size: 18px;
     font-weight: bold;
 }
-
 
 .container-home{
     height: 400px;

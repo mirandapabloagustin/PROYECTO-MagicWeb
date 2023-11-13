@@ -1,14 +1,6 @@
 <app-header></app-header>
 <div class="background-home">
     <div class="gral-conteiner-items">
-        <div class="background-random-container">
-            <div class="random-container">
-                <h4 class="tittle-random-card">Carta Ramdom</h4>
-                <span>Pruba suerte y descrubre nuevas Cartas</span>
-                <br>
-                <button class="btn-random" >Random</button>
-            </div>
-        </div>
         <app-filter (sendFiltersColors)="sendsColorSelection($event)"
         (sendFiltersTypes)="sendsTypeSelection($event)"
         (sendFiltersCmc)="sendsCmcSelection($event)"></app-filter>
