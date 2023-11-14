@@ -1,72 +1,73 @@
 <app-header></app-header>
+<div class="container">
+  <div class="profilecard">
 
-      <div class="container">
-        <div class="profilecard">
-
-          <div class="profilecardbody">
-            <div class="sidebar">
-              <img src="{{user?.imagUser}}" alt="hyunjinnie">
-
-            </div>
-
-
-
-
-
-            <div class="dataBox">
-              <div class="namedecor">
-                <p id="name">{{user?.nickName}}</p>
-              </div>
-              <div class="textbox">
-                <p>{{user?.description}}</p>
-                <div class="emailbox">
-                  <p>EMAIL</p>
-                  <p id="email">{{user?.email}} </p>
-                </div>
-                <div class="Nickbox">
-                  <p>NICK</p>
-                  <p id="nick">{{user?.nickName}}</p>
-                </div>
-                <div class="Passbox">
-                  <p>Password</p>
-                  <p id="pass" class="password" [ngClass]="{ 'hidden': isPasswordHidden }">
-                    {{ isPasswordHidden ? hidePasswordText(user?.password!) : user?.password }}
-                   
-                  </p>
-                  
-              </div>
-              
-              </div>
-              <div class="buttoncontainer">
-                <button class="button">Editar</button>
-                <button class="button">Eliminar</button>
-                <button class="verbutton" (click)="togglePassword()">Ver</button>
-
-              </div>
-
-            </div>
-          </div>
-
-
-
-
-        </div>
-
+    <div class="profilecardbody">
+      <div class="sidebar">
+        <img src="{{user?.imagUser}}" alt="hyunjinnie">
 
       </div>
 
 
 
 
-      <div class="container">
-        <div class="decks" *ngFor="let item of user?.decks">
-          <div>
-            <p>{{item.nameDeck}}</p>
-            <div *ngFor="let card of item.cards">
-             <img src="{{card.imagenUris}}" alt="card">
-            </div>
-          </div>
-        </div>
-      </div>
 
-  <app-footer></app-footer>
+      <div class="dataBox">
+        <div class="namedecor">
+          <p id="name">{{user?.nickName}}</p>
+        </div>
+        <div class="textbox">
+          <p>{{user?.description}}</p>
+          <div class="emailbox">
+            <p>EMAIL</p>
+            <p id="email">{{user?.email}} </p>
+          </div>
+          <div class="Nickbox">
+            <p>NICK</p>
+            <p id="nick">{{user?.nickName}}</p>
+          </div>
+          <div class="Passbox">
+            <p>Password</p>
+            <p id="pass" class="password" [ngClass]="{ 'hidden': isPasswordHidden }">
+              {{ isPasswordHidden ? hidePasswordText(user?.password!) : user?.password }}
+
+            </p>
+
+          </div>
+
+        </div>
+        <div class="buttoncontainer">
+          <button class="button">Editar</button>
+          <button class="button">Eliminar</button>
+          <button class="verbutton" (click)="togglePassword()">Ver</button>
+
+        </div>
+
+      </div>
+    </div>
+
+
+
+
+  </div>
+
+
+</div>
+
+
+
+
+<div class="container">
+  <div class="decks" *ngFor="let item of user?.decks">
+    <p>{{item.nameDeck}}</p>
+    <div *ngFor="let card of item.cards">
+      <img src="{{card.imagenUris}}" alt="card">
+      <p>{{card.nameCard}}</p>
+    </div>
+  </div>
+</div>
+
+
+
+
+<app-footer></app-footer>
