@@ -136,16 +136,14 @@
         }
       ]
     },
-
     {
       "id": 3,
       "nickName": "florsix",
       "email": "flor@gmail.com",
       "password": "1234",
       "imagUser": "https://i.pinimg.com/564x/e5/f7/c1/e5f7c1f6014a5fbbd688128ad4a51c91.jpg",
-    
-    "description": "Hola soy PapitasConCheddar y me gusta jugar magic",
-      "decks":[
+      "description": "Hola soy PapitasConCheddar y me gusta jugar magic",
+      "decks": [
         {
           "id": 1,
           "nameDeck": "Witch",
@@ -187,11 +185,37 @@
               "cmc": "0",
               "colorIdentity": "B,R",
               "type": "Land"
+            },
+            {
+              "id": "3b77bb52-4181-57f5-b3cd-f3a15b95aa29",
+              "nameCard": "Angelic Chorus",
+              "cmc": 5,
+              "colorIdentity": [
+                "W"
+              ],
+              "type": "Enchantment"
+            },
+            {
+              "id": "3b77bb52-4181-57f5-b3cd-f3a15b95aa29",
+              "nameCard": "Angelic Chorus",
+              "cmc": 5,
+              "colorIdentity": [
+                "W"
+              ],
+              "type": "Enchantment"
+            },
+            {
+              "id": "56f4935b-f6c5-59b9-88bf-9bcce20247ce",
+              "nameCard": "Beacon of Immortality",
+              "cmc": 6,
+              "colorIdentity": [
+                "W"
+              ],
+              "type": "Instant"
             }
           ]
         }
       ]
-  
     }
   ]
 }

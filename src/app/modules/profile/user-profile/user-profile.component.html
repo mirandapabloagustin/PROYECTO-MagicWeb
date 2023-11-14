@@ -1,73 +1,71 @@
 <app-header></app-header>
-<div class="container">
-  <div class="profilecard">
 
-    <div class="profilecardbody">
-      <div class="sidebar">
-        <img src="{{user?.imagUser}}" alt="hyunjinnie">
+  <div class="container">
+    <div class="profilecard">
 
+      <div class="profilecardbody">
+        <div class="sidebar">
+          <img src="{{user?.imagUser}}" alt="hyunjinnie">
+
+        </div>
+
+
+
+
+
+        <div class="dataBox">
+          <div class="namedecor">
+            <p id="name">{{user?.nickName}}</p>
+          </div>
+          <div class="textbox">
+            <p>{{user?.description}}</p>
+            <div class="emailbox">
+              <p>EMAIL</p>
+              <p id="email">{{user?.email}} </p>
+            </div>
+            <div class="Nickbox">
+              <p>NICK</p>
+              <p id="nick">{{user?.nickName}}</p>
+            </div>
+
+          </div>
+          <div class="buttoncontainer">
+            <button class="button">Editar</button>
+            <button class="button">Eliminar</button>
+
+          </div>
+
+        </div>
       </div>
 
 
-
-
-
-      <div class="dataBox">
-        <div class="namedecor">
-          <p id="name">{{user?.nickName}}</p>
-        </div>
-        <div class="textbox">
-          <p>{{user?.description}}</p>
-          <div class="emailbox">
-            <p>EMAIL</p>
-            <p id="email">{{user?.email}} </p>
-          </div>
-          <div class="Nickbox">
-            <p>NICK</p>
-            <p id="nick">{{user?.nickName}}</p>
-          </div>
-          <div class="Passbox">
-            <p>Password</p>
-            <p id="pass" class="password" [ngClass]="{ 'hidden': isPasswordHidden }">
-              {{ isPasswordHidden ? hidePasswordText(user?.password!) : user?.password }}
-
-            </p>
-
-          </div>
-
-        </div>
-        <div class="buttoncontainer">
-          <button class="button">Editar</button>
-          <button class="button">Eliminar</button>
-          <button class="verbutton" (click)="togglePassword()">Ver</button>
-
-        </div>
-
-  </div>
-
-  <div *ngFor="let item of user?.decks"> 
-    <!-- LLAMNAR AL COMPONENTE Y A TRAVEZ DE UN INPUT ENVIAR LA DATA DE LA CARTA -->
-  </div>
-
-
-
-
-
-
-</div>
-
-
-
-
-<div class="container">
-  <div class="decks" *ngFor="let item of user?.decks">
-    <p>{{item.nameDeck}}</p>
-    <div *ngFor="let card of item.cards">
-      <img src="{{card.imagenUris}}" alt="card">
-      <p>{{card.nameCard}}</p>
     </div>
+
   </div>
-</div>
+
+
+  <div class="container">
+    <p class="nameDeck">Mis Mazos</p>
+  </div>
+
+
+
+  <div class="deckContainer" *ngFor="let item of user?.decks"> 
+    <!-- LLAMNAR AL COMPONENTE Y A TRAVEZ DE UN INPUT ENVIAR LA DATA DE LA CARTA -->
+    <p class="nameDeck">{{item.nameDeck}}</p>
+    <div class="decks" >
+      <div class="CardContainer"*ngFor="let carta of item.cards">
+      <p class="nameCard">{{carta.nameCard}}</p>
+      <img  src="https://i.pinimg.com/564x/ff/56/55/ff565546b828b77a2ec84e61d3f0eb86.jpg" alt="hyunjinnie">
+      </div>
+     
+   </div>
+      
+  </div>
+
+
+
+
 
 
 

@@ -12,6 +12,7 @@ export class UserProfileComponent implements OnInit{
   //variable que va a recibir el usuario logueado
   user:User | undefined;
   cards:Card[] | undefined;
+  pathimg:string = 'src\assets\card-door-to-nothingness.jpg'
   isPasswordHidden = true;
   
   
