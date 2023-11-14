@@ -3,7 +3,6 @@ import { Card } from './Models';
 export interface Icard {
   id: string | null;
   nameCard: string | null;
-  imagenUris: string | null;
   cmc: string | null;
   colorIdentity: string | null;
   type: string | null;

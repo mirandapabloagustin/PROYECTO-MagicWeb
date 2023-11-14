@@ -63,4 +63,21 @@ export class AuthApiScrifallService {
     return this.data;
   }
 
+
+
+  //@param: identifier: identificador unico de la carta
+  //@return: retorna un objeto con la data de la api segun el identificador
+  public async getCardByIdentifier(id: string): Promise<any> {
+    let dataCard: any | undefined;
+    try{
+      let data = await lastValueFrom(this.apiScryfallService.getCardByIdentifier(id));
+      if(data?.imageUrl){
+        dataCard = data;
+      }
+    }catch(error){
+      console.log(error);
+    }
+    return dataCard;
+  }
+
 }

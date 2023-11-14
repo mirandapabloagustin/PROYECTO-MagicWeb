@@ -30,4 +30,10 @@ export class ApiService {
   public authUserRegister(email:string, password:string ): Observable<User[]> {
     return this.http.get<User[]>(`${this.url}/users?email=${email}&password=${password}`)
   }
+
+  public updateUserApi(user: User): Observable<boolean> {
+    return this.http.put<boolean>(`${this.url}/users/${user.id}`, user)
+  }
+
+  
 }

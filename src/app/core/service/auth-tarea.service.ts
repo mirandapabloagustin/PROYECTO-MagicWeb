@@ -75,6 +75,23 @@ export class AuthTareaService {
     return isLogin;
   }
 
+
+  //@param user
+  //@returns boolean
+  //This method update a user in the database
+  public async updateUser(user: User): Promise<boolean> {
+    let isUpdate = false;
+    try {
+      if (user.id) {
+        isUpdate = await lastValueFrom(this.apiService.updateUserApi(user));
+      }
+    } catch (error) {
+      console.log(error);
+    }
+    return isUpdate;
+  }
+
+
   //@returns User | undefined
   //This method return the current user 
   public getCurrentUser(): User | undefined {
@@ -97,6 +114,16 @@ export class AuthTareaService {
     return localStorage.getItem('token') ? true : false;
   }
 
+  //@param user
+  //@returns void
+  //This method update the current user in the local storage
+  public userChaceUpdate( user: User){
+    if(user){
+      this.userLogin = user;
+      localStorage.clear();
+      localStorage.setItem('token', this.userLogin.toString());
+    }
+  }
 
 
 }
