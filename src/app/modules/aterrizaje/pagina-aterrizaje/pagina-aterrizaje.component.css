@@ -35,13 +35,13 @@
 .titlebox{
     width: 100rem;
     position: relative;
-     top: 5%; /* Adjust to vertically center the title as needed */
+     top: 20%; /* Adjust to vertically center the title as needed */
     left: 20%; /* Adjust to horizontally center the title as needed */
     overflow-y: hidden;
 }
 
 .title {
-
+    line-height: 100%;
    margin-bottom: 2%;
    /* transform: translate(-50%, -50%);*/
     color:transparent;
@@ -59,8 +59,8 @@
     }
 }
 
-.sub-title
-{
+.sub-title{
+    line-height: 100%;
     position:relative;
      /* Adjust to horizontally center the title as needed */
    font-family: nunito-regular;

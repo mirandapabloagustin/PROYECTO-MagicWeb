@@ -22,13 +22,11 @@ export class Card implements Icard {
 export class DeckCard implements IdeckCard {
 
     id: number | null;
-    userIdDeck: string | null;
     nameDeck: string | null;
     cards: Card[] | null;
 
     constructor(deckCard ?: IdeckCard) {
         this.id = deckCard?.id == undefined ? null : deckCard.id;
-        this.userIdDeck = deckCard?.userIdDeck == undefined ? null : deckCard.userIdDeck;
         this.nameDeck = deckCard?.nameDeck == undefined ? null : deckCard.nameDeck;
         this.cards = deckCard?.cards == undefined ? null : deckCard.cards;
     }
@@ -40,6 +38,8 @@ export class User implements Iuser {
     email: string | null;
     password: string | null;
     imagUser: string | null;
+    description: string | null;
+    decks: IdeckCard[] | null;
 
 
     constructor(user?: Iuser) {
@@ -48,6 +48,8 @@ export class User implements Iuser {
         this.email = user?.email == undefined ? '' : user.email;
         this.password = user?.password == undefined ? '' : user.password;
         this.imagUser = user?.imagUser == undefined ? "assets/iconUsers/new-user.png" : user.imagUser;
+        this.description = user?.description == undefined ? '' : user.description;
+        this.decks = user?.decks == undefined ? [] : user.decks;
     }
   
 }
