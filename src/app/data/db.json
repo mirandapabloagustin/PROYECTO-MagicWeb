@@ -78,19 +78,62 @@
         }
       ]
     },
+
     {
       "id": 3,
-      "nickName": "Agus",
-      "email": "agus@gmail.com",
-      "password": "1234",
-      "imagUser": "assets/iconUsers/new-user.png"
-    },
-    {
-      "id": 2,
       "nickName": "florsix",
       "email": "flor@gmail.com",
       "password": "1234",
-      "imagUser": "https://i.pinimg.com/564x/e5/f7/c1/e5f7c1f6014a5fbbd688128ad4a51c91.jpg"
+      "imagUser": "https://i.pinimg.com/564x/e5/f7/c1/e5f7c1f6014a5fbbd688128ad4a51c91.jpg",
+    
+    "description": "Hola soy PapitasConCheddar y me gusta jugar magic",
+      "decks":[
+        {
+          "id": 1,
+          "nameDeck": "Witch",
+          "cards": [
+            {
+              "id": "a807430a-5a37-550c-989f-72d125d7b0c8",
+              "nameCard": "Caves of Koilos",
+              "imageUrl": "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=129497&type=card",
+              "cmc": "0",
+              "colorIdentity": "B,M",
+              "type": "Land"
+            },
+            {
+              "id": "a807430a-5a37-550c-989f-72d125d7b0c8",
+              "nameCard": "Caves of Koilos",
+              "imageUrl": "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=129497&type=card",
+              "cmc": "0",
+              "colorIdentity": "B,M",
+              "type": "Land"
+            },
+            {
+              "id": "a807430a-5a37-550c-989f-72d125d7b0c8",
+              "nameCard": "Caves of Koilos",
+              "imageUrl": "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=129497&type=card",
+              "cmc": "0",
+              "colorIdentity": "B,M",
+              "type": "Land"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "nameDeck": "Black Banana",
+          "cards": [
+            {
+              "id": "5da5714b-e031-5563-bfec-2c6512d4b303",
+              "nameCard": "Molten Slagheap",
+              "imageUrl": "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=582533&type=card",
+              "cmc": "0",
+              "colorIdentity": "B,R",
+              "type": "Land"
+            }
+          ]
+        }
+      ]
+  
     }
   ]
 }

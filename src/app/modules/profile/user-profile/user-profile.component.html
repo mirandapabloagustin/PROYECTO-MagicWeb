@@ -1,142 +1,72 @@
 <app-header></app-header>
-<<<<<<< HEAD
-<div class="container">
-  <div class="profilecard">
-    <div class="navbar">
-      <div class="logo"><img alt="imgbar"src="https://i.pinimg.com/564x/47/7f/25/477f251932ccc73bc018721a036e5292.jpg"></div>
 
+      <div class="container">
+        <div class="profilecard">
 
-      <ul>
-        <li><a href="#">Sobre</a></li>
-        <li><a href="#">Mazos</a></li>
-        <li><a href="#">Contacto</a></li>
-      </ul>
-    </div>
+          <div class="profilecardbody">
+            <div class="sidebar">
+              <img src="{{user?.imagUser}}" alt="hyunjinnie">
 
-
-
-
-
-
-
-    <div class="profilecardbody">
-
-
-
-
-      <div class="sidebar">
-        <img src="{{user2?.imagUser}}" alt="hyunjinnie">
-
-      </div>
-
-
-
-
-
-      <div class="dataBox">
-        <div class="namedecor">
-          <p id="name">{{user2?.nickName}}</p>
-        </div>
-        <div class="textbox">
-          <p>I've heard it said that a Planeswalker is someone who can always run from danger. But Gideon's right: we're also the ones who can choose to stay.</p>
-            <div class="emailbox">
-              <p>EMAIL</p>
-              <p id="email">{{user2?.email}} </p>
-            </div>
-            <div class="Nickbox">
-              <p >NICK</p> 
-              <p id="nick">{{user2?.nickName}}</p>
             </div>
 
-            
-        </div>
-        <div class="buttoncontainer">
-          <button class="button">Editar</button>
-          <button class="button">Eliminar</button>
-
-        </div>
-       
-      </div>
-=======
-<div class="backgound-container">
-
-  <div class="container">
-    <div class="profilecard">
-
-      <div class="profilecardbody">
-        <div class="sidebar">
-          <img src="{{user?.imagUser}}" alt="hyunjinnie">
-
-        </div>
 
 
 
 
+            <div class="dataBox">
+              <div class="namedecor">
+                <p id="name">{{user?.nickName}}</p>
+              </div>
+              <div class="textbox">
+                <p>{{user?.description}}</p>
+                <div class="emailbox">
+                  <p>EMAIL</p>
+                  <p id="email">{{user?.email}} </p>
+                </div>
+                <div class="Nickbox">
+                  <p>NICK</p>
+                  <p id="nick">{{user?.nickName}}</p>
+                </div>
+                <div class="Passbox">
+                  <p>Password</p>
+                  <p id="pass" class="password" [ngClass]="{ 'hidden': isPasswordHidden }">
+                    {{ isPasswordHidden ? hidePasswordText(user?.password!) : user?.password }}
+                   
+                  </p>
+                  
+              </div>
+              
+              </div>
+              <div class="buttoncontainer">
+                <button class="button">Editar</button>
+                <button class="button">Eliminar</button>
+                <button class="verbutton" (click)="togglePassword()">Ver</button>
 
-        <div class="dataBox">
-          <div class="namedecor">
-            <p id="name">{{user?.nickName}}</p>
-          </div>
-          <div class="textbox">
-            <p>{{user?.description}}</p>
-            <div class="emailbox">
-              <p>EMAIL</p>
-              <p id="email">{{user?.email}} </p>
+              </div>
+
             </div>
-            <div class="Nickbox">
-              <p>NICK</p>
-              <p id="nick">{{user?.nickName}}</p>
-            </div>
-
-          </div>
-          <div class="buttoncontainer">
-            <button class="button">Editar</button>
-            <button class="button">Eliminar</button>
-
           </div>
 
+
+
+
+        </div>
+
+
+      </div>
+
+
+
+
+      <div class="container">
+        <div class="decks" *ngFor="let item of user?.decks">
+          <div>
+            <p>{{item.nameDeck}}</p>
+            <div *ngFor="let card of item.cards">
+             <img src="{{card.imagenUris}}" alt="card">
+            </div>
+          </div>
         </div>
       </div>
 
-
-
-
-
->>>>>>> papitasConCheddar
-    </div>
-
-
-
-
-
-  </div>
-
-<<<<<<< HEAD
-=======
-  <div *ngFor="let item of user?.decks"> 
-    <!-- LLAMNAR AL COMPONENTE Y A TRAVEZ DE UN INPUT ENVIAR LA DATA DE LA CARTA -->
-    <div>
-      <p>{{item.nameDeck}}</p>
-      <div *ngFor="let card of item.cards">
-        <app-card [card]="card"></app-card>
-      </div>
-    </div>
-  </div>
->>>>>>> papitasConCheddar
-
-
-
-
-</div>
-
-<<<<<<< HEAD
-
-
-
-
-<app-footer></app-footer>
-```
-```
-=======
-<app-footer></app-footer>
->>>>>>> papitasConCheddar
+  <app-footer></app-footer>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/core/Models';
+import{Card} from 'src/app/core/Models';
 import { AuthTareaService } from 'src/app/core/service/auth-tarea.service';
 
 @Component({
@@ -10,15 +11,10 @@ import { AuthTareaService } from 'src/app/core/service/auth-tarea.service';
 export class UserProfileComponent implements OnInit{
   //variable que va a recibir el usuario logueado
   user:User | undefined;
-  user2:User={
-    id:1,
-    nickName:'Jungkook',
-    email:'exmpl@gmail.com',
-    password:'1234',
-    imagUser:'https://i.pinimg.com/564x/5d/07/96/5d07960ab7ed41256e85e07627cadee9.jpg'
-   
-
-  }
+  cards:Card[] | undefined;
+  isPasswordHidden = true;
+  
+  
 
   constructor(
     private authTareaService:AuthTareaService
@@ -31,7 +27,34 @@ export class UserProfileComponent implements OnInit{
     console.log(this.user);
   }
 
+// hidePassword (id: string) {
+//   var password = document.getElementById(id);
+//   password?.classList.add("hidden");
 
-  // ANOTACION! SI EL USUARIO CAMBIA DE PAGINA SIEMPRE TIENE QUE GUARDAR CAMBIOS
+//   // ANOTACION! SI EL USUARIO CAMBIA DE PAGINA SIEMPRE TIENE QUE GUARDAR CAMBIOS
 
+// }
+
+// viewPassword (id: string) {
+//   var password = document.getElementById(id);
+//   password?.classList.remove("hidden");
+// }
+
+// togglePassword (id: string) {
+//   var password = document.getElementById(id);
+//   if(password?.classList.contains("hidden")){
+//     password?.classList.remove("hidden");
+//   }else{
+//     password?.classList.add("hidden");
+//   }
+
+// }
+
+togglePassword() {
+  this.isPasswordHidden = !this.isPasswordHidden;
+}
+
+hidePasswordText(password: string | undefined): string {
+  return password ? '•'.repeat(password.length) : '';
+}
 }
