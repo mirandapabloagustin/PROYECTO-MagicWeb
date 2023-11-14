@@ -53,13 +53,9 @@
 
   <div *ngFor="let item of user?.decks"> 
     <!-- LLAMNAR AL COMPONENTE Y A TRAVEZ DE UN INPUT ENVIAR LA DATA DE LA CARTA -->
-    <div>
-      <p>{{item.nameDeck}}</p>
-      <div *ngFor="let card of item.cards">
-        <app-card [card]="card"></app-card>
-      </div>
-    </div>
   </div>
+
+
 
 
 

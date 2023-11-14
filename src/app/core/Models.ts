@@ -4,7 +4,6 @@ import { Iuser,Icard, IdeckCard } from "./Interfaces";
 export class Card implements Icard {
     id: string | null;
     nameCard: string | null;
-    imagenUris: string | null;
     cmc: string | null;
     colorIdentity: string | null;
     type: string | null;
@@ -12,7 +11,6 @@ export class Card implements Icard {
     constructor(card?: Icard) {
         this.id = card?.id == undefined ? null : card.id;
         this.nameCard = card?.nameCard == undefined ? null : card.nameCard;
-        this.imagenUris = card?.imagenUris == undefined ? null : card.imagenUris;
         this.cmc = card?.cmc == undefined ? null : card.cmc;
         this.colorIdentity = card?.colorIdentity == undefined ? null : card.colorIdentity;
         this.type = card?.type == undefined ? null : card.type;

@@ -5,6 +5,7 @@
         <div mat-dialog-content class="custom-popup-content">
 
             <img class="img-card-popUp" [src]="dataComponent.imageUrl" alt="imagen.card">
+            
             <mat-accordion class="info-card-container">
 
                     <h2>{{dataComponent.name}}</h2> 
@@ -46,30 +47,17 @@
                     <p>{{dataComponent.text}}</p>
                 </mat-expansion-panel>
 
-                
-                <!--
-
-                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-                        <mat-expansion-panel-header>
-                            <mat-panel-title>
-                                Self aware panel
-                            </mat-panel-title>
-                            <mat-panel-description>
-                                Currently I am {{panelOpenState ? 'open' : 'closed'}}
-                            </mat-panel-description>
-                        </mat-expansion-panel-header>
-                        <p>I'm visible because I am open</p>
-                    </mat-expansion-panel>
-                -->
-
 
             </mat-accordion>
 
         </div>
 
         <div mat-dialog-actions class="popup-container-buttons">
-            <button (click)="closepopup()" mat-raised-button class="button-popup">Cerrar</button>
+            <select name="deck-user-select" id="deck-user-select" [(ngModel)]="deckSelected">
+                <option class="item-select" *ngFor="let deck of userDeck?.decks" value="{{deck.id}}">{{deck.nameDeck}}</option>
+            </select>
             <button mat-raised-button [mat-dialog-close]="closemessage" class="button-popup"  (click)="sendToDeckUser()">Agregar a Mazo </button>
+            <button (click)="closepopup()" mat-raised-button class="button-popup">Cerrar</button>
         </div>
 
     </div>

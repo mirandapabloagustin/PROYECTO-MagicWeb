@@ -18,8 +18,6 @@ export class UserProfileComponent implements OnInit{
   ngOnInit(): void {
     //recuperamos el usuario logueado desde el servicio 
     this.user = this.authTareaService.getCurrentUser();
-    // muestra el usuario logueado en la consola
-    console.log(this.user);
   }
 
 

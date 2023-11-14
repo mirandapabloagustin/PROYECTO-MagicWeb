@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PopupCardComponent } from '../popup-card/popup-card.component';
+import { User } from 'src/app/core/Models';
+import { AuthTareaService } from 'src/app/core/service/auth-tarea.service';
 
 
 @Component({
@@ -11,13 +13,16 @@ import { PopupCardComponent } from '../popup-card/popup-card.component';
 export class CardComponent implements OnInit {
 
   @Input() cartaComponente: any;
+  userLogin : User | undefined;
 
   constructor(
     private dialog: MatDialog,
+    private authTareaService: AuthTareaService
   ) { }
 
 
   async ngOnInit(): Promise<void> {
+    this.userLogin = this.authTareaService.getCurrentUser();
   }
 
 
@@ -28,7 +33,7 @@ export class CardComponent implements OnInit {
       width: '700px',
       enterAnimationDuration: '500ms',
       exitAnimationDuration: '500ms',
-      data: this.cartaComponente
+      data: [this.cartaComponente, this.userLogin]
     });
 
     _popup.afterClosed().subscribe(item => {

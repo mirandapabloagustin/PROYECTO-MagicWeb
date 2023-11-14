@@ -1,6 +1,6 @@
 .custom-dialog-container{
   width: min-content;
-  height: min-content;
+  height: max-content;
   border-radius: 50px;
 }
 
@@ -27,6 +27,7 @@
 
 
 .custom-popup-content {
+  display: inline-block;
   display: flex;
   padding: 10px;
 }
@@ -39,6 +40,7 @@
 }
 
 .img-card-popUp{
+
   margin: 10px;
 }
 
@@ -59,9 +61,17 @@
   margin-bottom: 10px;
 }
 
+#deck-user-select{
+  width: 200px; 
+  padding: 8px; 
+  font-size: 16px;
+}
 
-
-
+.item-select{
+  background-color: #f0f0f0; 
+  padding: 8px;
+  color: #333;
+}
 
 
 
