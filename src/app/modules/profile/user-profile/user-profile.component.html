@@ -27,11 +27,20 @@
               <p>NICK</p>
               <p id="nick">{{user?.nickName}}</p>
             </div>
+            <div class="Passbox">
+              <p>Password</p>
+              <p id="pass" class="password" [ngClass]="{ 'hidden': isPasswordHidden }">
+                {{ isPasswordHidden ? hidePasswordText(user?.password!) : user?.password }}
+            
+              </p>
+            </div>
 
           </div>
           <div class="buttoncontainer">
-            <button class="button">Editar</button>
-            <button class="button">Eliminar</button>
+            <button class="verbutton">Editar</button>
+            <button class="verbutton">Eliminar</button>
+            <button class="verbutton" (click)="togglePassword()">Mostrar</button>
+            
 
           </div>
 
@@ -56,7 +65,7 @@
     <div class="decks" >
       <div class="CardContainer"*ngFor="let carta of item.cards">
       <p class="nameCard">{{carta.nameCard}}</p>
-      <img  src="https://i.pinimg.com/564x/ff/56/55/ff565546b828b77a2ec84e61d3f0eb86.jpg" alt="hyunjinnie">
+      <img  [src]="" alt="hyunjinnie">
       </div>
      
    </div>

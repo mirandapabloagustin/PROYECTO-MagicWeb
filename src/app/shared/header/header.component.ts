@@ -1,7 +1,7 @@
 
 import { Router} from '@angular/router';
 import { Component, OnInit, ViewChild, ElementRef, HostListener } from '@angular/core';
-import{faHatWizard, faHeart,faScroll, faDungeon, faAddressCard,faLaptopCode, faWandMagicSparkles, faArrowRightToBracket} from '@fortawesome/free-solid-svg-icons';
+import{faHatWizard, faHeart,faScroll, faDungeon, faAddressCard,faLaptopCode, faWandMagicSparkles, faArrowRightFromBracket, faUser} from '@fortawesome/free-solid-svg-icons';
 import { AuthTareaService } from 'src/app/core/service/auth-tarea.service';
 import { User } from 'src/app/core/Models';
 
@@ -20,7 +20,8 @@ export class HeaderComponent implements OnInit{
   icon5=faScroll;
   icon6 = faLaptopCode;
   icon7 = faWandMagicSparkles;
-  icon8 = faArrowRightToBracket;
+  icon8 = faArrowRightFromBracket
+  icon9=faUser;
 
   constructor(
     private enrutamiento:Router,
