@@ -8,16 +8,18 @@ import { AuthApiScrifallService } from 'src/app/core/service/serviceApiScryfall/
 })
 export class ListCardsComponent implements OnInit {
 
-  @Input() filterCardsValue: string []=[];
-  @Input() filterCardsTypeValue: string []=[];
+  @Input() filterCardsValue: string[] = [];
+  @Input() filterCardsTypeValue: string[] = [];
   @Input() filterCardsCmcValue: number = 0;
 
   //variables
   dataApiResponse: any;
   dataApiResponseColection: any[] = [];
-
   searchText: string = '';
-  page: number = 1;
+  searchConfirm: boolean = false;
+  numberPage: number = 0;
+  numberPagePrevious: number = 0;
+  numberPageNext: number = 0;
 
 
   //constructor
@@ -28,6 +30,7 @@ export class ListCardsComponent implements OnInit {
 
   //metodos
   async ngOnInit(): Promise<void> {
+    this.numberPage = 1;
     this.loadCards();
   }
 
@@ -36,9 +39,56 @@ export class ListCardsComponent implements OnInit {
   // @return: retorna un arreglo con la data de la api
   public async loadCards() {
     try {
-      if (this.dataApiResponseColection.length === 0) {
-        this.authApiScrifallService.getHeaderApi();
-        let data = await this.authApiScrifallService.getCardsApi();
+      let data = await this.authApiScrifallService.getAllsCardsApi(this.numberPage);
+      this.dataApiResponseColection = data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  
+  public async searchElementApi() {
+    this.searchConfirm = true;
+    this.numberPage = 1;
+    try {
+      if (this.searchText.length == 0 && this.filterCardsValue.length == 0 && this.filterCardsTypeValue.length == 0 && this.filterCardsCmcValue == 0) {
+        this.loadCards();
+      } else {
+        let data = await this.authApiScrifallService.getCardsWithParamApi(
+          this.searchText,
+          this.filterCardsValue.join(","),
+          this.filterCardsTypeValue.join(","),
+          this.filterCardsCmcValue,
+          this.numberPage
+        );
+
+        this.dataApiResponseColection.splice(0, this.dataApiResponseColection.length);
+        this.dataApiResponseColection = data;
+
+        const element1 = document.getElementById('button-previous');
+        element1?.removeAttribute('disabled');
+        const element2 = document.getElementById('button-next');
+        element2?.removeAttribute('disabled');
+      }
+
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  public async getPageNext() {
+    try {
+      let data = await this.authApiScrifallService.getAllsCardsApi(this.numberPage + 1);
+
+      if (data.length > 0) {
+        this.dataApiResponseColection.splice(0, this.dataApiResponseColection.length);
+        this.numberPage++;
+        this.dataApiResponseColection = data;
+        const element = document.getElementById('button-previous');
+        element?.removeAttribute('disabled');
+      } else {
+        const element = document.getElementById('button-next');
+        element?.setAttribute('disabled', 'true');
         this.dataApiResponseColection = data;
       }
 
@@ -47,17 +97,41 @@ export class ListCardsComponent implements OnInit {
     }
   }
 
-  public async searchElementApi() {
+  public async getPagePrevious() {
     try {
+      let data = await this.authApiScrifallService.getAllsCardsApi(this.numberPage - 1);
+      if (data.length > 0 && this.numberPage > 1) {
+        this.dataApiResponseColection.splice(0, this.dataApiResponseColection.length);
+        this.numberPage--;
+        this.dataApiResponseColection = data;
+      } else {
+        const element = document.getElementById('button-previous');
+        element?.setAttribute('disabled', 'true');
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+
+  public async searchPagePrevious() {
+    try {
+      this.numberPage++;
       let data = await this.authApiScrifallService.getCardsWithParamApi(
         this.searchText,
         this.filterCardsValue.join(","),
         this.filterCardsTypeValue.join(","),
-        this.filterCardsCmcValue
+        this.filterCardsCmcValue,
+        this.numberPage
       );
-
-      this.dataApiResponseColection.splice(0, this.dataApiResponseColection.length);
-      this.dataApiResponseColection = data;
+      if (data.length > 0) {
+        this.dataApiResponseColection.splice(0, this.dataApiResponseColection.length);
+        this.dataApiResponseColection = data;
+      } else {
+        this.numberPage--;
+        const element = document.getElementById('button-previous');
+        element?.setAttribute('disabled', 'true');
+      }
     } catch (error) {
       console.log(error);
     }
@@ -65,15 +139,29 @@ export class ListCardsComponent implements OnInit {
 
 
 
-
-
-  public async nextPage() {
-
-  }
-
-
-  public async previousPage() {
-
+  public async searchPageNext() {
+    try {
+      this.numberPage++;
+      let data = await this.authApiScrifallService.getCardsWithParamApi(
+        this.searchText,
+        this.filterCardsValue.join(","),
+        this.filterCardsTypeValue.join(","),
+        this.filterCardsCmcValue,
+        this.numberPage
+      );
+      if (data.length > 0) {
+        this.dataApiResponseColection.splice(0, this.dataApiResponseColection.length);
+        this.dataApiResponseColection = data;
+        const element = document.getElementById('button-previous');
+        element?.removeAttribute('disabled');
+      } else {
+        this.numberPage--;
+        const element = document.getElementById('button-next');
+        element?.setAttribute('disabled', 'true');
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
 
 

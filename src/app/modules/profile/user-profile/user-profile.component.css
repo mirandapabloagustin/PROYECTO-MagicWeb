@@ -12,9 +12,18 @@
     height: 60%;
     bottom: 10px;
     overflow: hidden;
+
+    
+
  
 }
 
+.background-container{
+    background-image: url('/assets/background-home-page-2.jpg');
+    background-size: cover;
+    position: relative;
+   
+}
 
 .profilecard {
   display: flex;
@@ -45,6 +54,7 @@
   border-radius: 10px, 10px, 0px, 0px;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
 }
+
 .navbar ul {
   display: flex;
   flex-direction: row;
@@ -162,7 +172,7 @@
   
  }
 
- buttoncontainer{
+ .buttoncontainer{
     display: flex;
     flex-direction: row;
     justify-content: space-between;

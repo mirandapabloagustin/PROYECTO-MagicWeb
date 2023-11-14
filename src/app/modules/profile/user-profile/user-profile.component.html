@@ -1,4 +1,5 @@
 <app-header></app-header>
+<<<<<<< HEAD
 <div class="container">
   <div class="profilecard">
     <div class="navbar">
@@ -56,6 +57,52 @@
         </div>
        
       </div>
+=======
+<div class="backgound-container">
+
+  <div class="container">
+    <div class="profilecard">
+
+      <div class="profilecardbody">
+        <div class="sidebar">
+          <img src="{{user?.imagUser}}" alt="hyunjinnie">
+
+        </div>
+
+
+
+
+
+        <div class="dataBox">
+          <div class="namedecor">
+            <p id="name">{{user?.nickName}}</p>
+          </div>
+          <div class="textbox">
+            <p>{{user?.description}}</p>
+            <div class="emailbox">
+              <p>EMAIL</p>
+              <p id="email">{{user?.email}} </p>
+            </div>
+            <div class="Nickbox">
+              <p>NICK</p>
+              <p id="nick">{{user?.nickName}}</p>
+            </div>
+
+          </div>
+          <div class="buttoncontainer">
+            <button class="button">Editar</button>
+            <button class="button">Eliminar</button>
+
+          </div>
+
+        </div>
+      </div>
+
+
+
+
+
+>>>>>>> papitasConCheddar
     </div>
 
 
@@ -64,12 +111,25 @@
 
   </div>
 
+<<<<<<< HEAD
+=======
+  <div *ngFor="let item of user?.decks"> 
+    <!-- LLAMNAR AL COMPONENTE Y A TRAVEZ DE UN INPUT ENVIAR LA DATA DE LA CARTA -->
+    <div>
+      <p>{{item.nameDeck}}</p>
+      <div *ngFor="let card of item.cards">
+        <app-card [card]="card"></app-card>
+      </div>
+    </div>
+  </div>
+>>>>>>> papitasConCheddar
 
 
 
 
 </div>
 
+<<<<<<< HEAD
 
 
 
@@ -77,3 +137,6 @@
 <app-footer></app-footer>
 ```
 ```
+=======
+<app-footer></app-footer>
+>>>>>>> papitasConCheddar

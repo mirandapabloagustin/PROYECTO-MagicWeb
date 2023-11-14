@@ -61,7 +61,6 @@ export class FilterComponent implements OnInit{
       : (this.typesSelectedCards = this.typesSelectedCards.filter(
           (type) => type !== value
       ));
-    console.log(this.typesSelectedCards);
     this.sendFiltersTypes.emit(this.typesSelectedCards);
   }
 

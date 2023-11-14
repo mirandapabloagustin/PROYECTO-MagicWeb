@@ -1,4 +1,4 @@
-import { Injectable, afterNextRender } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { ApiScryfallService } from './api-scryfall.service';
 import { lastValueFrom } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
@@ -13,39 +13,36 @@ export class AuthApiScrifallService {
     private http: HttpClient
   ) { }
 
-  // obtienes el header de la api que permite saber la cantidad de cartas que hay en la api
-  public async getHeaderApi(): Promise<any> {
-    this.apiScryfallService.getHeaderApiResponse("cards").subscribe(response => {
-      const totalCount = response.headers.get('total-count');
-      console.log('Total Count:', totalCount);
-    });
-  }
-
 
   // Api responde con un arreglo de la cantidad de cartas solicitadas y un maximo de 100
   // Selecciona solamente las que tengan imagen
   //@return: retorna un arreglo con la data de la api
-  public async getCardsApi(): Promise<any> {
-    let apiResponse: any;
+  public async getAllsCardsApi(pageCards : number): Promise<any> {
+    this.data = [];
     try {
-      apiResponse = await lastValueFrom(this.apiScryfallService.getCardsApiResponse());
-      apiResponse.cards.forEach((element: any) => {
-        if (element?.imageUrl) {
-          this.data.push(element);
-        }
-      });
-      return this.data;
+
+      let apiResponse = await lastValueFrom(this.apiScryfallService.getCardsApiResponse(pageCards));
+
+      if (apiResponse.cards.length > 0) {
+        apiResponse.cards.forEach((element: any) => {
+          if (element?.imageUrl) {
+            this.data.push(element);
+          }
+        });
+      }
+
     } catch (error) {
       console.log(error);
     }
+    return this.data;
   }
 
-  
+
 
   //@param: nameCard: nombre de la carta a buscar
   //@return: retorna un arreglo con la data de la api segun el nombre de la carta
   public async getCardsWithParamApi(nameCard: string, colorIdentityCards: string,
-    typeCard:string, cmcCards :number): Promise<any> {
+    typeCard: string, cmcCards: number, numberPage:number): Promise<any> {
     this.data = [];
 
     let paramsSeach: any = {
@@ -53,34 +50,17 @@ export class AuthApiScrifallService {
       cmc: cmcCards,
       colorIdentity: colorIdentityCards,
       types: typeCard,
-      pageSize: '22',
+      page: numberPage
     };
 
-    console.log(paramsSeach);
-
     let apiResponse: any;
-    apiResponse = await lastValueFrom(this.apiScryfallService.getCardsNameApiResponse(paramsSeach));
+    apiResponse = await lastValueFrom(this.apiScryfallService.getSearchCardsApiResponse(paramsSeach));
     apiResponse.cards.forEach((element: any) => {
       if (element?.imageUrl) {
         this.data.push(element);
       }
     });
-    console.log(this.data);
     return this.data;
   }
-
-
-
-
-
-  public async getPageNextApi(page: number): Promise<any> {
-
-  }
-
-  public async getCardByNameApi(name: string): Promise<any> {
-
-  }
-
-
 
 }
