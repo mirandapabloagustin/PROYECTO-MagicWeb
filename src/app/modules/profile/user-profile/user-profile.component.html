@@ -1,18 +1,16 @@
 <app-header></app-header>
-
+<div class="background-container">
+  
+  <h2 class="tittle-info-show">Infomacion Usuario</h2>
   <div class="container">
     <div class="profilecard">
-
+      
       <div class="profilecardbody">
         <div class="sidebar">
           <img src="{{user?.imagUser}}" alt="hyunjinnie">
-
+          <button class="button" (click)="changeProfilePhoto()">Cambiar</button>
+          
         </div>
-
-
-
-
-
         <div class="dataBox">
           <div class="namedecor">
             <p id="name">{{user?.nickName}}</p>
@@ -27,36 +25,31 @@
               <p>NICK</p>
               <p id="nick">{{user?.nickName}}</p>
             </div>
-
+            
           </div>
           <div class="buttoncontainer">
             <button class="button">Editar</button>
             <button class="button">Eliminar</button>
-
+            
           </div>
-
+          
         </div>
       </div>
-
-
+      
+      
     </div>
-
+    
   </div>
 
-    <div>
-      <h1>Mazos</h1>
-      <app-deck-show *ngFor="let deck of user?.decks"  [cardsDeckUser]="deck"></app-deck-show>
-    </div>
+  <div class="container-decks">
 
+        <h2 class="tittle-deck-show">Mazos</h2>
 
-
-
-
-
-
-
-
-
-
+    <app-deck-show *ngFor="let deck of user?.decks"  [cardsDeckUser]="deck"
+    (deleteUserDeck)="deleteDeck($event)"
+    (updateDataDeck)="updateDeck($event)"></app-deck-show>
+    <button class="add-deck-button" (click)="addDeckUser()">+</button>
+  </div>
+</div>
 
 <app-footer></app-footer>

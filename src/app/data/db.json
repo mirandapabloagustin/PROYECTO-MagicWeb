@@ -5,34 +5,13 @@
       "nickName": "PapitasConCheddar",
       "email": "papitas@gmail.com",
       "password": "1234",
-      "imagUser": "assets/iconUsers/new-user.png",
+      "imagUser": "assets/iconUsers/vorthos-user.jpg",
       "description": "Hola soy PapitasConCheddar y me gusta jugar magic",
       "decks": [
         {
           "id": 1,
-          "nameDeck": "Witch",
+          "nameDeck": "Wizards",
           "cards": [
-            {
-              "id": "a807430a-5a37-550c-989f-72d125d7b0c8",
-              "nameCard": "Caves of Koilos",
-              "cmc": "0",
-              "colorIdentity": "B,M",
-              "type": "Land"
-            },
-            {
-              "id": "a807430a-5a37-550c-989f-72d125d7b0c8",
-              "nameCard": "Caves of Koilos",
-              "cmc": "0",
-              "colorIdentity": "B,M",
-              "type": "Land"
-            },
-            {
-              "id": "a807430a-5a37-550c-989f-72d125d7b0c8",
-              "nameCard": "Caves of Koilos",
-              "cmc": "0",
-              "colorIdentity": "B,M",
-              "type": "Land"
-            },
             {
               "id": "546eac7c-1424-597d-ac13-bf8558e88fe3",
               "nameCard": "Glorious Anthem",
@@ -41,24 +20,6 @@
                 "W"
               ],
               "type": "Enchantment"
-            },
-            {
-              "id": "7dff9ddf-213e-593d-a007-a72cf6ff925e",
-              "nameCard": "Pariah",
-              "cmc": 3,
-              "colorIdentity": [
-                "W"
-              ],
-              "type": "Enchantment — Aura"
-            },
-            {
-              "id": "5f8287b1-5bb6-5f4c-ad17-316a40d5bb0c",
-              "nameCard": "Ancestor's Chosen",
-              "cmc": 7,
-              "colorIdentity": [
-                "W"
-              ],
-              "type": "Creature — Human Cleric"
             }
           ]
         },
@@ -67,20 +28,14 @@
           "nameDeck": "Black Banana",
           "cards": [
             {
-              "id": "5da5714b-e031-5563-bfec-2c6512d4b303",
-              "nameCard": "Molten Slagheap",
-              "cmc": "0",
-              "colorIdentity": "B,R",
-              "type": "Land"
-            },
-            {
-              "id": "8ac972b5-9f6e-5cc8-91c3-b9a40a98232e",
-              "nameCard": "Aven Cloudchaser",
-              "cmc": 4,
+              "id": "0f75e5f5-ff7d-5f10-bdfc-483edb46d7e3",
+              "nameCard": "Fireblade Artist",
+              "cmc": 2,
               "colorIdentity": [
-                "W"
+                "B",
+                "R"
               ],
-              "type": "Creature — Bird Soldier"
+              "type": "Creature — Human Shaman"
             },
             {
               "id": "62365fbb-af07-5c2a-976d-e3092bdfc317",
@@ -92,31 +47,49 @@
               "type": "Creature — Human Knight"
             },
             {
-              "id": "546eac7c-1424-597d-ac13-bf8558e88fe3",
-              "nameCard": "Glorious Anthem",
-              "cmc": 3,
-              "colorIdentity": [
-                "W"
-              ],
-              "type": "Enchantment"
-            },
-            {
-              "id": "9bee1901-1125-5635-9e22-3b4f37989c37",
-              "nameCard": "Honor Guard",
+              "id": "6d268c95-c176-5766-9a46-c14f739aba1c",
+              "nameCard": "Bandage",
               "cmc": 1,
               "colorIdentity": [
                 "W"
               ],
-              "type": "Creature — Human Soldier"
+              "type": "Instant"
             },
             {
-              "id": "26fc6830-a092-5e24-9b58-97f4c38f3e7c",
-              "nameCard": "Pacifism",
+              "id": "fadda48c-6226-5ac5-a2b9-e9170d2017cd",
+              "nameCard": "Angelic Wall",
               "cmc": 2,
               "colorIdentity": [
                 "W"
               ],
+              "type": "Creature — Wall"
+            },
+            {
+              "id": "39b50224-8305-56dd-9849-09deecb07d20",
+              "nameCard": "Reviving Dose",
+              "cmc": 3,
+              "colorIdentity": [
+                "W"
+              ],
+              "type": "Instant"
+            },
+            {
+              "id": "36fcaa1e-64e3-56e3-950c-907db167e41f",
+              "nameCard": "Heart of Light",
+              "cmc": 3,
+              "colorIdentity": [
+                "W"
+              ],
               "type": "Enchantment — Aura"
+            },
+            {
+              "id": "39b50224-8305-56dd-9849-09deecb07d20",
+              "nameCard": "Reviving Dose",
+              "cmc": 3,
+              "colorIdentity": [
+                "W"
+              ],
+              "type": "Instant"
             }
           ]
         }

@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DeckShowComponent } from './deck-show.component';
+import { PhotoUserComponent } from './photo-user.component';
 
-describe('DeckShowComponent', () => {
-  let component: DeckShowComponent;
-  let fixture: ComponentFixture<DeckShowComponent>;
+describe('PhotoUserComponent', () => {
+  let component: PhotoUserComponent;
+  let fixture: ComponentFixture<PhotoUserComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [DeckShowComponent]
+      declarations: [PhotoUserComponent]
     });
-    fixture = TestBed.createComponent(DeckShowComponent);
+    fixture = TestBed.createComponent(PhotoUserComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

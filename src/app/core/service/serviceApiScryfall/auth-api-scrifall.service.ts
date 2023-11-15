@@ -71,11 +71,10 @@ export class AuthApiScrifallService {
     let data: any;
     try{
       data = await lastValueFrom(this.apiScryfallService.getCardByIdentifier(id));
-      console.log(data.cards);
     }catch(error){
       console.log(error);
     }
-    return data.cards;
+    return data.cards[0];
   }
 
 }
