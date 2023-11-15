@@ -50,6 +50,15 @@
                 "W"
               ],
               "type": "Enchantment — Aura"
+            },
+            {
+              "id": "5f8287b1-5bb6-5f4c-ad17-316a40d5bb0c",
+              "nameCard": "Ancestor's Chosen",
+              "cmc": 7,
+              "colorIdentity": [
+                "W"
+              ],
+              "type": "Creature — Human Cleric"
             }
           ]
         },

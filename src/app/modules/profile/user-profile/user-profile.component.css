@@ -229,56 +229,9 @@ varbutton:hover{
  }
 
 
-  .deckContainer{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 10%;
-  margin-bottom: 20px;
-  left: 50%; /* Center the container horizontally */
-  top: 50%; /* Center the container vertically */
-  transform: translateX(35%);
-  padding: 20px;
-  border-radius: 10px;
-  background-color: #373737;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
-  width: 60%;
-  bottom: 10px;
+  
 
 
- }
-
-
- .decks{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  background-color: rgb(255, 255, 255);
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
-  width: 90%;
-  height: 100%;
-  max-width: 100%;
-  margin: 5px;
-  padding: 5px;
-  text-overflow: ellipsis;
-  transition: 0.2s ease-in-out;
-  padding: 5px;
-  margin: 5px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-left: 10px;
-  margin-right: 10px;
-  cursor: pointer;
-  border: none;
-  border-radius: 5px;
-  box-shadow: 0 3px 0 #888; /* Top shadow */
-  color: #000000;
-  transition: background-color 0.3s, box-shadow 0.3s;
-  overflow-x: scroll;
- } 
 
 
 img{
@@ -287,80 +240,4 @@ img{
   border-radius: 10px;
 }
 
- .CardContainer{
-  display: flex;
-  padding:5px;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
 
-
-}
-.decks::-webkit-scrollbar{
-  width: 6px;
-}
-.decks::-webkit-scrollbar-thumb{
-  background-color: #a0a0a0;
-  border-radius: 4px;
-}
-.decks::-webkit-scrollbar-track{
-  background-color: #f0f0f0;
-
-}
-
-.nameCard{
-  margin-top: 0%;
-  background-color: rgb(255, 255, 255);
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
-  margin-bottom: 10px;
-  padding: 10px;
-  text-align: center;
-  width: auto;
-
-  align-self: center;
-  font-size: small;
-
-}
-.nameDeck{
-  background-color: rgb(255, 255, 255);
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
- margin-bottom: 10px;
-  padding: 10px;
-  text-align: center;
-  width: auto;
-  top: 10px;
-
-
-} 
-.nameDeck{
-  background-color: rgb(255, 255, 255);
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
-
-  padding: 10px;
-  text-align: center;
-  width: auto;
-  top: 10px;
-
-
-} 
-
-.allmazosContainer{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 10%;
-  margin-bottom: 20px;
-  left: 50%; /* Center the container horizontally */
-  top: 50%; /* Center the container vertically */
-  transform: translateX(35%);
-  padding: 20px;
-  border-radius: 10px;
-  background-color: #e8e8e8;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
-  width: 60%;
-  bottom: 10px;
-}

@@ -27,7 +27,7 @@ export class ApiScryfallService {
   }
 
   public getCardByIdentifier(identifier: string): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/cards/${identifier}`)
+    return this.http.get<any>(`${this.apiUrl}/cards?id=${identifier}`)
   }
   
 

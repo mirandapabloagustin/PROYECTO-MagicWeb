@@ -43,25 +43,14 @@
 
   </div>
 
+    <div>
+      <h1>Mazos</h1>
+      <app-deck-show *ngFor="let deck of user?.decks"  [cardsDeckUser]="deck"></app-deck-show>
+    </div>
 
-  <div class="container">
-    <p class="nameDeck">Mis Mazos</p>
-  </div>
 
 
 
-  <div class="deckContainer" *ngFor="let item of user?.decks"> 
-    <!-- LLAMNAR AL COMPONENTE Y A TRAVEZ DE UN INPUT ENVIAR LA DATA DE LA CARTA -->
-    <p class="nameDeck">{{item.nameDeck}}</p>
-    <div class="decks" >
-      <div class="CardContainer"*ngFor="let carta of item.cards">
-      <p class="nameCard">{{carta.nameCard}}</p>
-      <img  src="https://i.pinimg.com/564x/ff/56/55/ff565546b828b77a2ec84e61d3f0eb86.jpg" alt="hyunjinnie">
-      </div>
-     
-   </div>
-      
-  </div>
 
 
 
