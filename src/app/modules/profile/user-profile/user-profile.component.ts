@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/core/Models';
-import { Card } from 'src/app/core/Models';
+import { MatDialog } from '@angular/material/dialog';
+import { DeckCard,Card, User } from 'src/app/core/Models';
 import { AuthTareaService } from 'src/app/core/service/auth-tarea.service';
-import { AuthApiScrifallService } from 'src/app/core/service/serviceApiScryfall/auth-api-scrifall.service';
+import { PhotoUserComponent } from '../photo-user/photo-user.component';
 
 @Component({
   selector: 'app-user-profile',
@@ -16,38 +16,16 @@ export class UserProfileComponent implements OnInit {
   pathimg: string = 'srcassetscard-door-to-nothingness.jpg';
   isPasswordHidden = true;
 
+
   constructor(
-    private authTareaService: AuthTareaService,
-    private authApiScryfallService: AuthApiScrifallService
-  ) {}
+    private dialog: MatDialog,
+    private authTareaService: AuthTareaService
+    ) { }
 
   ngOnInit(): void {
     //recuperamos el usuario logueado desde el servicio
     this.user = this.authTareaService.getCurrentUser();
   }
-
-  // hidePassword (id: string) {
-  //   var password = document.getElementById(id);
-  //   password?.classList.add("hidden");
-
-  //   // ANOTACION! SI EL USUARIO CAMBIA DE PAGINA SIEMPRE TIENE QUE GUARDAR CAMBIOS
-
-  // }
-
-  // viewPassword (id: string) {
-  //   var password = document.getElementById(id);
-  //   password?.classList.remove("hidden");
-  // }
-
-  // togglePassword (id: string) {
-  //   var password = document.getElementById(id);
-  //   if(password?.classList.contains("hidden")){
-  //     password?.classList.remove("hidden");
-  //   }else{
-  //     password?.classList.add("hidden");
-  //   }
-
-  // }
 
   togglePassword() {
     this.isPasswordHidden = !this.isPasswordHidden;
@@ -57,9 +35,50 @@ export class UserProfileComponent implements OnInit {
     return password ? '•'.repeat(password.length) : '';
   }
 
- obtenerImagenCarta(id: string) {
-   let carta = this.authApiScryfallService.getCardByIdentifier(id);
-   console.log(carta);
-   
+  public changeProfilePhoto(){
+    var _popup = this.dialog.open(PhotoUserComponent, {
+      panelClass: 'img-container',
+      width: 'max-content',
+      height: '250px',
+      data: this.user
+    });
+
+    _popup.afterClosed().subscribe(item => {
+      console.log(item);
+    })
+    this.authTareaService.updateUser(this.user!);
+    this.authTareaService.userChaceUpdate(this.user!);
+
   }
+
+  public addDeckUser() {
+    let newDeck: DeckCard = {
+      id: this.user?.decks?.length! + 1,
+      nameDeck: 'New Deck '+ (this.user?.decks?.length! + 1),
+      cards: []
+    }
+    this.user?.decks?.push(newDeck);
+    this.authTareaService.updateUser(this.user!);
+    this.authTareaService.userChaceUpdate(this.user!);
+  }
+
+  public deleteDeck(deckToDelete: any) {
+    const index = this.user?.decks?.findIndex(deck => deck.id === deckToDelete.id);
+    if (index !== -1) {
+      this.user?.decks?.splice(index!, 1);
+      this.authTareaService.updateUser(this.user!);
+      this.authTareaService.userChaceUpdate(this.user!);
+    }
+  }
+
+  public updateDeck(deckToUpdate: any) {
+    const index = this.user?.decks?.findIndex(deck => deck.id === deckToUpdate.id);
+    if (index !== -1) {
+      this.user?.decks?.splice(index!, 1, deckToUpdate);
+      this.authTareaService.updateUser(this.user!);
+      this.authTareaService.userChaceUpdate(this.user!);
+    }
+  }
+  
+
 }

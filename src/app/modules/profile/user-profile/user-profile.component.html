@@ -1,18 +1,16 @@
 <app-header></app-header>
-
+<div class="background-container">
+  
+  <h2 class="tittle-info-show">Infomacion Usuario</h2>
   <div class="container">
     <div class="profilecard">
-
+      
       <div class="profilecardbody">
         <div class="sidebar">
           <img src="{{user?.imagUser}}" alt="hyunjinnie">
-
+          <button class="button" (click)="changeProfilePhoto()">Cambiar</button>
+          
         </div>
-
-
-
-
-
         <div class="dataBox">
           <div class="namedecor">
             <p id="name">{{user?.nickName}}</p>
@@ -27,56 +25,31 @@
               <p>NICK</p>
               <p id="nick">{{user?.nickName}}</p>
             </div>
-            <div class="Passbox">
-              <p>Password</p>
-              <p id="pass" class="password" [ngClass]="{ 'hidden': isPasswordHidden }">
-                {{ isPasswordHidden ? hidePasswordText(user?.password!) : user?.password }}
             
-              </p>
-            </div>
-
           </div>
           <div class="buttoncontainer">
-            <button class="verbutton">Editar</button>
-            <button class="verbutton">Eliminar</button>
-            <button class="verbutton" (click)="togglePassword()">Mostrar</button>
+            <button class="button">Editar</button>
+            <button class="button">Eliminar</button>
             
-
           </div>
-
+          
         </div>
       </div>
-
-
-    </div>
-
-  </div>
-
-
-  <div class="container">
-    <p class="nameDeck">Mis Mazos</p>
-  </div>
-
-
-
-  <div class="deckContainer" *ngFor="let item of user?.decks"> 
-    <!-- LLAMNAR AL COMPONENTE Y A TRAVEZ DE UN INPUT ENVIAR LA DATA DE LA CARTA -->
-    <p class="nameDeck">{{item.nameDeck}}</p>
-    <div class="decks" >
-      <div class="CardContainer"*ngFor="let carta of item.cards">
-      <p class="nameCard">{{carta.nameCard}}</p>
-      <img  [src]="" alt="hyunjinnie">
-      </div>
-     
-   </div>
       
+      
+    </div>
+    
   </div>
 
+  <div class="container-decks">
 
+        <h2 class="tittle-deck-show">Mazos</h2>
 
-
-
-
-
+    <app-deck-show *ngFor="let deck of user?.decks"  [cardsDeckUser]="deck"
+    (deleteUserDeck)="deleteDeck($event)"
+    (updateDataDeck)="updateDeck($event)"></app-deck-show>
+    <button class="add-deck-button" (click)="addDeckUser()">+</button>
+  </div>
+</div>
 
 <app-footer></app-footer>

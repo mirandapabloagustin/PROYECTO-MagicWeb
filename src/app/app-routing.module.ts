@@ -21,8 +21,7 @@ const routes: Routes = [
   },
   {
     path:'aterrizaje',
-   
-    loadChildren: () => import('./modules/profile/profile.module').then(m => m.ProfileModule) //importo modulo aterrizaje
+    loadChildren: () => import('./modules/aterrizaje/aterrizaje.module').then(m => m.AterrizajeModule) //importo modulo aterrizaje
   },
 
   {

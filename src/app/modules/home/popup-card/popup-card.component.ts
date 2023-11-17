@@ -45,6 +45,7 @@ export class PopupCardComponent implements OnInit {
   //@return: void
   //This method add card to the deck of the user
   public sendToDeckUser(){
+    this.userUpdated();
     if(this.userDeck?.decks?.length! > 0){
       this.userDeck?.decks?.forEach((deck) => {
         if(deck.id?.toString() == this.deckSelected){

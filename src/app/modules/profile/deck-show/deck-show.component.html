@@ -1,0 +1,38 @@
+<div class="background-container">
+    <div class="deck-element-container">
+        <div class="nav-top-deck">
+
+            <div class="sub-nav">
+
+                <ng-container *ngIf="!editingName; else editMode">
+                    <h1 class="tittle-deck">{{ cardsDeckUser?.nameDeck }}</h1>
+                    <button class="edit-deck" (click)="startEditing()">Editar</button>
+                </ng-container>
+                
+
+                <ng-template #editMode>
+                    <input class="input-edit" [(ngModel)]="editedName" placeholder="Nuevo nombre" />
+                    <button class="save-deck" (click)="saveName()">Guardar</button>
+                </ng-template>
+            </div>
+            <button class="delete-deck" (click)="deleteDeck()">X</button>
+        </div>
+
+        <div *ngIf="deckCard.length > 0; else agregarCartas">
+            
+            <div class="container-cards">
+                <div class="card" *ngFor="let card of deckCard">
+                    <img class="img-card-deck" src={{card.imageUrl}} alt="img-carta">
+                    <button class="delete-card" (click)="deleteCartToDeck(card)" >x</button>
+                </div>
+            </div>
+        </div>
+            <ng-template #agregarCartas>
+                <div class="add-card-container">
+                    <h2 class="tittle-add-cards">Agregar Cartas</h2>
+                    <button class="add-card" (click)="addCards()">+</button>
+                </div>
+            </ng-template>
+                
+    </div>
+</div>
