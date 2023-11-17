@@ -2,41 +2,19 @@
   "users": [
     {
       "id": 1,
-      "nickName": "PapitasConCheddar",
+      "nameUser": "Pablo Agustin",
+      "surName": "Miranda",
+      "birthDate": "1995-10-10",
+      "nickName": "Papitas",
       "email": "papitas@gmail.com",
       "password": "1234",
-      "imagUser": "assets/iconUsers/vorthos-user.jpg",
-      "description": "Hola soy PapitasConCheddar y me gusta jugar magic",
+      "imagUser": "assets/iconUsers/spyke-user.jpg",
+      "description": "Hola soy agustin el mejor jugador de magic",
       "decks": [
         {
           "id": 1,
-          "nameDeck": "Wizards",
+          "nameDeck": "Nico se la come",
           "cards": [
-            {
-              "id": "546eac7c-1424-597d-ac13-bf8558e88fe3",
-              "nameCard": "Glorious Anthem",
-              "cmc": 3,
-              "colorIdentity": [
-                "W"
-              ],
-              "type": "Enchantment"
-            }
-          ]
-        },
-        {
-          "id": 2,
-          "nameDeck": "Black Banana",
-          "cards": [
-            {
-              "id": "0f75e5f5-ff7d-5f10-bdfc-483edb46d7e3",
-              "nameCard": "Fireblade Artist",
-              "cmc": 2,
-              "colorIdentity": [
-                "B",
-                "R"
-              ],
-              "type": "Creature — Human Shaman"
-            },
             {
               "id": "62365fbb-af07-5c2a-976d-e3092bdfc317",
               "nameCard": "Benalish Knight",
@@ -47,45 +25,108 @@
               "type": "Creature — Human Knight"
             },
             {
-              "id": "6d268c95-c176-5766-9a46-c14f739aba1c",
-              "nameCard": "Bandage",
+              "id": "668c64a2-cecb-5f48-af16-d7a64814d3e7",
+              "nameCard": "Field Marshal",
+              "cmc": 3,
+              "colorIdentity": [
+                "W"
+              ],
+              "type": "Creature — Human Soldier"
+            },
+            {
+              "id": "fac6ad26-f8c2-51bd-9f6a-a1b0940b4cef",
+              "nameCard": "Aura of Silence",
+              "cmc": 3,
+              "colorIdentity": [
+                "W"
+              ],
+              "type": "Enchantment"
+            },
+            {
+              "id": "60f49caf-3583-5f85-b4b3-08dca73a8628",
+              "nameCard": "High Ground",
+              "cmc": 1,
+              "colorIdentity": [
+                "W"
+              ],
+              "type": "Enchantment"
+            },
+            {
+              "id": "02e23fa1-b2f0-528c-b331-12a0c27bc5eb",
+              "nameCard": "Holy Day",
               "cmc": 1,
               "colorIdentity": [
                 "W"
               ],
               "type": "Instant"
-            },
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "nameDeck": "Only cats Moly",
+          "cards": [
             {
-              "id": "fadda48c-6226-5ac5-a2b9-e9170d2017cd",
-              "nameCard": "Angelic Wall",
-              "cmc": 2,
+              "id": "468247f2-12aa-56fb-9144-9a6127ab9120",
+              "nameCard": "Pardic Firecat",
+              "cmc": 4,
               "colorIdentity": [
-                "W"
+                "R"
               ],
-              "type": "Creature — Wall"
+              "type": "Creature — Elemental Cat"
             },
             {
-              "id": "39b50224-8305-56dd-9849-09deecb07d20",
-              "nameCard": "Reviving Dose",
+              "id": "2ec7c905-3180-5130-8eb6-c893b4ef4262",
+              "nameCard": "Wirecat",
+              "cmc": 4,
+              "type": "Artifact Creature — Cat"
+            },
+            {
+              "id": "21edc41a-e830-58d0-80b5-85eabe32d0d7",
+              "nameCard": "Mirri, Cat Warrior",
+              "cmc": 3,
+              "colorIdentity": [
+                "G"
+              ],
+              "type": "Legendary Creature — Cat Warrior"
+            },
+            {
+              "id": "965d04c8-d5ae-5f25-8a58-7b13dbbb04c0",
+              "nameCard": "Cat Warriors",
+              "cmc": 3,
+              "colorIdentity": [
+                "G"
+              ],
+              "type": "Creature — Cat Warrior"
+            },
+            {
+              "id": "fa770156-9edf-5018-aa54-9c1b574acb48",
+              "nameCard": "Graceful Cat",
               "cmc": 3,
               "colorIdentity": [
                 "W"
               ],
-              "type": "Instant"
+              "type": "Creature — Cat"
             },
             {
-              "id": "36fcaa1e-64e3-56e3-950c-907db167e41f",
-              "nameCard": "Heart of Light",
+              "id": "91496316-74be-5a0b-b418-e7d45e467274",
+              "nameCard": "Falthis, Shadowcat Familiar",
               "cmc": 3,
               "colorIdentity": [
-                "W"
+                "B"
               ],
-              "type": "Enchantment — Aura"
-            },
+              "type": "Legendary Creature — Nightmare Cat"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "nameDeck": "Mazo del Pelado Solitario",
+          "cards": [
             {
-              "id": "39b50224-8305-56dd-9849-09deecb07d20",
-              "nameCard": "Reviving Dose",
-              "cmc": 3,
+              "id": "7fef665c-36a1-5f7a-9299-cf8938708710",
+              "nameCard": "Condemn",
+              "cmc": 1,
               "colorIdentity": [
                 "W"
               ],
@@ -97,6 +138,9 @@
     },
     {
       "id": 2,
+      "nameUser": "joaquin",
+      "surName": "Miranda",
+      "birthDate": "2002-1-11",
       "nickName": "Telescopio",
       "email": "chetos@gmail.com",
       "password": "1234",
@@ -198,6 +242,18 @@
           ]
         }
       ]
+    },
+    {
+      "id": 4,
+      "nameUser": "German",
+      "surName": "Bermudez",
+      "birthDate": "",
+      "nickName": "Germi-chan",
+      "email": "germu@gmail.com",
+      "password": "1234",
+      "imagUser": "assets/iconUsers/tommy-user.jpg",
+      "description": "El mejor jugador de CS2 vino a culearse a los de magic",
+      "decks": []
     }
   ]
 }

@@ -4,11 +4,11 @@
 
         <div mat-dialog-content class="custom-popup-content">
 
-            <img class="img-card-popUp" [src]="dataComponent.imageUrl" alt="imagen.card">
+            <img class="img-card-popUp" [src]="dataCard.imageUrl" alt="imagen.card">
             
             <mat-accordion class="info-card-container">
 
-                    <h2>{{dataComponent.name}}</h2> 
+                    <h2>{{dataCard.name}}</h2> 
 
                     <mat-expansion-panel hideToggle class="expansion-panel">
                         <mat-expansion-panel-header>
@@ -16,7 +16,7 @@
                                 Mana:
                             </mat-panel-title>
                             <mat-panel-description>
-                                {{dataComponent.manaCost}}
+                                {{dataCard.manaCost}}
                             </mat-panel-description>
                         </mat-expansion-panel-header>
                         <p>El mana el es principal recurso del juego, es producido por las tirras y lo usas para invocar.</p>
@@ -28,10 +28,10 @@
                             Tipo:
                         </mat-panel-title>
                         <mat-panel-description>
-                            {{dataComponent.type}}
+                            {{dataCard.type}}
                         </mat-panel-description>
                     </mat-expansion-panel-header>
-                    <p>Sub tipo : {{dataComponent.subtypes}}</p>
+                    <p>Sub tipo : {{dataCard.subtypes}}</p>
                     <p>Indica el tipo de carta y si pertenece a mas de un tipo.</p>
                 </mat-expansion-panel>
 
@@ -44,7 +44,7 @@
                             Habilidad
                         </mat-panel-description>
                     </mat-expansion-panel-header>
-                    <p>{{dataComponent.text}}</p>
+                    <p>{{dataCard.text}}</p>
                 </mat-expansion-panel>
 
 
@@ -54,7 +54,7 @@
 
         <div mat-dialog-actions class="popup-container-buttons">
             <select name="deck-user-select" id="deck-user-select" [(ngModel)]="deckSelected">
-                <option class="item-select" *ngFor="let deck of userDeck?.decks" value="{{deck.id}}">{{deck.nameDeck}}</option>
+                <option class="item-select" *ngFor="let deck of user?.decks" value="{{deck.nameDeck}}">{{deck.nameDeck}}</option>
             </select>
             <button mat-raised-button [mat-dialog-close]="closemessage" class="button-popup"  (click)="sendToDeckUser()">Agregar a Mazo </button>
             <button (click)="closepopup()" mat-raised-button class="button-popup">Cerrar</button>

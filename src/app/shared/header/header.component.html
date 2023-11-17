@@ -17,8 +17,6 @@
       <li class="items-selector"><a class="redirecction-links"
           (click)="scrollToSection('reglas',['appInfo','devInfo','about'])"><fa-icon
             [icon]="icon5"></fa-icon>Reglas!</a></li>
-      <li class="items-selector"><a class="redirecction-links" href="#"><fa-icon [icon]="icon4"></fa-icon>Contacto!</a>
-      </li>
       <li class="items-selector"><a class="redirecction-links" (click)="goToLogin()"><fa-icon
             [icon]="icon3"></fa-icon>Iniciar Sesion!</a></li>
     </ul>
@@ -38,7 +36,7 @@
             [icon]="icon4"></fa-icon>Glosario de Cartas</a>
 
       <li id="item-selector-profile">
-        <a class="redirecction-links" (click)="goToProfile()">
+        <a class="redirecction-links" (click)="goToProfile()"><fa-icon [icon]="icon"></fa-icon>
           {{user?.nickName}}
         </a>
       </li>

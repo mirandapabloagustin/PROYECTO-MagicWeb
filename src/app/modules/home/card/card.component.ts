@@ -22,7 +22,6 @@ export class CardComponent implements OnInit {
 
 
   async ngOnInit(): Promise<void> {
-    this.userLogin = this.authTareaService.getCurrentUser();
   }
 
 
@@ -33,7 +32,7 @@ export class CardComponent implements OnInit {
       width: '700px',
       enterAnimationDuration: '500ms',
       exitAnimationDuration: '500ms',
-      data: [this.cartaComponente, this.userLogin]
+      data: this.cartaComponente
     });
 
     _popup.afterClosed().subscribe(item => {
@@ -41,4 +40,7 @@ export class CardComponent implements OnInit {
     })
 
   }
+
+
+
 }

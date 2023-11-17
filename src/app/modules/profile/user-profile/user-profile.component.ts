@@ -15,6 +15,15 @@ export class UserProfileComponent implements OnInit {
   cards: Card[] | undefined;
   pathimg: string = 'srcassetscard-door-to-nothingness.jpg';
   isPasswordHidden = true;
+  editingProfile: boolean = false;
+  
+  editedNickName : string = '';
+  editedDescription: string = '';
+  editedName : string = '';
+  editedSurName : string = '';
+  editedEmail : string = '';
+  editedPassword : string = '';
+
 
 
   constructor(
@@ -79,6 +88,28 @@ export class UserProfileComponent implements OnInit {
       this.authTareaService.userChaceUpdate(this.user!);
     }
   }
+
+  public editUserProfile() {
+    this.editedNickName = this.user?.nickName || '';
+    this.editedDescription = this.user?.description || '';
+    this.editedName = this.user?.nameUser || '';
+    this.editedSurName = this.user?.surName || '';
+    this.editedEmail = this.user?.email || '';
+    this.editedPassword = this.user?.password || '';
+    this.editingProfile = true;
+  }
   
+
+  saveProfile() {
+    (this.editedNickName !== '') ? this.user!.nickName = this.editedNickName : this.user?.nickName;
+    (this.editedDescription !== '') ? this.user!.description = this.editedDescription : this.user?.description;
+    (this.editedName !== '') ? this.user!.nameUser = this.editedName : this.user?.nameUser;
+    (this.editedSurName !== '') ? this.user!.surName = this.editedSurName : this.user?.surName;
+    (this.editedEmail !== '') ? this.user!.email = this.editedEmail : this.user?.email;
+    (this.editedPassword !== '') ? this.user!.password = this.editedPassword : this.user?.password;
+    this.editingProfile = false;
+    this.authTareaService.updateUser(this.user!);
+    this.authTareaService.userChaceUpdate(this.user!);
+  }
 
 }

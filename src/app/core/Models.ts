@@ -32,6 +32,9 @@ export class DeckCard implements IdeckCard {
 
 export class User implements Iuser {
     id: number | null;
+    nameUser: string | null;
+    surName: string | null;
+    birthDate: string | null;
     nickName: string | null;
     email: string | null;
     password: string | null;
@@ -42,6 +45,9 @@ export class User implements Iuser {
 
     constructor(user?: Iuser) {
         this.id = user?.id == undefined ? null : user.id;
+        this.nameUser = user?.nameUser == undefined ? '' : user.nameUser;
+        this.surName = user?.surName == undefined ? '' : user.surName;
+        this.birthDate = user?.birthDate == undefined ? '' : user.birthDate;
         this.nickName = user?.nickName == undefined ? '' : user.nickName;
         this.email = user?.email == undefined ? '' : user.email;
         this.password = user?.password == undefined ? '' : user.password;

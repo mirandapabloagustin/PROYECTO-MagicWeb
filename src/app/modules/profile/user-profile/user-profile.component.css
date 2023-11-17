@@ -1,20 +1,11 @@
-.container {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    left: 50%; /* Center the container horizontally */
-    top: 50%; /* Center the container vertically */
-    transform: translateX(35%);
-    padding: 20px;
-    border-radius: 10px;
-    background-color: #373737;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
-    width: 60%;
-   
-    bottom: 10px;
+.background-container{
+  background-image: url('src/assets/background-home-page-1.jpg');
+  background-size: cover;
+  position: relative;
 
-    
-
- 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .tittle-info-show{
@@ -32,231 +23,122 @@
   padding: 10px;
 }
 
-.background-container{
-    background-image: url('src/assets/background-home-page-1.jpg');
-    background-size: cover;
-    position: relative;
+.background-profile-container {
+  margin-top: 30px;
+  margin-left: 100px;
+  margin-right: 100px;
+  background-color: rgb(46, 46, 46);
+  box-shadow: rgb(201, 201, 201) 0px 0px 10px;
+  border-radius: 15px;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-   
+
 }
 
-.profilecard {
+.backgroun-profile{
+  margin: 30px 10px 10px 10px;
+  padding: 10px;
+  background-color: rgb(218, 218, 218);
+  border-radius: 0px 0px 15px 15px;
+}
+
+.profile-container {
+  margin: 30px 10px 10px 10px;
+  padding: 10px;
+  background-color: rgb(218, 218, 218);
+  border-radius: 0px 0px 15px 15px;
+  display: flex;
+}
+
+
+.img-profile-container{
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  background-color: rgb(46, 46, 46);
+  width: 500px;
+  height: 500px;
+  border-radius: 15px;  
+}
+
+.profile-img{
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.profile-info{
+  width: 58%;
+  margin: 30px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  background-color: rgb(255, 255, 255);
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
-  width: 100%;
-  height: 100%;
-}
-.profilecardbody {
-  display: flex;
-  flex-direction: row;
-  height: 100%;
- margin: 5px;
- 
+  align-items: start;
 }
 
-.navbar {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  background-color: #ffffff;
-  height: 50px;
-  width: 100%;
-  border-radius: 10px, 10px, 0px, 0px;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+.tittle-profile{
+  font-size: 50px;
+  font-weight: bold;
 }
 
-.navbar ul {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  list-style: none;
-  padding: 0;
-  margin: 10px;
-}
-.navbar ul li {
-  padding: 10px;
-  margin: 10px;
-  position: static;
-  list-style: none;
-}
-.navbar ul li a {
-  color: #864f4f;
-  text-decoration: none;
-  /* width: fit-content; */
-  padding: 5px;
-}
-.navbar ul li a:hover {
-  background-color: #864f4f;
-  color: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
-  transition: 0.2s ease-in-out;
-  padding: 5px;
-}
-
-.logo img {
-  max-height: 100%;
-  border-radius: 10px;
-}
-
-.sidebar {
-  left: 0;
-  margin-top:5%;
-  align-items: left;
-  max-height: 100%;
-  background-color: #ffffff;
-  max-width: 100%;
-  min-width: 30%;
- 
-
-}
-
-.sidebar img{
-   
-    max-width: 243px;
-    max-height: 202px;
-    border-radius: 10px;
-    
-}
-
-
-
-
-
-.textbox {
-  
-  background-color: #ffffff;
-  padding: 30px;
-  font-family: nunito-regular;
-  font-size: 20px;
-  height: 50%;
-  border-radius: 10px;
-  margin: 5px;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
-  justify-content: space-evenly;
-}
-
-
-.namedecor {
-    margin-top: 0%;
-  background-color: rgb(255, 255, 255);
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
-  font-size: large;
-
-    margin-bottom: 10px;
-  padding: 10px;
-  text-align: center;
-  width: 50%;
-  margin-left: 22%;
-  align-self: flex-start;
-}
- .emailbox{
-    padding: 5px;
-    margin: 5px;
-    display: flex;
-    flex-direction: row;
-     background-color: rgb(255, 255, 255);
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
-
- }
- .emailbox p{margin: 5px;
-    padding: 5px;
-   
- }
- .Nickbox { 
-    margin:5;
-    padding: 5px;
- 
-    display: flex;
-    flex-direction: row;
-    
-    background-color: rgb(255, 255, 255);
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
-
- }
-
- .Nickbox p{margin: 5px;
-    padding: 5px;
-  
- }
-
- 
- .Passbox { 
-  margin:5;
-  padding: 5px;
-
-  display: flex;
-  flex-direction: row;
-  
-  background-color: rgb(255, 255, 255);
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
-
-}
-
-.Passbox p{margin: 5px;
-  padding: 5px;
-
-
-}
-.hidden{
-  -webkit-text-security: disc;
-}
-
-.verbutton{
-
-  padding: 10px 10px;
+.description-profile{
   font-size: 16px;
-  text-align: center;
-  text-decoration: none;
+  margin-top: 20px;
+}
+
+.item-info{
+  margin: 10px 10px 0px 0px;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.show-info-user{
+  font-size: 20px;
+  margin: 10px 10px 10px 0px;
+}
+
+.button-profile-container{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.edit-profile-button{
+  margin : 10px;
+  font-size: 2em;
+  background-color: rgb(89, 165, 252);
+  color: black;
+  border: 3px solid rgb(46, 46, 46);
+  border-radius: 10px;
   cursor: pointer;
-  border: none;
-  border-radius: 5px;
-  box-shadow: 0 3px 0 #888; /* Top shadow */
-  background-color: #3498db;
-  color: #ffffff;
-  transition: background-color 0.3s, box-shadow 0.3s;
-  
+  transition: background-color 0.3s ease;
 }
 
-.varbutton:hover{
-  background-color: #297fb8;
-  box-shadow: 0 2px 0 #555; /* Top shadow on hover */
+.edit-profile-button:hover{
+  background-color: rgb(10, 124, 255);
 }
-.verbutton:active {
-  box-shadow: 0 1px 0 #555; /* Top shadow on click */
-  transform: translateY(1px); /* Simulate pressing effect */
+
+.low-account-button{
+  margin : 10px;
+  font-size: 2em;
+  background-color: rgb(255, 108, 108);
+  color: rgb(255, 255, 255);
+  border: 3px solid rgb(46, 46, 46);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
- .buttoncontainer{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    max-width: 100%;
- }
 
-
-  
-
+.low-account-button:hover {
+  background-color: rgb(250, 59, 59);
+}
 
 
 
 img{
-  width: 200px;
-  height: 250px;
+  width: 100%;
+  height: 100%;
   border-radius: 10px;
+  
 }
 
 .container-decks{
@@ -297,9 +179,8 @@ img{
 
 
 .add-deck-button{
-  margin-top: 40px;
-  margin-left: 500px;
-  margin-right: auto;
+  margin : 30px;
+  margin-left:50%;
   font-size: 2em;
   padding: 10px 20px;
   background-color: rgb(218, 218, 218);

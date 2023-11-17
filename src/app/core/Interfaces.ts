@@ -16,6 +16,9 @@ export interface IdeckCard {
 
 export interface Iuser {
   id: number | null;
+  nameUser: string | null;
+  surName: string | null;
+  birthDate: string | null;
   nickName: string | null;
   email: string | null;
   password: string | null;

@@ -35,7 +35,6 @@ export class HeaderComponent implements OnInit{
 
     ngOnInit(): void {
       this.userLoggedIn = this.authTareaService.checkUserLogin();
-      console.log(this.userLoggedIn);
       this.user = this.authTareaService.getCurrentUser();
     }
 
@@ -73,7 +72,6 @@ export class HeaderComponent implements OnInit{
 
 logOut(){
   let user: User | undefined = this.authTareaService.getCurrentUser();
-  console.log(user);
   this.authTareaService.logoutUser()
   this.userLoggedIn = this.authTareaService.checkUserLogin();
   this.enrutamiento.navigate(['aterrizaje']);
