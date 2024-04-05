@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { Error404Component } from './shared/error404/error404.component';
 import { authguardGuard } from './core/service/guards/authguard.guard';
-import { ProfileModule } from './modules/profile/profile.module';
 
 const routes: Routes = [
   {
@@ -23,10 +22,13 @@ const routes: Routes = [
     path:'aterrizaje',
     loadChildren: () => import('./modules/aterrizaje/aterrizaje.module').then(m => m.AterrizajeModule) //importo modulo aterrizaje
   },
-
+  {
+    path:'landing',
+    loadChildren: () => import('./modules/landing/landing.module').then(m => m.LandingModule) //importo modulo landing
+  },
   {
     path:'',
-    redirectTo: 'aterrizaje',
+    redirectTo: 'landing',
     pathMatch: 'full'
   },
 

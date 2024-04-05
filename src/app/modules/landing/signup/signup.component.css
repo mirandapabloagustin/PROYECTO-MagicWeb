@@ -1,0 +1,13 @@
+.btn-primary{
+    background-color: #ff5e14;
+    border-color: #ff5e14;
+}
+
+.bg-img{
+    width: 100%;
+    height: 100vh;
+    background-image: url('../../../../assets/sigup.componen.img/magic app.jpg');
+    background-size: cover;
+    background-position: center center;
+}
+

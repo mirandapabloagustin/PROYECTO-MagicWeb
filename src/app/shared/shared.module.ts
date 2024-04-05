@@ -4,6 +4,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { Error404Component } from './error404/error404.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CarrouselComponent } from './carrousel/carrousel.component';
 
 
 
@@ -11,7 +12,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   declarations: [
     FooterComponent,
     HeaderComponent,
-    Error404Component
+    Error404Component,
+    CarrouselComponent
   ],
   imports: [
     CommonModule,
@@ -20,7 +22,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   exports: [
     FooterComponent,
     HeaderComponent,
-    Error404Component
+    Error404Component,
+    CarrouselComponent
   ]
 })
 export class SharedModule { }
