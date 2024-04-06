@@ -1,13 +1,59 @@
-.btn-primary{
-    background-color: #ff5e14;
-    border-color: #ff5e14;
-}
-
-.bg-img{
+@import url('../../../../styles.css');
+.bg-img {
+    position: relative;
     width: 100%;
     height: 100vh;
-    background-image: url('../../../../assets/sigup.componen.img/magic app.jpg');
+    background-image: url('../../../../assets/sigpImgs/sigup-img.png');
     background-size: cover;
     background-position: center center;
+
 }
 
+
+.btn-check-in {
+    position: absolute;
+    bottom: 10rem;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    border: none;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--acid-green);
+    color: #ffffff;
+    font-size: 2.25rem;
+    font-family: 'beleren-small-caps';
+    letter-spacing: 4px;
+    text-align: center;
+    border-radius: 0.5rem;
+}
+
+.btn-check-in:hover {
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5), -1px -1px 2px rgba(255, 255, 255, 0.5), 0px 4px 6px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 7px 15px -3px var(--acid-green-shadow), 0 4px 6px -2px var(--acid-green-shadow);
+}
+
+.title-singup{
+    color: #ffffff;
+    font-size: 5rem;
+    font-family: 'beleren-small-caps';
+    letter-spacing: 12px;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5), -1px -1px 2px rgba(255, 255, 255, 0.5), 0px 4px 6px rgba(255, 255, 255, 0.5);
+}
+
+.sub-title-sinup{
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-family: 'beleren-small-caps';
+    letter-spacing: 4px;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5), -1px -1px 2px rgba(255, 255, 255, 0.5), 0px 4px 6px rgba(255, 255, 255, 0.5);
+
+    position: absolute;
+    top: 57%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+}

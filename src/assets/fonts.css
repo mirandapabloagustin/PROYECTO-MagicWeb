@@ -1,0 +1,61 @@
+
+
+@font-face {
+    font-family:roboto ;
+    src: url(./fonts/RobotoMono-Regular.ttf);
+}
+
+@font-face {
+    font-family:magic ;
+    src: url(./fonts/MAGIC.TTF);
+}
+
+@font-face{
+    font-family:nunito-regular;
+    src: url(./fonts/Nunito-Regular.ttf);
+}
+@font-face {
+    font-family: ubunto-regular;
+    src: url(./fonts/UbuntuMono-Regular.ttf);
+}
+@font-face {
+    font-family: varelaRound;
+    src: url(./fonts/VarelaRound-Regular.ttf);
+}
+
+@font-face {
+    font-family: beleren-bold;
+    src: url(./fonts/Beleren-Bold.ttf);
+}
+
+
+@font-face {
+    font-family: beleren-small-caps;
+    src: url(./fonts/Beleren-Small-Caps.ttf);
+}
+
+
+@font-face {
+    font-family: beleren-bold;
+    src: url(./fonts/Beleren-Bold.ttf);
+}
+
+@font-face {
+    font-family: jace-beleren-bold;
+    src: url(./fonts/JaceBeleren-Bold.ttf);
+}
+
+@font-face {
+    font-family: plantin-bold;
+    src: url(./fonts/MPlantin-Bold.ttf);
+}
+
+@font-face {
+    font-family: plantin-italic;
+    src: url(./fonts/MPlantin-Italic.ttf);
+}
+
+@font-face {
+    font-family: plantin-roman;
+    src: url(./fonts/MPlantin.ttf);
+}
