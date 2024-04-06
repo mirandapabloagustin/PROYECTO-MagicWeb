@@ -6,12 +6,14 @@ import { LandingRoutingModule } from './landing-routing.module';
 import { SignupComponent } from './signup/signup.component';
 import { LandingComponent } from './landing.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { MagicInfoComponent } from './magic-info/magic-info.component';
 
 
 @NgModule({
   declarations: [
     SignupComponent,
-    LandingComponent
+    LandingComponent,
+    MagicInfoComponent
   ],
   imports: [
     CommonModule,

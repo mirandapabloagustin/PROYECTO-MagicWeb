@@ -1,0 +1,15 @@
+.conteiner{
+    background-color: brown;
+    width: 700px;
+    height: 700px;
+    color: bisque;
+}
+
+.img-info-magic{
+    background-image: url('../../../../assets/InfoMagicImg/bg-img-info-magic.jpg');
+    width: 500px;
+    height: 500px;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
