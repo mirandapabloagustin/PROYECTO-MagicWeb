@@ -1,6 +1,10 @@
 @import url('./assets/fonts.css');
 
+html{
 
+    margin: 0;
+    padding: 0;
+}
 body{
     margin: 0;
 }
@@ -15,15 +19,6 @@ body{
     --acid-green-shadow: rgb(116, 146, 39);
     --accent-green : #8bc400;
 }
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .outstanding{
     font-size: larger;
