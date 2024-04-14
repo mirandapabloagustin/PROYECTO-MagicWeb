@@ -1,62 +1,52 @@
 @import url('../../../../styles.css');
 
-.container{
+.secc-info-magic{
+    width: 100%;
+    background-color: var(--onHover-black-color);
+}
+.content-secc-info-magic{
+    margin-right:1%;
+}
+.content-section{
+    margin-left: 8% ;
+    margin-right: 8% ;
     display: flex;
-    background-color: #1b1b1b;
-    width: 100%;
-    height: 100vh;
-    padding: 1%;
-}
-
-.cont-l{
-    overflow: hidden;
-    margin-right: 1%;
-    margin-bottom: 2%;
-    width: 50%;
-    height: 100vh;
-}
-
-.cont-title{
-    display: flex !important;   
-    width: 100%;
-    justify-content: center;
+    padding: 3% 1%;
+    background-color: var(--background-color);
     align-items: center;
 }
 
-.cont-txt{
-    align-items: start;
-    padding: 3%;
+.secc-title{
+    display: flex;
+    justify-content: center;
 }
 
 .title{
-    margin: 0;
-    padding: 3%;
+    font-family: 'beleren-small-caps';
+    font-size: 3vw;
     color: var(--acid-green);
-    font-size: 2.5rem;
-    font-family: 'beleren-bold';
-    letter-spacing: 4px;
-    text-align: start;
-    -webkit-text-stroke: 1px black; /* Borde negro de 1px para navegadores webkit (Chrome, Safari) */
-      text-stroke: 1px black; /* Borde negro de 1px */
-        text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5), -1px -1px 2px rgba(255, 255, 255, 0.5), 0px 4px 6px rgba(255, 255, 255, 0.5);
-    
+    text-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1), 0 0.5rem 1rem rgba(76, 175, 80, 0.3);
+
+
 }
 
 .text{
-    color: #fff;
-    font-family: 'beleren-small-caps';
-    font-size: 1.7rem;
-    line-height: 1;
-
+    font-family: 'jace-beleren-bold';
+    font-size: 1.5vw;
+    color: white;
+    font-weight: bold;
+    line-height: 1.07;
+    letter-spacing: 1px;
 }
 
 span{
     color: var(--acid-green);
-    font-family: 'beleren-small-caps';
 }
 
-.cont-r{
-    overflow: hidden;
-    width: 50%;
-    height: 100vh;
+.img-secc-info-magic{
+    width: 50vw;
+    background-position: center;
+    background-size: cover;
+    max-height: 400px ;
+    box-shadow: 0 0 10px 5px rgba(82, 81, 81, 0.5);
 }
