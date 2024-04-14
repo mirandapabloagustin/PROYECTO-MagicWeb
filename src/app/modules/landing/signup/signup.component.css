@@ -1,183 +1,91 @@
 @import url('../../../../styles.css');
 
-body {
-    overflow-x: hidden;
-}
-
-
-.container {
-    display: flex;
-    align-items: center;
-    text-align: center;
+.banner {
     position: relative;
-    width: 100%;
+    background-image: url('../../../../assets/landing/banner/banner.png');
+    background-position: center;
+    background-size: cover;
     height: 100vh;
-}
 
-
-
-.btn-check-in {
-    position: absolute;
-    bottom: 10rem;
-    left: 50%;
-    transform: translateX(-50%);
-    border: none;
-    padding: 0.75rem 1.5rem;
-    background-color: var(--acid-green);
-    color: #ffffff;
-    font-size: 2.25rem;
-    font-family: 'beleren-small-caps';
-    letter-spacing: 4px;
-    text-align: center;
-    border-radius: 0.5rem;
-}
-
-.btn-check-in:hover {
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5), -1px -1px 2px rgba(255, 255, 255, 0.5), 0px 4px 6px rgba(255, 255, 255, 0.5);
-    box-shadow: 0 7px 15px -3px var(--acid-green-shadow), 0 4px 6px -2px var(--acid-green-shadow);
-}
-
-/*----------------------------------*/
-/* STYLE TITTLE*/
-.content-title {
-    position: absolute;
-    display: inline-block;
-    padding: 10px;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.title-singup {
-    color: #ffffff;
-    margin: 0;
-    font-size: 3rem;
-    font-family: 'beleren-small-caps';
-    letter-spacing: 12px;
-    text-align: start;
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5), -1px -1px 2px rgba(255, 255, 255, 0.5), 0px 4px 6px rgba(255, 255, 255, 0.5);
-}
-
-.sub-title-sinup {
-    color: #ffffff;
-    margin: 5px;
-    font-size: 1.5rem;
-    font-family: 'beleren-small-caps';
-    letter-spacing: 4px;
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5), -1px -1px 2px rgba(255, 255, 255, 0.5), 0px 4px 6px rgba(255, 255, 255, 0.5);
-    text-align: end;
-}
-
-/*----------------------------------*/
-/* STYLE IMG*/
-
-.content-img {
-    width: 100%;
-    height: 100vh;
+    display: flex;
     justify-content: center;
     align-items: center;
-    background-size: cover;
-    background-repeat: no-repeat;
 }
-
-
-.bg-img {
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 100vh;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
 }
 
-/*----------------------------------*/
-
-
-@media screen and (min-width: 721px) and (max-width: 1300px) {
-
-    body {
-        overflow-x: hidden;
-    }
-
-    .btn-check-in {
-        font-size: 1rem;
-        letter-spacing: 4px;
-    }
-
-    .content-title {
-        position: absolute;
-        display: inline-block;
-        padding: 10px;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-    }
-
-    .title-singup {
-        text-align: start;
-        font-size: 2.5rem;
-        letter-spacing: 8px;
-    }
-
-    .sub-title-sinup {
-        text-align: end;
-        left: 56%;
-        font-size: 1rem;
-        letter-spacing: normal;
-    }
-
-    body {
-        overflow-x: hidden;
-    }
-
-    .bg-img {
-        display: none;
-    }
-
-    .content-img {
-        justify-content: center;
-        align-items: center ;
-        background-image: url('../../../../assets/sigpImgs/sigup-img-tablet.png');
-        background-size: cover;
-        height: 100vh;
-    }
+.content-b{
+    position: absolute;
+    display:inline-flex;
+    flex-direction: column;
 }
 
-
-@media screen and (max-width: 1013px) {
-
-
-    .bg-img {
-        display: none;
-    }
-
-    .content-img {
-
-        background-image: url('../../../../assets/sigpImgs/sigup-img-mobile.png');
-        background-size: cover;
-        width: 100%;
-        height: 100vh;
-    }
-
-    .btn-check-in {
-        font-size: 1rem;
-        letter-spacing: 4px;
-    }
-
-    .content-title {
-        display: block;
-        position: absolute;
-        padding: 10px;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-    }
-
-    .content-title h2 {
-        display: none;
-    }
-
-
-    .title-singup {
-        text-align: start;
-        font-size: 1.3rem;
-        letter-spacing: 2px;
-    }
+.title-b{
+    margin-top: 2%;
+    margin-bottom: 4%;
+    font-family: 'beleren-small-caps';
+    font-size: 6vw;
+    color: white;
+    text-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1), 0 0.5rem 1rem rgba(76, 175, 80, 0.3);
+}
+.sub-title-cont-b{
+    display: flex;
+    justify-content: end;
 
 }
+.sub-t-b{
+    margin: 0;
+    font-family: 'beleren-small-caps';
+    font-size: 3vw;
+    color: white;
+    align-items: end;
+
+}
+
+.cont-a-b{
+    margin-top: 10%;
+    display: flex;
+    justify-content: center;
+}
+
+.link {
+    font-family: 'beleren-small-caps';
+    display: inline-block;
+    border-radius: 1.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    line-height: 1.25rem;
+    color: #fff;
+    background-color: var(--acid-green); /* Color de fondo para el estado normal */
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1); /* Sombra para el estado normal */
+    transition: background-color 150ms ease-in-out, box-shadow 150ms ease-in-out; /* Transición para el cambio de color y sombra */
+    text-decoration: none; /* Eliminar subrayado del enlace */
+  }
+
+  .link:hover,
+.link:focus {
+    background-color: var(--acid-green-hover); /* Color de fondo para el estado hover/focus */
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1), 0 0.5rem 1rem rgba(76, 175, 80, 0.3); /* Sombra para el estado hover/focus */
+}
+
+.link:focus {
+    outline: 0; /* Eliminar el borde de enfoque */
+    ring: 0; /* Eliminar el anillo de enfoque */
+}
+
+.link:active {
+    background-color: #388E3C; /* Color de fondo para el estado active/clic */
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1), 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1); /* Sombra para el estado active/clic */
+}
+  

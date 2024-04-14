@@ -14,8 +14,8 @@ body{
     --onHover-black-color : #2b2b2b;
     --accent-lilac-hover: #A580CA;
     --dark-purple: #120239;
-    --acid-green: #56B47C;
-    --acid-green-hover: #8bc400;
+    --acid-green: #4CAF50;
+    --acid-green-hover: #66BB6A;
     --acid-green-shadow: rgb(116, 146, 39);
     --accent-green : #8bc400;
 }
