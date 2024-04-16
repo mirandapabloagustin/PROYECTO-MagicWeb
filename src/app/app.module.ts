@@ -11,12 +11,14 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+import { UsersComponent } from './modules/users/users.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    PopupCardComponent
+    PopupCardComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
