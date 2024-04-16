@@ -18,6 +18,7 @@ body{
     --acid-green-hover: #66BB6A;
     --acid-green-shadow: rgb(116, 146, 39);
     --accent-green : #8bc400;
+    --bg-overlay-img: rgba(40, 37, 37, 0.871);
 }
 
 .outstanding{
