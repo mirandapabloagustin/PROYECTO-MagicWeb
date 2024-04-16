@@ -26,6 +26,12 @@ const routes: Routes = [
     path:'landing',
     loadChildren: () => import('./modules/landing/landing.module').then(m => m.LandingModule) //importo modulo landing
   },
+{
+    path:'users',
+    loadChildren: () => import('./modules/users/users.module').then(m => m.UsersModule) //importo modulo users
+},
+
+
   {
     path:'',
     redirectTo: 'landing',
