@@ -1,6 +1,7 @@
 .card{
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     width: 385px;
     height: 510px;
     background-color: var(--background-color);

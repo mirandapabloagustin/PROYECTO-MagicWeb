@@ -10,6 +10,7 @@ import { ModesComponent } from './modes/modes.component';
 import { CardModeComponent } from "./modes/card-mode/card-mode.component";
 import { HeaderComponent } from 'src/app/shared/header/header.component';
 import { AboutMagicComponent } from './about-magic.component';
+import { HowToPlayComponent } from './how-to-play/how-to-play.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { AboutMagicComponent } from './about-magic.component';
         SignupComponent,
         MagicInfoComponent,
         AboutMagicComponent,
-        ModesComponent
+        ModesComponent,
+        HowToPlayComponent
     ],
     imports: [
         CommonModule,
