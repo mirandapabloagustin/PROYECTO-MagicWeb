@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LandingComponent } from './landing.component';
+import { AboutMagicComponent } from './about-magic.component';
 
 const routes: Routes = [
   {
-    path: '',
-    component: LandingComponent
+    path:'',
+    component: AboutMagicComponent
   },
   {
-    path: '',
+    path:'',
     redirectTo: '',
-    pathMatch: 'full',
+    pathMatch: 'full'
   }
 ];
 
@@ -18,4 +18,7 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class LandingRoutingModule { }
+export class AboutMagicRoutingModule {
+
+
+}

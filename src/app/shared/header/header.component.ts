@@ -4,12 +4,15 @@ import { Component, OnInit, ViewChild, ElementRef, HostListener } from '@angular
 import{faHatWizard, faHeart,faScroll, faDungeon, faAddressCard,faLaptopCode, faWandMagicSparkles, faArrowRightToBracket} from '@fortawesome/free-solid-svg-icons';
 import { AuthTareaService } from 'src/app/core/service/auth-tarea.service';
 import { User } from 'src/app/core/Models';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @Component({
+  standalone: true,
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
+  imports: [FontAwesomeModule]
 })
 
 export class HeaderComponent implements OnInit{
@@ -91,8 +94,13 @@ if(element){
 }
 }
 
-goToAbout(){
-  this.enrutamiento.navigate(['aterrizaje#about']);
+
+goToLanding(){
+  this.enrutamiento.navigate(['landing']);
+}
+
+goToAboutMagic() {
+  this.enrutamiento.navigate(['about-magic']);
 }
 
 goToReglas(){
@@ -100,7 +108,7 @@ goToReglas(){
 }
 
 goToHome(){
-  this.enrutamiento.navigate(['aterrizaje']);
+  this.enrutamiento.navigate(['landing']);
   return false;
 }
 

@@ -4,6 +4,7 @@ import { AterrizajeRoutingModule } from './aterrizaje-routing.module';
 import { PaginaAterrizajeComponent } from './pagina-aterrizaje/pagina-aterrizaje.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HeaderComponent } from 'src/app/shared/header/header.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     CommonModule,
     AterrizajeRoutingModule,
     SharedModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    HeaderComponent
   ]
 })
 export class AterrizajeModule { }

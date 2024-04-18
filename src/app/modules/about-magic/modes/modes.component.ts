@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, } from '@angular/core';
+import { CardMode } from './model/cardsModel'
 
 @Component({
   selector: 'app-modes',
@@ -6,7 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./modes.component.css']
 })
 export class ModesComponent {
-  modes = [
+
+  modes: CardMode[] = [
     {
       image: '../../../../assets/landing/modes/articles-img/mtg-arena.jpg',
       description: 'Elabora tu estrategia. Pasa a la acción. MTG Arena llega el legendario juego estratégico de cartas a tu PC, Mac, Android e iOS.',
@@ -22,7 +24,7 @@ export class ModesComponent {
     },
     {
       image: '../../../../assets/landing/modes/articles-img/mtg-fisico.jpg',
-      description: 'Colecciona las cartas más raras y poderosas. Descubre el mundo de Magic: The Gathering a través de sus cartas físicas.',
+      description: 'Coleccioná, intercambia y jugá con tus cartas favoritas. Descubre en la tienda oficial los productos más recientes. Elige tu mazo y juega!.',
       titleLink: 'Explora la tienda >',
       link: 'https://magic.wizards.com/es/products'
 
@@ -32,7 +34,6 @@ export class ModesComponent {
       description: 'Sé el mejor. Conviértete en el campeón de MTG. Participa en los torneos más importantes del mundo.',
       titleLink: 'Más informacion >',
       link: 'https://magic.gg/'
-
     }
 
   ];
