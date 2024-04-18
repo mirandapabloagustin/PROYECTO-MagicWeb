@@ -4,7 +4,7 @@
     position: relative;
     width: 100%;
     background-color: var(--onHover-black-color);
-    background-image: url('../../../../assets/landing/secction-info/bg-section-info.jpg');
+    background-image: url('../../../../assets/about-magic/secction-info/bg-section-info.jpg');
 }
 
 .overlay {
