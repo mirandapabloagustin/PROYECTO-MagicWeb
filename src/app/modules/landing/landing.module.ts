@@ -2,13 +2,15 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { LandingRoutingModule } from './landing-routing.module';
+import { BannerComponent } from './banner/banner.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+  ],
   imports: [
     CommonModule,
-    LandingRoutingModule
+    LandingRoutingModule,
   ]
 })
 export class LandingModule { }

@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { CardModeComponent } from './modules/about-magic/modes/card-mode/card-mode.component';
 import { LandingComponent } from './modules/landing/landing.component';
 import { HeaderComponent } from "./shared/header/header.component";
+import { BannerComponent } from './modules/landing/banner/banner.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { HeaderComponent } from "./shared/header/header.component";
         NoopAnimationsModule,
         FormsModule,
         CardModeComponent,
-        HeaderComponent
+        HeaderComponent,
+        BannerComponent
     ]
 })
 export class AppModule { }
