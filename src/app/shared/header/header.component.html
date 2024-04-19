@@ -1,50 +1,56 @@
-<div *ngIf="!userLoggedIn">
+<div>
   <header #stickyMenu [class.sticky]="isSticky">
     <a href="home" (click)="goToHome()" class="logo"><img class="logo-header" [src]="getLogoImageSource()"
         alt="logoMagic"> </a>
 
     <ul class="conteiner-items-selector">
 
-      <li class="items-selector"><a class="redirecction-links"
-          (click)="scrollToSection('appInfo',['about','devInfo','reglas'])"><fa-icon [icon]="icon7"></fa-icon>Sobre La
-          App!</a></li>
+      <li class="items-selector">
+        <a class="redirecction-links" (click)="goToLanding()">
+          <fa-icon [icon]="icon"></fa-icon>Sobre Magic!
+        </a>
+        </li>
       <li class="items-selector"><a class="redirecction-links"
           (click)="scrollToSection('devInfo',['appInfo','about','reglas'])"><fa-icon [icon]="icon6"></fa-icon>Sobre los
           Devs</a></li>
-      <li class="items-selector"> <a class="redirecction-links"
-          (click)="scrollToSection('about', ['appInfo','devInfo','reglas'])"><fa-icon [icon]="icon"></fa-icon>Sobre
-          Magic!</a></li>
+      <li class="items-selector"> 
+        <a class="redirecction-links" (click)="goToAboutMagic()">
+          <fa-icon [icon]="icon"></fa-icon>Sobre Magic!
+        </a>
+        </li>
       <li class="items-selector"><a class="redirecction-links"
-          (click)="scrollToSection('reglas',['appInfo','devInfo','about'])"><fa-icon
+          ><fa-icon
             [icon]="icon5"></fa-icon>Reglas!</a></li>
-      <li class="items-selector"><a class="redirecction-links" (click)="goToLogin()"><fa-icon
+      <li class="items-selector"><a class="redirecction-links" ><fa-icon
             [icon]="icon3"></fa-icon>Iniciar Sesion!</a></li>
     </ul>
   </header>
 </div>
 
 
+<!--
 
-<div *ngIf="userLoggedIn">
-  <header #stickyMenu [class.sticky]="isSticky">
-
-    <a href="#" (click)="goToHome()" class="logo"><img class="logo-header" [src]="getLogoImageSource()" alt="logoMagic">
-    </a>
-    <ul class="conteiner-items-selector">
-
-      <li class="items-selector"><a class="redirecction-links" (click)="goToGlosario()"><fa-icon
-            [icon]="icon4"></fa-icon>Glosario de Cartas</a>
-
-      <li id="item-selector-profile">
-        <a class="redirecction-links" (click)="goToProfile()"><fa-icon [icon]="icon"></fa-icon>
-          {{user?.nickName}}
-        </a>
-      </li>
-
-      <img class="img-user" [src]="user?.imagUser" alt="imagen-user">
-      <li class="items-selector"><a class="redirecction-links" (click)="logOut()"><fa-icon [icon]="icon8"></fa-icon></a>
-      </li>
-    </ul>
-
-  </header>
-</div>
+  <div>
+    <header #stickyMenu [class.sticky]="isSticky">
+      
+      <a href="#" (click)="goToHome()" class="logo"><img class="logo-header" [src]="getLogoImageSource()" alt="logoMagic">
+      </a>
+      <ul class="conteiner-items-selector">
+        
+        <li class="items-selector"><a class="redirecction-links" (click)="goToGlosario()"><fa-icon
+          [icon]="icon4"></fa-icon>Glosario de Cartas</a>
+          
+          <li id="item-selector-profile">
+            <a class="redirecction-links" (click)="goToProfile()"><fa-icon [icon]="icon"></fa-icon>
+              {{user?.nickName}}
+            </a>
+          </li>
+          
+          <img class="img-user" [src]="user?.imagUser" alt="imagen-user">
+          <li class="items-selector"><a class="redirecction-links" (click)="logOut()"><fa-icon [icon]="icon8"></fa-icon></a>
+          </li>
+        </ul>
+        
+      </header>
+    </div>
+  -->

@@ -1,69 +1,80 @@
 @import url('../../../../styles.css');
 
-.banner {
+.how-to-play{
     position: relative;
-    background-image: url('../../../../assets/landing/banner/banner.png');
-    background-position: center;
-    background-size: cover;
-    height: 100vh;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
+    background-image: url('../../../../assets/about-magic/how-to-play/bg-htp.jpg');
 }
-.overlay {
+.overlay{
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); 
+    background-color: rgba(61, 61, 61, 0.884);
 }
 
-.content-b{
-    position: absolute;
-    display:inline-flex;
+.container{
+    position: relative;
+    display: flex;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding: 4% 3%;
+    background-color: #202020;
+    align-items: center;
+}
+.info{
+    display: flex;
     flex-direction: column;
 }
-
-.title-b{
-    margin-top: 2%;
-    margin-bottom: 4%;
-    font-family: 'beleren-small-caps';
-    font-size: 6vw;
-    color: white;
-    text-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1), 0 0.5rem 1rem rgba(76, 175, 80, 0.3);
+.content-title{
+    text-align: center;
 }
-.sub-title-cont-b{
-    display: flex;
-    justify-content: end;
 
-}
-.sub-t-b{
-    margin: 0;
-    font-family: 'beleren-small-caps';
+.title {
+    font-family: var(--letra-primaria);
     font-size: 3vw;
     color: white;
-    align-items: end;
-
+    text-shadow: var(--text-shadow-white);
 }
 
-.cont-a-b{
-    margin-top: 10%;
+.text {
+    padding-top: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-family: var(--letra-secundaria);
+    font-size: 1.2vw;
+    text-align: center;
+    color: white;
+    line-height: 1.07;
+    letter-spacing: 1px;
+}
+
+.img-how-play{
+    margin: 0.5rem;
+    width: 50%;
+    background-position: center;
+    background-size: cover;
+    max-height: 400px;
+    box-shadow: var(--box-shadow-white);
+    border: 2px solid white;
+    border-radius: 1rem;
+}
+.cont-link{
     display: flex;
     justify-content: center;
+    margin-top: 1rem;
 }
 
 .link {
-    font-family: 'beleren-small-caps';
+    font-family: var(--letra-segundaria);
     display: inline-block;
     border-radius: 1.5rem;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
     padding-top: 1rem;
     padding-bottom: 1rem;
-    font-size: 1.5rem;
-    font-weight: 500;
+    font-size: 1rem;
     text-transform: uppercase;
     line-height: 1.25rem;
     color: #fff;

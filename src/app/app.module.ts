@@ -11,27 +11,35 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+import { CardModeComponent } from './modules/about-magic/modes/card-mode/card-mode.component';
+import { LandingComponent } from './modules/landing/landing.component';
+import { HeaderComponent } from "./shared/header/header.component";
+import { BannerComponent } from './modules/landing/banner/banner.component';
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    PopupCardComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FontAwesomeModule,
-    HttpClientModule,
-    MatCheckboxModule,
-    MatDialogModule,
-    MatExpansionModule,
-    RouterModule,
-    BrowserAnimationsModule,
-    NoopAnimationsModule,
-    FormsModule 
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        PopupCardComponent,
+        LandingComponent
+    ],
+    providers: [],
+    bootstrap: [AppComponent],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FontAwesomeModule,
+        HttpClientModule,
+        MatCheckboxModule,
+        MatDialogModule,
+        MatExpansionModule,
+        RouterModule,
+        BrowserAnimationsModule,
+        NoopAnimationsModule,
+        FormsModule,
+        CardModeComponent,
+        HeaderComponent,
+        BannerComponent
+    ]
 })
 export class AppModule { }

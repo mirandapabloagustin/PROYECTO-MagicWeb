@@ -11,7 +11,6 @@ import { CarrouselComponent } from './carrousel/carrousel.component';
 @NgModule({
   declarations: [
     FooterComponent,
-    HeaderComponent,
     Error404Component,
     CarrouselComponent
   ],
@@ -21,7 +20,6 @@ import { CarrouselComponent } from './carrousel/carrousel.component';
   ],
   exports: [
     FooterComponent,
-    HeaderComponent,
     Error404Component,
     CarrouselComponent
   ]

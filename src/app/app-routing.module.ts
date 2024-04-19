@@ -19,12 +19,13 @@ const routes: Routes = [
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) //importo modulo auth
   },
   {
-    path:'aterrizaje',
-    loadChildren: () => import('./modules/aterrizaje/aterrizaje.module').then(m => m.AterrizajeModule) //importo modulo aterrizaje
-  },
-  {
     path:'landing',
     loadChildren: () => import('./modules/landing/landing.module').then(m => m.LandingModule) //importo modulo landing
+  },
+  {
+    path:'about-magic',
+    loadChildren: () => import('./modules/about-magic/about-magic.module').then(m => m.AboutMagicModule) //importo modulo about
+  
   },
   {
     path:'',

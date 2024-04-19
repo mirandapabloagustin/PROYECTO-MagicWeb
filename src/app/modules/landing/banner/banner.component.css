@@ -1,0 +1,58 @@
+@import url('../../../../styles.css');
+
+.banner-top {
+    position: relative;
+    background-image: url('../../../../assets/landing/banner/bg-ldg.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100%;
+}
+
+.semicircle {
+    position: absolute;
+    width: 50vw;
+    height: 100vh;
+    background-color: var(--background-color);
+    border-radius: 0 calc(-10% + 500px) calc(-10% + 500px) 0;
+    box-shadow: 20px 0 20px rgba(22, 21, 21, 0.871);
+}
+
+.content-banner{
+    position: absolute;
+    width: 41.5%;
+    height: 100vh;
+    margin-left: 3vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    margin-bottom: 0;
+    color: white;
+    font-family: var(--letra-primaria);
+    font-size: 5vw;
+    line-height: 1;
+    text-shadow: var(--text-shadow-white);
+}
+
+.sub-title {
+    margin-bottom: 3rem;
+    color: white;
+    font-family: var(--letra-primaria);
+    font-size: 2vw;
+    text-align: end;
+    text-shadow: var(--text-shadow-white);
+}
+
+.span-banner{
+    color: var(--acid-green);
+    font-family: 'jace-beleren-bold';
+    font-weight: bold;
+    font-size: 1.5vw;
+    text-shadow: var(--text-shadow-white);
+    text-align: justify;
+    line-height: 1;
+}
