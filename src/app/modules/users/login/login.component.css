@@ -1,231 +1,117 @@
-/* efectos por defecto */
-body {
-    font-family: 'beleren-small-caps';
-    font-weight: normal;
-    font-size: 100%;
-    color: #1b262c;
-    
-    margin: 0;
-    background-color: #5f6769;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
-/* efectos para el contenedor de pantalla completa */
-#contenedor {
+body {
     display: flex;
-    align-items: center;
     justify-content: center;
-    
-    margin: 0;
-    padding: 0;
-    min-width: 100vw;
+    align-items: center;
     min-height: 100vh;
+    background: url(./img/fondoLogin.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.wrapper {
+width: 420px;
+background: transparent; /* esta linea transparenta el box general, tengo que ver si lo cambio y lo hago menos transparente para que tenga mas cuerpo o lo dejo como esta */
+border: 2px solid rgba(255,255,255, .2); /* esta linea le da el borde */
+backdrop-filter: blur(20px);
+box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+color: #fff;
+border-radius: 10px;
+padding: 30px 40px;
+}
+
+.wrapper h1 {
+    font-size: 36px;
+    text-align: center;
+}
+
+.wrapper .input-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+}
+
+.input-box input {
     width: 100%;
     height: 100%;
-    
-    background-image: url(../login/img/fondo-user-login.jpg);
-    background-position: center;
-    background-size: cover;
+    background: transparent;
+    border:none;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 40px;
+    font-size: 16px;
+    color: #fff;
+    padding: 20px 45px 20px 20px;
 }
 
-/* contenedor del login a la izquierda */
-#contenedorcentrado {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction:row;
-    
-    min-width: 380px;
-    max-width: 900px;
-    width: 90%;
-    
-    background-color: #5f6769;
-    
-    /*opacity: 0.50;
-    filter: alpha(opacity=50);*/
-    
-    border-radius: 10px 10px 10px 10px;
-    -moz-border-radius: 10px 10px 10px 10px;
-    -webkit-border-radius: 10px 10px 10px 10px;
-    
-    -webkit-box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);
-    -moz-box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);
-    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);
-    
-    padding: 30px;
-    box-sizing: border-box;
+.input-box input::placeholder {
+    color: #fff;
 }
 
-/* formulario de login */
-/* formulario de login */
-#login {
-    width: 100%;
-    max-width: 320px;
-    min-width: 320px;
-    padding: 30px 30px 50px 30px;
-    background-color: #719192;
-    
-    -webkit-box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);
-    -moz-box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);
-    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);
-    
-    border-radius: 3px 3px 3px 3px;
-    -moz-border-radius: 3px 3px 3px 3px;
-    -webkit-border-radius: 3px 3px 3px 3px;
-    
-    box-sizing: border-box;
-    
-    opacity: 1;
-    filter: alpha(opacity=1);
+.input-box i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
 }
 
-#login label {
-    display: block;
-    font-family: 'Overpass', sans-serif;
-    font-size: 120%;
-    color:#3c4245;
-    
-    margin-top: 15px;
+.wrapper .remember-forgot {
+ display: flex;
+ justify-content: space-between;
+ font-size: 14.5px;
+ margin: -15px 0 15px;   
 }
 
-#login input {
-    font-family: 'Overpass', sans-serif;
-    font-size: 110%;
-    color: #1b262c;
-    
-    display: block;
-    width: 100%;
-    height: 40px;
-    
-    margin-bottom: 10px;
-    padding: 5px 5px 5px 10px;
-    
-    box-sizing: border-box;
-    
-    border: none;
-    border-radius: 3px 3px 3px 3px;
-    -moz-border-radius: 3px 3px 3px 3px;
-    -webkit-border-radius: 3px 3px 3px 3px;
+.remember-forgot label input {
+    accent-color: #fff;
+    margin-right: 3px;
 }
 
-#login input::placeholder {
-    font-family: 'Overpass', sans-serif;
-    color: #E4E4E4;
-}
-
-#login button {
-    font-family: 'Overpass', sans-serif;
-    font-size: 110%;
-    color:#1b262c;
-    width: 100%;
-    height: 40px;
-    border: none;
-    
-    border-radius: 3px 3px 3px 3px;
-    -moz-border-radius: 3px 3px 3px 3px;
-    -webkit-border-radius: 3px 3px 3px 3px;
-    
-    background-color: #dfcdc3;
-    
-    margin-top: 10px;
-}
-
-#login button:hover {
-    background-color: #3c4245;
-    color:#dfcdc3;
-}
-/* formulario de login */
-/* formulario de login */
-
-/* seccion de la derecha */
-/* seccion de la derecha */
-/* por defecto */
-#derecho {
-    /*display: flex;
-    align-items:center;
-    justify-content:center;*/
-    
-    text-align: center;
-    width: 100%;
-    
-    opacity: 0.70;
-    filter: alpha(opacity=70);
-    
-    padding:20px 20px 20px 50px;
-    box-sizing: border-box;
-}
-
-.titulo {
-    font-size: 300%;
-    color:#dfcdc3;
-}
-
-.logo-empresa img {
-    width: 60%;
-}
-
-hr {
-    border-top: 1px solid #8c8b8b;
-	border-bottom: 1px solid #dfcdc3;
-    
-}
-.pie-form {
-    font-size: 90%;
-    text-align: center;    
-    margin-top: 15px;
-}
-
-.pie-form a {
-    display: block;
+.remember-forgot a {
+    color: #fff;
     text-decoration: none;
-    color: #dfcdc3;
-    margin-bottom: 3px;
 }
 
-.pie-form a:hover {
-    color: #719192;
+.remember-forgot a:hover {
+    text-decoration: underline;
 }
-/* seccion de la derecha */
-/* seccion de la derecha */
 
-/* ajustar a pantallas con ancho menor o igual a 775px; */
-/* ajustar a pantallas con ancho menor o igual a 775px; */
-@media all and (max-width: 775px)
-{
-    #contenedorcentrado {
-        flex-direction:column-reverse;
-
-        min-width: 380px;
-        max-width: 900px;
-        width: 90%;
-
-        background-color: #5f6769;
-
-        /*opacity: 0.50;
-        filter: alpha(opacity=50);*/
-
-        border-radius: 10px 10px 10px 10px;
-        -moz-border-radius: 10px 10px 10px 10px;
-        -webkit-border-radius: 10px 10px 10px 10px;
-
-        -webkit-box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);
-        -moz-box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);
-        box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);
-
-        padding: 30px;
-        box-sizing: border-box;
-    }
-    
-    #login {
-        margin: 0 auto;
-    }
-    
-    #derecho {
-        padding:20px 20px 20px 20px;
-    }
-    
-    #login label {
-        text-align: left;
-    }
+.wrapper .btn {
+    width: 100%;
+    height: 45px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
 }
-/* ajustar a pantallas con ancho menor o igual a 775px; */
-/* ajustar a pantallas con ancho menor o igual a 775px; */
+
+.wrapper .register-link {
+    font-size: 14.5px;
+    text-align: center;
+    margin: 20px 0 15px;
+}
+
+.register-link  p a{
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.register-link p a:hover {
+    text-decoration: underline;
+}

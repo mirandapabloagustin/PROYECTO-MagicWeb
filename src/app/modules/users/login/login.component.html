@@ -1,67 +1,43 @@
-<!-- Define que el documento esta bajo el estandar de HTML 5 -->
-<!doctype html>
+<!DOCTYPE html>
+<html lang="en">
 
-<!-- Representa la raíz de un documento HTML o XHTML. Todos los demás elementos deben ser descendientes de este elemento. -->
-<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form in HTML and CSS | Codehal</title>
+    <link rel="stylesheet" href="login.component.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
     
-    <head>
-        
-        <meta charset="utf-8">
-        
-        <title> Formulario de Acceso </title>    
-        
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        <meta name="author" content="Videojuegos & Desarrollo">
-        <meta name="description" content="Ejemplo de formulario de acceso basado en HTML5 y CSS">
-        <meta name="keywords" content="login,formulariode acceso html">
-        
-        <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet"> 
-        
-        <!-- Link hacia el archivo de estilos css -->
-        <link rel="stylesheet" href="login.component.css">
-        
-        <style type="text/css">
-            
-        </style>
-        
-        <script type="text/javascript">
-        
-        </script>
-        
-    </head>
-    
-    <body>
-    
-        <div id="contenedor">
-            
-            <div id="contenedorcentrado">
-                <div id="login">
-                    <form id="loginform">
-                       <!--  <label for="usuario">Usuario</label> --> 
-                        <input id="usuario" type="text" name="usuario" placeholder="Usuario" required>
-                        
-                        <!--  <label for="password">Contraseña</label> -->
-                        <input id="password" type="password" placeholder="Contraseña" name="password" required>
-                        
-                        <button type="submit" title="Ingresar" name="Ingresar">Login</button>
-                    </form>
-                    
-                </div>
-                <div id="derecho">
-                    <div class="titulo">
-                        Bienvenido
-                    </div>
-                    <hr>
-                    <div class="pie-form">
-                        <a href="#">¿Perdiste tu contraseña?</a>
-                        <a href="#">¿No tienes Cuenta? Registrate</a>
-                        <hr>
-                        <a href="#">« Volver</a>
-                    </div>
-                </div>
+    <div class="wrapper">
+        <form action="">
+            <h1>Login</h1>
+            <div class="input-box">
+                <input type="text" placeholder="Usuario" required>
+                 <i class='bx bxs-user'></i>
             </div>
-        </div>
-        
-    </body>
+            
+            <div class="input-box">
+                <input type="password" 
+                placeholder="Contraseña" required>
+                <i class='bx bxs-lock-alt' ></i>
+            </div>
+
+            <div class="remember-forgot">
+                <label><input type="checkbox">Recordarme</label>
+            </div>
+
+            <button type="submit" class="btn">Login</button>
+
+            <div class="register-link">
+                <p>¿No tienes una cuenta? <a href="#">Regístrate</a></p>
+            </div>
+        </form>
+    </div>
+
+</body>
+
 </html>
