@@ -15,6 +15,7 @@ import { CardModeComponent } from './modules/about-magic/modes/card-mode/card-mo
 import { LandingComponent } from './modules/landing/landing.component';
 import { HeaderComponent } from "./shared/header/header.component";
 import { BannerComponent } from './modules/landing/banner/banner.component';
+import { ItemsComponent } from './modules/landing/items/items.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { BannerComponent } from './modules/landing/banner/banner.component';
         FormsModule,
         CardModeComponent,
         HeaderComponent,
-        BannerComponent
+        BannerComponent,
+        ItemsComponent,
     ]
 })
 export class AppModule { }
