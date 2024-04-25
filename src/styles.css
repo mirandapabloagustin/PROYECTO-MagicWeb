@@ -21,6 +21,7 @@ body{
     --bg-overlay-img: rgba(40, 37, 37, 0.871);
     --box-shadow-white : 0 0.125rem 0.25rem rgba(138, 138, 138, 0.1), 0 0.5rem 1rem rgba(255, 255, 255, 0.3);
     --text-shadow-white: 0 0.125rem 0.25rem rgba(255, 251, 251, 0.1), 0 0.5rem 1rem rgba(255, 255, 255, 0.37);
+    --text-shadow-black: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.888), 0 0.5rem 1rem rgba(255, 255, 255, 0.3);
     --letra-primaria: 'beleren-small-caps';
     --letra-secundaria: 'Gotham Narrow', Arial, serif;
 }
