@@ -1,7 +1,7 @@
 .section-item{
     position: relative;
     background-image: 
-    url('../../../../assets/landing/bg-items.jpg');
+    url('/assets/landing/items/bg-items.jpg');
     background-size: cover;
     background-position: center;
     display: inline-block;
@@ -17,7 +17,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(20, 20, 20, 0.884);
+    background-color: rgba(9, 9, 9, 0.884);
 }
 .content{
     position: relative;

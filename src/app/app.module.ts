@@ -16,6 +16,7 @@ import { LandingComponent } from './modules/landing/landing.component';
 import { HeaderComponent } from "./shared/header/header.component";
 import { BannerComponent } from './modules/landing/banner/banner.component';
 import { ItemsComponent } from './modules/landing/items/items.component';
+import { HowSingupComponent } from './modules/landing/how-singup/how-singup.component';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { ItemsComponent } from './modules/landing/items/items.component';
         HeaderComponent,
         BannerComponent,
         ItemsComponent,
+        HowSingupComponent
     ]
 })
 export class AppModule { }
