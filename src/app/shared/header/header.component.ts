@@ -16,7 +16,7 @@ const COMPONENTS = [FontAwesomeModule];
   template: `
     <header>
       <nav>
-        <img src="header/logo.png" alt="" />
+        <img src="header/logo.webp" alt="" />
         <input type="checkbox" id="check" />
         <label for="check">
           <fa-icon [icon]="icons[3]"></fa-icon>
@@ -61,7 +61,7 @@ const COMPONENTS = [FontAwesomeModule];
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background-color: var(--fondo);
+      background-color: var(--bg-black-color);
       height: 80px;
       width: 100%;
     }
@@ -78,7 +78,7 @@ const COMPONENTS = [FontAwesomeModule];
     }
 
     a{
-      color: #eee;
+      color: var(--letter-color);
       font-size: 18px;
       padding: 7px 13px;
       text-transform: uppercase;
@@ -89,20 +89,20 @@ const COMPONENTS = [FontAwesomeModule];
       cursor: pointer;
       transition: 0.2s;
       border-bottom: 2px solid rgb(86, 180, 124);
-      color: rgb(86, 180, 124);
+
       padding-bottom: 5px;
     }
 
     .login{
-      background-color: rgb(86, 180, 124);
+      background-color: var(--bg-green-color);
       border-radius: 5px;
       padding: 7px 20px;
       font-weight: bold;
     }
 
     .login:hover{
-      background-color: white;
-      color: rgb(86, 180, 124);
+      background-color: var(--letter-color);
+      color: var(--bg-color-buttom-emeralt);
       font-weight: bold;
       transition: .5s
       cursor: pointer;
@@ -111,7 +111,7 @@ const COMPONENTS = [FontAwesomeModule];
     label{
       float: right;
       font-size: 30px;
-      color: #fff;
+      color: var(--letter-color);
       line-height: 80px;
       margin-right: 20px;
       cursor: pointer;

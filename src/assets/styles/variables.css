@@ -1,9 +1,24 @@
 :root {
     --fondo:#0c0f11;
+    --bg-green-color: #456c35;
+    --bg-black-color: #2b2b2b;
+    --bg-color-buttom-winter: #2897dc;
+    --bg-color-buttom-dark-red: #bf0c0c;
+    --bg-color-buttom-emeralt: #459c5b;
+
+    --letter-color: #eee;
+
+
     --green-decoration: rgb(86, 180, 124);
+    --bg-hover-color : #2b2b2bd5;
+    --shadow-color: rgba(0, 0, 0, 0.349);
+
+
+    --text-shadow: 6px 4px 6px;
 
     
-    --hover-color : #2b2b2bee;
+
+
     --accent-lilac-hover: #A580CA;
     --dark-purple: #120239;
     --acid-green: #4CAF50;
@@ -16,4 +31,14 @@
     --text-shadow-black: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.888), 0 0.5rem 1rem rgba(255, 255, 255, 0.3);
     --letra-primaria: 'beleren-small-caps';
     --letra-secundaria: 'Gotham Narrow', Arial, serif;
+
+    --color-1: #d1d1d1;
 }
+
+/*
+#F2D479
+#F2DA63
+#F2BC8D
+#A67772
+#F27272
+*/

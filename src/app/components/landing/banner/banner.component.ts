@@ -12,15 +12,13 @@ import { ViewEncapsulation } from '@angular/core';
           <h1>¡Magic DesckForge!</h1>
           <h2>Tu herramienta definitiva para explorar Magic: The Gathering.</h2>
         </div>
-        <!--
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#2b2b2b" fill-opacity="0.9" d="M0,0L120,48C240,96,480,192,720,240C960,288,1200,288,1320,288L1440,288L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"></path></svg>
--->
+     
       </div>
     </section>
   `,
   styles: `
   .banner {
-    background-image: url('public/banner/b-fondo.jpg');
+    background-image: url('public/banner/b-fondo.webp');
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -41,9 +39,9 @@ import { ViewEncapsulation } from '@angular/core';
   }
 
   h1, h2{
-    color: white;
+    color: #eee;
     margin: 0;
-    text-shadow: 6px 4px 6px rgba(0,0,0,0.5);
+    text-shadow: var(--text-shadow) var(--shadow-color);
   }
 
   h1{
