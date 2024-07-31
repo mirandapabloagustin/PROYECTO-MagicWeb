@@ -10,10 +10,13 @@ const SHARED_COMPONENTS = [HeaderComponent, BannerComponent, OfferComponent];
   standalone: true,
   imports: [SHARED_COMPONENTS],
   template: `
+  
     <app-header />
  
       <app-banner />
       <app-offer />
+
+    
 
   `,
   styles: `

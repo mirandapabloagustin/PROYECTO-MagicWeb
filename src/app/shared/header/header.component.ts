@@ -78,7 +78,7 @@ const COMPONENTS = [FontAwesomeModule];
     }
 
     a{
-      color: var(--letter-color);
+      color: var(--text-color);
       font-size: 18px;
       padding: 7px 13px;
       text-transform: uppercase;
@@ -101,7 +101,7 @@ const COMPONENTS = [FontAwesomeModule];
     }
 
     .login:hover{
-      background-color: var(--letter-color);
+      background-color: var(--text-color);
       color: var(--bg-color-buttom-emeralt);
       font-weight: bold;
       transition: .5s
@@ -111,7 +111,7 @@ const COMPONENTS = [FontAwesomeModule];
     label{
       float: right;
       font-size: 30px;
-      color: var(--letter-color);
+      color: var(--text-color);
       line-height: 80px;
       margin-right: 20px;
       cursor: pointer;
@@ -139,7 +139,7 @@ const COMPONENTS = [FontAwesomeModule];
         position: fixed;
         width: 50%;
         height: 100vh;
-        background-color: var(--fondo);
+        background-color: var(--bg-black-color);
         top: 80px;
         right: -100%;
         text-align: center;

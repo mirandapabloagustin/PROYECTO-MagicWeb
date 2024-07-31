@@ -133,12 +133,12 @@ import { Component, ViewEncapsulation } from '@angular/core';
     }
 
     h2{
-      color: var(--letter-color);
+      color: var(--text-color);
       font-size: 3rem;
     }
 
     span{
-      color: var(--letter-color);
+      color: var(--text-color);
       font-size: 1rem;
       text-align: center;
       padding: 1rem;
@@ -171,16 +171,16 @@ import { Component, ViewEncapsulation } from '@angular/core';
     }
 
     svg{
-      color: var(--letter-color);
+      color: var(--text-color);
     }
 
     h3 {
-      color: var(--letter-color);
+      color: var(--text-color);
       font-size: 2rem;
     }
 
     span{
-      color: var(--letter-color);
+      color: var(--text-color);
       font-size: 1.2rem;
       line-height: 1.58;
       letter-spacing: -0.004em;

@@ -39,7 +39,7 @@ import { ViewEncapsulation } from '@angular/core';
   }
 
   h1, h2{
-    color: #eee;
+    color: var(--text-color);
     margin: 0;
     text-shadow: var(--text-shadow) var(--shadow-color);
   }
