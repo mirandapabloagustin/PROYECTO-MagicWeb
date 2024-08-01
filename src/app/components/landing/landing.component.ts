@@ -19,7 +19,7 @@ const SHARED_COMPONENTS = [HeaderComponent, BannerComponent, OfferComponent];
   <app-banner />
   <app-offer />
   -->
-
+  
       <app-footer />
 
     
