@@ -6,13 +6,23 @@ html {
     font-family: Menlo, Monaco, Lucida Console, "Courier New", monospace;
     background: #ffffff;
     letter-spacing: -0.025rem;
+    
   }
 
   body,
   figure {
     margin: 0;
     padding: 0;
+    -ms-overflow-style: none;  
+    scrollbar-width: none; 
   }
+
+    ::-webkit-scrollbar {
+      width: 0px;  
+      height: 0px; 
+  }
+
+
 
   a {
     text-decoration: none;
@@ -41,10 +51,11 @@ html {
   
 
   p {
+    font-family: Proxima Nova, sans-serif;
     font-size: 0.9rem;
     line-height: 1.5;
     margin: 0;
-    text-wrap: pretty;
+    word-wrap: break-word;
   }
 
   span{

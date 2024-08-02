@@ -1,0 +1,64 @@
+section {
+    background-image: url('public/about-us/banner.webp');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+
+}
+
+
+.content-about {
+    position: absolute;
+    top: 460px;
+    width: 100%;
+    background-color: var(--bg-black-color);
+    display: flex;
+    flex-direction: row;
+    padding: 5rem;
+    color: var(--text-color);
+}
+
+h1 {
+    padding: 2rem;
+    border-right: 2px solid var(--bg-green-color);
+    font-size: 4rem;
+}
+
+.content-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem;
+}
+
+p {
+    font-size: large;
+}
+
+@media (max-width: 768px) {
+
+    .content-about{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 3rem 2rem;
+    }
+    
+    h1{
+        text-align: center;
+        padding: 2rem;
+        border-bottom: 2px solid var(--bg-green-color);
+        border-right: none;
+        font-size: 2.5rem;
+    }
+
+    p{
+        text-align: center;
+        font-size: large;
+    }
+
+}

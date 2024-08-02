@@ -31,7 +31,7 @@ const COMPONENTS = [FontAwesomeModule];
             <h4>Enlaces</h4>
             <ul>
               <li><a href="#">Sobre Magic</a></li>
-              <li><a href="#">Nosotros</a></li>
+              <li><a href="about">Nosotros</a></li>
               <li><a href="#">Registrarse</a></li>
               <li><a href="#">Ingresar</a></li>
             </ul>

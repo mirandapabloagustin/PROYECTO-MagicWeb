@@ -6,8 +6,11 @@ import {
   faBars,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { RouterLink } from '@angular/router';
 
-const COMPONENTS = [FontAwesomeModule];
+
+
+const COMPONENTS = [FontAwesomeModule, RouterLink];
 
 @Component({
   selector: 'app-header',
@@ -16,7 +19,7 @@ const COMPONENTS = [FontAwesomeModule];
   template: `
     <header>
       <nav>
-        <img src="header/logo.webp" alt="" />
+        <img routerLink="landing" src="header/logo.webp" alt="" />
         <input type="checkbox" id="check" />
         <label for="check">
           <fa-icon [icon]="icons[3]"></fa-icon>
@@ -29,7 +32,7 @@ const COMPONENTS = [FontAwesomeModule];
             >
           </li>
           <li>
-            <a href="#" class="link"
+            <a href="about" class="link"
               ><fa-icon [icon]="icons[1]"></fa-icon> nosotros</a
             >
           </li>
