@@ -18,6 +18,8 @@ const COMPONENTS = [
   template: `
     <app-header />
     <app-about-banner />
+    <app-team />
+    <app-footer />
   `,
   styles: ``,
   encapsulation: ViewEncapsulation.Emulated
