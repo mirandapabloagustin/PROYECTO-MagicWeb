@@ -2,13 +2,13 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap : 3rem;
+    gap: 3rem;
     background-color: var(--bg-green-color);
     height: auto;
     padding: 4rem 5rem 7rem 5rem;
 }
 
-.title{
+.title {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -59,7 +59,7 @@ footer {
     align-items: center;
 }
 
-span{
+span {
     color: var(--text-color);
     font-size: 1rem;
     padding: 0 4rem;
@@ -68,9 +68,19 @@ span{
 
 @media (max-width: 768px) {
 
+    section {
+        padding: 4rem 2rem;
+    }
 
+    ul {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
 
-    .title{
+    li {
+        margin: 1rem 0;
+    }
+
+    .title {
         display: flex;
         align-items: center;
         flex-direction: column;
@@ -78,7 +88,7 @@ span{
         margin-right: auto;
     }
 
-    h2{
+    h2 {
         font-size: 2rem;
         text-align: center;
     }
@@ -92,7 +102,7 @@ span{
         font-size: 1.2rem;
     }
 
-    span{
+    span {
         padding: 0 2rem;
     }
 

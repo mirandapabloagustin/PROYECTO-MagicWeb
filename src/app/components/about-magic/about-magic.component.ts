@@ -3,17 +3,19 @@ import { HeaderComponent } from '@app/shared/header/header.component';
 import { FooterComponent } from '@app/shared/footer/footer.component';
 import { MagicComponent } from './magic/magic.component';
 import { GameComponent } from "./game/game.component";
+import { ModesComponent } from "./modes/modes.component";
 
 const COMPONENTS = [HeaderComponent, FooterComponent, MagicComponent, GameComponent];
 
 @Component({
   selector: 'app-about-magic',
   standalone: true,
-  imports: [COMPONENTS],
+  imports: [COMPONENTS, ModesComponent],
   template: `
     <app-header />
     <app-magic />
     <app-game />
+    <app-modes />
     <app-footer />
 
   `,
