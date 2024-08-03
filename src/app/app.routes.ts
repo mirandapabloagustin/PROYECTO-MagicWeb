@@ -13,5 +13,9 @@ export const routes: Routes = [
     {
         path: 'about',
         loadComponent: () => import('./components/about-us/about-us.component').then(m => m.AboutUsComponent),
+    },
+    {
+        path: 'magic',
+        loadComponent:() => import('./components/about-magic/about-magic.component').then(m => m.AboutMagicComponent),
     }
 ];

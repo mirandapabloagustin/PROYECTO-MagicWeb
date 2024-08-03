@@ -19,7 +19,7 @@ const COMPONENTS = [FontAwesomeModule, RouterLink];
   template: `
     <header>
       <nav>
-        <img routerLink="landing" src="header/logo.webp" alt="" />
+        <img routerLink="/landing" src="header/logo.webp" alt="" />
         <input type="checkbox" id="check" />
         <label for="check">
           <fa-icon [icon]="icons[3]"></fa-icon>
@@ -27,7 +27,7 @@ const COMPONENTS = [FontAwesomeModule, RouterLink];
 
         <ul>
           <li>
-            <a href="#" class="link"
+            <a href="magic" class="link"
               ><fa-icon [icon]="icons[0]"></fa-icon> sobre Magic</a
             >
           </li>
