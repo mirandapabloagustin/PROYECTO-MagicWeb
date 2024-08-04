@@ -1,0 +1,145 @@
+section{
+    height: auto;
+    padding: 0;
+    background-color: var(--bg-green-color);
+    padding-bottom: 2rem;
+}
+
+.tittle{
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+h2 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+span {
+    font-size: 1.2rem;
+}
+
+
+ul{
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+li {
+    list-style: none;
+    margin: 1rem;
+    text-align: center;
+    border-left: 3px solid var(--bg-black-color);
+}
+
+article{
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: start;
+    padding-left: 1rem;
+}
+
+img{
+    width: 300px;
+    border-radius: 5px;
+}
+
+.text{
+    width: 300px;
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    padding: 1rem 0;
+}
+
+.text h2{
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.caca{
+    text-align: left;
+    padding-bottom: 1rem;
+}
+
+footer{
+    display: flex;
+    align-items: flex-end;
+}
+
+a {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-color);
+    background-color: var(--bg-black-color);
+    padding: 1rem 2rem;
+    border-radius: 2rem;
+    transition: 0.3s;
+}
+
+a:hover {
+    background-color: var(--text-color);
+    color: var(--bg-black-color);
+}
+
+
+
+@media (max-width: 768px) {
+    h2 {
+        font-size: 2.5rem;
+        text-align: center;
+    }
+
+    span {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    ul{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+    }
+
+    li{
+        border: 0;
+    }
+
+    article{
+        align-items: center;
+    }
+
+    .text{
+        width: 250px;
+        align-items: center;
+    }
+
+    .caca{
+        text-align: center;
+    }
+
+    img{
+        width: 300px;
+    }
+
+    a{
+        font-size: 0.8rem;
+    }
+
+
+    
+}

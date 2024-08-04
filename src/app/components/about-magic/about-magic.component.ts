@@ -16,7 +16,6 @@ const COMPONENTS = [HeaderComponent, FooterComponent, MagicComponent, GameCompon
     <app-magic />
     <app-game />
     <app-modes />
-    <app-footer />
 
   `,
   styles: ``
