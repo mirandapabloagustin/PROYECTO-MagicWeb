@@ -16,7 +16,6 @@ const COMPONENTS = [
   standalone: true,
   imports: [COMPONENTS],
   template: `
-    <app-header />
     <app-about-banner />
     <app-team />
   `,

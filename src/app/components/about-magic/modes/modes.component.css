@@ -1,11 +1,11 @@
-section{
+section {
     height: auto;
     padding: 0;
     background-color: var(--bg-green-color);
     padding-bottom: 2rem;
 }
 
-.tittle{
+.tittle {
     color: var(--text-color);
     display: flex;
     flex-direction: column;
@@ -25,7 +25,7 @@ span {
 }
 
 
-ul{
+ul {
     padding: 2rem;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -39,7 +39,7 @@ li {
     border-left: 3px solid var(--bg-black-color);
 }
 
-article{
+article {
     height: 400px;
     display: flex;
     flex-direction: column;
@@ -48,12 +48,12 @@ article{
     padding-left: 1rem;
 }
 
-img{
+img {
     width: 300px;
     border-radius: 5px;
 }
 
-.text{
+.text {
     width: 300px;
     color: var(--text-color);
     display: flex;
@@ -63,30 +63,25 @@ img{
     padding: 1rem 0;
 }
 
-.text h2{
+.text h2 {
     text-transform: uppercase;
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
 }
 
-.caca{
+.desc-text {
     text-align: left;
     padding-bottom: 1rem;
 }
 
-footer{
+footer {
     display: flex;
     align-items: flex-end;
 }
 
 a {
-    font-size: 1rem;
-    font-weight: 700;
     color: var(--text-color);
     background-color: var(--bg-black-color);
-    padding: 1rem 2rem;
-    border-radius: 2rem;
-    transition: 0.3s;
 }
 
 a:hover {
@@ -107,7 +102,7 @@ a:hover {
         text-align: center;
     }
 
-    ul{
+    ul {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -115,31 +110,31 @@ a:hover {
         gap: 3rem;
     }
 
-    li{
+    li {
         border: 0;
     }
 
-    article{
+    article {
         align-items: center;
     }
 
-    .text{
+    .text {
         width: 250px;
         align-items: center;
     }
 
-    .caca{
+    .desc-text {
         text-align: center;
     }
 
-    img{
+    img {
         width: 300px;
     }
 
-    a{
+    a {
         font-size: 0.8rem;
     }
 
 
-    
+
 }

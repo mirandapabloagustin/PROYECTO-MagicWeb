@@ -26,7 +26,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
           </span>
 
           <div class="redirect-link">
-            <a href="https://magic.wizards.com/es/how-to-play"
+            <a class="button-style" href="https://magic.wizards.com/es/how-to-play"
               >APRENDER A JUGAR</a>
           </div>
         </div>

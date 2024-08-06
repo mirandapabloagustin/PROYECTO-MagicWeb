@@ -3,66 +3,78 @@
 
 
 html {
-    font-family: Menlo, Monaco, Lucida Console, "Courier New", monospace;
-    background: #ffffff;
-    letter-spacing: -0.025rem;
-    
-  }
+  font-family: Menlo, Monaco, Lucida Console, "Courier New", monospace;
+  background: #ffffff;
+  letter-spacing: -0.025rem;
 
-  body,
-  figure {
-    margin: 0;
-    padding: 0;
-    -ms-overflow-style: none;  
-    scrollbar-width: none; 
-  }
+}
 
-    ::-webkit-scrollbar {
-      width: 0px;  
-      height: 0px; 
-  }
+body,
+figure {
+  margin: 0;
+  padding: 0;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
 
 
 
-  a {
-    text-decoration: none;
-  }
+a {
+  text-decoration: none;
+}
 
-  ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
 
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-  }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-  h1,
-  h2,
-  h3,
-  h4 {
-    margin: 0;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  }
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
 
-  
 
-  p {
-    font-family: Proxima Nova, sans-serif;
-    font-size: 0.9rem;
-    line-height: 1.5;
-    margin: 0;
-    word-wrap: break-word;
-  }
 
-  span{
-    font-family: Proxima Nova, sans-serif;
-  }
+p {
+  font-family: Proxima Nova, sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0;
+  word-wrap: break-word;
+}
 
-  @media (max-width: 768px) {
+span, label {
+  font-family: Proxima Nova, sans-serif;
+}
 
-    
-  }
+.button-style {
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  transition: 0.3s;
+}
+
+
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

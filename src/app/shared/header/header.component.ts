@@ -37,7 +37,7 @@ const COMPONENTS = [FontAwesomeModule, RouterLink];
             >
           </li>
           <li>
-            <a href="#" class="login"
+            <a href="login" class="login"
               ><fa-icon [icon]="icons[2]"></fa-icon> Ingresar</a
             >
           </li>

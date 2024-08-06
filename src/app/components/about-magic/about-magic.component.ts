@@ -12,7 +12,6 @@ const COMPONENTS = [HeaderComponent, FooterComponent, MagicComponent, GameCompon
   standalone: true,
   imports: [COMPONENTS, ModesComponent],
   template: `
-    <app-header />
     <app-magic />
     <app-game />
     <app-modes />

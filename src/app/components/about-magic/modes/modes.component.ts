@@ -23,10 +23,10 @@ import { Component, ViewEncapsulation } from '@angular/core';
             </header>
             <div class="text">
               <h2>{{item.title}}</h2>
-              <span class="caca">{{item.description}}</span>
+              <span class="desc-text">{{item.description}}</span>
             </div>
             <footer>
-              <a [href]="item.link">{{item.textLink}}</a>
+              <a class="button-style" [href]="item.link">{{item.textLink}}</a>
             </footer>
           </article>
         </li>
