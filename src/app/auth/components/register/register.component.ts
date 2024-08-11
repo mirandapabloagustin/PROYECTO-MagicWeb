@@ -9,9 +9,7 @@ import {
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { passwordMatchValidator } from './validator/register.validatos';
-import { validateHeaderName } from 'http';
-
+import e from 'express';
 
 @Component({
   selector: 'app-register',
@@ -28,7 +26,7 @@ import { validateHeaderName } from 'http';
 
         <form
           class="register__content-form"
-          (submit)="createAccount()"
+          (submit)="createRegisterAccount()"
           [formGroup]="formUser"
         >
           <!-- Grupo usuario -->
@@ -44,14 +42,16 @@ import { validateHeaderName } from 'http';
                 autocomplete="off"
                 formControlName="nick"
               />
-              @if (hasFormError('nick')) {
+
               <fa-icon
                 class="form__validate-status"
-                [icon]="icons[0]"
+                id="nick_icon"
+                [icon]="iconError"
               ></fa-icon>
-              }
+
             </div>
 
+            <!-- Error -->
             @if (hasFormError('nick')) {
             <div class="form__error">
               @if(hasRequiredError('nick')) {
@@ -65,7 +65,7 @@ import { validateHeaderName } from 'http';
             }
           </div>
 
-          <!-- Grupo Nombre -->
+          
           <div class="form__group">
             <label for="name" class="form__label">Nombre</label>
             <div class="form__group-input">
@@ -78,13 +78,14 @@ import { validateHeaderName } from 'http';
                 autocomplete="off"
                 formControlName="name"
               />
-              @if (hasFormError('name')) {
               <fa-icon
                 class="form__validate-status"
-                [icon]="icons[0]"
+                id="name_icon"
+                [icon]="iconError"
               ></fa-icon>
-              }
             </div>
+
+            <!-- Error -->
             @if (hasFormError('name')) {
             <div class="form__error">
               @if(hasRequiredError('name')) {
@@ -96,9 +97,10 @@ import { validateHeaderName } from 'http';
               }
             </div>
             }
+            
           </div>
 
-          <!-- Grupo Email -->
+         
           <div class="form__group">
             <label for="email" class="form__label">Correo Electronico</label>
             <div class="form__group-input">
@@ -111,12 +113,13 @@ import { validateHeaderName } from 'http';
                 autocomplete="off"
                 formControlName="email"
               />
-              @if (hasFormError('email')) {
+              
               <fa-icon
                 class="form__validate-status"
-                [icon]="icons[0]"
+                id="email_icon"
+                [icon]="iconError"
               ></fa-icon>
-              }
+              
             </div>
 
             @if (hasFormError('email')) {
@@ -132,7 +135,7 @@ import { validateHeaderName } from 'http';
             }
           </div>
 
-          <!-- Grupo Pais -->
+         
           <div class="form__group">
             <label form="country" class="form__label">Pais</label>
             <div class="form__group-input">
@@ -151,12 +154,15 @@ import { validateHeaderName } from 'http';
             </div>
             @if (hasFormError('country')) {
             <div class="form__error">
+              @if(hasRequiredError('country')) {
               <span class="form__error-text"> Campo Requerido </span>
+              }
             </div>
             }
           </div>
+          
 
-          <!-- Grupo Password -->
+        
           <div class="form__group">
             <label for="password" class="form__label">Contraseña</label>
             <div class="form__group-input">
@@ -169,22 +175,23 @@ import { validateHeaderName } from 'http';
                 autocomplete="off"
                 formControlName="password"
               />
-              @if (hasFormError('password'))
-              {
               <fa-icon
                 class="form__validate-status"
-                [icon]="icons[0]"
+                id="password_icon"
+                [icon]="iconError"
               ></fa-icon>
-              }
+              
             </div>
             @if (hasFormError('password')) {
             <div class="form__error">
+              @if(hasRequiredError('password')) {
               <span class="form__error-text"> Campo Requerido </span>
+              }
             </div>
             }
           </div>
 
-          <!-- Grupo Repetir Password -->
+      
           <div class="form__group">
             <label for="password2" class="form__label"
               >Repetir Contraseña</label
@@ -199,13 +206,13 @@ import { validateHeaderName } from 'http';
                 autocomplete="off"
                 formControlName="password2"
               />
-              @if (hasFormError('password2'))
-              {
+             
               <fa-icon
                 class="form__validate-status"
-                [icon]="icons[0]"
+                id="password2_icon"
+                [icon]="iconError"
               ></fa-icon>
-              }
+              
             </div>
             @if (hasFormError('password2')) {
             <div class="form__error">
@@ -215,6 +222,7 @@ import { validateHeaderName } from 'http';
             </div>
             }
           </div>
+         
 
           <!-- Grupo Boton Enviar -->
           <div class="button-content">
@@ -240,7 +248,7 @@ import { validateHeaderName } from 'http';
 export class RegisterComponent {
   formUser: FormGroup;
 
-  icons = [faCircleXmark];
+  iconError = faCircleXmark;
 
   countries = [
     { name: 'Argentina', code: 'AR' },
@@ -285,65 +293,104 @@ export class RegisterComponent {
       email: ['', [Validators.required, Validators.email]],
       country: ['', [Validators.required]],
       password: ['', [Validators.required]],
-      password2: ['', [Validators.required],
-      ]
-    }
-  );
+      password2: ['', [Validators.required]],
+    });
   }
 
-  createAccount() {
-
-    const { password, password2 } = this.formUser.value;
-    if (password !== password2) {
-      this.hasError('Las contraseñas no coinciden');
-    }else if (this.formUser.invalid) {
-      this.hasError('Por favor, complete el formulario');
-    }
+  createRegisterAccount() {
+    this.verifyFieldsForm();
+      
   }
 
   hasFormError( field : string){
-    const control = this.formUser.get(field);
-    return control?.invalid && (control?.touched || control?.dirty);
+    const formControler = this.formUser.get(field);
+    return formControler?.invalid && (formControler?.touched || formControler?.dirty);
   }
 
   hasRequiredError(field: string) {
-    const control = this.formUser.get(field);
-    return control?.hasError('required');
+    const formControler = this.formUser.get(field);
+    this.changeStatusIcon(field);
+    this.changeStatusTheme(field);
+    return formControler?.hasError('required');
   }
 
   hasPatternError(field: string) {
-    const control = this.formUser.get(field);
-    return control?.hasError('pattern');
+    const formControler = this.formUser.get(field);
+    return formControler?.hasError('pattern');
   }
 
   hasEmailError(field: string) {
-    const control = this.formUser.get(field);
-    return control?.hasError('email');
+    const formControler = this.formUser.get(field);
+    return formControler?.hasError('email');
   }
 
   hasError(message: string) {
     this._snackBar.open(message, '', {
       horizontalPosition: 'center',
       verticalPosition: 'bottom',
-      duration: 3000000,
+      duration: 3000,
       panelClass: ['style-snackbar'],
     });
   }
 
-  get nick() {
-    return this.formUser.get('nick');
+
+  changeStatusIcon(idName: string) {
+    const iconElement = document.querySelector(`#${idName}_icon`);
+    iconElement?.classList.add('form__status-active');
+    setTimeout(() => {
+      iconElement?.classList.remove('form__status-active');
+    }, 500);
   }
 
-  get name() {
-    return this.formUser.get('name');
+  changeStatusTheme(idName: string) {
+    const element = document.getElementById(idName);
+    element?.classList.add('form__error-status');
+    setTimeout(() => {
+      element?.classList.remove('form__error-status');
+    }, 1000);
   }
 
-  get email() {
-    return this.formUser.get('email');
+  changeAllStatusTheme(idsElements: string[]) {
+    idsElements.forEach((id) => {
+      this.changeStatusIcon(id);
+      this.changeStatusTheme(id);
+    }
+    );
   }
 
-  get country() {
-    return this.formUser.get('country');
+  checkEmptyFields(form : FormGroup) : string[] {
+    const formValues = form.getRawValue();
+    const emptyFields: string[] = [];
+    Object.keys(formValues).forEach((key) => {
+      const value = formValues[key];
+      if(!value || value.trim() === ''){
+        emptyFields.push(key);
+      }
+    });
+    return emptyFields;
+  }
+
+  verifyFieldsForm() {
+    const idsElements = ['nick', 'name', 'email', 'country', 'password', 'password2'];
+    const emptyFields: string[] = [];
+    emptyFields.push(...this.checkEmptyFields(this.formUser));
+
+    if(this.formUser.invalid){
+      if(emptyFields.length > 0 && emptyFields.length < idsElements.length){
+        this.changeAllStatusTheme(emptyFields);
+        this.hasError('Complete los campos faltantes.');
+      }else{
+        this.changeAllStatusTheme(idsElements);
+        this.hasError('Complete los campos requeridos.');
+      }
+    }else{
+      if(this.password?.value !== this.password2?.value){
+        this.changeAllStatusTheme(['password', 'password2']);
+        this.hasError('Las contraseñas no coinciden.');
+      }else{
+        console.log(this.formUser.value);
+      }
+    }
   }
 
   get password() {

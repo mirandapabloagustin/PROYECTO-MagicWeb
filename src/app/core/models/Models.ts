@@ -1,4 +1,4 @@
-import { Iuser } from "./Interface";
+import { Iuser } from "./interfaces/Interface";
 
 export class User implements Iuser {
     nick: string | null;

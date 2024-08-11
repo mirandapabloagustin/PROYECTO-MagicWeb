@@ -7,44 +7,73 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, FontAwesomeModule],
   template: `
-    <section>
-      <article>
-        <header>
-          <img src="favicon.ico" alt="Logo" />
-          <h1>DesckForge</h1>
+    <section class="login__group">
+      <article class="login__group-content">
+        <header class="login__content-header">
+          <img class="login__header-img" src="favicon.ico" alt="Logo" />
+          <h1 class="login__header-title">DesckForge</h1>
         </header>
 
-        <form [formGroup]="formulario" (ngSubmit)="ingresar()">
-          <div>
-            <label for="usuario">Usuario</label>
-            <input
-              class="styled-input"
-              type="email"
-              id="usuario"
-              placeholder="example@deskforge.com"
-              required
-              autocomplete="off"
-              formControlName="usuario"
-            />
+        <form
+          class="login__form"
+          [formGroup]="formUser"
+          (ngSubmit)="ingresar()"
+        >
+          <!-- Grupo usuario -->
+          <div class="form__group">
+            <label for="nick" class="form__label">Usuario</label>
+            <div class="form__group-input">
+              <input
+                class="form__input"
+                name="nick"
+                type="text"
+                id="nick"
+                placeholder="Ingrese su usuario..."
+                autocomplete="off"
+                formControlName="nick"
+              />
+              
+              <fa-icon
+                class="form__validate-status"
+                [icon]="icons"
+              ></fa-icon>
+              
+              
+            </div>
+
           </div>
-          <div>
-            <label for="contrasenia">Contraseña</label>
-            <input
-              class="styled-input"
-              type="password"
-              id="contrasenia"
-              placeholder="*********"
-              required
-              autocomplete="off"
-              formControlName="contrasenia"
-            />
+
+          <!-- Grupo Password -->
+          <div class="form__group">
+            <label for="password" class="form__label">Contraseña</label>
+            <div class="form__group-input">
+              <input
+                class="form__input"
+                name="password"
+                type="password"
+                id="password"
+                placeholder="*******"
+                autocomplete="off"
+                formControlName="password"
+              />
+              
+              <fa-icon
+                class="form__validate-status"
+                [icon]="icons"
+              ></fa-icon>
+              
+            </div>
+            
           </div>
+
           <div class="button-content">
             <button type="submit" class="button-style button-login">
               INICIAR SESION
@@ -52,9 +81,9 @@ import {
           </div>
         </form>
 
-        <footer>
-          <span>¿No tienes cuenta todavía en DesckForge?</span>
-          <a class="register" href="register">Registrarse</a>
+        <footer class="login__content-footer">
+          <p class="redirection__text">¿No tienes cuenta todavía en DesckForge?</p>
+          <a class="login" href="register">Registrarse</a>
         </footer>
       </article>
     </section>
@@ -63,52 +92,72 @@ import {
   encapsulation: ViewEncapsulation.Emulated,
 })
 export class LoginComponent implements OnInit {
-  formulario: FormGroup;
-
+  icons = faCircleXmark;
+  formUser: FormGroup;
 
   constructor(private fb: FormBuilder, private _snackBar: MatSnackBar) {
-    this.formulario = this.fb.group({
-      usuario: ['', [Validators.required,Validators.email]],
-      contrasenia: ['', Validators.required],
+    this.formUser = this.fb.group({
+      nick: ['', [Validators.required]],
+      password: ['', [Validators.required]],
     });
   }
 
   ngOnInit(): void {}
 
+
   ingresar() {
-    if (this.formulario.invalid) {
-      this.markAllAsTouched();
-      this.error("Campos inválidos. Por favor, verificarlos.");
-      return;
+    if (this.areFieldsEmpty()) {
+      this.handleError('Complete los campos requeridos.');
+    } else {
+      this.verifyUser();
     }
-
-    const usuario = this.formulario.value.usuario;
-    const contrasenia = this.formulario.value.contrasenia;
-
-    console.log('Usuario: ', usuario);
-    console.log('Contraseña: ', contrasenia);
-
-    this.validateUser();
+    console.log(this.formUser.value);
   }
-
-  validateUserEmail(): boolean {
-    return this.formulario.value.usuario === 'agus@gmail.com';
+  
+  areFieldsEmpty(): boolean {
+    return !this.nick?.value || !this.password?.value;
   }
-
-  validateUserPassword(): boolean {
-    return this.formulario.value.contrasenia === '1234';
-  }
-
-  validateUser() {
-    if(this.validateUserEmail() && this.validateUserPassword()){
-
-        console.log('Ingreso correcto');
-    }else{
-      this.error("Usuario o contraseña incorrectos");
+  
+  verifyUser() {
+    if (this.nick?.value !== 'agus') {
+      this.handleError('Usuario o contraseña incorrectos.');
+    } else if (!this.password?.value) {
+      this.handleError('Usuario o contraseña incorrectos.');
     }
   }
+  
+  handleError(errorMessage: string) {
+    this.setErrorTheme();
+    this.hasError(errorMessage);
+  }
 
-  error(value:string) {
+  setErrorTheme() {
+    const idsElements = ['nick', 'password'];
+    const controlIcons = document.querySelectorAll('.form__validate-status');
+
+    idsElements.forEach((id) => {
+      const control = document.getElementById(id);
+      control?.classList.add('form__error');
+    });
+    controlIcons.forEach(icon => icon.classList.add('status__error'));
+    setTimeout(() => {
+      idsElements.forEach((id) => {
+        const control = document.getElementById(id);
+        control?.classList.remove('form__error');
+      });
+      controlIcons.forEach(icon => icon.classList.remove('status__error'));
+    }, 3000);
+  }
+
+  hasErrorPassword() {
+    const idIcon = document.getElementById('password');
+    idIcon?.classList.add('form__error');
+    setTimeout(() => {
+      idIcon?.classList.remove('form__error');
+    }, 3000);
+  }
+
+  hasError(value: string) {
     this._snackBar.open(`${value}`, '', {
       horizontalPosition: 'center',
       verticalPosition: 'bottom',
@@ -117,8 +166,16 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  markAllAsTouched() {
-    this.formulario.markAllAsTouched();
+  
+
+  get nick() {
+    return this.formUser.get('nick');
   }
+  get password() {
+    return this.formUser.get('password');
+  }
+
+
+
 
 }

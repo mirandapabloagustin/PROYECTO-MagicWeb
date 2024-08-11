@@ -1,8 +1,8 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { HeaderComponent } from '../../shared/header/header.component';
 import { FooterComponent } from '../../shared/footer/footer.component';
-import { AboutBannerComponent } from './about-banner/about-banner.component';
-import { TeamComponent } from './team/team.component';
+import { AboutBannerComponent } from './components/about-banner/about-banner.component';
+import { TeamComponent } from './components/team/team.component';
 
 const COMPONENTS = [
   HeaderComponent,

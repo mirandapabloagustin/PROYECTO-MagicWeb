@@ -1,0 +1,53 @@
+.filter__group{
+    background-color: var(--bg-green-color);
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: space-between;
+    padding: 2rem;
+    padding-top: 7rem;
+    padding-bottom: 1rem;
+
+}
+
+.filter__title{
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+}
+
+.search__group{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.random__group{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.random__icon-svg{
+    height: 64px;
+    width: 64px;
+}
+
+.random_group-title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--text-color);
+}
+
+.random__title{
+}
+
+.random__text{
+    width: 100%;
+}
