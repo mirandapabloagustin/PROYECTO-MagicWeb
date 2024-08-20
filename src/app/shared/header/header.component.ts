@@ -174,4 +174,7 @@ const COMPONENTS = [FontAwesomeModule, RouterLink];
 })
 export class HeaderComponent {
   icons = [faHatWizard, faLaptopCode, faAddressCard, faBars];
+
+
+
 }

@@ -1,53 +1,106 @@
-.filter__group{
+.content__main {
     background-color: var(--bg-green-color);
-    display: flex;
-    flex-direction: row;
-    align-items: start;
-    justify-content: space-between;
     padding: 2rem;
     padding-top: 7rem;
     padding-bottom: 1rem;
-
 }
 
-.filter__title{
-    font-size: 2.5rem;
+.content__main-header{
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.filter__group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.filter_title {
+    width: 100%;
+    font-size: 3rem;
     font-weight: 500;
     color: var(--text-color);
-    margin-bottom: 1.5rem;
+    margin: 0;
 }
 
-.search__group{
+.content__filter-action {
+    width: 100%;
     display: flex;
     flex-direction: row;
-    align-items: center;
-    width: 100%;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-}
-
-.random__group{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     gap: 1rem;
 }
 
-.random__icon-svg{
-    height: 64px;
-    width: 64px;
+app-search {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 700px;
+
 }
 
-.random_group-title{
-    display: flex;
-    flex-direction: column;
+.more__options-group {
+    flex-shrink: 0;
     align-items: center;
+    display: none;
+}
+
+.options__input{
+    display: none;
+}
+
+.options__label {
+    float: right;
+    font-size: 30px;
     color: var(--text-color);
+    margin-right: 1rem;
+    margin-left: 1rem;
+    cursor: pointer;
+    
 }
 
-.random__title{
+.content__main-footer{
+    padding: 1rem 0 2rem 0;
 }
 
-.random__text{
-    width: 100%;
+.content__more-options{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+   
+}
+
+@media (max-width: 768px) {
+
+    .content__top {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .filter__group {
+        display: flex;
+        gap: 1.5rem;
+    }
+
+    .filter_title {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .more__options-group {
+      display: flex;
+    }
+
+    .content__main-footer{
+        display: none;
+    }
+
+    .random__group{
+        display: none;
+    }
+ 
+
 }
