@@ -45,7 +45,7 @@ const IMPORTS = [ButtonStyleComponent];
 .random__card-text{
     font-size: 0.8rem;
     color: var(--text-color);
-    text-align: center;
+    text-align: start;
     padding: 5px;
 }
   `

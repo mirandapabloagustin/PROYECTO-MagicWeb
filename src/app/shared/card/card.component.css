@@ -1,0 +1,26 @@
+.card__group{
+    border: 2px solid red;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: start;
+    gap: 1rem;
+}
+
+.card__img{
+    width: 350px;
+    height: 450px;
+    background-color: var(--text-color);
+    border-radius: 10px;
+}
+
+.card__info-group{
+    border: 2px solid blue;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 10px;
+    color: var(--text-color);
+}

@@ -20,49 +20,44 @@ import { ButtonStyleComponent } from '../../../shared/button-style/button-style.
 import { SelectStyleComponent } from '../../../shared/select-style/select-style.component';
 
 import { CommonModule } from '@angular/common';
-import { RandomCardComponent } from "../random-card/random-card.component";
+import { RandomCardComponent } from '../random-card/random-card.component';
+
+const MODULES = [
+  SearchComponent,
+  ButtonCleanComponent,
+  ButtonStyleComponent,
+  FontAwesomeModule,
+  SelectStyleComponent,
+  CommonModule,
+  RandomCardComponent,
+];
 
 @Component({
   selector: 'app-filter-panel',
   standalone: true,
-  imports: [
-    SearchComponent,
-    ButtonCleanComponent,
-    ButtonStyleComponent,
-    FontAwesomeModule,
-    SelectStyleComponent,
-    CommonModule,
-    RandomCardComponent
-],
+  imports: [...MODULES ],
   template: `
     <section class="content__main">
       <header class="content__main-header">
-
         <div class="filter__group">
           <h3 class="filter_title">¿Qué estás buscando?</h3>
-          
-
-
 
           <div class="content__filter-action">
             <app-search (searchEvent)="handelSearch($event)" />
-            
+
             <div class="more__options-group">
               <input
-              class="options__input"
-              type="checkbox"
-              id="check__option"
-              (click)="changeChechbox()"
+                class="options__input"
+                type="checkbox"
+                id="check__option"
+                (click)="changeChechbox()"
               />
               <label class="options__label" for="check__option">
                 <fa-icon class="options__icon" [icon]="icons[2]"></fa-icon>
               </label>
             </div>
           </div>
-
-
         </div>
-
 
         <div class="random__group">
           <app-random-card />
