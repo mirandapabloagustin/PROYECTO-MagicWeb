@@ -14,12 +14,11 @@
 
 .hover__bg {
     padding: 3rem 7rem;
-    gap: 2rem;
     justify-content: center;
     width: 100%;
     height: auto;
     min-height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.753);
     position: relative;
     overflow-y: auto;
 }
@@ -28,7 +27,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(1, 1fr);
-    gap: 8px;
+    gap: 3rem 2rem;
     width: 100%;
     height: auto;
 }

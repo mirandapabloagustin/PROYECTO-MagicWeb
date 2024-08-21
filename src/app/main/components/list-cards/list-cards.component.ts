@@ -37,6 +37,7 @@ export class ListCardsComponent {
       "art_crop": "https://cards.scryfall.io/art_crop/front/9/c/9c1aee37-dcee-4e58-be9b-81ca57cedb53.jpg?1584831671",
       "border_crop": "https://cards.scryfall.io/border_crop/front/9/c/9c1aee37-dcee-4e58-be9b-81ca57cedb53.jpg?1584831671"
     },
+    
     "mana_cost": "{2}{B}{R}",
     "cmc": 4,
     "type_line": "Instant",
