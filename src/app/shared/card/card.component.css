@@ -8,10 +8,13 @@
 }
 
 .card__img{
+    margin: 0;
+    border: 2px solid green;
+}
+
+.card__content{
     width: 350px;
-    height: 450px;
-    background-color: var(--text-color);
-    border-radius: 10px;
+    border-radius: 1rem;
 }
 
 .card__info-group {
