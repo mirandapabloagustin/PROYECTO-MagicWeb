@@ -36,51 +36,7 @@ const MODULES = [
   selector: 'app-filter-panel',
   standalone: true,
   imports: [...MODULES ],
-  template: `
-    <section class="content__main">
-      <header class="content__main-header">
-        <div class="filter__group">
-          <h3 class="filter_title">¿Qué estás buscando?</h3>
-
-          <div class="content__filter-action">
-            <app-search (searchEvent)="handelSearch($event)" />
-
-            <div class="more__options-group">
-              <input
-                class="options__input"
-                type="checkbox"
-                id="check__option"
-                (click)="changeChechbox()"
-              />
-              <label class="options__label" for="check__option">
-                <fa-icon class="options__icon" [icon]="icons[2]"></fa-icon>
-              </label>
-            </div>
-          </div>
-        </div>
-
-        <div class="random__group">
-          <app-random-card />
-        </div>
-      </header>
-
-      <footer class="content__main-footer">
-        <div class="content__more-options" (keyup.enter)="onSearchFilter()">
-          @for (selection of selectsProperties; track $index) {
-          <div class="content__option">
-            <app-select-style
-              [titleSelect]="selection.title"
-              [textSelect]="selection.text"
-              [icons]="selection.icon"
-              [options]="selection.options"
-              [aditionalOptions]="selection.more_options"
-            ></app-select-style>
-          </div>
-          }
-        </div>
-      </footer>
-    </section>
-  `,
+  templateUrl: './filter-panel.component.html',
   styleUrl: './filter-panel.component.css',
   encapsulation: ViewEncapsulation.Emulated,
 })

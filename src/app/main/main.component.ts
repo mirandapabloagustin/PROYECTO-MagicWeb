@@ -15,7 +15,7 @@ const MODULES = [FilterPanelComponent,ListCardsComponent,DetailsCardComponent]
       @if(showList){
         <app-list-cards (cardSelected)="showCardDetails($event)"></app-list-cards>
       }@else{
-        <app-details-card [cardId]="selectedCardId"/>
+        <app-details-card [cardData]="selectedCardId"/>
       }
     </main>
   `,
@@ -24,14 +24,14 @@ const MODULES = [FilterPanelComponent,ListCardsComponent,DetailsCardComponent]
 })
 export class MainComponent {
   showList = true;
-  selectedCardId?:string;
+  selectedCardId?:any;
   
   handleUserSearch(searchCard: string) {
     console.log(searchCard);
   }
 
-  showCardDetails(cardId: string) {
-    this.selectedCardId = cardId;
+  showCardDetails(card: any) {
+    this.selectedCardId = card;
     this.showList = false;
   }
 

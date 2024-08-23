@@ -3,7 +3,7 @@
       
       <div class="content__list"   >
         @for (data of db; track data){
-          <app-card [dataCard]="data" (idCard)="handleCardId($event)"/>
+          <app-card [dataCard]="data" (cardClicked)="handleCardId($event)"/>
         }
       </div>
 

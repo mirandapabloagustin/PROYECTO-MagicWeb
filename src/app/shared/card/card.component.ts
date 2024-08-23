@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, Output} from '@angular/core';
-import { Router } from '@angular/router';
 import { ButtonStyleComponent } from '@app/shared/button-style/button-style.component';
 
 const MODULES = [ButtonStyleComponent];
@@ -14,12 +13,11 @@ const MODULES = [ButtonStyleComponent];
 export class CardComponent {
 
   @Input() dataCard: any;
-  @Output() idCard = new EventEmitter<string>()
-
-  constructor(private router: Router) {}
+  @Output() cardClicked = new EventEmitter<any>();
  
   navigateToDetails(){
-    this.idCard.emit(this.dataCard.id)
+    this.cardClicked.emit(this.dataCard);
+    
   }
 
 
