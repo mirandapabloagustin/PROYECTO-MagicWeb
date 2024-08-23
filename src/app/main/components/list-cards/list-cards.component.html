@@ -1,17 +1,10 @@
 <section class="content__list-cards">
     <div class="hover__bg">
       
-      <div class="content__list">
-        <app-card [dataCard]="dataCard" />
-        <app-card [dataCard]="dataCard" />
-        <app-card [dataCard]="dataCard" />
-        <app-card [dataCard]="dataCard" />
-        <app-card [dataCard]="dataCard" />
-        <app-card [dataCard]="dataCard" />
-        <app-card [dataCard]="dataCard" />
-        <app-card [dataCard]="dataCard" />
-        <app-card [dataCard]="dataCard" />
-        <app-card [dataCard]="dataCard" />
+      <div class="content__list"   >
+        @for (data of db; track data){
+          <app-card [dataCard]="data" (idCard)="handleCardId($event)"/>
+        }
       </div>
 
     </div>
