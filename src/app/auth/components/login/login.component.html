@@ -1,0 +1,72 @@
+<section class="login__group">
+    <article class="login__group-content">
+      <header class="login__content-header">
+        <img class="login__header-img" src="favicon.ico" alt="Logo" />
+        <h1 class="login__header-title">DesckForge</h1>
+      </header>
+
+      <form
+        class="login__form"
+        [formGroup]="formUser"
+        (ngSubmit)="ingresar()"
+      >
+        <!-- Grupo usuario -->
+        <div class="form__group">
+          <label for="nick" class="form__label">Usuario</label>
+          <div class="form__group-input">
+            <input
+              class="form__input"
+              name="nick"
+              type="text"
+              id="nick"
+              placeholder="Ingrese su usuario..."
+              autocomplete="off"
+              formControlName="nick"
+            />
+            
+            <fa-icon
+              class="form__validate-status"
+              [icon]="icons"
+            ></fa-icon>
+            
+            
+          </div>
+
+        </div>
+
+        <!-- Grupo Password -->
+        <div class="form__group">
+          <label for="password" class="form__label">Contraseña</label>
+          <div class="form__group-input">
+            <input
+              class="form__input"
+              name="password"
+              type="password"
+              id="password"
+              placeholder="*******"
+              autocomplete="off"
+              formControlName="password"
+            />
+            
+            <fa-icon
+              class="form__validate-status"
+              [icon]="icons"
+            ></fa-icon>
+            
+          </div>
+          
+        </div>
+
+        <div class="button-content">
+          <button type="submit" class="button-style button-login">
+            INICIAR SESION
+          </button>
+        </div>
+      </form>
+
+      <footer class="login__content-footer">
+        <p class="redirection__text">¿No tienes cuenta todavía en DesckForge?</p>
+        <a class="login" href="register">Registrarse</a>
+      </footer>
+    </article>
+  </section>

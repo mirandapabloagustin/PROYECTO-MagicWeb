@@ -37,12 +37,22 @@
     align-items: start;
 }
 
+.info__title{
+    font-size: 2rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+.info__subtitle {
+    font-size: 1.5rem;
+}
+
 .info__description {
     display: flex;
     flex-direction: column;
     align-items: start;
     gap: 10px;
-    flex-grow: 1; /* Permitir que esta sección crezca y ocupe espacio */
+    flex-grow: 1; 
 }
 
 .info__flavor-text{

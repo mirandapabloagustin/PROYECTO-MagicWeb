@@ -1,11 +1,19 @@
 <section class="content__list-cards">
     <div class="hover__bg">
       
-      <div class="content__list"   >
-        @for (data of db; track data){
+      @if (!loading){
+        <div class="content__list">
+          <!-- Este es un comentario 
+          -->
+          @for (data of db; track data){
           <app-card [dataCard]="data" (cardClicked)="handleCardId($event)"/>
-        }
-      </div>
+          }
+        </div>
+      }@else {
+        <div class="content__loading">
+          <mat-spinner></mat-spinner>
+        </div>
+      }
 
     </div>
   </section>
