@@ -1,6 +1,5 @@
 import { Component, Output, EventEmitter, Input, OnInit } from '@angular/core';
 import { CardComponent } from '@shared/card/card.component';
-import { database }  from '@core/db/database';
 import { CardsService } from '@app/core/service/serviceScryfall/cardService/cards.service';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 

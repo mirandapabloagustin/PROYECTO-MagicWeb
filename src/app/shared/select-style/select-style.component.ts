@@ -80,4 +80,6 @@ export class SelectStyleComponent {
   @Input() options?: string[] =[];
   @Input() aditionalOptions?: string[] =[];
   @Output() selectOption!: string;
+
+  
 }

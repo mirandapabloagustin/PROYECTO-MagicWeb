@@ -32,6 +32,13 @@
     height: auto;
 }
 
+.content__loading {
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+  }
+
 @media (min-width: 768px) {
     .content__list {
         grid-template-rows: repeat(1, 1fr);

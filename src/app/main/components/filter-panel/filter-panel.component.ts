@@ -48,7 +48,7 @@ export class FilterPanelComponent {
   }
 
   changeChechbox() {
-    return !this.chechbox;
+      return !this.chechbox;
   }
 
   selectsProperties = [
