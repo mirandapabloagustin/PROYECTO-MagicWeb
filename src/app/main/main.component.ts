@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FilterPanelComponent } from "./components/filter-panel/filter-panel.component";
 import { ListCardsComponent } from "./components/list-cards/list-cards.component";
 import { DetailsCardComponent } from './components/details-card/details-card.component';
+import { FilterSearchDto } from '@app/core/models/dto/filter.search.dto.model';
 
 const MODULES = [FilterPanelComponent,ListCardsComponent,DetailsCardComponent]
 
@@ -11,7 +12,9 @@ const MODULES = [FilterPanelComponent,ListCardsComponent,DetailsCardComponent]
   imports: [...MODULES],
   template: `
     <main>
-      <app-filter-panel (searchUserEvent)="handleUserSearch($event)"/>
+      <app-filter-panel 
+      (searchUserEvent)="handleUserSearch($event)"
+      />
       @if(showList){
         <app-list-cards (cardSelected)="showCardDetails($event)"></app-list-cards>
       }@else{
@@ -25,8 +28,9 @@ const MODULES = [FilterPanelComponent,ListCardsComponent,DetailsCardComponent]
 export class MainComponent {
   showList = true;
   selectedCardId?:any;
+
   
-  handleUserSearch(searchCard: string) {
+  handleUserSearch(searchCard: FilterSearchDto) {
     console.log(searchCard);
   }
 

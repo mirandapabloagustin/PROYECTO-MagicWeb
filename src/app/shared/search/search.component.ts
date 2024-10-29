@@ -78,10 +78,7 @@ export class SearchComponent {
   @Output() searchEvent = new EventEmitter<string>();
 
   onSearch() {
-    if(this.searchCard.length > 0){
       this.searchEvent.emit(this.searchCard);
-    }else{
-      console.log('No hay nada que buscar');
-    }
+      this.searchCard = '';
   }
 }

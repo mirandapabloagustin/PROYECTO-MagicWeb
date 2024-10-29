@@ -1,4 +1,4 @@
-import { Component, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 const IMPORTS_MODULES = [
@@ -18,19 +18,13 @@ const IMPORTS_MODULES = [
             {{titleSelect}}</label>
         </div>
         <div class="select__option-select-options">
-          <select class="select__option-select" id="option_user_select">
+          <select class="select__option-select" id={{titleSelect}} (change)="onSelectChange($event)">
             <option value="" disabled selected>{{textSelect}}</option>
             @for (option of options ;track $index){
               <option value="{{option}}">{{option}}</option>
             }
           </select>
-          @if(aditionalOptions){
-            <select class="select__option-select" id="option_user_select">
-             @for (aditional_option of aditionalOptions ;track $index){
-              <option value="{{aditional_option}}">{{aditional_option}}</option>
-            }
-          </select>
-          }
+          
         </div>
       </div>
     `,
@@ -78,8 +72,20 @@ export class SelectStyleComponent {
   @Input() titleSelect!: string;
   @Input() textSelect!: string;
   @Input() options?: string[] =[];
-  @Input() aditionalOptions?: string[] =[];
-  @Output() selectOption!: string;
+  @Input() clearOptions?: boolean = false;
 
+  @Output() selectOption: EventEmitter<{ value: string, source: string }> = new EventEmitter();
+
+  constructor() { }
+
+  onSelectChange( event : Event){
+    const selectElement = event.target as HTMLSelectElement;
+    const selectedValue = selectElement.value;
+    const source = selectElement.id; 
+    this.selectOption.emit({ value: selectedValue, source }); 
+    if(this.clearOptions){
+      selectElement.value = "";
+    }
+  }
   
 }

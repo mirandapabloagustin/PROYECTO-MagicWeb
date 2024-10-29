@@ -1,13 +1,15 @@
-import { IfilterSearch } from '../interfaces/filter.search.interface';
+import { IFilterSearchDTO } from '../../interfaces/dto/filter.search.dto.interface';
 
-export class FilterSearchDto implements IfilterSearch {
-    color: string | null;
-    mana: string | null;
-    type: string | null;
-    format: string | null;
-    set: string | null;
+export class FilterSearchDto implements IFilterSearchDTO {
+    name: string;
+    color: string;
+    mana: string;
+    type: string;
+    format: string;
+    set: string;
 
-    constructor(filterSearch?: IfilterSearch) {
+    constructor(filterSearch?: IFilterSearchDTO) {
+        this.name = filterSearch?.name == undefined ? '' : filterSearch.name;
         this.color = filterSearch?.color == undefined ? '' : filterSearch.color;
         this.mana = filterSearch?.mana == undefined ? '' : filterSearch.mana;
         this.type = filterSearch?.type == undefined ? '' : filterSearch.type;

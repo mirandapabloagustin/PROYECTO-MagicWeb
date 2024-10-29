@@ -21,6 +21,7 @@ import { SelectStyleComponent } from '../../../shared/select-style/select-style.
 
 import { CommonModule } from '@angular/common';
 import { RandomCardComponent } from '../random-card/random-card.component';
+import { FilterSearchDto } from '@app/core/models/dto/filter.search.dto.model';
 
 const MODULES = [
   SearchComponent,
@@ -35,20 +36,18 @@ const MODULES = [
 @Component({
   selector: 'app-filter-panel',
   standalone: true,
-  imports: [...MODULES ],
+  imports: [...MODULES],
   templateUrl: './filter-panel.component.html',
   styleUrl: './filter-panel.component.css',
   encapsulation: ViewEncapsulation.Emulated,
 })
 export class FilterPanelComponent {
   chechbox = false;
-
-  onSearchFilter() {
-    console.log('Buscando...');
-  }
+  cardSearch: FilterSearchDto = new FilterSearchDto();
+  cleanSearch = false;
 
   changeChechbox() {
-      return !this.chechbox;
+    return !this.chechbox;
   }
 
   selectsProperties = [
@@ -56,8 +55,7 @@ export class FilterPanelComponent {
       icon: faPalette,
       title: 'Color',
       text: 'Seleccionar carta',
-      options: ['Blanco', 'Azul', 'Negro', 'Rojo', 'Verde', 'Todos'],
-      more_options: ['Con exactitud', 'Incluye algunos', 'Algunos de estos'],
+      options: ['Blanco', 'Azul', 'Negro', 'Rojo', 'Verde', 'Todos']
     },
     {
       icon: faDroplet,
@@ -378,9 +376,42 @@ export class FilterPanelComponent {
   ];
 
   icons = [faBars, faDroplet, faFilter];
-  @Output() searchUserEvent = new EventEmitter<string>();
+  @Output() searchUserEvent = new EventEmitter<FilterSearchDto>();
+  @Output() selectUserEvent = new EventEmitter<{ value: string; source: string }>();
+
+
 
   handelSearch(searchCard: string) {
-    this.searchUserEvent.emit(searchCard);
+    this.cardSearch.name = searchCard;
+    this.searchUserEvent.emit(this.cardSearch);
+    this.cardSearch = new FilterSearchDto();
+    this.cleanSearch = true;
   }
+
+
+  handleSelectOption(event: { value: string, source: string }) {
+    switch (event.source) {
+      case 'Color':
+        this.cardSearch.color = event.value;
+        break;
+      case 'Mana':
+        const manaValue = event.value.match(/\{(.+?)\}/);
+        if (manaValue && manaValue[1]) {
+          this.cardSearch.mana = manaValue[1]; 
+        } else {
+          this.cardSearch.mana = ''; 
+        }
+        break;
+      case 'Tipo':
+        this.cardSearch.type = event.value;
+        break;
+      case 'Formato':
+        this.cardSearch.format = event.value;
+        break;
+      case 'Sets':
+        this.cardSearch.set = event.value;
+        break;
+    }
+  }
+
 }
