@@ -1,12 +1,19 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Cards } from 'scryfall-api';
+import { enviorment } from 'src/enviroments/enviroment';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CardsService {
 
-  constructor() { }
+
+
+export class CardsService {
+  url = enviorment.apiUrl;
+  constructor(private http: HttpClient) {}
+
+  
 
   async getRandomCard() {
     return await Cards.random();
@@ -19,14 +26,15 @@ export class CardsService {
         cards.push(card);
       }
       return cards;
-
   }
-  
-  
 
-  async getCardById(id: string) {
-    return await Cards.byId(id);
+  async getAllCards() {
+    return this.http.get(`${this.url}cards`);
   }
+
+
+
+
 
 
 }

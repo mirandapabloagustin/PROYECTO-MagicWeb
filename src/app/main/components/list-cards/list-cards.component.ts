@@ -1,6 +1,6 @@
-import { Component, Output, EventEmitter, Input, OnInit } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit,  } from '@angular/core';
 import { CardComponent } from '@shared/card/card.component';
-import { CardsService } from '@app/core/service/serviceScryfall/cardService/cards.service';
+import { CardsService } from '@app/core/service/serviceScryfall/card/cards.service';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
@@ -22,7 +22,7 @@ export class ListCardsComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.loadCards();
+    this.loadMoreCards();
   }
 
 
@@ -48,4 +48,13 @@ export class ListCardsComponent implements OnInit {
   }
 
 
+
+  async loadMoreCards() {
+    try{
+      const data = await this.serviceCards.getAllCards();
+      console.log('Data:', data);
+    }catch(error){
+      console.error('Error loading cards:', error);
+    }
+  }
 }
