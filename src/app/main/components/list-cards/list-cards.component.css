@@ -39,6 +39,31 @@
     transform: translate(-50%, -50%); 
   }
 
+  .content__button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4rem;
+  }
+
+  .scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--bg-color-buttom-winter);
+    color: var(--text-color);
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .scroll-to-top:hover {
+    background-color: var(--text-color);
+    color: var(--bg-color-buttom-winter);
+  }
+
 @media (min-width: 768px) {
     .content__list {
         grid-template-rows: repeat(1, 1fr);

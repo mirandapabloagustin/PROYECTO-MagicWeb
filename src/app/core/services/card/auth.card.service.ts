@@ -1,42 +1,38 @@
 import { Injectable } from '@angular/core';
-import { lastValueFrom, Observable } from 'rxjs';
+import { lastValueFrom } from 'rxjs';
 import { CardsService } from './cards.service';
 import { Card } from '@app/core/models/card.model';
-import { IApiResponse } from '@app/core/interfaces/api.response.interface';
-import { HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthApiCardService {
-  data: Card[] = [];
+  uniqueCards: Card[] = [];
+  currentIndex: number = 0;
+  itemsToShow: number = 10;
 
-  constructor(
-    private service: CardsService
-  ) { }
+  constructor(private service: CardsService) { }
 
-
-
-  async getCardsData(page: number, pageSize: number): Promise<IApiResponse> {
-    let response: IApiResponse = {
-      cards: [],
-      headers: new HttpHeaders()
-    };
-    try {
-      const res = await lastValueFrom(this.service.getCards(page, pageSize));
-      res.cards.forEach((card: any) => {
-        if(!card.imageUrl){
-          card.imageUrl = 'no_img_card.png';
-        }
-      });
-      response = res;
-    } catch (error) {
-      console.error('Error al obtener los datos de las cartas:', error);
-      response.headers = response.headers.append('error', 'Error fetching data');
-    }
-    return response;
+  async getCardsData(): Promise<Card[]> {
+    const response = await lastValueFrom(this.service.getCards(1, 100));
+    const newCards = this.getUniqueCardsWithImage(response.cards);
+    this.uniqueCards = [...this.uniqueCards, ...newCards];
+    return newCards; 
   }
-  
 
-
+  private getUniqueCardsWithImage(cards: Card[]): Card[] {
+    const unique: Set<string> = new Set();
+    const result: Card[] = [];
+    
+    while (this.currentIndex < cards.length && result.length < this.itemsToShow) {
+      const card = cards[this.currentIndex];
+      if (card.imageUrl && !unique.has(card.name)) {
+        unique.add(card.name);
+        result.push(card);
+      }
+      this.currentIndex++;
+    }
+    
+    return result;
+  }
 }
