@@ -2,6 +2,8 @@ import { Component, Output, EventEmitter, OnInit,  } from '@angular/core';
 import { CardComponent } from '@shared/card/card.component';
 import { CardsService } from '@app/core/service/serviceScryfall/card/cards.service';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { database } from '@app/core/db/database';
+import { lastValueFrom } from 'rxjs';
 
 
 
@@ -17,6 +19,7 @@ const MODULES = [CardComponent, MatProgressSpinnerModule];
 })
 export class ListCardsComponent implements OnInit {
   db: any;
+  dataCards: any;
   loading = true;
   constructor(private serviceCards: CardsService) { }
 
@@ -49,12 +52,10 @@ export class ListCardsComponent implements OnInit {
 
 
 
-  async loadMoreCards() {
-    try{
-      const data = await this.serviceCards.getAllCards();
-      console.log('Data:', data);
-    }catch(error){
-      console.error('Error loading cards:', error);
-    }
+  loadMoreCards() {
+    this.serviceCards.getCards(1, 10).subscribe(data => {
+      this.dataCards = data.cards; 
+      console.log('Data cards:', this.dataCards);
+    });
   }
 }
