@@ -30,7 +30,14 @@ export class CardsService {
       return cards;
   }
 
-  getCards(page:number, pageSize: number): Observable<any> {
+  /* 
+  Funcion que obtiene las cartas de la api de scryfall, recibe como parametros el numero de pagina y el tamaño de la pagina
+  esta funcion retorna un observable de tipo IApiResponse.
+  @param page: number
+  @param pageSize: number
+  @returns Observable<IApiResponse>
+  */
+  getCards(page:number, pageSize: number): Observable<IApiResponse> {
     const url = `${this.ev}/cards?page=${page}&pageSize=${pageSize}`;
     return this.http.get<any>(url, { observe: 'response' }).pipe(
       map(response => ({

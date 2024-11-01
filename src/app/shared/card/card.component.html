@@ -1,15 +1,16 @@
 <article class="card__group">
-    <div class="card__img" (click)="navigateToDetails()" >
-       <img class="card__content" [src]="dataCard.image_uris.normal" alt="dataCard.name">
-    </div>
-    <div class="card__info-group">
-        <header class="info__top-group">
-            <h3 class="info__title">{{ dataCard.name }}</h3>
-            <p class="info__subtitle">{{ dataCard.type_line}}</p>
+        <div class="card__img" (click)="navigateToDetails()" >
+            <img class="card__content" [src]="dataCard.imageUrl" alt="dataCard.name">
+        </div>
+        <div class="card__info-group">
+            <header class="info__top-group">
+                
+                <h3 class="info__title">{{this.dataCard.name}}</h3>
+
+            <p class="info__subtitle">{{ dataCard.type}}</p>
         </header>
         <div class="info__description">
-            <p>{{ dataCard.oracle_text }}</p>
-            <p class="info__flavor-text">{{dataCard.flavor_text}}</p>
+            <p>{{ dataCard.text }}</p>
             @if(dataCard.power || dataCard.toughness){
                 <p class="info__atribute-power">{{dataCard.power}}/{{dataCard.toughness}}</p>
             }

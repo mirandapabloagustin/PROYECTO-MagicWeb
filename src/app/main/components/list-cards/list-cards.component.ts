@@ -1,9 +1,9 @@
 import { Component, Output, EventEmitter, OnInit,  } from '@angular/core';
 import { CardComponent } from '@shared/card/card.component';
-import { CardsService } from '@app/core/service/serviceScryfall/card/cards.service';
+import { AuthApiCardService } from '@services/card/auth.card.service';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import { database } from '@app/core/db/database';
-import { lastValueFrom } from 'rxjs';
+import { Card } from '@models/card.model';
+
 
 
 
@@ -18,14 +18,13 @@ const MODULES = [CardComponent, MatProgressSpinnerModule];
   styleUrl: `./list-cards.component.css`,
 })
 export class ListCardsComponent implements OnInit {
-  db: any;
-  dataCards: any;
+  db: Card[] = [];
   loading = true;
-  constructor(private serviceCards: CardsService) { }
+  constructor(private serviceAuth: AuthApiCardService) { }
 
 
   ngOnInit(): void {
-    this.loadMoreCards();
+    this.loadCards();
   }
 
 
@@ -37,25 +36,14 @@ export class ListCardsComponent implements OnInit {
     console.log('Card clicked:', cardData);
   }
 
-  
-
   async loadCards() {
     try {
-      const cards = await this.serviceCards.get20RandomCards();
-      this.db = cards; 
-    } catch (error) {
-      console.error('Error loading cards:', error);
-    }finally{
+      const res = await this.serviceAuth.getCardsData(1, 10);
+      this.db = res.cards;
       this.loading = false;
+    } catch (error) {
+      console.log('Error', error);
     }
   }
-
-
-
-  loadMoreCards() {
-    this.serviceCards.getCards(1, 10).subscribe(data => {
-      this.dataCards = data.cards; 
-      console.log('Data cards:', this.dataCards);
-    });
-  }
+  
 }

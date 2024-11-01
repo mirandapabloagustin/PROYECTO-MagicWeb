@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Input, Output} from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { ButtonStyleComponent } from '@app/shared/button-style/button-style.component';
+import { Card } from '@models/card.model';
 
 const MODULES = [ButtonStyleComponent];
 
@@ -10,14 +11,20 @@ const MODULES = [ButtonStyleComponent];
   templateUrl: './card.component.html',
   styleUrl: './card.component.css'
 })
-export class CardComponent {
+export class CardComponent implements OnInit {
 
-  @Input() dataCard: any;
+  @Input() dataCard!: Card;
   @Output() cardClicked = new EventEmitter<any>();
  
   navigateToDetails(){
     this.cardClicked.emit(this.dataCard);
     
+  }
+
+  constructor() { }
+
+  ngOnInit(): void {
+    console.log(this.dataCard);
   }
 
 
