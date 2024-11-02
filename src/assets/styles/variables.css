@@ -20,11 +20,13 @@
     
 
     --bg-hover-green: #459c5b;
+    --bg-hover-green-two: #4f9941;
     --bg-opacyti-color : #2b2b2bd5;
 
 
     --box-shadow-light : 3px 0px 30px  rgba(94, 92, 92, 0.692);
     --box-shadow-dark : 3px 0px 30px  rgba(184, 184, 184, 0.692);
+    --box-shadow-little : 0 4px 8px rgba(0, 0, 0, 0.2);
 
 
     --green-decoration: rgb(86, 180, 124);

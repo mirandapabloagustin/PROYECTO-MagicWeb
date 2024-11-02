@@ -1,42 +1,41 @@
 <section class="content__list-cards">
-    <div class="hover__bg">
-      
-      @if (!loading){
-        <div class="content__list">
-          
-          @for (data of db; track data){
-          <app-card [dataCard]="data" (cardClicked)="handleCardId($event)"/>
-          }
-        </div>
-        @if(isVisible){
-          <button  
-          class="scroll-to-top" 
-          (click)="scrollToTop()">
-        </button>
-        }
-        
-        
-        
-        @if(hasMoreItems){
-          <div class="content__button">
-            <app-button-style text="MAS CARTAS" 
-                colorTextButton="var(--text-color)"
-                colorBackgroundButton="var(--bg-color-buttom-winter)"
-                colorBorderButton="2px solid var(--border-winter-color)" 
-                colorTextHover="var(--bg-color-buttom-winter)"
-                colorBackgroundHover="var(--text-color)" 
-                colorBorderHover="2px solid var(--border-color)" 
-                (click)="loadMoreCards()"/>
-          </div>
-        }
-        
-      }@else {
-        <div class="content__loading">
-          <mat-spinner></mat-spinner>
-        </div>
+  <div class="hover__bg">
+
+    @if (!loading){
+    <div class="content__list">
+
+      @for (data of db; track data){
+      <app-card [dataCard]="data" (cardClicked)="handleCardId($event)" />
       }
-
-      
-
     </div>
-  </section>
+    @if(isVisible){
+    <button class="scroll-to-top" (click)="scrollToTop()">
+      <fa-icon id="icon__up" [icon]="icon"></fa-icon>
+    </button>
+    }
+
+
+
+    @if(hasMoreItems){
+    <div class="content__button">
+      <app-button-style text="MAS CARTAS" 
+        colorTextButton="var(--text-color)"
+        colorBackgroundButton="var(--bg-green-color)" 
+        colorBorderButton="2px solid var(--bg-opacyti-color)"
+        colorTextHover="var(--bg-black-color)" 
+        colorBackgroundHover="var(--text-color)"
+        colorBorderHover="2px solid var(--border-color)" 
+        (click)="loadMoreCards()" />
+    </div>
+    }
+
+    }@else {
+    <div class="content__loading">
+      <mat-spinner></mat-spinner>
+    </div>
+    }
+
+
+
+  </div>
+</section>

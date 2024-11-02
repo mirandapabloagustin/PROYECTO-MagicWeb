@@ -1,7 +1,16 @@
-import { HttpHeaders } from "@angular/common/http";
+
 import { Card } from "@app/core/models/card.model";
 
 export interface IApiResponse {
     cards: Card [];
-    headers: HttpHeaders;
+    headers: ApiResponseHeaders;
+}
+
+export interface ApiResponseHeaders {
+    link?: {
+        prev?: string;
+        next?: string;
+        last?: string;
+        first?: string;
+    };
 }

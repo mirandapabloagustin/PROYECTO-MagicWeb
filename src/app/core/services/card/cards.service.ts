@@ -19,8 +19,8 @@ export class CardsService {
   @param pageSize: number
   @returns Observable<IApiResponse>
   */
-  getCards(page:number, pageSize: number): Observable<IApiResponse> {
-    const url = `${this.ev}/cards?page=${page}&pageSize=${pageSize}`;
+  getCardsService(page:number): Observable<IApiResponse> {
+    const url = `${this.ev}/cards?page=${page}`;
     return this.http.get<any>(url, { observe: 'response' }).pipe(
       map(response => ({
         cards: response.body.cards,
