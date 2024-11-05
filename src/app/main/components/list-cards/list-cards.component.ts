@@ -38,23 +38,19 @@ export class ListCardsComponent implements OnInit {
   }
 
   async loadCards() {
+    this.loading = true;
     try {
-      this.db = await this.serviceAuth.preLoadCards();
-      console.log('this.db', this.db.length);
-      this.loading = false;
+      this.db = await this.serviceAuth.preLoad();
     } catch (error) {
-      console.log('Error', error);
+      console.error('Error loading cards:', error);
+      this.db = [];
+    } finally {
+      this.loading = false;
     }
   }
 
   loadMoreCards() {
-    const moreCards = this.serviceAuth.getMoreCards(); 
-    if (moreCards.length > 0) {
-      this.db = [...this.db, ...moreCards]; 
-    } else {
-      console.log('No hay más cartas para cargar.'); 
-      this.hasMoreItems = false;
-    }
+
   }
 
   @HostListener('window:scroll', [])

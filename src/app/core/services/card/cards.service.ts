@@ -1,13 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { enviorment } from 'src/enviroments/enviroment';
-import { IApiResponse } from '@app/core/interfaces/api.response.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-
 export class CardsService {
   ev = enviorment.apiUrl;
   constructor(private http: HttpClient) {}
@@ -19,19 +17,9 @@ export class CardsService {
   @param pageSize: number
   @returns Observable<IApiResponse>
   */
-  getCardsService(page:number): Observable<IApiResponse> {
-    const url = `${this.ev}/cards?page=${page}`;
-    return this.http.get<any>(url, { observe: 'response' }).pipe(
-      map(response => ({
-        cards: response.body.cards,
-        headers: response.headers
-      }))
-    );
+  getCardsService(page: number): Observable<any> {
+    return this.http.get<any>(`${this.ev}/cards?page=${page}`);
   }
-
-
-
-
 
 
 }
