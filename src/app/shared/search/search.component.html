@@ -1,0 +1,12 @@
+<div class="input__group-filter">
+    <input
+      type="text"
+      class="input__filter"
+      placeholder="Busca tu carta Magic..."
+      [(ngModel)]="searchCard"
+      (keyup.enter)="onSearch()"
+    />
+    <div class="icon__input" (click)="onSearch()">
+      <fa-icon class="input__icon-filter" [icon]="iconMagnifyingGlass"></fa-icon>
+    </div>
+</div>

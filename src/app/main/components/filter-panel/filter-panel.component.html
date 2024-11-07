@@ -1,13 +1,9 @@
 <section class="content__main">
   <header class="content__main-header">
-    <div class="filter__group">
+
       <h3 class="filter_title">¿Qué estás buscando?</h3>
-
-      <div class="content__filter-action">
-        <app-search (searchEvent)="handelSearch($event)" />
-
-      </div>
-    </div>
+      <app-search (searchEvent)="handelSearch($event)" />
+    
   </header>
 
     <footer class="content__main-footer">
