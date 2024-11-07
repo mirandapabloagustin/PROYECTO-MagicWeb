@@ -1,50 +1,36 @@
 export interface ICard {
-    name:          string | null;
-    names:         string[] | null;
-    manaCost:      string | null;
-    cmc:           number | null;
-    colors:        string[] | null;
-    colorIdentity: string[] | null;
-    type:          string | null;
-    supertypes:    string[] | null;
-    types:         string[] | null;
-    subtypes:      string[] | null;
-    rarity:        string | null;
-    set:           string | null;
-    text:          string | null;
-    artist:        string | null;
-    number:        string | null;
-    power:         string | null;
-    toughness:     string | null;
-    layout:        string | null;
-    multiverseid:  number | null;
-    imageUrl:      string | null;
-    rulings:       IRuling[] | null;
-    foreignNames:  IForeignName[] | null;
-    printings:     string[] | null;
-    originalText:  string | null;
-    originalType:  string | null;
-    id:            string | null;
-    legalities:    ILegality[] | null;
-}
-
-export interface IForeignName {
-    name:         string | null;
-    language:     string | null;
-    multiverseid: number | null;
-    flavor:       string | null;
-    imageUrl:     string | null;
-    text:         string | null;
-    type:         string | null;
-    
-}
-
-export interface IRuling {
-    date: Date | null;
-    text: string | null;
-}
-
-export interface ILegality {
-    format: string | null;
-    legality: string | null;
-}
+    id: string | null;
+    oracle_id: string | null;
+    name: string | null;
+    lang: string | null;
+    released_at: string | null;
+    uri: string | null;
+    scryfall_uri: string | null;
+    layout: string | null;
+    highres_image: boolean | null;
+    image_uris?: {
+      small: string | null;
+      normal: string | null;
+      large: string | null;
+      png: string | null;
+      art_crop: string | null;
+      border_crop: string | null;
+    } | null;
+    mana_cost: string | null;
+    cmc: number | null;
+    type_line: string | null;
+    oracle_text: string | null;
+    colors: string[] | null;
+    color_identity: string[] | null;
+    legalities: { [format: string]: string } | null;
+    set: string | null;
+    set_name: string | null;
+    rarity: string | null;
+    prices?: {
+      usd: string | null;
+      usd_foil: string | null;
+      eur: string | null;
+      tix: string | null;
+    } | null;
+  }
+  

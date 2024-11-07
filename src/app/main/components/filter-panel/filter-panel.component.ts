@@ -1,6 +1,8 @@
 import {
   Component,
   EventEmitter,
+  HostListener,
+  OnInit,
   Output,
   ViewEncapsulation,
 } from '@angular/core';
@@ -20,7 +22,6 @@ import { ButtonStyleComponent } from '../../../shared/button-style/button-style.
 import { SelectStyleComponent } from '../../../shared/select-style/select-style.component';
 
 import { CommonModule } from '@angular/common';
-import { RandomCardComponent } from '../random-card/random-card.component';
 import { FilterSearchDto } from '@app/core/models/dto/filter.search.dto.model';
 
 const MODULES = [
@@ -30,7 +31,6 @@ const MODULES = [
   FontAwesomeModule,
   SelectStyleComponent,
   CommonModule,
-  RandomCardComponent,
 ];
 
 @Component({
@@ -42,13 +42,9 @@ const MODULES = [
   encapsulation: ViewEncapsulation.Emulated,
 })
 export class FilterPanelComponent {
-  chechbox = false;
   cardSearch: FilterSearchDto = new FilterSearchDto();
   cleanSearch = false;
-
-  changeChechbox() {
-    return !this.chechbox;
-  }
+  isViewportGreaterThan600: boolean = false;
 
   selectsProperties = [
     {
@@ -413,5 +409,8 @@ export class FilterPanelComponent {
         break;
     }
   }
+
+
+
 
 }

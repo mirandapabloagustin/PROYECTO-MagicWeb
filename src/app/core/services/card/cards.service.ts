@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { enviorment } from 'src/enviroments/enviroment';
 
+
 @Injectable({
   providedIn: 'root',
 })
@@ -20,6 +21,9 @@ export class CardsService {
   getCardsService(page: number): Observable<any> {
     return this.http.get<any>(`${this.ev}/cards?page=${page}`);
   }
+
+  
+
 
 
 }

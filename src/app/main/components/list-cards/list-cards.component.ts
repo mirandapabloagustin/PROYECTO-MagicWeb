@@ -38,15 +38,7 @@ export class ListCardsComponent implements OnInit {
   }
 
   async loadCards() {
-    this.loading = true;
-    try {
-      this.db = await this.serviceAuth.preLoad();
-    } catch (error) {
-      console.error('Error loading cards:', error);
-      this.db = [];
-    } finally {
-      this.loading = false;
-    }
+
   }
 
   loadMoreCards() {

@@ -14,14 +14,14 @@ const IMPORTS_MODULES = [
       <div class="select__option-group">
         <div class="select__text">
           <fa-icon class="select__option-icon" [icon]="icons"></fa-icon>
-          <label class="select__option-label" for="option_user_select">
+          <label class="select__option-label" [for]="titleSelect">
             {{titleSelect}}</label>
         </div>
         <div class="select__option-select-options">
-          <select class="select__option-select" id={{titleSelect}} (change)="onSelectChange($event)">
+          <select class="select__option-select" [id]="titleSelect" (change)="onSelectChange($event)">
             <option value="" disabled selected>{{textSelect}}</option>
             @for (option of options ;track $index){
-              <option value="{{option}}">{{option}}</option>
+              <option  [value]="option">{{option}}</option>
             }
           </select>
           
