@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Card } from '@app/core/models/card.model';
 import { Observable } from 'rxjs';
 import { enviorment } from 'src/enviroments/enviroment';
 
@@ -19,8 +20,8 @@ export class CardsService {
   @param pageSize: number
   @returns Observable<IApiResponse>
   */
-  getCardsRandom(): Observable<any> {
-    return this.http.get<any>(`${this._ev}/${this._typeEndpoint}/random`);
+  getCardRandom(): Observable<Card> {
+    return this.http.get<any>(`${this._ev}/${this._typeEndpoint}/random?q=q`);
   }
 
 

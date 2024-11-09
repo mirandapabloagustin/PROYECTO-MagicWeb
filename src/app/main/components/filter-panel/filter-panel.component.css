@@ -11,13 +11,14 @@
 
 .content__main-header {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    gap: 1rem;
 }
 
 app-search{
     width: 100%;
-    max-width: 700px;
+    max-width: 800px;
 }
 
 .filter_title {

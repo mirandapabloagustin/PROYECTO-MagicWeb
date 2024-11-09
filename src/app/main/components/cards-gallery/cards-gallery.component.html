@@ -9,10 +9,10 @@
         @for (card of cards; track $index) {
 
           <div class="card">
-            <img [src]="cards[currentCardIndex].image" alt="Card Image" class="card__image">
+            <img [src]="card.image_uris?.large" alt="Card Image" class="card__image">
 
             <div class="card__title-container">
-              <h3 class="card__title">{{ card.title }}</h3>
+              <h3 class="card__title">{{ card.name }}</h3>
             </div>
           </div>
           }
