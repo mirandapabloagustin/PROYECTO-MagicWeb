@@ -5,7 +5,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
-  /* Hace que la imagen de fondo se mueva con el scroll */
+
   display: flex;
   min-height: 100vh;
   height: auto;

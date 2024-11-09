@@ -8,15 +8,18 @@ import { Card } from '@app/core/models/card.model';
 })
 export class AuthApiCardService {
   private _dataRes: Card[] = [];
-  private _initialHomePage: number = 1;
-  private _initialIndex: number = 0;
-  private _itemsToShow: number = 10;
 
-  constructor(private service: CardsService) {}
+  constructor(private _service: CardsService) {
 
+  }
 
 
-  
+
+  async getCardsRandom() {
+    this._dataRes = await lastValueFrom(this._service.getCardsRandom());
+    return this._dataRes;
+  }
+
 
 
 }

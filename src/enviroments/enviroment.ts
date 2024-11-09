@@ -1,4 +1,4 @@
 export const enviorment = {
     production: false,
-    apiUrl: 'https://api.magicthegathering.io/v1',
+    apiUrl: 'https://api.scryfall.com/',
 }
