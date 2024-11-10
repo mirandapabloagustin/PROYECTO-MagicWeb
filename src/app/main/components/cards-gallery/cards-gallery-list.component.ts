@@ -1,21 +1,33 @@
 import { Component, OnInit } from '@angular/core';
 import { Card } from '@app/core/models/card.model';
 import { AuthApiCardService } from '@app/core/services/card/auth.card.service';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { FlipCardComponent } from "../../../shared/flip-card/flip-card.component";
+
+
+const MODULES = [FontAwesomeModule, ];
 
 @Component({
-  selector: 'app-cards-gallery',
+  selector: 'app-cards-gallery-list',
   standalone: true,
-  imports: [],
-  templateUrl: './cards-gallery.component.html',
-  styleUrls: ['./cards-gallery.component.css'],
+  imports: [FlipCardComponent],
+  templateUrl: './cards-gallery-list.component.html',
+  styleUrls: ['./cards-gallery-list.component.css'],
 })
-export class CardsGalleryComponent implements OnInit {
-  constructor(private _service: AuthApiCardService) {}
-
-  // Lista de cartas
+export class CardsGalleryListComponent implements OnInit {
   cards: Card[] = [];
-
   currentCardIndex: number = 0;
+
+  icons = {
+    faChevronLeft,
+    faChevronRight,
+  };
+  
+
+  
+  constructor(private _service: AuthApiCardService) {}
 
   async ngOnInit(): Promise<void> {
     try {
@@ -50,4 +62,6 @@ export class CardsGalleryComponent implements OnInit {
     this.currentCardIndex =
       (this.currentCardIndex - 1 + this.cards.length) % this.cards.length;
   }
+
+
 }

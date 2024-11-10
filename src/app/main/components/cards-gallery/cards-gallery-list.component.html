@@ -1,0 +1,24 @@
+<section class="container__galley">
+  <div class="hover__bg" >
+    <div class="gallery__header">
+      <h1 class="header_title">Explora las cartas del día</h1>
+    </div>
+
+       
+
+
+      <div class="gallery__cards">
+          @for (card of cards; track $index) {
+            <app-flip-card [infoCards]="card"></app-flip-card>
+          }
+    
+      </div>
+      
+
+
+    <div class="gallery__footer">
+      <h3 class="footer_sub-title">Las cartas de hoy podrían ser justo lo que necesitas para llevar tu mazo al siguiente nivel.</h3>
+    </div>
+
+  </div>
+</section>

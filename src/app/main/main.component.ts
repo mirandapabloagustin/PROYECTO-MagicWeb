@@ -3,9 +3,9 @@ import { FilterPanelComponent } from "./components/filter-panel/filter-panel.com
 import { ListCardsComponent } from "./components/list-cards/list-cards.component";
 import { DetailsCardComponent } from './components/details-card/details-card.component';
 import { FilterSearchDto } from '@app/core/models/dto/filter.search.dto.model';
-import { CardsGalleryComponent } from './components/cards-gallery/cards-gallery.component';
+import { CardsGalleryListComponent } from './components/cards-gallery/cards-gallery-list.component';
 
-const MODULES = [FilterPanelComponent,ListCardsComponent,DetailsCardComponent,CardsGalleryComponent];
+const MODULES = [FilterPanelComponent, CardsGalleryListComponent];
 
 @Component({
   selector: 'app-main',
@@ -17,7 +17,7 @@ const MODULES = [FilterPanelComponent,ListCardsComponent,DetailsCardComponent,Ca
       (searchUserEvent)="handleUserSearch($event)"
       />
       @if(showList){
-      <app-cards-gallery> </app-cards-gallery>
+      <app-cards-gallery-list></app-cards-gallery-list>
       <!-- List of cards
         <app-list-cards (cardSelected)="showCardDetails($event)"></app-list-cards>
       }@else{

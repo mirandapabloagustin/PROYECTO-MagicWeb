@@ -27,9 +27,7 @@ export class AuthApiCardService {
       try {
         const card = await Cards.random();
         this._dataRes.push(card);
-        console.log('Cartas aleatorias:', this._dataRes);
-        
-        
+     
       } catch (error) {
         console.error('Error al obtener las cartas aleatorias:', error);
       }

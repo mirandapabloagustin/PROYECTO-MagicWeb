@@ -1,0 +1,67 @@
+.container__galley{
+  position: relative;
+  background-image: url('public/main/bg-list-card.webp');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  min-height: 100vh;
+  height: auto;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.hover__bg {
+  padding: 3rem 7rem;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+  background-color: rgba(0, 0, 0, 0.753);
+  position: relative;
+  overflow-y: auto;
+}
+
+.gallery__header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 3rem 0;
+}
+
+.header_title {
+  color:var(--text-color);
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.gallery__footer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 3rem 0;
+}
+
+.footer_sub-title {
+  color:var(--text-color);
+  font-size: 1.5rem;
+  font-weight: 400;
+  text-align: center;
+}
+
+
+.gallery__cards {
+  height: auto;
+  border: 2px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  position: relative;
+  gap: 2rem; 
+}
+
