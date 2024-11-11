@@ -13,7 +13,7 @@
 }
 
 .hover__bg {
-  padding: 3rem 7rem;
+  padding: 3.5rem 7rem;
   justify-content: center;
   width: 100%;
   height: auto;
@@ -64,23 +64,11 @@
   width: 100%;
   overflow: hidden;
 }
-
-
-
-#next, #prev {
-  position: absolute;
-  top: 40%;
-  color: var(--text-color);
-  background-color: transparent;
-  border: none;
-  font-size: 4rem;
-  font-family: monospace;
-  font-weight: bold;
-  left: 50px;
-  cursor: pointer;
+swiper-container{
+  width: 100%;
 }
-
-#next {
-  left: unset;
-  right: 50px;
+swiper-slide{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

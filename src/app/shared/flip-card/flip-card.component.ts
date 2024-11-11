@@ -16,5 +16,11 @@ export class FlipCardComponent implements OnInit {
   @Input() infoCards: any;
 
 
+  isFlipped = false; 
+
+
+  toggleFlip() {
+    this.isFlipped = !this.isFlipped;
+  }
 
 }

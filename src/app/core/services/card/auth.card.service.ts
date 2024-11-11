@@ -22,7 +22,7 @@ export class AuthApiCardService {
 
   async getCardsRandoms(): Promise<void> {
     this._dataRes = [];
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < 7; i++) {
       try {
         const card = await Cards.random();
         this._dataRes.push(card);
