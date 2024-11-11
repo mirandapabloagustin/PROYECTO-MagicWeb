@@ -55,13 +55,32 @@
 
 
 .gallery__cards {
-  height: auto;
-  border: 2px solid red;
+  box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+  background-color: rgba(136, 136, 136, 0.171);
+  padding: 3rem 0;
+  border-radius: 10px;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: row;
-  position: relative;
-  gap: 2rem; 
+  width: 100%;
+  overflow: hidden;
 }
 
+
+
+#next, #prev {
+  position: absolute;
+  top: 40%;
+  color: var(--text-color);
+  background-color: transparent;
+  border: none;
+  font-size: 4rem;
+  font-family: monospace;
+  font-weight: bold;
+  left: 50px;
+  cursor: pointer;
+}
+
+#next {
+  left: unset;
+  right: 50px;
+}

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, expand, lastValueFrom, of, takeWhile, tap } from 'rxjs';
 import { CardsService } from './cards.service';
-import { Card } from '@app/core/models/card.model';
 import { Cards } from 'scryfall-api';
 
 @Injectable({
@@ -23,7 +22,7 @@ export class AuthApiCardService {
 
   async getCardsRandoms(): Promise<void> {
     this._dataRes = [];
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < 4; i++) {
       try {
         const card = await Cards.random();
         this._dataRes.push(card);

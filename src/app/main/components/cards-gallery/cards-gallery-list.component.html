@@ -7,10 +7,19 @@
        
 
 
-      <div class="gallery__cards">
-          @for (card of cards; track $index) {
-            <app-flip-card [infoCards]="card"></app-flip-card>
+      <div class="gallery__cards" >
+          @for (card of cards; track $index ) {
+            <div class="item" >
+              <app-flip-card [infoCards]="card"></app-flip-card>
+            </div>
           }
+          <button id="next"  (click)="moveNext()">
+            &#62;
+          </button>
+          
+          <button id="prev"  (click)="movePrev()">
+            &#60;
+          </button>
     
       </div>
       

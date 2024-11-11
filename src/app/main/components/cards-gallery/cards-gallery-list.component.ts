@@ -31,10 +31,7 @@ export class CardsGalleryListComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     try {
-      // Cargar cartas aleatorias
       await this._service.getCardsRandoms();
-      
-      // Suscribirse a las cartas para recibir las actualizaciones en tiempo real
       this._service.cards$.subscribe((cards) => {
         this.cards.push(...cards);
       });
@@ -45,23 +42,30 @@ export class CardsGalleryListComponent implements OnInit {
 
   async loadMoreCards(): Promise<void> {
     try {
-      // Cargar más cartas aleatorias
+  
       await this._service.getCardsRandoms();
     } catch (error) {
       console.log(error);
     }
   }
 
-  // Cambia la carta al siguiente
-  nextCard(): void {
-    this.currentCardIndex = (this.currentCardIndex + 1) % this.cards.length;
+  moveNext(): void {
+    if (this.currentCardIndex < this.cards.length - 1) {
+      this.currentCardIndex++;
+    } else {
+      this.currentCardIndex = 0; // Loop back to the first card
+    }
   }
 
-  // Cambia la carta al anterior
-  prevCard(): void {
-    this.currentCardIndex =
-      (this.currentCardIndex - 1 + this.cards.length) % this.cards.length;
+  movePrev(): void {
+    if (this.currentCardIndex > 0) {
+      this.currentCardIndex--;
+    } else {
+      this.currentCardIndex = this.cards.length - 1; // Loop back to the last card
+    }
   }
+
+  
 
 
 }
