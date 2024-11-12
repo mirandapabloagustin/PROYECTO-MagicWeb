@@ -9,6 +9,7 @@
   height: auto;
   box-sizing: border-box;
   overflow: hidden;
+  
 }
 
 .hover__bg {
@@ -16,8 +17,9 @@
   align-items: center;
   width: 100%;
   height: auto;
-  background-color: rgba(0, 0, 0, 0.591);
+  background-color: rgba(0, 0, 0, 0.16);
   position: relative;
+  padding-bottom: 2rem;
 }
 
 .gallery__header {
@@ -25,7 +27,8 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 3rem 0;
+  padding-bottom: 3rem;
+  padding-top: 2rem;
 }
 
 .header_title {
@@ -33,6 +36,7 @@
   font-size: 2.5rem;
   font-weight: 700;
   text-align: center;
+  letter-spacing: 2px;
 }
 
 .gallery__footer{
@@ -52,7 +56,6 @@
 
 
 .gallery__cards {
-  box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
   background-color: rgba(136, 136, 136, 0.171);
   padding: 3rem 0;
   border-radius: 10px;
@@ -67,5 +70,5 @@ swiper-slide {
   justify-content: center;
   align-items: center;
   width: fit-content;  
-  height: fit-content;  
+  height: fit-content;   /* La altura se ajusta al contenido */
 }
