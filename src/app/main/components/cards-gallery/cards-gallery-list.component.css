@@ -6,21 +6,18 @@
   background-position: center;
   background-attachment: fixed;
   display: flex;
-  min-height: 100vh;
   height: auto;
   box-sizing: border-box;
   overflow: hidden;
 }
 
 .hover__bg {
-  padding: 3.5rem 7rem;
   justify-content: center;
+  align-items: center;
   width: 100%;
   height: auto;
-  min-height: 100vh;
-  background-color: rgba(0, 0, 0, 0.753);
+  background-color: rgba(0, 0, 0, 0.591);
   position: relative;
-  overflow-y: auto;
 }
 
 .gallery__header {
@@ -64,11 +61,11 @@
   width: 100%;
   overflow: hidden;
 }
-swiper-container{
-  width: 100%;
-}
-swiper-slide{
+
+swiper-slide {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: fit-content;  
+  height: fit-content;  
 }

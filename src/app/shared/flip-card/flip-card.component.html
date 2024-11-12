@@ -1,9 +1,9 @@
-<div class="flip-card" [class.flipped]="isFlipped" (click)="toggleFlip()">
+<div class="flip-card" [class.flipped]="isFlipped">
     <div class="flip-card-inner">
-        <div class="flip-card-front">
+        <div class="flip-card-front" (click)="toggleFlip()">
             <img class="img-card" src="reverso-magic.png" alt="">
         </div>
-        <div class="flip-card-back">
+        <div class="flip-card-back" (click)="showMessage()">
             <img class="img-card" [src]="infoCards.image_uris?.normal" alt="">
         </div>
     </div>

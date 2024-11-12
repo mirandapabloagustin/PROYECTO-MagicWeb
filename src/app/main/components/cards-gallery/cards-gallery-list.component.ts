@@ -50,33 +50,25 @@ export class CardsGalleryListComponent implements OnInit {
     if (swiperEl) {
       const swiperParams = {
         slidesPerView: 1,
-        loop: true,
-        navigator: {
-          enabled: true,
-        },
+        loop : true,
         breakpoints: {
           640: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+          768: {
             slidesPerView: 3,
+            spaceBetween: 40,
           }
         },
         effect: 'coverflow',
         coverflowEffect: {
-          rotate: 30,             // El ángulo de rotación de las cartas
-          slideShadows: false,    // Elimina las sombras de los slides
-          stretch: 10,            // Controla el "estiramiento" de las cartas
-          depth: 300,             // Profundidad del efecto
-          modifier: 1,            // Intensidad del efecto (puedes ajustarlo para cambiar el look)
-        },
-        spaceBetween: 50,         // Espacio entre las tarjetas
-        on: {on: {
-      slideChange: () => {
-        this.updateSlideState(swiperEl); // Llamamos a una función para actualizar el estado de los slides
-      },
-      init: () => {
-        this.updateSlideState(swiperEl); // Llamamos también al iniciar el swiper
-      }
-    }
-        },
+          rotate: 10,
+          stretch: 0,
+          depth: 100,
+          modifier: 1.5,
+          slideShadows: false
+        }, 
       };
       Object.assign(swiperEl, swiperParams);
 
