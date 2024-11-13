@@ -6,14 +6,13 @@ import {
 } from '@angular/core';
 import { Card } from '@app/core/models/card.model';
 import { AuthApiCardService } from '@app/core/services/card/auth.card.service';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { FlipCardComponent } from '../../../shared/flip-card/flip-card.component';
 import { register, SwiperContainer } from 'swiper/element/bundle';
 register();
 
-const MODULES = [FontAwesomeModule];
+
 
 @Component({
   selector: 'app-cards-gallery-list',
@@ -24,16 +23,16 @@ const MODULES = [FontAwesomeModule];
   styleUrls: ['./cards-gallery-list.component.css'],
 })
 export class CardsGalleryListComponent implements OnInit {
-  swpElement = signal<SwiperContainer | null>(null);
-
   cards: Card[] = [];
-  currentCardIndex: number = 0;
+  private _swpElement = signal<SwiperContainer | null>(null);
+  flip: boolean = false;
+  loaded = false;
+
 
   icons = {
     faChevronLeft,
     faChevronRight,
   };
-
   constructor(private _service: AuthApiCardService) {}
 
   async ngOnInit(): Promise<void> {
@@ -42,6 +41,7 @@ export class CardsGalleryListComponent implements OnInit {
       this._service.cards$.subscribe((cards) => {
         this.cards.push(...cards);
       });
+      this.loaded = false;
     } catch (error) {
       console.log(error);
     }
@@ -72,32 +72,28 @@ export class CardsGalleryListComponent implements OnInit {
       };
       Object.assign(swiperEl, swiperParams);
 
-      this.swpElement.set(swiperEl);
-      this.swpElement()?.initialize();
+      this._swpElement.set(swiperEl);
+      this._swpElement()?.initialize();
     }
   }
 
-  async loadMoreCards(): Promise<void> {
+
+
+  private async anotherRandom(): Promise<void> {
+    this.cards = [];
     try {
       await this._service.getCardsRandoms();
+      this._service.cards$.subscribe((cards) => {
+        this.cards.push(...cards);
+      });
     } catch (error) {
       console.log(error);
     }
   }
 
-
-
-  updateSlideState(swiperEl: HTMLElement) {
-    const slides = swiperEl.querySelectorAll('.swiper-slide');
-    const activeIndex = this.swpElement()?.swiper.realIndex; // Obtiene el índice real del slide activo
-  
-    slides.forEach((slide: Element, index: number) => {
-      // Si el slide está en el centro (el índice activo) habilitamos la interacción
-      if (index === activeIndex) {
-        (slide as HTMLElement).style.pointerEvents = 'auto';  // Habilitar clic en el slide central
-      } else {
-        (slide as HTMLElement).style.pointerEvents = 'none';  // Deshabilitar clic en los otros slides
-      }
-    });
+  sendFlag(){
+    this.flip = !this.flip;
+    this.anotherRandom();
   }
+
 }
