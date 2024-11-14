@@ -8,9 +8,10 @@ import { Cards } from 'scryfall-api';
 })
 export class AuthApiCardService {
   private _dataRes: any[] = [];
-  // Creo un BehaviorSubject para poder emitir los cambios de la lista de cartas
+  private _randomCards: any[] =[];
+
   private _cardSubject = new BehaviorSubject<any[]>([]);
-  // Observable para poder subscribirnos a los cambios de la lista de cartas
+
   public cards$ = this._cardSubject.asObservable();
 
   constructor(private _service: CardsService) {
@@ -20,19 +21,17 @@ export class AuthApiCardService {
 
 
 
-  async getCardsRandoms(): Promise<void> {
-    this._dataRes = [];
+  async getCardsRandoms(): Promise<any> {
+    this._randomCards = [];
     for (let i = 0; i < 5; i++) {
       try {
         const card = await Cards.random();
-        this._dataRes.push(card);
-     
+        this._randomCards.push(card);
       } catch (error) {
         console.error('Error al obtener las cartas aleatorias:', error);
       }
     }
-    this._cardSubject.next(this._dataRes);
-
+    return this._randomCards;
   }
 
   

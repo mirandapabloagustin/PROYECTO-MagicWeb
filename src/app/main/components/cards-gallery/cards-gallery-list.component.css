@@ -75,8 +75,11 @@ swiper-slide {
 }
 
 .content__loading{
-  background-color: rgb(0, 0, 0);
   width: 380px;
   height: 537px;
-  color: white;
+  background-color: rgba(0, 0, 0, 0.72);
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

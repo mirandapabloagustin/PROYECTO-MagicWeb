@@ -4,7 +4,12 @@
             <img class="img-card" src="reverso-magic.png" alt="">
         </div>
         <div class="flip-card-back" (click)="showMessage()">
-            <img class="img-card" [src]="infoCards.image_uris?.normal" alt="">
+            @if(infoCards.image_uris?.normal){
+                <img class="img-card" [src]="infoCards.image_uris?.normal" alt="">
+            }
+            @else {
+                <img class="img-card" src="reverso-magic.png" alt="">
+            }
         </div>
     </div>
 </div>

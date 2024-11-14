@@ -9,19 +9,52 @@
     </div>
      
     
-  <swiper-container init="false">
-    @for (card of cards; track $index ) {
+  <swiper-container class="container" init="false">
       <swiper-slide>
         @if(loaded){
-          <app-flip-card [infoCards]="card" [flip]="flip"></app-flip-card>
-        }
-        @else {
+          <app-flip-card [infoCards]="cards[0]" [flip]="flip"></app-flip-card>
+        }@else {
           <div class="content__loading">
-            <p>CARGANDO DATAA</p>
+            <mat-spinner></mat-spinner>
           </div>
         }
       </swiper-slide>
-    }
+      <swiper-slide>
+        @if(loaded){
+          <app-flip-card [infoCards]="cards[1]" [flip]="flip"></app-flip-card>
+        }@else {
+          <div class="content__loading">
+            <mat-spinner></mat-spinner>
+          </div>
+        }
+      </swiper-slide>
+      <swiper-slide>
+        @if(loaded){
+          <app-flip-card [infoCards]="cards[2]" [flip]="flip"></app-flip-card>
+        }@else {
+          <div class="content__loading">
+            <mat-spinner></mat-spinner>
+          </div>
+        }
+      </swiper-slide>
+      <swiper-slide>
+        @if(loaded){
+          <app-flip-card [infoCards]="cards[3]" [flip]="flip"></app-flip-card>
+        }@else {
+          <div class="content__loading">
+            <mat-spinner></mat-spinner>
+          </div>
+        }
+      </swiper-slide>
+      <swiper-slide>
+        @if(loaded){
+          <app-flip-card [infoCards]="cards[4]" [flip]="flip"></app-flip-card>
+        }@else {
+          <div class="content__loading">
+            <mat-spinner></mat-spinner>
+          </div>
+        }
+      </swiper-slide>
   </swiper-container>
 
   <button (click)="sendFlag()" > HOLAAA </button>
