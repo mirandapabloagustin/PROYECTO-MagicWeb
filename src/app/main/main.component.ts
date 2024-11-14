@@ -10,19 +10,19 @@ const MODULES = [FilterPanelComponent, CardsGalleryListComponent];
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [...MODULES],
+  imports: [...MODULES, ListCardsComponent, DetailsCardComponent],
   template: `
     <main>
       <app-filter-panel
       (searchUserEvent)="handleUserSearch($event)"
       />
       @if(showList){
-      <app-cards-gallery-list></app-cards-gallery-list>
       <!-- List of cards
+      <app-cards-gallery-list></app-cards-gallery-list>
+      -->
         <app-list-cards (cardSelected)="showCardDetails($event)"></app-list-cards>
       }@else{
         <app-details-card [cardData]="selectedCardId"/>
-      -->
       }
     </main>
   `,

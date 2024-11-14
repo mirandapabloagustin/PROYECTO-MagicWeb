@@ -19,7 +19,7 @@
   width: 100%;
   height: auto;
   min-height: 100vh;
-  background-color: rgba(0, 0, 0, 0.753);
+  background-color: rgba(0, 0, 0, 0.16);
   position: relative;
   overflow-y: auto;
 }

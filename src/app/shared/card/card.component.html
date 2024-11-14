@@ -1,23 +1,7 @@
-<article class="card__group">
-        <div class="card__img" (click)="navigateToDetails()" >
-            <img class="card__content" [src]="dataCard.image_uris?.normal" alt="dataCard.name">
-        </div>
-        <div class="card__info-group">
-            <header class="info__top-group">
-                
-                <h3 class="info__title">{{this.dataCard.name}}</h3>
-
-            <p class="info__subtitle">{{ dataCard.type_line}}</p>
-        </header>
-        <div class="info__description">
-            <p>{{ dataCard.type_line }}</p>
-        </div>
-        <footer class="info__botton-group">
-            <app-button-style text="AGREGAR AL MAZO" colorTextButton="var(--text-color)"
-                colorBackgroundButton="var(--bg-color-buttom-winter)"
-                colorBorderButton="2px solid var(--border-winter-color)" colorTextHover="var(--bg-color-buttom-winter)"
-                colorBackgroundHover="var(--text-color)" colorBorderHover="2px solid var(--border-color)" />
-
-        </footer>
-    </div>
+<article class="card__group" (click)="navigateToDetails()">
+    <img
+      class="card__content"
+      [src]="dataCard.image_uris?.normal"
+      alt="dataCard.name"
+    />
 </article>
