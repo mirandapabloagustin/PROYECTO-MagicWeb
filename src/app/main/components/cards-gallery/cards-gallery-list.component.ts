@@ -84,10 +84,10 @@ export class CardsGalleryListComponent implements OnInit {
 
 
   private async anotherRandom(): Promise<void> {
-    this.cards = [];
     try {
-      this.cards = await this._service.getCardsRandoms();
+      const res = await this._service.getCardsRandoms();
       this.loaded = true;
+      this.cards = res;
     } catch (error) {
       console.log(error);
     }
