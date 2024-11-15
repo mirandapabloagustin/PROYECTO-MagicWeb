@@ -1,24 +1,25 @@
-import { Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import { ButtonStyleComponent } from '@app/shared/button-style/button-style.component';
+import { Component, EventEmitter, HostListener, Input, OnInit, Output} from '@angular/core';
 import { Card } from '@models/card.model';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
-const MODULES = [ButtonStyleComponent];
+const MODULES = [FontAwesomeModule];
 
 @Component({
   selector: 'app-card',
   standalone: true,
-  imports: [... MODULES],
+  imports: [MODULES],
   templateUrl: './card.component.html',
   styleUrl: './card.component.css'
 })
 export class CardComponent implements OnInit {
+  iconPlus = faPlus;
 
   @Input() dataCard!: Card;
   @Output() cardClicked = new EventEmitter<any>();
  
   navigateToDetails(){
-    this.cardClicked.emit(this.dataCard);
-    
+    //this.cardClicked.emit(this.dataCard);
   }
 
   constructor() { }
@@ -26,6 +27,8 @@ export class CardComponent implements OnInit {
   ngOnInit(): void {
     
   }
+
+  
 
 
 }

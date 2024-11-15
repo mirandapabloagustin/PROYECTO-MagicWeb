@@ -1,4 +1,12 @@
 :root {
+    /* small wiew*/
+    --card-width: 245px;
+    --card-height: 342px;
+
+    /* big view */
+    --card-width-big: 380px;
+    --card-height-big: 537px;
+
     --fondo:#0c0f11;
     --bg-green-color: #456c35;
     --bg-black-color: #2b2b2b;

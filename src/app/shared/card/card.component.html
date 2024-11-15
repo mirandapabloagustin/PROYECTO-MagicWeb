@@ -1,7 +1,21 @@
-<article class="card__group" (click)="navigateToDetails()">
+<article class="card__group" >
+
+  <div class="card_content" (click)="navigateToDetails()" >
     <img
-      class="card__content"
-      [src]="dataCard.image_uris?.normal"
-      alt="dataCard.name"
+    class="card__img"
+    [src]="dataCard.image_uris?.normal"
+    alt="dataCard.name"
     />
+  </div>
+  <div class="add_card">
+    <img class="icon_add" src="icons/plus.svg" alt="icon plus">
+  </div>
+  @if (dataCard.name){
+    <div class="card__name">
+      {{ dataCard.name }}
+    </div>
+  }
 </article>
+
+<!--
+  -->
