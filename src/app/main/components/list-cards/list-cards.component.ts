@@ -334,7 +334,302 @@ export class ListCardsComponent implements OnInit {
         "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Singles/Shadows-over-Innistrad/Aberrant-Researcher-Perfected-Form?referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
         "cardhoarder": "https://www.cardhoarder.com/cards/59886?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
       }
-    }
+    },
+    {
+      "object": "card",
+      "id": "864ad989-19a6-4930-8efc-bbc077a18c32",
+      "oracle_id": "82959ca2-cd96-4cca-9ce0-afb8db209860",
+      "multiverse_ids": [
+        78600
+      ],
+      "mtgo_id": 21205,
+      "mtgo_foil_id": 21206,
+      "tcgplayer_id": 11958,
+      "cardmarket_id": 11977,
+      "name": "Bushi Tenderfoot // Kenzo the Hardhearted",
+      "lang": "en",
+      "released_at": "2004-10-01",
+      "uri": "https://api.scryfall.com/cards/864ad989-19a6-4930-8efc-bbc077a18c32",
+      "scryfall_uri": "https://scryfall.com/card/chk/2/bushi-tenderfoot-kenzo-the-hardhearted?utm_source=api",
+      "layout": "flip",
+      "highres_image": true,
+      "image_status": "highres_scan",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/8/6/864ad989-19a6-4930-8efc-bbc077a18c32.jpg?1562762069",
+        "normal": "https://cards.scryfall.io/normal/front/8/6/864ad989-19a6-4930-8efc-bbc077a18c32.jpg?1562762069",
+        "large": "https://cards.scryfall.io/large/front/8/6/864ad989-19a6-4930-8efc-bbc077a18c32.jpg?1562762069",
+        "png": "https://cards.scryfall.io/png/front/8/6/864ad989-19a6-4930-8efc-bbc077a18c32.png?1562762069",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/8/6/864ad989-19a6-4930-8efc-bbc077a18c32.jpg?1562762069",
+        "border_crop": "https://cards.scryfall.io/border_crop/front/8/6/864ad989-19a6-4930-8efc-bbc077a18c32.jpg?1562762069"
+      },
+      "mana_cost": "{W}",
+      "cmc": 1.0,
+      "type_line": "Creature — Human Soldier // Legendary Creature — Human Samurai",
+      "power": "1",
+      "toughness": "1",
+      "colors": [
+        "W"
+      ],
+      "color_identity": [
+        "W"
+      ],
+      "keywords": [
+        "Bushido",
+        "Double strike"
+      ],
+      "card_faces": [
+        {
+          "object": "card_face",
+          "name": "Bushi Tenderfoot",
+          "mana_cost": "{W}",
+          "type_line": "Creature — Human Soldier",
+          "oracle_text": "When a creature dealt damage by Bushi Tenderfoot this turn dies, flip Bushi Tenderfoot.",
+          "power": "1",
+          "toughness": "1",
+          "artist": "Mark Zug",
+          "artist_id": "48e2b98c-5467-4671-bd42-4c3746115117",
+          "illustration_id": "e8672d31-de00-4f84-b188-a89470816b6e"
+        },
+        {
+          "object": "card_face",
+          "name": "Kenzo the Hardhearted",
+          "mana_cost": "",
+          "type_line": "Legendary Creature — Human Samurai",
+          "oracle_text": "Double strike; bushido 2 (Whenever this creature blocks or becomes blocked, it gets +2/+2 until end of turn.)",
+          "power": "3",
+          "toughness": "4",
+          "artist": "Mark Zug",
+          "artist_id": "48e2b98c-5467-4671-bd42-4c3746115117"
+        }
+      ],
+      "legalities": {
+        "standard": "not_legal",
+        "future": "not_legal",
+        "historic": "not_legal",
+        "timeless": "not_legal",
+        "gladiator": "not_legal",
+        "pioneer": "not_legal",
+        "explorer": "not_legal",
+        "modern": "legal",
+        "legacy": "legal",
+        "pauper": "not_legal",
+        "vintage": "legal",
+        "penny": "not_legal",
+        "commander": "legal",
+        "oathbreaker": "legal",
+        "standardbrawl": "not_legal",
+        "brawl": "not_legal",
+        "alchemy": "not_legal",
+        "paupercommander": "restricted",
+        "duel": "legal",
+        "oldschool": "not_legal",
+        "premodern": "not_legal",
+        "predh": "legal"
+      },
+      "games": [
+        "paper",
+        "mtgo"
+      ],
+      "reserved": false,
+      "foil": true,
+      "nonfoil": true,
+      "finishes": [
+        "nonfoil",
+        "foil"
+      ],
+      "oversized": false,
+      "promo": false,
+      "reprint": false,
+      "variation": false,
+      "set_id": "6183d21f-a0af-4118-ba58-aca1d8719c01",
+      "set": "chk",
+      "set_name": "Champions of Kamigawa",
+      "set_type": "expansion",
+      "set_uri": "https://api.scryfall.com/sets/6183d21f-a0af-4118-ba58-aca1d8719c01",
+      "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Achk&unique=prints",
+      "scryfall_set_uri": "https://scryfall.com/sets/chk?utm_source=api",
+      "rulings_uri": "https://api.scryfall.com/cards/864ad989-19a6-4930-8efc-bbc077a18c32/rulings",
+      "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A82959ca2-cd96-4cca-9ce0-afb8db209860&unique=prints",
+      "collector_number": "2",
+      "digital": false,
+      "rarity": "uncommon",
+      "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+      "artist": "Mark Zug",
+      "artist_ids": [
+        "48e2b98c-5467-4671-bd42-4c3746115117"
+      ],
+      "illustration_id": "e8672d31-de00-4f84-b188-a89470816b6e",
+      "border_color": "black",
+      "frame": "2003",
+      "full_art": false,
+      "textless": false,
+      "booster": true,
+      "story_spotlight": false,
+      "edhrec_rank": 16633,
+      "penny_rank": 9422,
+      "prices": {
+        "usd": "0.27",
+        "usd_foil": "4.96",
+        "usd_etched": null,
+        "eur": "0.21",
+        "eur_foil": "1.22",
+        "tix": "0.03"
+      },
+      "related_uris": {
+        "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=78600&printed=false",
+        "tcgplayer_infinite_articles": "https://tcgplayer.pxf.io/c/4931599/1830156/21018?subId1=api&trafcat=infinite&u=https%3A%2F%2Finfinite.tcgplayer.com%2Fsearch%3FcontentMode%3Darticle%26game%3Dmagic%26partner%3Dscryfall%26q%3DBushi%2BTenderfoot%2B%252F%252F%2BKenzo%2Bthe%2BHardhearted",
+        "tcgplayer_infinite_decks": "https://tcgplayer.pxf.io/c/4931599/1830156/21018?subId1=api&trafcat=infinite&u=https%3A%2F%2Finfinite.tcgplayer.com%2Fsearch%3FcontentMode%3Ddeck%26game%3Dmagic%26partner%3Dscryfall%26q%3DBushi%2BTenderfoot%2B%252F%252F%2BKenzo%2Bthe%2BHardhearted",
+        "edhrec": "https://edhrec.com/route/?cc=Bushi+Tenderfoot"
+      },
+      "purchase_uris": {
+        "tcgplayer": "https://tcgplayer.pxf.io/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F11958%3Fpage%3D1",
+        "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Singles/Champions-of-Kamigawa/Bushi-Tenderfoot?referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+        "cardhoarder": "https://www.cardhoarder.com/cards/21205?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+      }
+    },
+    {
+      "object": "card",
+      "id": "2cae24c1-53f1-4f3f-8795-b634c46a17c4",
+      "oracle_id": "993b7b94-ed06-422d-9c7e-52a74ce9d045",
+      "multiverse_ids": [
+        673498
+      ],
+      "mtgo_id": 130317,
+      "arena_id": 92167,
+      "tcgplayer_id": 579325,
+      "cardmarket_id": 788423,
+      "name": "Derelict Attic // Widow's Walk",
+      "lang": "en",
+      "released_at": "2024-09-27",
+      "uri": "https://api.scryfall.com/cards/2cae24c1-53f1-4f3f-8795-b634c46a17c4",
+      "scryfall_uri": "https://scryfall.com/card/dsk/93/derelict-attic-widows-walk?utm_source=api",
+      "layout": "split",
+      "highres_image": true,
+      "image_status": "highres_scan",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/2/c/2cae24c1-53f1-4f3f-8795-b634c46a17c4.jpg?1726780598",
+        "normal": "https://cards.scryfall.io/normal/front/2/c/2cae24c1-53f1-4f3f-8795-b634c46a17c4.jpg?1726780598",
+        "large": "https://cards.scryfall.io/large/front/2/c/2cae24c1-53f1-4f3f-8795-b634c46a17c4.jpg?1726780598",
+        "png": "https://cards.scryfall.io/png/front/2/c/2cae24c1-53f1-4f3f-8795-b634c46a17c4.png?1726780598",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/2/c/2cae24c1-53f1-4f3f-8795-b634c46a17c4.jpg?1726780598",
+        "border_crop": "https://cards.scryfall.io/border_crop/front/2/c/2cae24c1-53f1-4f3f-8795-b634c46a17c4.jpg?1726780598"
+      },
+      "mana_cost": "{2}{B} // {3}{B}",
+      "cmc": 7.0,
+      "type_line": "Enchantment — Room // Enchantment — Room",
+      "colors": [
+        "B"
+      ],
+      "color_identity": [
+        "B"
+      ],
+      "keywords": [],
+      "card_faces": [
+        {
+          "object": "card_face",
+          "name": "Derelict Attic",
+          "mana_cost": "{2}{B}",
+          "type_line": "Enchantment — Room",
+          "oracle_text": "When you unlock this door, you draw two cards and you lose 2 life.\n(You may cast either half. That door unlocks on the battlefield. As a sorcery, you may pay the mana cost of a locked door to unlock it.)",
+          "artist": "Marc Simonetti",
+          "artist_id": "8089db55-5105-47b0-8c64-f320e08c97f0",
+          "illustration_id": "01cdaf9c-3aad-4b44-8f6b-105b4ab6bce0"
+        },
+        {
+          "object": "card_face",
+          "name": "Widow's Walk",
+          "mana_cost": "{3}{B}",
+          "type_line": "Enchantment — Room",
+          "oracle_text": "Whenever a creature you control attacks alone, it gets +1/+0 and gains deathtouch until end of turn.\n(You may cast either half. That door unlocks on the battlefield. As a sorcery, you may pay the mana cost of a locked door to unlock it.)",
+          "artist": "Marc Simonetti",
+          "artist_id": "8089db55-5105-47b0-8c64-f320e08c97f0"
+        }
+      ],
+      "legalities": {
+        "standard": "legal",
+        "future": "legal",
+        "historic": "legal",
+        "timeless": "legal",
+        "gladiator": "legal",
+        "pioneer": "legal",
+        "explorer": "legal",
+        "modern": "legal",
+        "legacy": "legal",
+        "pauper": "legal",
+        "vintage": "legal",
+        "penny": "legal",
+        "commander": "legal",
+        "oathbreaker": "legal",
+        "standardbrawl": "legal",
+        "brawl": "legal",
+        "alchemy": "legal",
+        "paupercommander": "legal",
+        "duel": "legal",
+        "oldschool": "not_legal",
+        "premodern": "not_legal",
+        "predh": "not_legal"
+      },
+      "games": [
+        "paper",
+        "mtgo",
+        "arena"
+      ],
+      "reserved": false,
+      "foil": true,
+      "nonfoil": true,
+      "finishes": [
+        "nonfoil",
+        "foil"
+      ],
+      "oversized": false,
+      "promo": false,
+      "reprint": false,
+      "variation": false,
+      "set_id": "a111d8a9-b647-48ec-afab-2b78f92173f5",
+      "set": "dsk",
+      "set_name": "Duskmourn: House of Horror",
+      "set_type": "expansion",
+      "set_uri": "https://api.scryfall.com/sets/a111d8a9-b647-48ec-afab-2b78f92173f5",
+      "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Adsk&unique=prints",
+      "scryfall_set_uri": "https://scryfall.com/sets/dsk?utm_source=api",
+      "rulings_uri": "https://api.scryfall.com/cards/2cae24c1-53f1-4f3f-8795-b634c46a17c4/rulings",
+      "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A993b7b94-ed06-422d-9c7e-52a74ce9d045&unique=prints",
+      "collector_number": "93",
+      "digital": false,
+      "rarity": "common",
+      "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+      "artist": "Marc Simonetti",
+      "artist_ids": [
+        "8089db55-5105-47b0-8c64-f320e08c97f0"
+      ],
+      "illustration_id": "01cdaf9c-3aad-4b44-8f6b-105b4ab6bce0",
+      "border_color": "black",
+      "frame": "2015",
+      "full_art": false,
+      "textless": false,
+      "booster": true,
+      "story_spotlight": false,
+      "edhrec_rank": 10784,
+      "prices": {
+        "usd": "0.05",
+        "usd_foil": "0.05",
+        "usd_etched": null,
+        "eur": "0.04",
+        "eur_foil": "0.20",
+        "tix": "0.01"
+      },
+      "related_uris": {
+        "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=673498&printed=false",
+        "tcgplayer_infinite_articles": "https://tcgplayer.pxf.io/c/4931599/1830156/21018?subId1=api&trafcat=infinite&u=https%3A%2F%2Finfinite.tcgplayer.com%2Fsearch%3FcontentMode%3Darticle%26game%3Dmagic%26partner%3Dscryfall%26q%3DDerelict%2BAttic%2B%252F%252F%2BWidow%2527s%2BWalk",
+        "tcgplayer_infinite_decks": "https://tcgplayer.pxf.io/c/4931599/1830156/21018?subId1=api&trafcat=infinite&u=https%3A%2F%2Finfinite.tcgplayer.com%2Fsearch%3FcontentMode%3Ddeck%26game%3Dmagic%26partner%3Dscryfall%26q%3DDerelict%2BAttic%2B%252F%252F%2BWidow%2527s%2BWalk",
+        "edhrec": "https://edhrec.com/route/?cc=Derelict+Attic+%2F%2F+Widow%27s+Walk"
+      },
+      "purchase_uris": {
+        "tcgplayer": "https://tcgplayer.pxf.io/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F579325%3Fpage%3D1",
+        "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Singles/Duskmourn-House-of-Horror/Derelict-Attic-Widows-Walk?referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+        "cardhoarder": "https://www.cardhoarder.com/cards/130317?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+      }
+    },    
   ];
   loading = true;
   hasMoreItems = true; 

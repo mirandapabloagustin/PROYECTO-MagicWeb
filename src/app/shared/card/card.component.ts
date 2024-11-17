@@ -15,24 +15,41 @@ const MODULES = [FontAwesomeModule];
 export class CardComponent implements OnInit {
   iconPlus = faPlus;
 
+  isFlipped = false;
+  isRotated = false;
+  isRotatedRight = false;
+
   @Input() dataCard!: any;
   @Output() cardClicked = new EventEmitter<any>();
- 
+  
   navigateToDetails(){
     //this.cardClicked.emit(this.dataCard);
-    console.log('Card clicked');
+    console.log('dataCard', this.dataCard.name);
   }
-
+  
+  
   constructor() { }
-
+  
   ngOnInit(): void {
     
   }
-
+  
   addCardInDeck(){
-    console.log('Card added to deck');
+    console.log('Card clicked');
   }
   
+  transformCard(){
+    this.isFlipped = !this.isFlipped;
+  }
+
+  rotateCard() {
+    this.isRotated = !this.isRotated;
+  }
+
+  rotateRightCard() {
+    this.isRotatedRight = !this.isRotatedRight;
+  }
+
 
 
 }

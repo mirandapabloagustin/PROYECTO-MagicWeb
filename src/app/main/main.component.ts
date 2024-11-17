@@ -17,8 +17,8 @@ const MODULES = [FilterPanelComponent, CardsGalleryListComponent];
       (searchUserEvent)="handleUserSearch($event)"
       />
       @if(showList){
-      <!-- List of cards
-      <app-cards-gallery-list></app-cards-gallery-list>
+        <!-- List of cards
+        <app-cards-gallery-list></app-cards-gallery-list>
       -->
         <app-list-cards (cardSelected)="showCardDetails($event)"></app-list-cards>
       }@else{

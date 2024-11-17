@@ -1,31 +1,70 @@
-<article class="card__group" >
-  @if(dataCard.layout === 'normal'){  
-    <div class="card_content" (click)="navigateToDetails()" >
-      <img
-      class="card__img"
-      [src]="dataCard.image_uris?.normal"
-      alt="dataCard.name"
-      />
+<article class="card__group">
+  @if(dataCard.layout === 'normal'){
+  <div class="card_content hover_card" (click)="navigateToDetails()">
+    <img class="card__img" [src]="dataCard.image_uris?.normal" alt="dataCard.name" />
+    <div class="add_card" (click)="addCardInDeck()">
+      <img class="icon_add" src="icons/plus.svg" alt="icon plus">
+    </div>
+  </div>
+  }
+  @else if(dataCard.layout === 'transform'){
+  <div class="card_content">
+
+    <div class="transfom_card" [class.flipped]="isFlipped">
+      <div class="transfom_card-inner ">
+        <div class="transfom_card-front hover_card " (click)="navigateToDetails()">
+          <img class="card__img" [src]="dataCard.card_faces[0].image_uris?.normal" alt="dataCard.name" />
+        </div>
+        <div class="transfom_card-back hover_card ">
+          <img class="card__img" [src]="dataCard.card_faces[1].image_uris?.normal" alt="dataCard.name" />
+        </div>
+      </div>
+    </div>
+    <div class="add_card" (click)="addCardInDeck()">
+      <img class="icon_add" src="icons/plus.svg" alt="icon plus">
+    </div>
+    <div class="transfom_card-button" (click)="transformCard()">
+      <img class="icons_transform" src="icons/switch.png" alt="icon plus">
+    </div>
+  </div>
+  }
+  @else if (dataCard.layout ==="flip") {
+  <div class="card_content-flip">
+    <div class="card_content">
+
+      <div class="card_content-flip hover_card" [class.rotated]="isRotated">
+        
+        <img class="card__img" [src]="dataCard.image_uris?.normal"  [alt]="dataCard.name">
+        
+      </div>
       <div class="add_card" (click)="addCardInDeck()">
         <img class="icon_add" src="icons/plus.svg" alt="icon plus">
       </div>
-    </div>
-    }
-    @else if(dataCard.layout === 'transform'){  
-      <div class="card_content" (click)="navigateToDetails()" >
-        <img
-        class="card__img"
-        [src]="dataCard.card_faces[0].image_uris?.normal"
-        alt="dataCard.name"
-        />
-        <div class="add_card" (click)="addCardInDeck()">
-          <img class="icon_add" src="icons/plus.svg" alt="icon plus">
-        </div>
-        <div class="flip_card" (click)="addCardInDeck()">
-          <img class="icons_transform" src="icons/transform.png" alt="icon plus">
-        </div>
+      <div class="flip_card-button" (click)="rotateCard()">
+        <img class="icon_rotate" src="icons/rotate.png" alt="icon plus">
       </div>
-      }
+    </div>
+
+
+  </div>
+  }
+  @else if (dataCard.layout ==="split") {
+    <div class="card_content">
+
+      <div class="card_content-split hover_card" [class.rotated]="isRotatedRight" >
+        
+        <img class="card__img" [src]="dataCard.image_uris?.normal" [alt]="dataCard.name">
+        
+        
+      </div>
+
+      <div class="add_card"  [class.affected]="isRotatedRight" (click)="addCardInDeck()">
+        <img class="icon_add" src="icons/plus.svg" alt="icon plus">
+      </div>
+      <div class="split_card-button" [class.affected]="isRotatedRight" (click)="rotateRightCard()">
+        <img class="icon_rotate" src="icons/rotate-right.png" alt="icon plus">
+      </div>
+    </div>
+  }
+
 </article>
-
-

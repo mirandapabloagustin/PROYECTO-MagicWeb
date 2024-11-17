@@ -1,8 +1,7 @@
 .card__group {
   display: flex;
   justify-content: center;
-  align-items: center;
-  border: 2px solid red;  
+  align-items: center; 
   perspective: 1000px;
 }
 
@@ -11,8 +10,6 @@
   width: var(--card-width);
   height: var(--card-height);
   border-radius: 18px;
-  box-shadow: var(--box-shadow-light);
-  
   transform-style: preserve-3d;
   transition: transform 0.3s ease;
 }
@@ -29,8 +26,7 @@
 }
 
 .card_content:hover{
-  box-shadow: 2px 2px 20px 0px rgba(255, 255, 255, 0.5);
-  transform: rotateX(-7deg) rotateY(-10deg);
+  transform: rotateX(-7deg) rotateY(-13deg);
 }
 
 
@@ -46,7 +42,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out,left 0.6s ease-in-out, top 0.6s ease-in-out;
   cursor: pointer;
   border : 1px solid var(--border-color);
 }
@@ -55,12 +51,14 @@
   position: absolute;
 }
 
-.add_card:hover, .flip_card:hover {
+.add_card:hover, .transfom_card-button:hover {
   box-shadow: 2px 2px 10px 0px rgba(255, 255, 255, 0.5);
   transform: scale(1.2);
 }
 
-.flip_card {
+/* TRANSFORM CARD */
+
+.transfom_card-button {
   position: absolute;
   left: 210px;
   top: 160px;
@@ -80,4 +78,134 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
+}
+
+
+.transfom_card {
+  perspective: 1000px;
+  width: var(--card-width);
+  height: var(--card-height);
+  cursor: pointer;
+}
+
+.transfom_card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.transfom_card.flipped .transfom_card-inner {
+  box-shadow: none;
+  transform: rotateY(180deg);
+}
+
+.transfom_card-front, .transfom_card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  border-radius: 10px;
+}
+
+
+
+.transfom_card-back {
+  transform: rotateY(180deg);
+}
+
+
+/* CARD FLIP */
+
+.card_content-flip{
+  transform-origin: center; /* Punto de rotación en el centro */
+  transition: transform 0.6s ease-in-out; /* Suavidad y duración */
+}
+
+.flip_card-button{
+  position: absolute;
+  left: 210px;
+  top: 317px;
+  cursor: pointer;
+  background-color: aliceblue;
+  border : 1px solid var(--border-color);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.flip_card-button:hover{
+  box-shadow: 2px 2px 10px 0px rgba(255, 255, 255, 0.5);
+  transform: scale(1.2);
+}
+
+.card_content-flip.rotated {
+  transform: rotate(180deg); 
+}
+
+.icon_rotate{
+  width: 30px;
+  height: 30px;
+}
+
+
+/*  CARD SLIP  */
+
+.card_content-split{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-origin: center; 
+  transition: transform 0.6s ease-in-out; 
+}
+
+.card_content-split.rotated{
+  transform: rotate(90deg);
+}
+
+.split_card-button{
+  position: absolute;
+  left: 210px;
+  top: 317px;
+  cursor: pointer;
+  background-color: aliceblue;
+  border : 1px solid var(--border-color);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease-in-out, left 0.6s ease-in-out, top 0.6s ease-in-out;
+}
+
+.split_card-button:hover{
+  box-shadow: 2px 2px 10px 0px rgba(255, 255, 255, 0.5);
+  transform: scale(1.2);
+}
+
+.split_card-button.affected{
+  left: 270px;
+  top: 265px;
+}
+
+.add_card.affected{
+  left: 270px;
+  top: 25px;
+}
+
+/* SELECT EFFECT CARDS */
+
+.hover_card:hover{
+  border-radius: 18px;
+  box-shadow: 2px 5px 20px 0px rgba(255, 255, 255, 0.5);
 }
