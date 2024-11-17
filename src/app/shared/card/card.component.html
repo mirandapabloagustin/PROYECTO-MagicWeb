@@ -1,21 +1,31 @@
 <article class="card__group" >
-
-  <div class="card_content" (click)="navigateToDetails()" >
-    <img
-    class="card__img"
-    [src]="dataCard.image_uris?.normal"
-    alt="dataCard.name"
-    />
-  </div>
-  <div class="add_card">
-    <img class="icon_add" src="icons/plus.svg" alt="icon plus">
-  </div>
-  @if (dataCard.name){
-    <div class="card__name">
-      {{ dataCard.name }}
+  @if(dataCard.layout === 'normal'){  
+    <div class="card_content" (click)="navigateToDetails()" >
+      <img
+      class="card__img"
+      [src]="dataCard.image_uris?.normal"
+      alt="dataCard.name"
+      />
+      <div class="add_card" (click)="addCardInDeck()">
+        <img class="icon_add" src="icons/plus.svg" alt="icon plus">
+      </div>
     </div>
-  }
+    }
+    @else if(dataCard.layout === 'transform'){  
+      <div class="card_content" (click)="navigateToDetails()" >
+        <img
+        class="card__img"
+        [src]="dataCard.card_faces[0].image_uris?.normal"
+        alt="dataCard.name"
+        />
+        <div class="add_card" (click)="addCardInDeck()">
+          <img class="icon_add" src="icons/plus.svg" alt="icon plus">
+        </div>
+        <div class="flip_card" (click)="addCardInDeck()">
+          <img class="icons_transform" src="icons/transform.png" alt="icon plus">
+        </div>
+      </div>
+      }
 </article>
 
-<!--
-  -->
+

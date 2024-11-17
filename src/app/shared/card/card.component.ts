@@ -15,11 +15,12 @@ const MODULES = [FontAwesomeModule];
 export class CardComponent implements OnInit {
   iconPlus = faPlus;
 
-  @Input() dataCard!: Card;
+  @Input() dataCard!: any;
   @Output() cardClicked = new EventEmitter<any>();
  
   navigateToDetails(){
     //this.cardClicked.emit(this.dataCard);
+    console.log('Card clicked');
   }
 
   constructor() { }
@@ -28,6 +29,9 @@ export class CardComponent implements OnInit {
     
   }
 
+  addCardInDeck(){
+    console.log('Card added to deck');
+  }
   
 
 
