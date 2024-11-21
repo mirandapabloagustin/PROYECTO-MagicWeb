@@ -1,34 +1,98 @@
 <section class="details__card-container">
   <div class="hover__bg">
-    <div class="header__card-info">
-      <h1 class="title_set-card">
-        {{ cardData.set_name }} - ({{ cardData.set }})
-      </h1>
-    </div>
-    <div class="main__card-info">
+    <div class="details__card-group">
 
-      <div class="card_img-content">
-        <img class="card_img" [src]="cardData.image_uris?.normal" [alt]="cardData.name" />
+
+      <div class="card__set-group">
+        <h1 class="card__set-title">{{cardData.set_name}}</h1>
+        <nav class="details-set">
+          <li class="item_details">
+            <span># {{cardData.collector_number}}</span>
+          </li>
+          <li class="item_details">
+            <span>{{cardData.rarity}}</span>
+          </li>
+          <li class="item_details">
+            <span>{{cardData.set_type}}</span>
+          </li >
+        </nav>
       </div>
 
-      <div class="card__info">
-        <div class="info_content">
-          <h2 class="name_card">{{cardData.name}}</h2>
+      <div class="card_img">
+        <img class="img_card" src="{{cardData.image_uris.normal}}" alt="{{cardData.name}}">
+      </div>
+
+
+      <div class="card_details-info">
+
+        <div class="card__info-title">
+          <h2 class="title-card">{{cardData.name}}</h2>
         </div>
-        <div class="info_content">
-          <app-mana [manaCost]="cardData.mana_cost"></app-mana>
+
+        <div class="card_detail-mana">
+          @for(iconImg of formattedManaArray; track iconImg.index){
+            <img class="icon-mana" [src]="iconImg.src" [alt]="iconImg.alt">
+
+          }
         </div>
-        <div class="info_content">
-          <p class="type_card">{{cardData.type_line}}</p>
+
+        <div class="card_detail-type">
+          <span class="type_card" >{{cardData.type_line}}</span>
         </div>
-        <div class="info_content">
-          <p class="text_card">{{cardData.oracle_text}}</p>
+
+        <div class="card_detail-text">
+          <span class="text_card">{{cardData.oracle_text}}</span>
         </div>
-        <div class="info_content">
-          <p class="flavor_card">{{cardData.flavor_text}}</p>
+
+        @if(cardData.flavor_text){
+          <div class="card_detail-flavor">
+            <span class="flavor_card">{{cardData.flavor_text}}</span>
+          </div>
+        }
+
+        @if(cardData.power){
+          <div class="card_detail-power">
+            <span class="power_card">Poder: {{cardData.power}} / Defensa: {{cardData.toughness}}</span>
+          </div>
+        }
+
+      </div>
+
+      <div class="action_buttons">
+        <div class="group_btn">
+          <span class="text_btn">Descargar Imagen</span>
+          <button class="btn__add">
+            <img class="icons_btn" src="icons/download.png" alt="Dowload">
+          </button>
+        </div>
+
+        <div class="group_btn">
+          <span class="text_btn">Copiar Json</span>
+          <button class="btn__add">
+            <img class="icons_btn" src="icons/copy.png" alt="Dowload">
+          </button>
+        </div>
+
+        <div class="group_btn">
+          <span class="text_btn">Agregar al mazo</span>
+          <button class="btn__add">
+            <img class="icons_btn" src="icons/plus.png" alt="Dowload">
+          </button>
         </div>
 
       </div>
+
+
+
+
     </div>
+
+
+
+
+
+
+
+
   </div>
 </section>

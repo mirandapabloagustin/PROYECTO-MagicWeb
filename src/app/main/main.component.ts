@@ -32,132 +32,167 @@ const MODULES = [FilterPanelComponent, CardsGalleryListComponent];
 export class MainComponent {
   showList = true;
   selectedCardId?:any;
-  prueba= {
+  prueba=
+  {
     "object": "card",
-    "id": "b769ba9e-2ac8-48a9-9f45-23a4ccd0cb96",
-    "oracle_id": "ac2173f9-f223-440a-9231-fd98762bdc6f",
-    "multiverse_ids": [],
-    "tcgplayer_id": 239621,
-    "tcgplayer_etched_id": 239399,
-    "cardmarket_id": 566136,
-    "name": "Force of Negation",
+    "id": "29eb0e40-d184-423f-8484-ee288fda00cd",
+    "oracle_id": "02718076-4c71-4bf5-988f-e6f94fbf0aef",
+    "multiverse_ids": [
+      555425
+    ],
+    "mtgo_id": 98667,
+    "arena_id": 80375,
+    "tcgplayer_id": 269089,
+    "cardmarket_id": 652210,
+    "name": "Spara's Adjudicators",
     "lang": "en",
-    "released_at": "2021-06-18",
-    "uri": "https://api.scryfall.com/cards/b769ba9e-2ac8-48a9-9f45-23a4ccd0cb96",
-    "scryfall_uri": "https://scryfall.com/card/h1r/9/force-of-negation?utm_source=api",
+    "released_at": "2022-04-29",
+    "uri": "https://api.scryfall.com/cards/29eb0e40-d184-423f-8484-ee288fda00cd",
+    "scryfall_uri": "https://scryfall.com/card/snc/224/sparas-adjudicators?utm_source=api",
     "layout": "normal",
     "highres_image": true,
     "image_status": "highres_scan",
     "image_uris": {
-      "small": "https://cards.scryfall.io/small/front/b/7/b769ba9e-2ac8-48a9-9f45-23a4ccd0cb96.jpg?1630616412",
-      "normal": "https://cards.scryfall.io/normal/front/b/7/b769ba9e-2ac8-48a9-9f45-23a4ccd0cb96.jpg?1630616412",
-      "large": "https://cards.scryfall.io/large/front/b/7/b769ba9e-2ac8-48a9-9f45-23a4ccd0cb96.jpg?1630616412",
-      "png": "https://cards.scryfall.io/png/front/b/7/b769ba9e-2ac8-48a9-9f45-23a4ccd0cb96.png?1630616412",
-      "art_crop": "https://cards.scryfall.io/art_crop/front/b/7/b769ba9e-2ac8-48a9-9f45-23a4ccd0cb96.jpg?1630616412",
-      "border_crop": "https://cards.scryfall.io/border_crop/front/b/7/b769ba9e-2ac8-48a9-9f45-23a4ccd0cb96.jpg?1630616412"
+      "small": "https://cards.scryfall.io/small/front/2/9/29eb0e40-d184-423f-8484-ee288fda00cd.jpg?1664413807",
+      "normal": "https://cards.scryfall.io/normal/front/2/9/29eb0e40-d184-423f-8484-ee288fda00cd.jpg?1664413807",
+      "large": "https://cards.scryfall.io/large/front/2/9/29eb0e40-d184-423f-8484-ee288fda00cd.jpg?1664413807",
+      "png": "https://cards.scryfall.io/png/front/2/9/29eb0e40-d184-423f-8484-ee288fda00cd.png?1664413807",
+      "art_crop": "https://cards.scryfall.io/art_crop/front/2/9/29eb0e40-d184-423f-8484-ee288fda00cd.jpg?1664413807",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/2/9/29eb0e40-d184-423f-8484-ee288fda00cd.jpg?1664413807"
     },
-    "mana_cost": "{1}{U}{U}",
-    "cmc": 3.0,
-    "type_line": "Instant",
-    "oracle_text": "If it's not your turn, you may exile a blue card from your hand rather than pay this spell's mana cost.\nCounter target noncreature spell. If that spell is countered this way, exile it instead of putting it into its owner's graveyard.",
+    "mana_cost": "{2}{G}{W}{U}",
+    "cmc": 5.0,
+    "type_line": "Creature — Cat Citizen",
+    "oracle_text": "When Spara's Adjudicators enters, target creature an opponent controls can't attack or block until your next turn.\n{2}, Exile Spara's Adjudicators from your hand: Target land gains \"{T}: Add {G}, {W}, or {U}\" until Spara's Adjudicators is cast from exile. You may cast Spara's Adjudicators for as long as it remains exiled.",
+    "power": "4",
+    "toughness": "4",
     "colors": [
-      "U"
+      "G",
+      "U",
+      "W"
     ],
     "color_identity": [
-      "U"
+      "G",
+      "U",
+      "W"
     ],
     "keywords": [],
+    "produced_mana": [
+      "G",
+      "U",
+      "W"
+    ],
+    "all_parts": [
+      {
+        "object": "related_card",
+        "id": "93df6b13-d898-4afe-a60c-828933f5be32",
+        "component": "combo_piece",
+        "name": "Spara's Adjudicators",
+        "type_line": "Creature — Cat Citizen",
+        "uri": "https://api.scryfall.com/cards/93df6b13-d898-4afe-a60c-828933f5be32"
+      },
+      {
+        "object": "related_card",
+        "id": "f564085e-2abd-4ecc-9b7a-19a69ddabc84",
+        "component": "combo_piece",
+        "name": "A-Spara's Adjudicators",
+        "type_line": "Creature — Cat Citizen",
+        "uri": "https://api.scryfall.com/cards/f564085e-2abd-4ecc-9b7a-19a69ddabc84"
+      }
+    ],
     "legalities": {
       "standard": "not_legal",
       "future": "not_legal",
       "historic": "not_legal",
-      "timeless": "not_legal",
-      "gladiator": "not_legal",
-      "pioneer": "not_legal",
-      "explorer": "not_legal",
+      "timeless": "legal",
+      "gladiator": "legal",
+      "pioneer": "legal",
+      "explorer": "legal",
       "modern": "legal",
       "legacy": "legal",
-      "pauper": "not_legal",
+      "pauper": "legal",
       "vintage": "legal",
-      "penny": "not_legal",
+      "penny": "legal",
       "commander": "legal",
       "oathbreaker": "legal",
       "standardbrawl": "not_legal",
       "brawl": "not_legal",
       "alchemy": "not_legal",
-      "paupercommander": "not_legal",
+      "paupercommander": "legal",
       "duel": "legal",
       "oldschool": "not_legal",
       "premodern": "not_legal",
       "predh": "not_legal"
     },
     "games": [
-      "paper"
+      "paper",
+      "mtgo",
+      "arena"
     ],
     "reserved": false,
     "foil": true,
-    "nonfoil": false,
+    "nonfoil": true,
     "finishes": [
-      "foil",
-      "etched"
+      "nonfoil",
+      "foil"
     ],
     "oversized": false,
     "promo": false,
-    "reprint": true,
+    "reprint": false,
     "variation": false,
-    "set_id": "7b3294cf-104e-43fb-8170-add3e78faca7",
-    "set": "h1r",
-    "set_name": "Modern Horizons 1 Timeshifts",
-    "set_type": "draft_innovation",
-    "set_uri": "https://api.scryfall.com/sets/7b3294cf-104e-43fb-8170-add3e78faca7",
-    "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Ah1r&unique=prints",
-    "scryfall_set_uri": "https://scryfall.com/sets/h1r?utm_source=api",
-    "rulings_uri": "https://api.scryfall.com/cards/b769ba9e-2ac8-48a9-9f45-23a4ccd0cb96/rulings",
-    "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Aac2173f9-f223-440a-9231-fd98762bdc6f&unique=prints",
-    "collector_number": "9",
+    "set_id": "df837242-8c15-42e4-b049-c933a02dc501",
+    "set": "snc",
+    "set_name": "Streets of New Capenna",
+    "set_type": "expansion",
+    "set_uri": "https://api.scryfall.com/sets/df837242-8c15-42e4-b049-c933a02dc501",
+    "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Asnc&unique=prints",
+    "scryfall_set_uri": "https://scryfall.com/sets/snc?utm_source=api",
+    "rulings_uri": "https://api.scryfall.com/cards/29eb0e40-d184-423f-8484-ee288fda00cd/rulings",
+    "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A02718076-4c71-4bf5-988f-e6f94fbf0aef&unique=prints",
+    "collector_number": "224",
     "digital": false,
-    "rarity": "rare",
-    "watermark": "wotc",
+    "rarity": "common",
+    "watermark": "brokers",
     "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
-    "artist": "Paul Scott Canavan",
+    "artist": "Aaron J. Riley",
     "artist_ids": [
-      "c19bfb77-5099-4f7c-8585-6eaf367712c9"
+      "f21b412c-aef5-4d15-88be-4f40615acde3"
     ],
-    "illustration_id": "ac811f1c-0e04-4eb5-a666-9bacc7c30d2f",
+    "illustration_id": "e05da8aa-ffa6-4e02-8280-58fc8a72a778",
     "border_color": "black",
-    "frame": "1997",
+    "frame": "2015",
     "full_art": false,
     "textless": false,
-    "booster": false,
+    "booster": true,
     "story_spotlight": false,
-    "promo_types": [
-      "boosterfun"
-    ],
-    "edhrec_rank": 235,
+    "edhrec_rank": 18328,
+    "penny_rank": 12306,
     "preview": {
-      "source": "Wizards of the Coast",
-      "source_uri": "https://www.twitch.tv/videos/1029499176",
-      "previewed_at": "2021-05-20"
+      "source": "Riley Knight",
+      "source_uri": "https://twitter.com/RLYKNGHT/status/1514758512718794752",
+      "previewed_at": "2022-04-15"
     },
     "prices": {
-      "usd": null,
-      "usd_foil": "87.92",
-      "usd_etched": "50.29",
-      "eur": null,
-      "eur_foil": "80.96",
-      "tix": null
+      "usd": "0.02",
+      "usd_foil": "0.18",
+      "usd_etched": null,
+      "eur": "0.04",
+      "eur_foil": "0.10",
+      "tix": "0.01"
     },
     "related_uris": {
-      "tcgplayer_infinite_articles": "https://tcgplayer.pxf.io/c/4931599/1830156/21018?subId1=api&trafcat=infinite&u=https%3A%2F%2Finfinite.tcgplayer.com%2Fsearch%3FcontentMode%3Darticle%26game%3Dmagic%26partner%3Dscryfall%26q%3DForce%2Bof%2BNegation",
-      "tcgplayer_infinite_decks": "https://tcgplayer.pxf.io/c/4931599/1830156/21018?subId1=api&trafcat=infinite&u=https%3A%2F%2Finfinite.tcgplayer.com%2Fsearch%3FcontentMode%3Ddeck%26game%3Dmagic%26partner%3Dscryfall%26q%3DForce%2Bof%2BNegation",
-      "edhrec": "https://edhrec.com/route/?cc=Force+of+Negation"
+      "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=555425&printed=false",
+      "tcgplayer_infinite_articles": "https://tcgplayer.pxf.io/c/4931599/1830156/21018?subId1=api&trafcat=infinite&u=https%3A%2F%2Finfinite.tcgplayer.com%2Fsearch%3FcontentMode%3Darticle%26game%3Dmagic%26partner%3Dscryfall%26q%3DSpara%2527s%2BAdjudicators",
+      "tcgplayer_infinite_decks": "https://tcgplayer.pxf.io/c/4931599/1830156/21018?subId1=api&trafcat=infinite&u=https%3A%2F%2Finfinite.tcgplayer.com%2Fsearch%3FcontentMode%3Ddeck%26game%3Dmagic%26partner%3Dscryfall%26q%3DSpara%2527s%2BAdjudicators",
+      "edhrec": "https://edhrec.com/route/?cc=Spara%27s+Adjudicators"
     },
     "purchase_uris": {
-      "tcgplayer": "https://tcgplayer.pxf.io/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F239621%3Fpage%3D1",
-      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Singles/Modern-Horizons-Retro-Frame-Cards/Force-of-Negation-V1?referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
-      "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Force+of+Negation&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+      "tcgplayer": "https://tcgplayer.pxf.io/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F269089%3Fpage%3D1",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Singles/Streets-of-New-Capenna/Sparas-Adjudicators?referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards/98667?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
     }
   }
+  
 
 
   handleUserSearch(searchCard: FilterSearchDto) {
