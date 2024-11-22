@@ -82,6 +82,33 @@
 
       </div>
 
+      <div class="card_legalities-group">
+        <h3 class="title_legalities" >Legalidades</h3>
+        <div class="items_legal-group">
+
+            @for(item of formattedLegalities; track item.index){
+              <div class="item__group">
+    
+                <span class="card_format">{{item.format}}</span>
+                  
+                
+                @if(item.legality === 'legal'){
+                  <div class="legal_status legal_ok">
+                    <span class="legal_text">LEGAL</span>
+                  </div>
+                }@else {
+                  <div class="legal_status  legal_error">
+                    <span class="legal_text">NO LEGAL</span>
+                  </div>
+                }
+                
+
+              </div>
+            }
+          
+        </div>
+      </div>
+
 
 
 

@@ -12,6 +12,12 @@ export class DetailsCardComponent implements OnInit{
 
   @Input() cardData?:any;
 
+  formattedLegalities: {
+    format: string;
+    legality: string;
+    index?: number;
+  }[] = [];
+
   formattedManaArray: { 
     src: string; 
     alt: string;
@@ -21,6 +27,7 @@ export class DetailsCardComponent implements OnInit{
 
   ngOnInit(): void {
     this.formatManaCost(this.cardData?.mana_cost ?? '');
+    this.formatLegalities(this.cardData?.legalities ?? {});
   }
 
   formatManaCost(manaCost: string): void {
@@ -36,5 +43,25 @@ export class DetailsCardComponent implements OnInit{
       };
     });
   }
+
+  formatLegalities(legalities: any): void {
+    this.formattedLegalities = Object.keys(legalities)
+      .filter(format => format.toLowerCase() !== 'standardbrawl' && format.toLowerCase() !== 'paupercommander')
+      .map((format, index) => {
+        return {
+          format,
+          legality: legalities[format],
+          index,
+        };
+      });
+  }
+  
+
+  /*
+  @HostListener('click', ['$event'])
+  onClick(event: MouseEvent): void {
+    console.log('click', event);
+  }
+  */
 
 }
