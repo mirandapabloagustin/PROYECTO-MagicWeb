@@ -1,0 +1,54 @@
+.service__card-content{
+    position: relative;
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f3f3f3;
+
+}
+
+.img_service-icon{
+    position:absolute;
+    height: 70px;
+    width: 70px;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    border-radius: 50%;
+    padding: 10px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.671);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.img_service{
+    height: 35px;
+    width: 35px;
+}
+
+.context_service-group{
+    margin: 2.5rem 1rem 5px 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title_service{
+    text-transform: capitalize;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--fondo);
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.39);
+}
+.text_service{
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--fondo);
+}
+

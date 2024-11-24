@@ -13,8 +13,8 @@ import { AuthApiCardService } from '@app/core/services/card/auth.card.service';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { FlipCardComponent } from '../../../shared/flip-card/flip-card.component';
-import { register, SwiperContainer } from 'swiper/element/bundle';
 import { isPlatformBrowser } from '@angular/common';
+import { register, SwiperContainer } from 'swiper/element/bundle';
 register();
 
 
