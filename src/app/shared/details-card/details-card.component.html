@@ -1,60 +1,132 @@
 <section class="details__card-container">
   <div class="hover__bg">
     <div class="details__card-group">
-
-
       <div class="card__set-group">
-        <h1 class="card__set-title">{{cardData.set_name}}</h1>
+        <h1 class="card__set-title">{{ cardData.set_name }}</h1>
         <nav class="details-set">
           <li class="item_details">
-            <span># {{cardData.collector_number}}</span>
+            <span># {{ cardData.collector_number }}</span>
           </li>
           <li class="item_details">
-            <span>{{cardData.rarity}}</span>
+            <span>{{ cardData.rarity }}</span>
           </li>
           <li class="item_details">
-            <span>{{cardData.set_type}}</span>
-          </li >
+            <span>{{ cardData.set_type }}</span>
+          </li>
         </nav>
       </div>
 
       <div class="card_img">
-        <img class="img_card" src="{{cardData.image_uris.normal}}" alt="{{cardData.name}}">
+        @if(cardData.layout === 'normal'){
+        <img
+          class="img_card"
+          src="{{ cardData.image_uris.normal }}"
+          alt="{{ cardData.name }}"
+        />
+        } @else if(cardData.layout === 'transform'){
+
+        <div class="card__transform-group" [class.transform]="isTransformed">
+          <div class="front_card-transf">
+            <img
+              class="front_face-card"
+              [src]="cardData.card_faces[0].image_uris?.normal"
+              alt="dataCard.name"
+            />
+          </div>
+          <div class="back_card-transf">
+            <img
+              class="back_face-card"
+              [src]="cardData.card_faces[1].image_uris?.normal"
+              alt="dataCard.name"
+            />
+          </div>
+          <button class="btn_transf" (click)="transformCard()">
+            <img
+              class="icons_transform"
+              src="icons/switch.png"
+              alt="icon switch"
+            />
+          </button>
+        </div>
+
+        }
       </div>
 
-
       <div class="card_details-info">
-
+      @if(cardData.layout === 'normal'){
         <div class="card__info-title">
-          <h2 class="title-card">{{cardData.name}}</h2>
+          <h2 class="title-card">{{ cardData.name }}</h2>
         </div>
 
         <div class="card_detail-mana">
-          @for(iconImg of formattedManaArray; track iconImg.index){
-            <img class="icon-mana" [src]="iconImg.src" [alt]="iconImg.alt">
-
+          @if(manaFaces[0].length > 0){
+            @for(manaIcon of manaFaces[0]; track manaIcon.index){
+                <img class="icon-mana" [src]="manaIcon.src" [alt]="manaIcon.alt" />
+              
+            }
+          }@else {
+            <span class="no_mana">No tiene coste de mana</span>
           }
         </div>
 
         <div class="card_detail-type">
-          <span class="type_card" >{{cardData.type_line}}</span>
+          <span class="type_card">{{ cardData.type_line }}</span>
         </div>
 
         <div class="card_detail-text">
-          <span class="text_card">{{cardData.oracle_text}}</span>
+          <span class="text_card">{{ cardData.oracle_text }}</span>
         </div>
 
         @if(cardData.flavor_text){
-          <div class="card_detail-flavor">
-            <span class="flavor_card">{{cardData.flavor_text}}</span>
+        <div class="card_detail-flavor">
+          <span class="flavor_card">{{ cardData.flavor_text }}</span>
+        </div>
+        } 
+        @if(cardData.power){
+        <div class="card_detail-power">
+          <span class="power_card"
+            >Poder: {{ cardData.power }} / Defensa:
+            {{ cardData.toughness }}</span
+          >
+        </div>
+        } 
+      }
+
+      @else if(cardData.layout !== 'normal'){
+        @if(isTransformed){
+          <div class="card__info-title">
+            <h2 class="title-card">{{ cardData.card_faces[1].name }}</h2>
+          </div>
+          <div class="card_detail-mana">
+            @if(manaFaces[1].length > 0){
+              @for(manaIcon of manaFaces[1]; track manaIcon.index){
+                  <img class="icon-mana" [src]="manaIcon.src" [alt]="manaIcon.alt" />
+                
+              }
+            }@else {
+              <span class="no_mana">No tiene coste de mana</span>
+            }
+          </div>
+        }
+        @else {
+          <div class="card__info-title">
+            <h2 class="title-card">{{ cardData.card_faces[0].name }}</h2>
+          </div>
+          <div class="card_detail-mana">
+          @if(manaFaces[0].length > 0){
+            @for(manaIcon of manaFaces[0]; track manaIcon.index){
+                <img class="icon-mana" [src]="manaIcon.src" [alt]="manaIcon.alt" />
+              
+            }
+          }@else {
+            <span class="no_mana">No tiene coste de mana</span>
+          }
           </div>
         }
 
-        @if(cardData.power){
-          <div class="card_detail-power">
-            <span class="power_card">Poder: {{cardData.power}} / Defensa: {{cardData.toughness}}</span>
-          </div>
-        }
+      }
+
+
 
       </div>
 
@@ -62,64 +134,45 @@
         <div class="group_btn">
           <span class="text_btn">Descargar Imagen</span>
           <button class="btn__add">
-            <img class="icons_btn" src="icons/download.png" alt="Dowload">
+            <img class="icons_btn" src="icons/download.png" alt="Dowload" />
           </button>
         </div>
 
         <div class="group_btn">
           <span class="text_btn">Copiar Json</span>
           <button class="btn__add">
-            <img class="icons_btn" src="icons/copy.png" alt="Dowload">
+            <img class="icons_btn" src="icons/copy.png" alt="Dowload" />
           </button>
         </div>
 
         <div class="group_btn">
           <span class="text_btn">Agregar al mazo</span>
           <button class="btn__add">
-            <img class="icons_btn" src="icons/plus.png" alt="Dowload">
+            <img class="icons_btn" src="icons/plus.png" alt="Dowload" />
           </button>
         </div>
-
       </div>
 
       <div class="card_legalities-group">
-        <h3 class="title_legalities" >Formatos Legales</h3>
+        <h3 class="title_legalities">Formatos Legales</h3>
         <div class="items_legal-group">
+          @for(item of formattedLegalities; track item.index){
+          <div class="item__group">
+            <span class="card_format">{{ item.format }}</span>
 
-            @for(item of formattedLegalities; track item.index){
-              <div class="item__group">
-    
-                <span class="card_format">{{item.format}}</span>
-                  
-                
-                @if(item.legality === 'legal'){
-                  <div class="legal_status legal_ok">
-                    <span class="legal_text">LEGAL</span>
-                  </div>
-                }@else {
-                  <div class="legal_status  legal_error">
-                    <span class="legal_text">NO LEGAL</span>
-                  </div>
-                }
-                
-
-              </div>
+            @if(item.legality === 'legal'){
+            <div class="legal_status legal_ok">
+              <span class="legal_text">LEGAL</span>
+            </div>
+            }@else {
+            <div class="legal_status legal_error">
+              <span class="legal_text">NO LEGAL</span>
+            </div>
             }
-          
+          </div>
+          }
         </div>
       </div>
-
-
-
-
     </div>
-
-
-
-
-
-
-
-
   </div>
 </section>

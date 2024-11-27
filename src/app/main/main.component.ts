@@ -32,67 +32,110 @@ const MODULES = [FilterPanelComponent, CardsGalleryListComponent];
 export class MainComponent {
   showList = true;
   selectedCardId?:any;
-  prueba=
-  {
+  prueba={
     "object": "card",
-    "id": "343d01cf-9806-4c2d-a993-ddc9ed248d7f",
-    "oracle_id": "e12da2a1-e390-4487-b154-69e439cb7b05",
+    "id": "dad34ae5-56b4-4394-be02-e043dc1cc23d",
+    "oracle_id": "80ecb069-36e2-490d-9f6c-ef553c00e997",
     "multiverse_ids": [
-      580490
+      607117,
+      607118
     ],
-    "mtgo_id": 103030,
-    "tcgplayer_id": 283686,
-    "cardmarket_id": 672630,
-    "name": "Activated Sleeper",
+    "mtgo_id": 110006,
+    "arena_id": 84353,
+    "tcgplayer_id": 492066,
+    "cardmarket_id": 704783,
+    "name": "Aetherblade Agent // Gitaxian Mindstinger",
     "lang": "en",
-    "released_at": "2022-09-09",
-    "uri": "https://api.scryfall.com/cards/343d01cf-9806-4c2d-a993-ddc9ed248d7f",
-    "scryfall_uri": "https://scryfall.com/card/dmc/24/activated-sleeper?utm_source=api",
-    "layout": "normal",
+    "released_at": "2023-04-21",
+    "uri": "https://api.scryfall.com/cards/dad34ae5-56b4-4394-be02-e043dc1cc23d",
+    "scryfall_uri": "https://scryfall.com/card/mom/88/aetherblade-agent-gitaxian-mindstinger?utm_source=api",
+    "layout": "transform",
     "highres_image": true,
     "image_status": "highres_scan",
-    "image_uris": {
-      "small": "https://cards.scryfall.io/small/front/3/4/343d01cf-9806-4c2d-a993-ddc9ed248d7f.jpg?1673304862",
-      "normal": "https://cards.scryfall.io/normal/front/3/4/343d01cf-9806-4c2d-a993-ddc9ed248d7f.jpg?1673304862",
-      "large": "https://cards.scryfall.io/large/front/3/4/343d01cf-9806-4c2d-a993-ddc9ed248d7f.jpg?1673304862",
-      "png": "https://cards.scryfall.io/png/front/3/4/343d01cf-9806-4c2d-a993-ddc9ed248d7f.png?1673304862",
-      "art_crop": "https://cards.scryfall.io/art_crop/front/3/4/343d01cf-9806-4c2d-a993-ddc9ed248d7f.jpg?1673304862",
-      "border_crop": "https://cards.scryfall.io/border_crop/front/3/4/343d01cf-9806-4c2d-a993-ddc9ed248d7f.jpg?1673304862"
-    },
-    "mana_cost": "{2}{B}",
-    "cmc": 3.0,
-    "type_line": "Creature — Phyrexian Shapeshifter",
-    "oracle_text": "Flash\nYou may have Activated Sleeper enter as a copy of any creature card in a graveyard that was put there from the battlefield this turn, except it's a Phyrexian in addition to its other types.",
-    "power": "0",
-    "toughness": "0",
-    "colors": [
-      "B"
-    ],
+    "cmc": 2.0,
+    "type_line": "Creature — Human Rogue // Creature — Phyrexian Rogue",
     "color_identity": [
-      "B"
+      "B",
+      "U"
     ],
     "keywords": [
-      "Flash"
+      "Transform",
+      "Deathtouch"
+    ],
+    "card_faces": [
+      {
+        "object": "card_face",
+        "name": "Aetherblade Agent",
+        "mana_cost": "{1}{B}",
+        "type_line": "Creature — Human Rogue",
+        "oracle_text": "Deathtouch\n{4}{U/P}: Transform Aetherblade Agent. Activate only as a sorcery. ({U/P} can be paid with either {U} or 2 life.)",
+        "colors": [
+          "B"
+        ],
+        "power": "1",
+        "toughness": "1",
+        "flavor_text": "The Consulate of Kaladesh had always valued his particular talent for extracting information . . .",
+        "artist": "Alexander Mokhov",
+        "artist_id": "3a6a9d37-e62c-44bd-90f2-f5126324e3f0",
+        "illustration_id": "ba97fc49-f605-4816-bb22-be8c0e7996a6",
+        "image_uris": {
+          "small": "https://cards.scryfall.io/small/front/d/a/dad34ae5-56b4-4394-be02-e043dc1cc23d.jpg?1682203531",
+          "normal": "https://cards.scryfall.io/normal/front/d/a/dad34ae5-56b4-4394-be02-e043dc1cc23d.jpg?1682203531",
+          "large": "https://cards.scryfall.io/large/front/d/a/dad34ae5-56b4-4394-be02-e043dc1cc23d.jpg?1682203531",
+          "png": "https://cards.scryfall.io/png/front/d/a/dad34ae5-56b4-4394-be02-e043dc1cc23d.png?1682203531",
+          "art_crop": "https://cards.scryfall.io/art_crop/front/d/a/dad34ae5-56b4-4394-be02-e043dc1cc23d.jpg?1682203531",
+          "border_crop": "https://cards.scryfall.io/border_crop/front/d/a/dad34ae5-56b4-4394-be02-e043dc1cc23d.jpg?1682203531"
+        }
+      },
+      {
+        "object": "card_face",
+        "name": "Gitaxian Mindstinger",
+        "mana_cost": "",
+        "type_line": "Creature — Phyrexian Rogue",
+        "oracle_text": "Deathtouch\nWhenever Gitaxian Mindstinger deals combat damage to a player or battle, draw a card.",
+        "colors": [
+          "B",
+          "U"
+        ],
+        "color_indicator": [
+          "B",
+          "U"
+        ],
+        "power": "3",
+        "toughness": "3",
+        "flavor_text": ". . . but the Chrome Host's methods were far more efficient.",
+        "artist": "Alexander Mokhov",
+        "artist_id": "3a6a9d37-e62c-44bd-90f2-f5126324e3f0",
+        "illustration_id": "ddbcbb7d-9495-4292-86f8-1f81c448b7df",
+        "image_uris": {
+          "small": "https://cards.scryfall.io/small/back/d/a/dad34ae5-56b4-4394-be02-e043dc1cc23d.jpg?1682203531",
+          "normal": "https://cards.scryfall.io/normal/back/d/a/dad34ae5-56b4-4394-be02-e043dc1cc23d.jpg?1682203531",
+          "large": "https://cards.scryfall.io/large/back/d/a/dad34ae5-56b4-4394-be02-e043dc1cc23d.jpg?1682203531",
+          "png": "https://cards.scryfall.io/png/back/d/a/dad34ae5-56b4-4394-be02-e043dc1cc23d.png?1682203531",
+          "art_crop": "https://cards.scryfall.io/art_crop/back/d/a/dad34ae5-56b4-4394-be02-e043dc1cc23d.jpg?1682203531",
+          "border_crop": "https://cards.scryfall.io/border_crop/back/d/a/dad34ae5-56b4-4394-be02-e043dc1cc23d.jpg?1682203531"
+        }
+      }
     ],
     "legalities": {
-      "standard": "not_legal",
-      "future": "not_legal",
-      "historic": "not_legal",
-      "timeless": "not_legal",
-      "gladiator": "not_legal",
-      "pioneer": "not_legal",
-      "explorer": "not_legal",
-      "modern": "not_legal",
+      "standard": "legal",
+      "future": "legal",
+      "historic": "legal",
+      "timeless": "legal",
+      "gladiator": "legal",
+      "pioneer": "legal",
+      "explorer": "legal",
+      "modern": "legal",
       "legacy": "legal",
-      "pauper": "not_legal",
+      "pauper": "legal",
       "vintage": "legal",
-      "penny": "not_legal",
+      "penny": "legal",
       "commander": "legal",
       "oathbreaker": "legal",
-      "standardbrawl": "not_legal",
-      "brawl": "not_legal",
+      "standardbrawl": "legal",
+      "brawl": "legal",
       "alchemy": "not_legal",
-      "paupercommander": "not_legal",
+      "paupercommander": "legal",
       "duel": "legal",
       "oldschool": "not_legal",
       "premodern": "not_legal",
@@ -100,6 +143,7 @@ export class MainComponent {
     },
     "games": [
       "paper",
+      "arena",
       "mtgo"
     ],
     "reserved": false,
@@ -113,51 +157,48 @@ export class MainComponent {
     "promo": false,
     "reprint": false,
     "variation": false,
-    "set_id": "78076b27-f888-4723-b27c-44074accd261",
-    "set": "dmc",
-    "set_name": "Dominaria United Commander",
-    "set_type": "commander",
-    "set_uri": "https://api.scryfall.com/sets/78076b27-f888-4723-b27c-44074accd261",
-    "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Admc&unique=prints",
-    "scryfall_set_uri": "https://scryfall.com/sets/dmc?utm_source=api",
-    "rulings_uri": "https://api.scryfall.com/cards/343d01cf-9806-4c2d-a993-ddc9ed248d7f/rulings",
-    "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Ae12da2a1-e390-4487-b154-69e439cb7b05&unique=prints",
-    "collector_number": "24",
+    "set_id": "392f7315-dc53-40a3-a2cc-5482dbd498b3",
+    "set": "mom",
+    "set_name": "March of the Machine",
+    "set_type": "expansion",
+    "set_uri": "https://api.scryfall.com/sets/392f7315-dc53-40a3-a2cc-5482dbd498b3",
+    "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Amom&unique=prints",
+    "scryfall_set_uri": "https://scryfall.com/sets/mom?utm_source=api",
+    "rulings_uri": "https://api.scryfall.com/cards/dad34ae5-56b4-4394-be02-e043dc1cc23d/rulings",
+    "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A80ecb069-36e2-490d-9f6c-ef553c00e997&unique=prints",
+    "collector_number": "88",
     "digital": false,
-    "rarity": "rare",
-    "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
-    "artist": "Mathias Kollros",
+    "rarity": "common",
+    "artist": "Alexander Mokhov",
     "artist_ids": [
-      "2ae0dd12-047c-4efb-80d7-bccc3bac5fba"
+      "3a6a9d37-e62c-44bd-90f2-f5126324e3f0"
     ],
-    "illustration_id": "5dc4ac5e-383d-4747-b849-bb44ab46bfd1",
     "border_color": "black",
     "frame": "2015",
-    "security_stamp": "oval",
     "full_art": false,
     "textless": false,
-    "booster": false,
+    "booster": true,
     "story_spotlight": false,
-    "edhrec_rank": 6486,
-    "penny_rank": 6339,
+    "edhrec_rank": 16044,
+    "penny_rank": 3762,
     "prices": {
-      "usd": "0.95",
-      "usd_foil": "1.83",
+      "usd": "0.04",
+      "usd_foil": "0.08",
       "usd_etched": null,
-      "eur": "0.72",
-      "eur_foil": "1.21",
-      "tix": "0.45"
+      "eur": "0.02",
+      "eur_foil": "0.08",
+      "tix": "0.03"
     },
     "related_uris": {
-      "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=580490&printed=false",
-      "tcgplayer_infinite_articles": "https://tcgplayer.pxf.io/c/4931599/1830156/21018?subId1=api&trafcat=infinite&u=https%3A%2F%2Finfinite.tcgplayer.com%2Fsearch%3FcontentMode%3Darticle%26game%3Dmagic%26partner%3Dscryfall%26q%3DActivated%2BSleeper",
-      "tcgplayer_infinite_decks": "https://tcgplayer.pxf.io/c/4931599/1830156/21018?subId1=api&trafcat=infinite&u=https%3A%2F%2Finfinite.tcgplayer.com%2Fsearch%3FcontentMode%3Ddeck%26game%3Dmagic%26partner%3Dscryfall%26q%3DActivated%2BSleeper",
-      "edhrec": "https://edhrec.com/route/?cc=Activated+Sleeper"
+      "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=607117&printed=false",
+      "tcgplayer_infinite_articles": "https://tcgplayer.pxf.io/c/4931599/1830156/21018?subId1=api&trafcat=infinite&u=https%3A%2F%2Finfinite.tcgplayer.com%2Fsearch%3FcontentMode%3Darticle%26game%3Dmagic%26partner%3Dscryfall%26q%3DAetherblade%2BAgent%2B%252F%252F%2BGitaxian%2BMindstinger",
+      "tcgplayer_infinite_decks": "https://tcgplayer.pxf.io/c/4931599/1830156/21018?subId1=api&trafcat=infinite&u=https%3A%2F%2Finfinite.tcgplayer.com%2Fsearch%3FcontentMode%3Ddeck%26game%3Dmagic%26partner%3Dscryfall%26q%3DAetherblade%2BAgent%2B%252F%252F%2BGitaxian%2BMindstinger",
+      "edhrec": "https://edhrec.com/route/?cc=Aetherblade+Agent"
     },
     "purchase_uris": {
-      "tcgplayer": "https://tcgplayer.pxf.io/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F283686%3Fpage%3D1",
-      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Singles/Commander-Dominaria-United/Activated-Sleeper?referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
-      "cardhoarder": "https://www.cardhoarder.com/cards/103030?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+      "tcgplayer": "https://tcgplayer.pxf.io/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F492066%3Fpage%3D1",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Singles/March-of-the-Machine/Aetherblade-Agent-Gitaxian-Mindstinger?referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards/110006?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
     }
   }
   
