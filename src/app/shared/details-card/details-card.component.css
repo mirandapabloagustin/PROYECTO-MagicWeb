@@ -119,10 +119,8 @@
   transform: rotateY(0deg);
 }
 
-.btn_transf {
+.btn_transf,.btn_rotate {
   position: absolute;
-  bottom: -30px;
-  left: 168px;
   cursor: pointer;
   background-color: aliceblue;
   border : 1px solid var(--border-color);
@@ -136,7 +134,12 @@
   z-index: 3;
 }
 
-.btn_transf:hover{
+.btn_transf, .btn_rotate{
+  bottom: -30px;
+  left: 168px;
+}
+
+.btn_transf:hover, .btn_rotate:hover {
   box-shadow: 2px 2px 10px 0px rgba(255, 255, 255, 0.5);
   transform: scale(1.2);
 }
@@ -146,7 +149,27 @@
   height: 100%;
 }
 
+/*---- flip effect -----*/
+.rotate_card-group{
+  position: relative;
+}
 
+.rotate_card{
+  transform-origin: center; 
+  transition: transform 0.6s ease-in-out; 
+}
+
+.rotate_card.rotated {
+  transform: rotate(180deg); 
+}
+.rotate_card.rotated45 {
+  transform: scale(0.7) rotate(90deg);
+}
+
+.icons_rotate{
+  width: 40px;
+  height: 40px;
+}
 
 /* INFO CARD STYLES */
 
@@ -215,7 +238,8 @@
 .text_card,
 .power_card,
 .flavor_card,
-.type_card {
+.type_card,
+.no_mana {
   font-size: 1.5rem;
   color: var(--text-color);
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.87);
@@ -230,9 +254,87 @@
   font-style: italic;
 }
 
+.card_detail-power{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.icons_pwr_tgs{
+  width: 30px;
+  height: 30px;
+}
+
+.power_card-group,.toughness_card-group{
+  border-radius: 10px;
+  padding: 5px 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.power_card-group{
+  background: linear-gradient(to right, rgb(224, 61, 61), transparent);
+}
+
+.toughness_card-group{
+  background: linear-gradient(to left, rgb(124, 124, 141), transparent);
+}
+
+/*  rateted info styles  */
+.content_rotated{
+  grid-row: span 5 / span 5;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.rotate_info-group,.is_rateted-info{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 1rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.rotate_info-group{
+  align-items: start;
+}
+
+.is_rateted-info{
+  align-items: end;
+  scale: 0.8;
+  opacity: 0.5;
+}
+
+.flip_title{
+  margin: 0;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--text-color);
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.87);
+}
+
+.rotate_info-group.unflip{
+  scale: 0.8;
+  opacity: 0.5;
+}
+
+.is_rateted-info.flip{
+  opacity: 1;
+  scale: 1;
+}
+
 /* ACTION BUTTONS */
 
 .action_buttons {
+  margin-top: 1rem;
   grid-column-start: 2;
   grid-row-start: 3;
   display: flex;

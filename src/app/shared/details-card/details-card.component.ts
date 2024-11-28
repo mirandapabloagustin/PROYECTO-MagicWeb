@@ -48,8 +48,6 @@ export class DetailsCardComponent implements OnInit{
       );
     }
     );
-   console.log( this.manaFaces[0]);
-   console.log( this.manaFaces[1]);
   }
 
   formatLegalities(legalities: any): void {
@@ -69,11 +67,5 @@ export class DetailsCardComponent implements OnInit{
   }
   
 
-  /*
-  @HostListener('click', ['$event'])
-  onClick(event: MouseEvent): void {
-    console.log('click', event);
-  }
-  */
 
 }

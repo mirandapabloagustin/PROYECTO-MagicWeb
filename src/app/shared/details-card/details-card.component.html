@@ -23,15 +23,12 @@
           src="{{ cardData.image_uris.normal }}"
           alt="{{ cardData.name }}"
         />
-        } @else if(cardData.layout === 'transform'){
+        } 
+        @else if(cardData.layout === 'transform'){
 
         <div class="card__transform-group" [class.transform]="isTransformed">
           <div class="front_card-transf">
-            <img
-              class="front_face-card"
-              [src]="cardData.card_faces[0].image_uris?.normal"
-              alt="dataCard.name"
-            />
+            <img class="front_face-card"  [src]="cardData.card_faces[0].image_uris?.normal" alt="dataCard.name" />
           </div>
           <div class="back_card-transf">
             <img
@@ -50,9 +47,40 @@
         </div>
 
         }
+        @else {
+          <div class="rotate_card-group">
+            @if(cardData.layout === 'flip'){
+            <div class="rotate_card" [class.rotated]="isTransformed" >
+              <img class="img_card" src="{{ cardData.image_uris.normal }}"alt="{{ cardData.name }}"/>
+            </div>
+            
+              <button class="btn_rotate" (click)="transformCard()">
+                <img
+                class="icons_rotate"
+                src="icons/flip.png"
+                alt="icon rotate"
+                />
+              </button>
+            }
+            @if(cardData.layout === 'split'){
+              <div class="rotate_card" [class.rotated45]="isTransformed" >
+                <img class="img_card" src="{{ cardData.image_uris.normal }}"alt="{{ cardData.name }}"/>
+              </div>
+              <button class="btn_rotate" (click)="transformCard()">
+                <img
+                class="icons_rotate"
+                src="icons/rotate-right.png"
+                alt="icon rotate"
+                />
+              </button>
+            }
+          </div>
+
+        }
       </div>
 
-      <div class="card_details-info">
+    <div class="card_details-info">
+
       @if(cardData.layout === 'normal'){
         <div class="card__info-title">
           <h2 class="title-card">{{ cardData.name }}</h2>
@@ -82,17 +110,24 @@
           <span class="flavor_card">{{ cardData.flavor_text }}</span>
         </div>
         } 
-        @if(cardData.power){
-        <div class="card_detail-power">
-          <span class="power_card"
-            >Poder: {{ cardData.power }} / Defensa:
-            {{ cardData.toughness }}</span
-          >
-        </div>
-        } 
+                    @if(cardData.power){
+            <div class="card_detail-power">
+
+              <div class="power_card-group">
+                <img class="icons_pwr_tgs" src="icons/ataque.png" alt="power_icon">
+                <span class="power_card">{{ cardData.power }}</span>
+              </div>
+
+              <div class="toughness_card-group">
+                <span class="power_card">{{ cardData.toughness }}</span>
+                <img class="icons_pwr_tgs" src="icons/defensa.png" alt="power_icon">
+              </div>
+
+            </div>
+          }
       }
 
-      @else if(cardData.layout !== 'normal'){
+      @else if(cardData.layout === 'transform'){
         @if(isTransformed){
           <div class="card__info-title">
             <h2 class="title-card">{{ cardData.card_faces[1].name }}</h2>
@@ -101,12 +136,40 @@
             @if(manaFaces[1].length > 0){
               @for(manaIcon of manaFaces[1]; track manaIcon.index){
                   <img class="icon-mana" [src]="manaIcon.src" [alt]="manaIcon.alt" />
-                
               }
             }@else {
               <span class="no_mana">No tiene coste de mana</span>
             }
           </div>
+          
+          <div class="card_detail-type">
+            <span class="type_card">{{ cardData.card_faces[1].type_line }}</span>
+          </div>
+  
+          <div class="card_detail-text">
+            <span class="text_card">{{ cardData.card_faces[1].oracle_text }}</span>
+          </div>
+  
+          @if(cardData.card_faces[1].flavor_text){
+          <div class="card_detail-flavor">
+            <span class="flavor_card">{{ cardData.card_faces[1].flavor_text }}</span>
+          </div>
+          } 
+          @if(cardData.card_faces[1].power){
+            <div class="card_detail-power">
+
+              <div class="power_card-group">
+                <img class="icons_pwr_tgs" src="icons/ataque.png" alt="power_icon">
+                <span class="power_card">{{ cardData.card_faces[1].power }}</span>
+              </div>
+
+              <div class="toughness_card-group">
+                <span class="power_card">{{ cardData.card_faces[1].toughness }}</span>
+                <img class="icons_pwr_tgs" src="icons/defensa.png" alt="power_icon">
+              </div>
+
+            </div>
+          }
         }
         @else {
           <div class="card__info-title">
@@ -122,34 +185,165 @@
             <span class="no_mana">No tiene coste de mana</span>
           }
           </div>
+
+          <div class="card_detail-type">
+            <span class="type_card">{{ cardData.card_faces[0].type_line }}</span>
+          </div>
+  
+          <div class="card_detail-text">
+            <span class="text_card">{{ cardData.card_faces[0].oracle_text }}</span>
+          </div>
+  
+          @if(cardData.card_faces[0].flavor_text){
+          <div class="card_detail-flavor">
+            <span class="flavor_card">{{ cardData.card_faces[0].flavor_text }}</span>
+          </div>
+          } 
+          @if(cardData.card_faces[0].power){
+            <div class="card_detail-power">
+
+              <div class="power_card-group">
+                <img class="icons_pwr_tgs" src="icons/ataque.png" alt="power_icon">
+                <span class="power_card">{{ cardData.card_faces[0].power }}</span>
+              </div>
+
+              <div class="toughness_card-group">
+                <span class="power_card">{{ cardData.card_faces[0].toughness }}</span>
+                <img class="icons_pwr_tgs" src="icons/defensa.png" alt="power_icon">
+              </div>
+
+            </div>
+          }
         }
 
       }
 
+      @else if(cardData.layout === 'flip' || cardData.layout === 'split'){
+        <div class="content_rotated">
 
 
-      </div>
+
+          <div class="rotate_info-group"  [class.unflip]="isTransformed">
+
+            <div class="card__info-title" >
+              <h2 class="flip_title">{{ cardData.card_faces[0].name }}</h2>
+            </div>
+            <div class="card_detail-mana">
+            @if(manaFaces[0].length > 0){
+              @for(manaIcon of manaFaces[0]; track manaIcon.index){
+                  <img class="icon-mana" [src]="manaIcon.src" [alt]="manaIcon.alt" />
+                
+              }
+            }@else {
+              <span class="no_mana">No tiene coste de mana</span>
+            }
+            </div>
+  
+            <div class="card_detail-type">
+              <span class="type_card">{{ cardData.card_faces[0].type_line }}</span>
+            </div>
+    
+            <div class="card_detail-text">
+              <span class="text_card">{{ cardData.card_faces[0].oracle_text }}</span>
+            </div>
+    
+            @if(cardData.card_faces[0].flavor_text){
+            <div class="card_detail-flavor">
+              <span class="flavor_card">{{ cardData.card_faces[0].flavor_text }}</span>
+            </div>
+            } 
+            @if(cardData.card_faces[0].power){
+            <div class="card_detail-power">
+
+              <div class="power_card-group">
+                <img class="icons_pwr_tgs" src="icons/ataque.png" alt="power_icon">
+                <span class="power_card">{{ cardData.card_faces[0].power }}</span>
+              </div>
+
+              <div class="toughness_card-group">
+                <span class="power_card">{{ cardData.card_faces[0].toughness }}</span>
+                <img class="icons_pwr_tgs" src="icons/defensa.png" alt="power_icon">
+              </div>
+
+            </div>
+          }
+          </div>
+          <div class="is_rateted-info" [class.flip]="isTransformed">
+
+
+
+            <div class="card__info-title">
+              <h2 class="flip_title">{{ cardData.card_faces[1].name }}</h2>
+            </div>
+            <div class="card_detail-mana">
+            @if(manaFaces[1].length > 0){
+              @for(manaIcon of manaFaces[1]; track manaIcon.index){
+                  <img class="icon-mana" [src]="manaIcon.src" [alt]="manaIcon.alt" />
+                
+              }
+            }@else {
+              <span class="no_mana">No tiene coste de mana</span>
+            }
+            </div>
+  
+            <div class="card_detail-type">
+              <span class="type_card">{{ cardData.card_faces[1].type_line }}</span>
+            </div>
+    
+            <div class="card_detail-text">
+              <span class="text_card">{{ cardData.card_faces[1].oracle_text }}</span>
+            </div>
+    
+            @if(cardData.card_faces[1].flavor_text){
+            <div class="card_detail-flavor">
+              <span class="flavor_card">{{ cardData.card_faces[1].flavor_text }}</span>
+            </div>
+            } 
+            @if(cardData.card_faces[1].power){
+              <div class="card_detail-power">
+  
+                <div class="power_card-group">
+                  <img class="icons_pwr_tgs" src="icons/ataque.png" alt="power_icon">
+                  <span class="power_card">{{ cardData.card_faces[1].power }}</span>
+                </div>
+  
+                <div class="toughness_card-group">
+                  <span class="power_card">{{ cardData.card_faces[1].toughness }}</span>
+                  <img class="icons_pwr_tgs" src="icons/defensa.png" alt="power_icon">
+                </div>
+  
+              </div>
+            }
+          
+          </div>
+        </div>
+
+      }
+
+      
+      
+    </div>
 
       <div class="action_buttons">
         <div class="group_btn">
-          <span class="text_btn">Descargar Imagen</span>
           <button class="btn__add">
             <img class="icons_btn" src="icons/download.png" alt="Dowload" />
           </button>
+          <span class="text_btn">Descargar Imagen</span>
         </div>
 
         <div class="group_btn">
-          <span class="text_btn">Copiar Json</span>
           <button class="btn__add">
             <img class="icons_btn" src="icons/copy.png" alt="Dowload" />
           </button>
+          <span class="text_btn">Copiar Json</span>
         </div>
 
         <div class="group_btn">
-          <span class="text_btn">Agregar al mazo</span>
           <button class="btn__add">
             <img class="icons_btn" src="icons/plus.png" alt="Dowload" />
           </button>
+          <span class="text_btn">Agregar al mazo</span>
         </div>
       </div>
 
