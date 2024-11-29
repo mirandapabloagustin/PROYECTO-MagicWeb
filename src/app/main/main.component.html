@@ -1,0 +1,21 @@
+<main class="show-main__content-group">
+
+    <app-filter-panel (searchUserEvent)="handleUserSearch($event)"/>
+    
+    @if(showList){
+        <app-details-card [cardData]="selectedCardId"></app-details-card>
+        <button class="back_window style_select_btn" (click)="goBack()">
+          <img src="icons/arrow-left.png" alt="icon back window" class="back_icon ">
+        </button>
+
+      
+    }
+    @else{
+        <app-cards-gallery-list (cardSelected)="showCardDetails($event)"></app-cards-gallery-list>
+    }
+    
+    <!--
+        <app-list-cards (cardSelected)="showCardDetails($event)"></app-list-cards>
+    -->
+
+  </main>

@@ -1,7 +1,9 @@
 <article class="card__group">
   @if(dataCard.layout === 'normal'){
-  <div class="card_content hover_card" (click)="navigateToDetails()">
-    <img class="card__img" [src]="dataCard.image_uris?.normal" alt="dataCard.name" />
+  <div class="card_content hover_card" >
+    <div class="content_normal-card" (click)="navigateToDetails()">
+      <img class="card__img" [src]="dataCard.image_uris?.normal" alt="dataCard.name" />
+    </div>
     <div class="add_card" (click)="addCardInDeck()">
       <img class="icon_add" src="icons/plus.svg" alt="icon plus">
     </div>
@@ -15,7 +17,7 @@
         <div class="transfom_card-front hover_card " (click)="navigateToDetails()">
           <img class="card__img" [src]="dataCard.card_faces[0].image_uris?.normal" alt="dataCard.name" />
         </div>
-        <div class="transfom_card-back hover_card ">
+        <div class="transfom_card-back hover_card " (click)="navigateToDetails()">
           <img class="card__img" [src]="dataCard.card_faces[1].image_uris?.normal" alt="dataCard.name" />
         </div>
       </div>
@@ -32,7 +34,7 @@
   <div class="card_content-flip">
     <div class="card_content">
 
-      <div class="card_content-flip hover_card" [class.rotated]="isRotated">
+      <div class="card_content-flip hover_card" [class.rotated]="isRotated" (click)="navigateToDetails()">
         
         <img class="card__img" [src]="dataCard.image_uris?.normal"  [alt]="dataCard.name">
         
@@ -51,7 +53,7 @@
   @else if (dataCard.layout ==="split") {
     <div class="card_content">
 
-      <div class="card_content-split hover_card" [class.rotated]="isRotatedRight" >
+      <div class="card_content-split hover_card" [class.rotated]="isRotatedRight" (click)="navigateToDetails()">
         
         <img class="card__img" [src]="dataCard.image_uris?.normal" [alt]="dataCard.name">
         

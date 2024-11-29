@@ -23,7 +23,7 @@ export class CardComponent implements OnInit {
   @Output() cardClicked = new EventEmitter<any>();
   
   navigateToDetails(){
-    //this.cardClicked.emit(this.dataCard);
+    this.cardClicked.emit(this.dataCard);
     console.log('dataCard', this.dataCard.name);
   }
   

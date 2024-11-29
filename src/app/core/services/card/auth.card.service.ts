@@ -7,11 +7,9 @@ import { Cards } from 'scryfall-api';
   providedIn: 'root',
 })
 export class AuthApiCardService {
-  private _dataRes: any[] = [];
   private _randomCards: any[] =[];
 
   private _cardSubject = new BehaviorSubject<any[]>([]);
-
   public cards$ = this._cardSubject.asObservable();
 
   constructor(private _service: CardsService) {
@@ -34,6 +32,20 @@ export class AuthApiCardService {
     return this._randomCards;
   }
 
+
+  updateCards(Cards: any[]) {
+   this.clearCards();
+    this._cardSubject.next(Cards);
+
+  }
+  
+  getCards() {
+    return this._cardSubject.getValue();
+  }
+
+  clearCards() {
+    this._cardSubject.next([]);
+  }
   
 
 

@@ -12,7 +12,7 @@
   <swiper-container class="container" init="false">
       <swiper-slide>
         @if(loaded){
-          <app-flip-card [infoCards]="cards[0]" [flip]="flip"></app-flip-card>
+          <app-flip-card [infoCards]="cards[0]" [flip]="flip" (clickCard)="cardClick($event)"></app-flip-card>
         }@else {
           <div class="content__loading">
             <mat-spinner></mat-spinner>
@@ -21,7 +21,7 @@
       </swiper-slide>
       <swiper-slide>
         @if(loaded){
-          <app-flip-card [infoCards]="cards[1]" [flip]="flip"></app-flip-card>
+          <app-flip-card [infoCards]="cards[1]" [flip]="flip" (clickCard)="cardClick($event)"></app-flip-card>
         }@else {
           <div class="content__loading">
             <mat-spinner></mat-spinner>
@@ -30,7 +30,7 @@
       </swiper-slide>
       <swiper-slide>
         @if(loaded){
-          <app-flip-card [infoCards]="cards[2]" [flip]="flip"></app-flip-card>
+          <app-flip-card [infoCards]="cards[2]" [flip]="flip" (clickCard)="cardClick($event)"></app-flip-card>
         }@else {
           <div class="content__loading">
             <mat-spinner></mat-spinner>
@@ -39,7 +39,7 @@
       </swiper-slide>
       <swiper-slide>
         @if(loaded){
-          <app-flip-card [infoCards]="cards[3]" [flip]="flip"></app-flip-card>
+          <app-flip-card [infoCards]="cards[3]" [flip]="flip" (clickCard)="cardClick($event)"></app-flip-card>
         }@else {
           <div class="content__loading">
             <mat-spinner></mat-spinner>
@@ -48,7 +48,7 @@
       </swiper-slide>
       <swiper-slide>
         @if(loaded){
-          <app-flip-card [infoCards]="cards[4]" [flip]="flip"></app-flip-card>
+          <app-flip-card [infoCards]="cards[4]" [flip]="flip" (clickCard)="cardClick($event)"></app-flip-card>
         }@else {
           <div class="content__loading">
             <mat-spinner></mat-spinner>
@@ -59,7 +59,9 @@
 
   <div class="gallery__footer">
     <h3 class="footer_sub-title">¿No te gustaron las cartas tocaron? Pueba de nuevo</h3>
-    <button class="random_button" (click)="sendFlag()" >x</button>
+    <button class="random_button style_select_btn" (click)="sendFlag()" >
+      <img src="icons/close.png" alt="close icon" class="cross_icon">
+    </button>
   </div>
 </div>
 

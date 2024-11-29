@@ -1,4 +1,5 @@
-import { Component, Input, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
+import { info } from 'node:console';
 
 @Component({
   selector: 'app-flip-card',
@@ -10,6 +11,7 @@ import { Component, Input, SimpleChanges } from '@angular/core';
 export class FlipCardComponent {
   @Input() infoCards: any;
   @Input() flip: boolean = false;
+  @Output() clickCard = new EventEmitter<any>();
   isFlipped = false;
 
   ngOnChanges(changes: SimpleChanges) {
@@ -24,7 +26,7 @@ export class FlipCardComponent {
     this.isFlipped = !this.isFlipped;
   }
 
-  showMessage(): void {
-    console.log('Message shown!');
+  showMessage(){
+    this.clickCard.emit(this.infoCards);
   }
 }

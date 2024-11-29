@@ -1,3 +1,5 @@
+@import url('@assets/buttons.css');
+
 .container__galley{
   position: relative;
   background-image: url('public/main/bg-list-card.webp');
@@ -59,23 +61,16 @@
 }
 
 .random_button{
-  background-color: var(--text-color);
   color: black;
   width: 50px;
   height: 50px;
-  border-radius: 45px;
-  border: none;
   box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.433);
-  transition: transform 0.2s ease;
-  display: flex;
-  justify-content: center; 
-  align-items: center; 
 }
 
-.random_button:hover{
-  transform: translateY(-2px);
+.cross_icon{
+  width: 25px;
+  height: 25px;
 }
-
 
 .gallery__cards {
   background-color: rgba(136, 136, 136, 0.171);
