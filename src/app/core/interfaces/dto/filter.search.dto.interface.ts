@@ -4,6 +4,5 @@
         mana?: string | null;
         type?: string| null;
         format?: string| null;
-        set?: string| null;
     }
   

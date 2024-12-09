@@ -11,11 +11,14 @@
       
     }
     @else{
-        <app-cards-gallery-list (cardSelected)="showCardDetails($event)"></app-cards-gallery-list>
+        @if(flagSearch){
+            <app-list-cards 
+            (cardSelected)="showCardDetails($event)"
+            [cards]="listSearch"
+            ></app-list-cards>
+        }@else{
+            <app-cards-gallery-list (cardSelected)="showCardDetails($event)"></app-cards-gallery-list>
+        }
     }
-    
-    <!--
-        <app-list-cards (cardSelected)="showCardDetails($event)"></app-list-cards>
-    -->
 
   </main>

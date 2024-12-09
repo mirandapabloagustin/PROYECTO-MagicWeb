@@ -1,13 +1,22 @@
 <section class="content__list-cards">
   <div class="hover__bg">
+<!--
+  
+@if (!loading){
 
-    @if (!loading){
-    <div class="content__list">
-
-      @for (data of db; track data){
-      <app-card [dataCard]="data" (cardClicked)="handleCardId($event)" />
-      }
+   }@else {
+    <div class="content__loading">
+      <mat-spinner></mat-spinner>
     </div>
+    }
+-->
+<div class="content__list">
+  @for (data of cards; track $index){
+    <app-card [dataCard]="data" (cardClicked)="handleCardId($event)" />
+  }
+</div>
+
+
     @if(isVisible){
     <button class="scroll-to-top" (click)="scrollToTop()">
       <fa-icon id="icon__up" [icon]="icon"></fa-icon>
@@ -29,11 +38,7 @@
     </div>
     }
 
-    }@else {
-    <div class="content__loading">
-      <mat-spinner></mat-spinner>
-    </div>
-    }
+ 
 
 
 

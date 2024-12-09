@@ -7,8 +7,8 @@
 
 .card_content {
   position: relative;
-  width: var(--card-width);
-  height: var(--card-height);
+  width: var(--card-width-big);
+  height: var(--card-height-big);
   border-radius: 18px;
   transform-style: preserve-3d;
   transition: transform 0.3s ease;
@@ -62,8 +62,8 @@
 
 .transfom_card-button {
   position: absolute;
-  left: 210px;
-  top: 160px;
+  width: var(--card-width-big);
+  height: var(--card-height-big);
   cursor: pointer;
   background-color: aliceblue;
   border : 1px solid var(--border-color);
@@ -85,8 +85,8 @@
 
 .transfom_card {
   perspective: 1000px;
-  width: var(--card-width);
-  height: var(--card-height);
+  width: var(--card-width-big);
+  height: var(--card-height-big);
   cursor: pointer;
 }
 
@@ -131,8 +131,8 @@
 
 .flip_card-button{
   position: absolute;
-  left: 210px;
-  top: 317px;
+  width: var(--card-width-big);
+  height: var(--card-height-big);
   cursor: pointer;
   background-color: aliceblue;
   border : 1px solid var(--border-color);
@@ -176,8 +176,8 @@
 
 .split_card-button{
   position: absolute;
-  left: 210px;
-  top: 317px;
+  width: var(--card-width-big);
+  height: var(--card-height-big);
   cursor: pointer;
   background-color: aliceblue;
   border : 1px solid var(--border-color);

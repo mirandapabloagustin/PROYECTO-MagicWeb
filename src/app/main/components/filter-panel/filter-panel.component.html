@@ -2,24 +2,105 @@
   <header class="content__main-header">
 
       <h3 class="filter_title">¿Qué estás buscando?</h3>
-      <app-search (searchEvent)="handelSearch($event)" />
+      <app-search (searchEvent)="handleSearch($event)" />
     
   </header>
+  <nav class="filter__content-group">
 
-    <footer class="content__main-footer">
-      <div class="content__more-options">
-        @for (selection of selectsProperties; track $index) {
-        <div class="content__option">
-          <app-select-style
-            [titleSelect]="selection.title"
-            [textSelect]="selection.text"
-            [icons]="selection.icon"
-            [options]="selection.options"
-            [clearOptions]="cleanSearch"
-            (selectOption)="handleSelectOption($event)"
-          ></app-select-style>
+
+    <div class="select_option-group">
+
+      <div class="identify_select-group">
+        <div class="icon_select-content">
+          <fa-icon [icon]="selectsProperties[0].icon" class="icon_select"></fa-icon>
         </div>
-      }
+        <label class="select__label" for="color_options"> 
+          {{selectsProperties[0].title}}
+        </label>
       </div>
-    </footer>
+
+      <select class="select__style" [(ngModel)]="cardSearch.color" id="color_options">
+
+        <option value="" disabled selected>Seleccione un color</option>
+        @for (item of selectsProperties[0].options; track $index) {
+          <option value="{{item.key}}">{{item.value}}</option>
+        }
+        
+      </select>
+    
+    </div>
+
+
+
+    <div class="select_option-group">
+
+      <div class="identify_select-group">
+        <div class="icon_select-content">
+          <fa-icon [icon]="selectsProperties[1].icon" class="icon_select"></fa-icon>
+        </div>
+        <label class="select__label" for="mana_options"> 
+          {{selectsProperties[1].title}}
+        </label>
+      </div>
+
+      <select class="select__style" [(ngModel)]="cardSearch.mana" id="mana_options">
+
+        <option value="" disabled selected>Seleccione un mana</option>
+        @for (item of selectsProperties[1].options; track $index) {
+          <option value="{{item.key}}">{{item.value}}</option>
+        }
+        
+      </select>
+    
+    </div>
+
+    <div class="select_option-group">
+
+      <div class="identify_select-group">
+        <div class="icon_select-content">
+          <fa-icon [icon]="selectsProperties[2].icon" class="icon_select"></fa-icon>
+        </div>
+        <label class="select__label" for="type_options"> 
+          {{selectsProperties[2].title}}
+        </label>
+      </div>
+
+      <select class="select__style" [(ngModel)]="cardSearch.type" id="type_options">
+
+        <option value="" disabled selected>Seleccione un tipo</option>
+        @for (item of selectsProperties[2].options; track $index) {
+          <option value="{{item.key}}">{{item.value}}</option>
+        }
+        
+      </select>
+    
+    </div>
+
+    <div class="select_option-group">
+
+      <div class="identify_select-group">
+        <div class="icon_select-content">
+          <fa-icon [icon]="selectsProperties[3].icon" class="icon_select"></fa-icon>
+        </div>
+        <label class="select__label" for="format_options"> 
+          {{selectsProperties[3].title}}
+        </label>
+      </div>
+
+      <select class="select__style" [(ngModel)]="cardSearch.format" id="format_options">
+
+        <option value="" disabled selected>Seleccione un formato</option>
+        @for (item of selectsProperties[3].options; track $index) {
+          <option value="{{item.key}}">{{item.value}}</option>
+        }
+        
+      </select>
+    
+    </div>
+
+
+
+
+  </nav>
+
   </section>

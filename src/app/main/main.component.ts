@@ -17,16 +17,21 @@ const MODULES = [FilterPanelComponent, CardsGalleryListComponent];
 })
 export class MainComponent {
   previosCards: any[] = [];
+  listSearch: any[] = [];
+
 
   showList = false;
+  flagSearch = false;
   selectedCardId?:any;
 
   constructor(
     private _service: AuthApiCardService
   ) {}
 
-  handleUserSearch(searchCard: FilterSearchDto) {
-    console.log(searchCard);
+  async handleUserSearch(searchCard: FilterSearchDto) {
+    this.listSearch = await this._service.searchCards(searchCard);
+    this.flagSearch = true;
+
   }
 
   showCardDetails(card: any) {
@@ -37,8 +42,6 @@ export class MainComponent {
   goBack() {
     this.selectedCardId = null; 
     this.showList = false; 
-  
-
     this.previosCards = [];
     this.previosCards = this._service.getCards();
     this._service.updateCards(this.previosCards);

@@ -8,27 +8,25 @@
     background-color: var(--text-color);
     border: 2px solid var(--border-color);
     border-radius: 2.5rem;
-    height: 3rem; /* Mantengo la altura ajustada */
+    height: 3rem; 
     font-size: 1rem;
-    padding: 0 50px 0 20px; /* Ajusto el padding para dejar espacio para el icono */
+    padding: 0 50px 0 20px; 
     transition: all 0.3s ease;
     box-sizing: border-box;
-    color: var(--input-text-color, #fff);
+    color: var(--fondo);
   }
   
-  /* Enfoque en el campo de texto */
   .input__filter:focus {
     outline: none;
     box-shadow: 0 0 8px rgba(100, 100, 255, 0.5);
-    border-color: var(--focus-border-color, #5b74f7);
   }
   
   .icon__input {
     position: absolute;
-    right: 0px; /* Alineo el icono a la derecha */
+    right: 0px; 
     top: 50%;
-    transform: translateY(-50%); /* Alineo verticalmente el icono */
-    font-size: 1.2rem; /* Aumento ligeramente el tamaño del icono */
+    transform: translateY(-50%); 
+    font-size: 1.2rem; 
     transition: all 0.3s ease;
     background-color: var(--text-color);
     border: 2px solid var(--border-color);
@@ -40,7 +38,6 @@
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   }
   
-  /* Efecto hover en el icono */
   .icon__input:hover {
     color: var(--icon-hover-color, #fff);
     background-color: var(--bg-black-color);
