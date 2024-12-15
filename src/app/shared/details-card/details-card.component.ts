@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Mana } from '@app/core/models/manaCost.model';
+import { AddToDeckComponent } from '../add-to-deck/add-to-deck.component';
 
 @Component({
   selector: 'app-details-card',
@@ -20,6 +22,26 @@ export class DetailsCardComponent implements OnInit{
     legality: string;
     index?: number;
   }[] = [];
+
+  dataFalsa = {
+    user: 'user1',
+    decks:[
+      {
+        name: 'Deck 1',
+        id: '1'
+      },
+      {
+        name: 'Deck 2',
+        id: '2'
+      },
+      {
+        name: 'Deck 3',
+        id: '3'
+      }
+    ]
+  }
+
+    constructor(private _matDialog: MatDialog) { }
 
 
   ngOnInit(): void {
@@ -64,6 +86,14 @@ export class DetailsCardComponent implements OnInit{
 
   transformCard(): void {
     this.isTransformed = !this.isTransformed;
+  }
+
+  addCardToDeck(): void {
+       this._matDialog.open(AddToDeckComponent,{
+         width: '300px',
+         data: this.dataFalsa,
+         panelClass: 'custom-dialog-container'
+       });
   }
   
 

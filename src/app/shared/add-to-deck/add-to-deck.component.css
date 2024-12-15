@@ -1,0 +1,64 @@
+@import url('@assets/buttons.css');
+
+.dialog-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--text-color);
+    background-color: var(--bg-green-color);
+    margin: 0;
+}
+
+.dialog-content {
+    padding: 8px;
+    background-color: var(--text-color);
+}
+
+.deck_name-group{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 0.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.name_deck {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--fondo);
+    white-space: nowrap;      
+    overflow: hidden;          
+    text-overflow: ellipsis;  
+    width: 300px;    
+}
+
+.deck_name-group:hover{
+    background-color: #d3d3d3;
+}
+
+.deck_name-group:active{
+    background-color: #d3d3d3;
+    transform: scale(0.97);
+}
+
+.dialog-action{
+    background-color: var(--text-color);
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+
+}
+
+.btn_new-deck{
+    border-radius: 1.5rem;
+}
+
+.icon_add{
+    filter: brightness(0) invert(1);
+    width: 25px;
+    height: 25px;
+}

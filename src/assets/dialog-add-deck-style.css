@@ -1,0 +1,9 @@
+.custom-dialog-container{
+    width: 400px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    border: 2px solid var(--border-color);
+    background-color: var(--text-color);
+}

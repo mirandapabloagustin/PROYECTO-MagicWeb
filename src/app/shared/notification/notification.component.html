@@ -1,0 +1,26 @@
+<div class="notification_container" 
+    [ngClass]="{
+        'success': msgNotification.className === 'success', 
+        'error': msgNotification.className === 'error',
+        'warning': msgNotification.className === 'warning',
+        'info': msgNotification.className === 'info'
+        }"
+    >
+
+    <div class="icon_noti-group">
+        <img class="icon_noti" src="icons/notification/{{msgNotification.icon}}" alt="comprobado.png">
+    </div>
+
+    <div class="context_noti-group">
+
+        <div class="title-noti_group">
+            <h3 class="title_context">{{msgNotification.title}}</h3>
+        </div>
+
+        <div class="text-noti_group">
+            <p class="text_context"> {{msgNotification.message}} </p>
+        </div>
+    </div>
+
+
+</div>

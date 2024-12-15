@@ -1,7 +1,8 @@
-import { Component, EventEmitter, HostListener, Input, OnInit, Output} from '@angular/core';
-import { Card } from '@models/card.model';
+import { Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { MatDialog } from '@angular/material/dialog';
+import { AddToDeckComponent } from '../add-to-deck/add-to-deck.component';
 
 const MODULES = [FontAwesomeModule];
 
@@ -21,21 +22,48 @@ export class CardComponent implements OnInit {
 
   @Input() dataCard!: any;
   @Output() cardClicked = new EventEmitter<any>();
+
+
+  dataFalsa = {
+    user: 'user1',
+    decks:[
+      {
+        name: 'Deck 1',
+        id: '1'
+      },
+      {
+        name: 'Deck 2',
+        id: '2'
+      },
+      {
+        name: 'Deck 3',
+        id: '3'
+      }
+    ]
+  }
+
+  constructor(private _matDialog: MatDialog) { }
   
+  ngOnInit(): void {
+    
+  }
+
+
   navigateToDetails(){
     this.cardClicked.emit(this.dataCard);
     console.log('dataCard', this.dataCard.name);
   }
   
   
-  constructor() { }
-  
-  ngOnInit(): void {
-    
-  }
+
   
   addCardInDeck(){
-    console.log('Card clicked');
+    this._matDialog.open(AddToDeckComponent,{
+      width: '300px',
+      data: this.dataFalsa,
+      panelClass: 'custom-dialog-container'
+    });
+
   }
   
   transformCard(){
