@@ -25,45 +25,44 @@ export class NotificationComponent {
   ]
 
   constructor(@Inject(MAT_SNACK_BAR_DATA) public data: any) {
-    this.msgNotification = this.iconMsg(data.message ,data.type);
+    this.msgNotification = this._iconMsg(data.message ,data.type, data.whisper);
   }
 
 
 
 
-  iconMsg(msg:string ,type: string): Notification {
+  private _iconMsg(msg:string, type: string, whisper?:string): Notification {
     let notiData = new Notification();
+    notiData.message = msg;
+    notiData.whisper = whisper;
 
     switch (type) {
       case 'success':
         notiData.className = 'success';
         notiData.title = 'Éxito';
         notiData.icon = this.msgIcons[0];
-        notiData.message = msg;
         return notiData;
       case 'error':
         notiData.className = 'error';
         notiData.title = 'Error';
         notiData.icon = this.msgIcons[1];
-        notiData.message = msg;
         return notiData;
       case 'warning':
         notiData.className = 'warning';
         notiData.title = 'Advertencia';
         notiData.icon = this.msgIcons[2];
-        notiData.message = msg;
         return notiData;
       case 'info':
         notiData.className = 'info';
         notiData.title = 'Información';
         notiData.icon = this.msgIcons[3];
-        notiData.message = msg;
         return notiData;
       default:
         notiData.className = 'error';
         notiData.title = 'Error';
         notiData.icon = this.msgIcons[1];
         notiData.message = 'Ocurrió un error al realizar la operación';
+        notiData.whisper = 'Por favor, intente nuevamente';
         return notiData;
     }
   }

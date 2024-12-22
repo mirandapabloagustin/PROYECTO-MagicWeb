@@ -3,4 +3,5 @@ export interface INotification {
     title: string;
     icon: string;
     message: string;
+    whisper?: string;
 }

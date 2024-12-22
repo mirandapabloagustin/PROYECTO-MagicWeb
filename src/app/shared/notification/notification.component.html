@@ -20,6 +20,13 @@
         <div class="text-noti_group">
             <p class="text_context"> {{msgNotification.message}} </p>
         </div>
+        @if(msgNotification.whisper){
+            <div class="whisper-text_gro">
+                <p class="whisper-text"> {{msgNotification.whisper}} </p>
+            </div>
+        }
+
+
     </div>
 
 

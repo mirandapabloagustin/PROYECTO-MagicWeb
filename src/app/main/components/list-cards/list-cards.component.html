@@ -1,20 +1,14 @@
 <section class="content__list-cards">
   <div class="hover__bg">
-<!--
-  
-@if (!loading){
 
-   }@else {
-    <div class="content__loading">
-      <mat-spinner></mat-spinner>
+    @if(listCards.length === 0){
+    <mat-spinner></mat-spinner>
+    }@else {
+    <div class="content__list">
+      @for (data of listCards; track $index){
+      <app-card [dataCard]="data" (cardClicked)="handleCardId($event)" />
+      }
     </div>
-    }
--->
-<div class="content__list">
-  @for (data of cards; track $index){
-    <app-card [dataCard]="data" (cardClicked)="handleCardId($event)" />
-  }
-</div>
 
 
     @if(isVisible){
@@ -23,24 +17,19 @@
     </button>
     }
 
+    <div class="navegation__content">
 
+      <button class="btn-pag_group style_tree_btn" (click)="prevPage()" [class.hidden-btn]="hiddenBtnPrev">
+        <img class="icon-pagination" src="icons/pag/prev.png" alt="icon-pagination">
+        ANTERIOR
+      </button>
 
-    @if(hasMoreItems){
-    <div class="content__button">
-      <app-button-style text="MAS CARTAS" 
-        colorTextButton="var(--text-color)"
-        colorBackgroundButton="var(--bg-green-color)" 
-        colorBorderButton="2px solid var(--bg-opacyti-color)"
-        colorTextHover="var(--bg-black-color)" 
-        colorBackgroundHover="var(--text-color)"
-        colorBorderHover="2px solid var(--border-color)" 
-        (click)="loadMoreCards()" />
+      <button class="btn-pag_group style_tree_btn" (click)="nextPage()" [class.hidden-btn]="hiddenBtnNext">
+        SIGUIENTE
+        <img class="icon-pagination" src="icons/pag/next.png" alt="icon-pagination">
+      </button>
     </div>
     }
-
- 
-
-
-
   </div>
+  
 </section>

@@ -235,12 +235,23 @@
   grid-row-start: 4;
 }
 
-.text_card,
+.text_card{
+  font-size: 1.2rem;
+}
+
 .power_card,
 .flavor_card,
 .type_card,
 .no_mana {
   font-size: 1.5rem;
+
+}
+
+.text_card,
+.power_card,
+.flavor_card,
+.type_card,
+.no_mana{
   color: var(--text-color);
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.87);
 }

@@ -11,13 +11,14 @@ export class SnackbarService {
 
   private _snackbar = inject(MatSnackBar);
 
-  emitSnackbar(msg: string, classType:string) {
+  emitSnackbar(msg: string, classType:string,whisperMsg?:string) {
     this._snackbar.openFromComponent(NotificationComponent, {
       data: {
         message: msg,
-        type: classType
+        type: classType,
+        whisper: whisperMsg
       },
-      duration: 2000,
+      duration: 3000,
       horizontalPosition: 'end'
     });
   }

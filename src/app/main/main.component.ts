@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { FilterPanelComponent } from "./components/filter-panel/filter-panel.component";
 import { ListCardsComponent } from "./components/list-cards/list-cards.component";
 import { DetailsCardComponent } from '../shared/details-card/details-card.component';
 import { FilterSearchDto } from '@app/core/models/dto/filter.search.dto.model';
 import { CardsGalleryListComponent } from './components/cards-gallery/cards-gallery-list.component';
 import { AuthApiCardService } from '@app/core/services/card/auth.card.service';
+import { SnackbarService } from '@app/core/services/snackbar/snackbar.service';
 
 const MODULES = [FilterPanelComponent, CardsGalleryListComponent];
 
@@ -16,8 +17,10 @@ const MODULES = [FilterPanelComponent, CardsGalleryListComponent];
   styleUrl: `./main.component.css`,
 })
 export class MainComponent {
+  @ViewChild(ListCardsComponent) listCardsComponent!: ListCardsComponent;
   previosCards: any[] = [];
-  listSearch: any[] = [];
+  listSearch: FilterSearchDto = new FilterSearchDto();
+
 
 
   showList = false;
@@ -25,14 +28,22 @@ export class MainComponent {
   selectedCardId?:any;
 
   constructor(
-    private _service: AuthApiCardService
+    private _service: AuthApiCardService,
+    private _notiService: SnackbarService,
   ) {}
 
-  async handleUserSearch(searchCard: FilterSearchDto) {
-    this.listSearch = await this._service.searchCards(searchCard);
-    this.flagSearch = true;
-
+  handleUserSearch(searchCard: FilterSearchDto) {
+    this.flagSearch = false;
+    if (!this._isEmtpySearch(searchCard)) {
+      this.flagSearch = true;
+      this._service.searchCards(searchCard);
+    }else{
+      this.flagSearch = false;
+      this._notiService.emitSnackbar('Encontramos problemas en tu busqueda, verifique los campos.', 'warning','Volvamos al principio');
+    }
   }
+
+
 
   showCardDetails(card: any) {
     this.selectedCardId = card;
@@ -40,11 +51,10 @@ export class MainComponent {
   }
 
   goBack() {
-    this.selectedCardId = null; 
-    this.showList = false; 
-    this.previosCards = [];
-    this.previosCards = this._service.getCards();
-    this._service.updateCards(this.previosCards);
+  }
+
+  private _isEmtpySearch( obj: FilterSearchDto): boolean {
+    return Object.values(obj).every((value) => value === null || value === '');
   }
 
 }

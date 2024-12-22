@@ -1,3 +1,7 @@
+@import url('@assets/buttons.css');
+
+
+
 .content__list-cards {
   position: relative;
   background-image: url('public/main/bg-list-card.webp');
@@ -73,6 +77,39 @@
 #icon__up {
   font-size: 1.5rem;
 }
+
+.navegation__content{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 5rem;
+}
+
+.btn-pag_group{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 2rem;
+}
+
+.icon-pagination{
+  width: 25px;
+  height: 25px;
+}
+
+.hidden-btn{
+  display: none;
+}
+
+.non-hidden-btn{
+  display: flex;
+}
+
+
+
+
+
 
 @media (min-width: 768px) {
   .content__list {

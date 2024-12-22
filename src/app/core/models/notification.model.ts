@@ -5,11 +5,13 @@ export class Notification implements INotification {
     title: string;
     icon: string;
     message: string;
+    whisper?: string;
 
     constructor(notification?: INotification) {
         this.className = notification?.className ?? '';
         this.title = notification?.title ?? '';
         this.icon = notification?.icon ?? '';
         this.message = notification?.message ?? '';
+        this.whisper = notification?.whisper ?? '';
     }
 }
