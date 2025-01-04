@@ -64,8 +64,8 @@
 
 .transfom_card-button {
   position: absolute;
-  width: var(--card-width-big);
-  height: var(--card-height-big);
+  bottom: -15px;
+  right: -25px;
   cursor: pointer;
   background-color: aliceblue;
   border : 1px solid var(--border-color);

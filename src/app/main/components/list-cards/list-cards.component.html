@@ -18,16 +18,19 @@
     }
 
     <div class="navegation__content">
+      <div class="prev">
+        <button class="btn-pag_group style_tree_btn" (click)="prevPage()" [class.hidden-btn]="hiddenBtnPrev">
+          <img class="icon-pagination" src="icons/pag/prev.png" alt="icon-pagination">
+          ANTERIOR
+        </button>
+      </div>
 
-      <button class="btn-pag_group style_tree_btn" (click)="prevPage()" [class.hidden-btn]="hiddenBtnPrev">
-        <img class="icon-pagination" src="icons/pag/prev.png" alt="icon-pagination">
-        ANTERIOR
-      </button>
-
-      <button class="btn-pag_group style_tree_btn" (click)="nextPage()" [class.hidden-btn]="hiddenBtnNext">
-        SIGUIENTE
-        <img class="icon-pagination" src="icons/pag/next.png" alt="icon-pagination">
-      </button>
+      <div class="next">
+        <button class="btn-pag_group style_tree_btn" (click)="nextPage()" [class.hidden-btn]="hiddenBtnNext">
+          SIGUIENTE
+          <img class="icon-pagination" src="icons/pag/next.png" alt="icon-pagination">
+        </button>
+      </div>
     </div>
     }
   </div>

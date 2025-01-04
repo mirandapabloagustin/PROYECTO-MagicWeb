@@ -87,13 +87,11 @@ export class AuthApiCardService {
     try {
       const res = await lastValueFrom(this._service.search(queryParams));
       this._setListValues(res);
-      console.log('cantidad cartas lista', this._listCards.getValue().length);
       if(res.has_more){
         const resMore = await lastValueFrom(this._service.getByUrl(res.next_page));
         this._listCards.next([...this._listCards.getValue(), ...resMore]);
         this._total = this._listCards.getValue().length;
       }
-      console.log('cantidad cartas lista', this._listCards.getValue().length,'total', this._total);
     } catch (error) {
       console.error('Error al buscar las cartas:', error);
     }
@@ -140,7 +138,7 @@ export class AuthApiCardService {
         this._bottom = false;
       }
     }
-    console.log('base', this._base, 'card',this._iterator.getValue().length, 'total', this._total );
+    console.log('cartas:', this._iterator.getValue());
   }
 
   prev() {
@@ -156,7 +154,6 @@ export class AuthApiCardService {
           this._prevPageStatus.next(true);
         }
       }  
-      console.log('base', this._base, 'card',this._iterator.getValue().length, 'total', this._total );
   }
 
 

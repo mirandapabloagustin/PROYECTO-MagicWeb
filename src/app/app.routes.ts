@@ -3,7 +3,7 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
     {
         path: '',
-        redirectTo: 'main',
+        redirectTo: 'profile',
         pathMatch: 'full'
     },
     {
@@ -31,8 +31,12 @@ export const routes: Routes = [
         loadComponent: () => import('./main/main.component').then(m => m.MainComponent),
     },
     {
+        path: 'profile',
+        loadComponent: () => import('./auth/components/user/user.component').then(m => m.UserComponent),
+    },
+    {
         path:'**',
-        redirectTo: 'main',
+        redirectTo: 'landing',
         pathMatch: 'full'
     }
 ];

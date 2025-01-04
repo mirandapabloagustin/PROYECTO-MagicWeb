@@ -6,6 +6,7 @@ import { FilterSearchDto } from '@app/core/models/dto/filter.search.dto.model';
 import { CardsGalleryListComponent } from './components/cards-gallery/cards-gallery-list.component';
 import { AuthApiCardService } from '@app/core/services/card/auth.card.service';
 import { SnackbarService } from '@app/core/services/snackbar/snackbar.service';
+import { ScrollService } from '@app/core/services/scroll/scroll.service';
 
 const MODULES = [FilterPanelComponent, CardsGalleryListComponent];
 
@@ -17,7 +18,6 @@ const MODULES = [FilterPanelComponent, CardsGalleryListComponent];
   styleUrl: `./main.component.css`,
 })
 export class MainComponent {
-  @ViewChild(ListCardsComponent) listCardsComponent!: ListCardsComponent;
   previosCards: any[] = [];
   listSearch: FilterSearchDto = new FilterSearchDto();
 
@@ -30,6 +30,7 @@ export class MainComponent {
   constructor(
     private _service: AuthApiCardService,
     private _notiService: SnackbarService,
+    private _scrollService: ScrollService
   ) {}
 
   handleUserSearch(searchCard: FilterSearchDto) {
@@ -51,6 +52,9 @@ export class MainComponent {
   }
 
   goBack() {
+    this.showList = false;
+    const position = this._scrollService.getScroll();
+    window.scrollTo(0, position);
   }
 
   private _isEmtpySearch( obj: FilterSearchDto): boolean {

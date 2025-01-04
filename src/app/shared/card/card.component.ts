@@ -3,6 +3,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatDialog } from '@angular/material/dialog';
 import { AddToDeckComponent } from '../add-to-deck/add-to-deck.component';
+import { ScrollService } from '@app/core/services/scroll/scroll.service';
 
 const MODULES = [FontAwesomeModule];
 
@@ -42,7 +43,9 @@ export class CardComponent implements OnInit {
     ]
   }
 
-  constructor(private _matDialog: MatDialog) { }
+  constructor(private _matDialog: MatDialog,
+    private _scrollService: ScrollService,
+  ) { }
   
   ngOnInit(): void {
     
@@ -51,7 +54,7 @@ export class CardComponent implements OnInit {
 
   navigateToDetails(){
     this.cardClicked.emit(this.dataCard);
-    console.log('dataCard', this.dataCard.name);
+    this._scrollService.saveScroll(window.scrollY);
   }
   
   

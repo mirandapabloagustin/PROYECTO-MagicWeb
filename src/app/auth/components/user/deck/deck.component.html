@@ -1,0 +1,14 @@
+<article class="container__decks-group">
+    <div class="header__group">
+        <div class="title__header-group">
+            <h2 class="title_decks">Mis Mazos</h2>
+        </div>
+        <div class="action__new-deck-group">
+            <button class="action__new-deck style_tree_btn" (click)="openModal()">
+                <img class="btn_add-icon-deck " src="icons/add.png" alt="add icon">
+                Nuevo Mazo
+            </button>
+        </div>
+    </div>
+    <app-search (searchEvent)="searchDeckInUserProfile($event)"></app-search>
+</article>

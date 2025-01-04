@@ -45,6 +45,7 @@ export class DetailsCardComponent implements OnInit{
 
 
   ngOnInit(): void {
+    window.scrollTo(0, 0);
     if(this.cardData?.layout !== 'normal'){
       this.formatMana(this.cardData?.card_faces[0].mana_cost, this.cardData?.card_faces[1].mana_cost);
     }else{
