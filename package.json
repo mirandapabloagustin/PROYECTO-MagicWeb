@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:web-magic": "node dist/web-magic/server/server.mjs"
+    "serve:ssr:web-magic": "node dist/web-magic/server/server.mjs",
+    "server": "json-server --watch src/app/data/db.json"
   },
   "private": true,
   "dependencies": {
@@ -26,6 +27,7 @@
     "@fortawesome/angular-fontawesome": "^0.15.0",
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "express": "^4.18.2",
+    "json-server": "^1.0.0-beta.3",
     "mtgsdk-ts": "^1.1.2",
     "rxjs": "~7.8.0",
     "scryfall-api": "^4.0.1",

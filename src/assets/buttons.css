@@ -66,3 +66,15 @@
 .style_tree_btn:active{
   background-color: var(--bg-black-color);
 }
+
+
+.style_four_btn{
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border: none;
+  gap: 1rem;
+
+}

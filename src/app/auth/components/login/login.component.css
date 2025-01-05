@@ -1,3 +1,6 @@
+@import url('@assets/titles.css');
+@import url('@assets/buttons.css');
+
 .login__group {
     background-image: url('public/auth/bg-login.webp');
     background-size: cover;
@@ -11,15 +14,14 @@
 
 .login__group-content{
     background-color: var(--bg-opacyti-color);
-    width: 50%;
+    width: 80%;
     min-width: 700px;
     padding-top: 7rem;
-    padding-bottom: 6rem;
+    padding-bottom: 4rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 3rem;
 }
 
 
@@ -37,10 +39,6 @@
     margin: 0 auto;
 }
 
-.login__header-title{
-    font-size: 3rem;
-}
-
 /*   - Estilo Formulario -    */
 
 .login__form{
@@ -51,16 +49,18 @@
 }
 
 .form__group{
+    display: flex;
+    flex-direction: column;
+
     width: 100%;
     min-width: 350px;
+    gap:0.7rem;
 }
 
 .form__label{
-    display: block;
-    font-weight: 700;
+    text-transform: uppercase;
     color: var(--text-color);
     cursor: pointer;  
-    padding-bottom: 0.7rem;
 }
 
 .form__group-input{
@@ -109,23 +109,32 @@
 }
 
 
-.button-content{
+.btn__login-group{
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.button-login{
-    font-size: 700;
+.btn__login{
+    border-radius: 1.5rem;
+    background-color: var(--bg-hover-green-two);
     color: var(--text-color);
-    background-color: var(--bg-hover-green);
-    border: 1px solid var(--border-green-color);
+    transition: scale 0.3s ease-in-out;
 }
 
-.button-login:hover{
-    color: var(--bg-hover-green);
-    background-color: var(--text-color);
+.btn__login:hover{
+    scale: 0.97;
 }
+
+.btn__login:active{
+    background-color: var(--bg-hover-green);
+    color: var( --active-color);
+}
+
+
+
+
+
 
 .login__content-footer{
     margin-top: 3rem;
