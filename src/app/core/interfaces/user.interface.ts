@@ -1,4 +1,5 @@
 export interface Iuser {
+    id: string | null;
     nick: string | null;
     name: string | null;
     email: string | null;

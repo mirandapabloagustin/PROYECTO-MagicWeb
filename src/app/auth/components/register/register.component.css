@@ -1,5 +1,8 @@
+@import url('@assets/titles.css');
+@import url('@assets/buttons.css');
+
 .register {
-    background-image: url('public/auth/bg-register.webp');
+    background-image: url('public/auth/bg-login.webp');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -10,8 +13,8 @@
 
 .register__content{
     background-color: var(--bg-opacyti-color);
-    width: 50%;
-    min-width: 800px;
+    width: 80%;
+    min-width: 700px;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -49,16 +52,17 @@
 
 
 .form__group{
+    display: flex;
+    flex-direction: column;
     width: 100%;
     min-width: 350px;
+    gap:0.7rem;
 }
 
 .form__label{
-    display: block;
-    font-weight: 700;
+    text-transform: uppercase;
     color: var(--text-color);
     cursor: pointer;  
-    padding-bottom: 0.7rem;
 }
 
 .form__group-input{
@@ -153,25 +157,21 @@
     align-items: center;
 }
 
-.button-login{
-    font-size: 700;
+.btn__register{
+    border-radius: 1.5rem;
+    background-color: var(--bg-hover-green-two);
     color: var(--text-color);
+    transition: scale 0.3s ease-in-out;
+}
+
+.btn__register:hover{
+    scale: 0.97;
+}
+
+.btn__register:active{
     background-color: var(--bg-hover-green);
-    border: 1px solid var(--border-green-color);
+    color: var( --active-color);
 }
-
-.button-login:hover{
-    color: var(--bg-hover-green);
-    background-color: var(--text-color);
-    box-shadow: var(--box-shadow-light);
-
-}
-
-::ng-deep .style-snackbar{
-    --mdc-snackbar-container-color: var(--bg-color-error);
-    --mdc-snackbar-supporting-text-color: var(--color-error);
-}
-
 
 
 

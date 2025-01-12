@@ -9,6 +9,9 @@ import {
 } from '@angular/forms';
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { SnackbarService } from '@app/core/services/snackbar/snackbar.service';
+import { AuthUserService } from '@app/core/services/user/auth-user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -22,7 +25,12 @@ export class LoginComponent implements OnInit {
   icons = faCircleXmark;
   formUser: FormGroup;
 
-  constructor(private fb: FormBuilder, private _snackBar: MatSnackBar) {
+  constructor(
+    private fb: FormBuilder, 
+    private router: Router,
+    private _serviceUser : AuthUserService,
+    private _serviceSnackbar: SnackbarService
+  ) {
     this.formUser = this.fb.group({
       nick: ['', [Validators.required]],
       password: ['', [Validators.required]],
@@ -32,13 +40,13 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
 
-  ingresar() {
+  loginUser() {
     if (this.areFieldsEmpty()) {
-      this.handleError('Complete los campos requeridos.');
+      this.setErrorTheme();
+      this.hasError('Detectamos inconvenientes con algunos campos.', 'Complete los campos requeridos.');
     } else {
       this.verifyUser();
     }
-    console.log(this.formUser.value);
   }
   
   areFieldsEmpty(): boolean {
@@ -46,16 +54,14 @@ export class LoginComponent implements OnInit {
   }
   
   verifyUser() {
-    if (this.nick?.value !== 'agus') {
-      this.handleError('Usuario o contraseña incorrectos.');
-    } else if (!this.password?.value) {
-      this.handleError('Usuario o contraseña incorrectos.');
-    }
-  }
-  
-  handleError(errorMessage: string) {
-    this.setErrorTheme();
-    this.hasError(errorMessage);
+    this._serviceUser.login(this.nick?.value, this.password?.value).then((res) => {
+      if (res) {
+        this._serviceSnackbar.emitSnackbar(`¡Bienvenido ${res.nick}!`, 'success', 'Disfruta de tu experiencia.');
+        this.router.navigate(['/landing']);
+      } else {
+        this.hasError('Usuario o contraseña incorrectos', 'Verifique los datos ingresados.');
+      }
+    });
   }
 
   setErrorTheme() {
@@ -84,13 +90,8 @@ export class LoginComponent implements OnInit {
     }, 3000);
   }
 
-  hasError(value: string) {
-    this._snackBar.open(`${value}`, '', {
-      horizontalPosition: 'center',
-      verticalPosition: 'bottom',
-      duration: 3000,
-      panelClass: ['style-snackbar'],
-    });
+  hasError(message: string, whisper?: string) {
+    this._serviceSnackbar.emitSnackbar(message, 'error', whisper);
   }
 
   

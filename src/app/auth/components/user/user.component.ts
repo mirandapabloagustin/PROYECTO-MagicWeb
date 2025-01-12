@@ -12,6 +12,7 @@ import { DeckComponent } from "./deck/deck.component";
 })
 export class UserComponent {
   userValues = {
+    id: '1',
     nick: 'PapasConCheddar',
     name: 'Agustin Carrasco',
     email: 'carrasco_a_1997@gmail.com',

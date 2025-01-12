@@ -1,0 +1,228 @@
+<section class="register">
+    <article class="register__content">
+      <!-- Grupo Header -->
+      <header class="register__content-header">
+        <img class="header__img" src="favicon.ico" alt="Logo" />
+        <h1 class="titles_styles-1">DesckForge</h1>
+      </header>
+
+      <form
+        class="register__content-form"
+        (submit)="createRegisterAccount()"
+        [formGroup]="formUser"
+      >
+        <!-- Grupo usuario -->
+        <div class="form__group">
+          <label for="nick" class="form__label subtitles_styles-1">Usuario</label>
+          <div class="form__group-input">
+            <input
+              class="form__input"
+              name="nick"
+              type="text"
+              id="nick"
+              placeholder="Example: MasterForge"
+              autocomplete="off"
+              formControlName="nick"
+            />
+
+            <fa-icon
+              class="form__validate-status"
+              id="nick_icon"
+              [icon]="iconError"
+            ></fa-icon>
+
+          </div>
+          
+          <!-- Error -->
+          @if (hasFormError('nick')) {
+          <div class="form__error">
+            @if(hasRequiredError('nick')) {
+            <span class="form__error-text"> Campo Requerido </span>
+            }@else if (hasPatternError('nick')) {
+            <span class="form__error-text">No cumple con el formato de usuario.</span>
+            }@if (hasNickExistsError('nick')) {
+            <span class="form__error-text">El usuario ya existe.</span>
+            }
+          </div>
+          }
+      
+
+
+        </div>
+
+        
+        <div class="form__group">
+          <label for="name" class="form__label subtitles_styles-1">Nombre</label>
+          <div class="form__group-input">
+            <input
+              class="form__input"
+              name="name"
+              type="text"
+              id="name"
+              placeholder="Example: Juan Perez"
+              autocomplete="off"
+              formControlName="name"
+            />
+            <fa-icon
+              class="form__validate-status"
+              id="name_icon"
+              [icon]="iconError"
+            ></fa-icon>
+          </div>
+
+          <!-- Error -->
+          @if (hasFormError('name')) {
+          <div class="form__error">
+            @if(hasRequiredError('name')) {
+            <span class="form__error-text"> Campo Requerido </span>
+            } @if (hasPatternError('name')) {
+            <span class="form__error-text">
+              No cumple con el formato de nombre.
+            </span>
+            }
+          </div>
+          }
+          
+        </div>
+
+       
+        <div class="form__group">
+          <label for="email" class="form__label subtitles_styles-1">Correo Electronico</label>
+          <div class="form__group-input">
+            <input
+              class="form__input"
+              name="email"
+              type="email"
+              id="email"
+              placeholder="Example: desck@desckforge.com"
+              autocomplete="off"
+              formControlName="email"
+            />
+            
+            <fa-icon
+              class="form__validate-status"
+              id="email_icon"
+              [icon]="iconError"
+            ></fa-icon>
+            
+          </div>
+
+          @if (hasFormError('email')) {
+          <div class="form__error">
+            @if(hasRequiredError('email')) {
+            <span class="form__error-text"> Campo Requerido </span>
+            }@else if (hasEmailError('email')) {
+            <span class="form__error-text">No cumple con el formato de email.</span>
+            }@else if (hasEmailExistsError('email')) {
+            <span class="form__error-text">El correo ya existe.</span>
+            }
+          </div>
+          }
+        </div>
+
+       
+        <div class="form__group">
+          <label form="country" class="form__label subtitles_styles-1">Pais</label>
+          <div class="form__group-input">
+            <select
+              name="country"
+              class="form__input"
+              id="country"
+              required
+              formControlName="country"
+            >
+              <option value="" disabled selected>Selecciona tu país</option>
+              @for (country of countries ;track $index) {
+              <option value="{{ country.code }}">{{ country.name }}</option>
+              }
+            </select>
+          </div>
+          @if (hasFormError('country')) {
+          <div class="form__error">
+            @if(hasRequiredError('country')) {
+            <span class="form__error-text"> Campo Requerido </span>
+            }
+          </div>
+          }
+        </div>
+        
+
+      
+        <div class="form__group">
+          <label for="password" class="form__label subtitles_styles-1">Contraseña</label>
+          <div class="form__group-input">
+            <input
+              class="form__input"
+              name="password"
+              type="password"
+              id="password"
+              placeholder="*******"
+              autocomplete="off"
+              formControlName="password"
+            />
+            <fa-icon
+              class="form__validate-status"
+              id="password_icon"
+              [icon]="iconError"
+            ></fa-icon>
+            
+          </div>
+          @if (hasFormError('password')) {
+          <div class="form__error">
+            @if(hasRequiredError('password')) {
+            <span class="form__error-text"> Campo Requerido </span>
+            }
+          </div>
+          }
+        </div>
+
+    
+        <div class="form__group">
+          <label for="password2" class="form__label subtitles_styles-1"
+            >Repetir Contraseña</label
+          >
+          <div class="form__group-input">
+            <input
+              class="form__input"
+              name="password2"
+              type="password"
+              id="password2"
+              placeholder="*******"
+              autocomplete="off"
+              formControlName="password2"
+            />
+           
+            <fa-icon
+              class="form__validate-status"
+              id="password2_icon"
+              [icon]="iconError"
+            ></fa-icon>
+            
+          </div>
+          @if (hasFormError('password2')) {
+          <div class="form__error">
+            @if(hasRequiredError('password2')) {
+            <span class="form__error-text"> Campo Requerido </span>
+            }
+          </div>
+          }
+        </div>
+       
+
+        <!-- Grupo Boton Enviar -->
+        <div class="button-content">
+          <button type="submit" class="style_four_btn btn__register ">
+            CREAR CUENTA
+          </button>
+        </div>
+      </form>
+
+      <!-- Grupo Footer -->
+      <footer class="register__content-footer">
+        <p class="redirection__text">
+          ¿Ya tienes una cuenta?
+          <a href="login" class="redirection__link-text">Iniciar Sesión</a>
+        </p>
+      </footer>
+    </article>
+  </section>
