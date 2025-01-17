@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Card } from '@app/core/models/card.model';
-import { Observable } from 'rxjs';
+import { expand, map, Observable, of, takeWhile } from 'rxjs';
 import { enviorment } from 'src/enviroments/enviroment';
 
 
@@ -10,21 +9,37 @@ import { enviorment } from 'src/enviroments/enviroment';
 })
 export class CardsService {
   private _ev = enviorment.apiUrl;
-  private _typeEndpoint = 'cards';
+  private _typeEndpoint = [
+    'cards',
+    'sets'
+  ];
   constructor(private http: HttpClient) {}
 
-  /*
-  Funcion que obtiene las cartas de la api de scryfall, recibe como parametros el numero de pagina y el tamaño de la pagina
-  esta funcion retorna un observable de tipo IApiResponse.
-  @param page: number
-  @param pageSize: number
-  @returns Observable<IApiResponse>
-  */
-  getCardRandom(): Observable<Card> {
-    return this.http.get<any>(`${this._ev}/${this._typeEndpoint}/random?q=q`);
+  search(queryParams: string): Observable<any> {
+    return this.http.get<any>(`${this._ev}/${this._typeEndpoint[0]}/search?${queryParams}`);
   }
 
+  getByUrl(url: string): Observable<any[]> {
+    let cards: any[] = [];
+    return this.http.get<any>(url).pipe(
+      expand((dataResponse) => {
+        if (dataResponse && dataResponse.has_more && dataResponse.next_page) {
+          return this.http.get<any>(dataResponse.next_page);
+        }
+        return of(null);
+      }),
+      takeWhile((dataResponse) => dataResponse !== null),
+      map((dataResponse) => {
+        if(dataResponse !== null){
+          cards.push(...dataResponse.data);
+          console.log();
+        }
+        return cards;
+      }
+      ));
 
+  }
+  
 
 
 

@@ -1,0 +1,14 @@
+<h1 class="dialog-title">SELECCIONAR MAZO</h1>
+<div class="dialog-content">
+  @for (deck of data.decks; track $index) {
+    <div class="deck_name-group" (click)="selectDeck()">
+      <span class="name_deck">{{deck.name}}</span>
+    </div>
+  }
+</div>
+<div class="dialog-action">
+    <button class="btn_new-deck style_two_btn">
+        <img class="icon_add" src="icons/add.png" alt="add card icon">
+        NUEVO MAZO
+    </button>
+  </div>

@@ -2,6 +2,12 @@
   width: 380px;
   height: 537px;
   perspective: 2000px;
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+.flip-card:hover{
+  transform: scale(0.95)  rotateX(-10deg) rotateY(-23deg);
 }
 
 .flip-card-inner {
@@ -20,6 +26,10 @@
   height: 100%;
   border-radius: 28px;
   backface-visibility: hidden;
+}
+
+.flip-card-front, .flip-card-back{
+  box-shadow: 5px 5px 10px 0px rgba(255, 255, 255, 0.5);
 }
 
 .flip-card-front {

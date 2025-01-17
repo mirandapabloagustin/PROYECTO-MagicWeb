@@ -1,3 +1,5 @@
+@import url('@assets/dialog-add-deck-style.css');
+
 .card__group {
   display: flex;
   justify-content: center;
@@ -7,8 +9,8 @@
 
 .card_content {
   position: relative;
-  width: var(--card-width);
-  height: var(--card-height);
+  width: var(--card-width-big);
+  height: var(--card-height-big);
   border-radius: 18px;
   transform-style: preserve-3d;
   transition: transform 0.3s ease;
@@ -30,9 +32,11 @@
 }
 
 
+
+
 .add_card{
   position: absolute;
-  left: 220px;
+  right: -24px;
   top: -24px;
   width: 48px;
   height: 48px;
@@ -60,8 +64,8 @@
 
 .transfom_card-button {
   position: absolute;
-  left: 210px;
-  top: 160px;
+  bottom: -15px;
+  right: -25px;
   cursor: pointer;
   background-color: aliceblue;
   border : 1px solid var(--border-color);
@@ -83,8 +87,8 @@
 
 .transfom_card {
   perspective: 1000px;
-  width: var(--card-width);
-  height: var(--card-height);
+  width: var(--card-width-big);
+  height: var(--card-height-big);
   cursor: pointer;
 }
 
@@ -123,14 +127,14 @@
 /* CARD FLIP */
 
 .card_content-flip{
-  transform-origin: center; /* Punto de rotación en el centro */
-  transition: transform 0.6s ease-in-out; /* Suavidad y duración */
+  transform-origin: center; 
+  transition: transform 0.6s ease-in-out; 
 }
 
 .flip_card-button{
   position: absolute;
-  left: 210px;
-  top: 317px;
+  width: var(--card-width-big);
+  height: var(--card-height-big);
   cursor: pointer;
   background-color: aliceblue;
   border : 1px solid var(--border-color);
@@ -174,8 +178,8 @@
 
 .split_card-button{
   position: absolute;
-  left: 210px;
-  top: 317px;
+  bottom: -15px;
+  right: -25px;
   cursor: pointer;
   background-color: aliceblue;
   border : 1px solid var(--border-color);
@@ -185,7 +189,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: transform 0.3s ease-in-out, left 0.6s ease-in-out, top 0.6s ease-in-out;
+  transition: 
+  transform 0.3s ease-in-out, 
+  right 0.6s ease-in-out, 
+  top 0.6s ease-in-out, 
+  bottom 0.6s ease-in-out;
 }
 
 .split_card-button:hover{
@@ -194,13 +202,13 @@
 }
 
 .split_card-button.affected{
-  left: 270px;
-  top: 265px;
+  right: -95px;
+  bottom: 60px;
 }
 
 .add_card.affected{
-  left: 270px;
-  top: 25px;
+  right: -95px;
+  top: 50px;
 }
 
 /* SELECT EFFECT CARDS */

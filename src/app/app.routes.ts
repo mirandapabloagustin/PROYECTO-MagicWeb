@@ -1,4 +1,6 @@
 import { Routes } from '@angular/router';
+import { NotFoundComponent } from '@shared/not-found/not-found.component';
+import { authGuard } from '@services/guard/auth.guard';
 
 export const routes: Routes = [
     {
@@ -21,10 +23,15 @@ export const routes: Routes = [
     {
         path: 'main',
         loadComponent: () => import('./main/main.component').then(m => m.MainComponent),
+        canActivate: [authGuard]
+    },
+    {
+        path: 'profile',
+        loadComponent: () => import('./auth/components/user/user.component').then(m => m.UserComponent),
+        canActivate: [authGuard]
     },
     {
         path:'**',
-        redirectTo: 'main',
-        pathMatch: 'full'
-    }
+        component: NotFoundComponent
+      }
 ];

@@ -1,3 +1,7 @@
+@import url('@assets/buttons.css');
+
+
+
 .content__list-cards {
   position: relative;
   background-image: url('public/main/bg-list-card.webp');
@@ -14,22 +18,29 @@
 }
 
 .hover__bg {
-  padding: 3rem 7rem;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  padding: 3rem 7rem;
   width: 100%;
   height: auto;
   min-height: 100vh;
   background-color: rgba(0, 0, 0, 0.16);
   position: relative;
   overflow-y: auto;
+
+
 }
 
 .content__list {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(1, 1fr);
-  gap: 3rem 2rem;
-  width: 100%;
+  row-gap: 5rem;
+  column-gap: 2rem;
+  min-width: auto;
+  max-width: max-content;
   height: auto;
 }
 
@@ -73,6 +84,53 @@
 #icon__up {
   font-size: 1.5rem;
 }
+
+.navegation__content{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  padding: 2rem 5rem;
+}
+
+.prev{
+  grid-column-start: 1;
+  display: flex;
+justify-content: start;
+}
+
+.next{
+  grid-column-start: 2;
+  display: flex;
+  justify-content: end;
+}
+
+.btn-pag_group{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 2rem;
+}
+
+
+.icon-pagination{
+  width: 25px;
+  height: 25px;
+}
+
+.hidden-btn{
+  display: none;
+}
+
+.non-hidden-btn{
+  display: flex;
+}
+
+
+
+
+
 
 @media (min-width: 768px) {
   .content__list {

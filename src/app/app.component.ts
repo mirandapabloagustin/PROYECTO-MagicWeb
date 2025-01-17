@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from './shared/header/header.component';
-import { FooterComponent } from './shared/footer/footer.component';
-
+import { HeaderComponent } from '@shared/header/header.component';
+import { FooterComponent } from '@shared/footer/footer.component';
 const COMPONENTS = [HeaderComponent, FooterComponent];
 
 @Component({
@@ -14,4 +13,5 @@ const COMPONENTS = [HeaderComponent, FooterComponent];
 })
 export class AppComponent {
   true = false;
+
 }
