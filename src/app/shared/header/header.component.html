@@ -1,0 +1,35 @@
+<header>
+    <nav>
+      <img routerLink="/landing" src="header/logo.webp" alt="" />
+      <input type="checkbox" id="check" />
+      <label for="check">
+        <fa-icon [icon]="icons[3]"></fa-icon>
+      </label>
+
+      <ul>
+        @if(isLogged){
+            <li>
+                <a href="main" class="link"
+                  >Explorador</a
+                >
+            </li>
+        <li>
+          <a href="profile" class="link"
+            ><fa-icon class="icon-transform" [icon]="icons[1]"></fa-icon> {{userName}}</a
+          >
+        </li>
+        <li>
+            <button (click)="logout()">
+                <fa-icon [icon]="icons[2]"></fa-icon>
+            </button>
+        </li>
+        }@else {
+            <li>
+                <a href="login" class="login"
+                  > Ingresar</a
+                >
+            </li>
+        }
+      </ul>
+    </nav>
+  </header>

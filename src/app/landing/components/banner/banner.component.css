@@ -1,3 +1,6 @@
+@import url('@assets/titles.css');
+@import url('@assets/buttons.css');
+
 
 .banner__content{ 
     position: relative;
@@ -49,24 +52,23 @@
     font-weight: 400;
 }
 
-
 .btn_banner{
-    background-color: var(--text-color);
-    color: black;
-    font-size: 2rem;
     text-transform: uppercase;
-    font-weight: 700;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 25px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.397);
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
+    font-size: 1.5rem;
+    border-radius: 1.5rem;
+    box-shadow: 2px 2px 10px 0px rgba(255, 255, 255, 0.5);
+    background-color: var(--bg-hover-green-two);
+    color: var(--text-color);
+    transition: scale 0.3s ease-in-out;
 }
 
 .btn_banner:hover{
-    box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.699);
-    transform: scale(1.1);
+    scale: 0.97;
+}
+
+.btn_banner:active{
+    background-color: var(--bg-hover-green);
+    color: var( --active-color);
 }
 
 .banner_video{

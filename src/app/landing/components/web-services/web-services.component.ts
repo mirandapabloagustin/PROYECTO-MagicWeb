@@ -29,16 +29,6 @@ export class WebServicesComponent {
       icon: 'icons/compartir.png'
     },
     {
-      title: 'Vota',
-      description: 'Vota las estrategias de otros usuarios y ayuda a mejorar la comunidad.',
-      icon: 'icons/voto-positivo.png'
-    },
-    {
-      title: 'Comenta',
-      description: 'Nuestros usuarios son importantes, comenta y comparte tus ideas.',
-      icon: 'icons/comentario.png'
-    },
-    {
       title:'Personaliza',
       description: 'Deja tu huella en la comunidad, personaliza tu perfil y tus estrategias.',
       icon: 'icons/personalizar.png'

@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
     this._serviceUser.login(this.nick?.value, this.password?.value).then((res) => {
       if (res) {
         this._serviceSnackbar.emitSnackbar(`¡Bienvenido ${res.nick}!`, 'success', 'Disfruta de tu experiencia.');
-        this.router.navigate(['/landing']);
+        this.router.navigate(['/main']);
       } else {
         this.hasError('Usuario o contraseña incorrectos', 'Verifique los datos ingresados.');
       }

@@ -1,6 +1,7 @@
 .service__card-content{
+    width: min-content;
     position: relative;
-    border: 2px solid var(--border-color);
+    border: 1px solid var(--border-color);
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     display: flex;
@@ -8,7 +9,7 @@
     justify-content: center;
     align-items: center;
     background-color: #f3f3f3;
-
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.247);
 }
 
 .img_service-icon{
@@ -19,6 +20,7 @@
     left: 50%;
     transform: translateX(-50%);
     background-color: #fff;
+    border: 1px solid var(--border-color);
     border-radius: 50%;
     padding: 10px;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.671);
@@ -44,9 +46,9 @@
     font-size: 2rem;
     font-weight: 700;
     color: var(--fondo);
-    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.39);
 }
 .text_service{
+    width: 300px;
     text-align: center;
     font-size: 1.2rem;
     color: var(--fondo);
