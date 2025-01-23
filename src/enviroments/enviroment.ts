@@ -1,5 +1,5 @@
 export const enviorment = {
     production: false,
     apiUrl: 'https://api.scryfall.com/',
-    apiUser: 'http://localhost:3000',
+    apiUser: 'https://stunning-acorn-p57pqwj7g6r279j7-3001.app.github.dev/',
 }

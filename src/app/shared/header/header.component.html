@@ -7,7 +7,7 @@
       </label>
 
       <ul>
-        @if(isLogged){
+        @if(statusLogin){
             <li>
                 <a href="main" class="link"
                   >Explorador</a
@@ -15,7 +15,7 @@
             </li>
         <li>
           <a href="profile" class="link"
-            ><fa-icon class="icon-transform" [icon]="icons[1]"></fa-icon> {{userName}}</a
+            ><fa-icon class="icon-transform" [icon]="icons[1]"></fa-icon></a
           >
         </li>
         <li>

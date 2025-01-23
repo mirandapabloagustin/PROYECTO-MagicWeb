@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 import { ProfileComponent } from "./profile/profile.component";
 import { User } from '@app/core/models/user.model';
 import { DeckComponent } from "./deck/deck.component";
+import { HeaderComponent } from "@shared/header/header.component";
+import { FooterComponent } from "@shared/footer/footer.component";
 
 @Component({
   selector: 'app-user',
   standalone: true,
-  imports: [ProfileComponent, DeckComponent],
+  imports: [ProfileComponent, DeckComponent, HeaderComponent, FooterComponent],
   templateUrl: './user.component.html',
   styleUrl: './user.component.css'
 })

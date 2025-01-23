@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SearchComponent } from "../../../../shared/search/search.component";
+import { SearchComponent } from "@shared/search/search.component";
 
 @Component({
   selector: 'app-deck',

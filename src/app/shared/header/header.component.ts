@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import {
   faHatWizard,
   faRightFromBracket,
@@ -7,8 +7,10 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { Router, RouterLink } from '@angular/router';
-import { LocalStorageService } from '@app/core/services/user/local-storage.service';
-import { AuthUserService } from '@app/core/services/user/auth-user.service';
+import { LocalStorageService } from '@services/user/local-storage.service';
+import { AuthUserService } from '@services/user/auth-user.service';
+import { statusLogged } from '@services/guard/auth.guard';
+
 
 
 
@@ -23,31 +25,27 @@ const COMPONENTS = [FontAwesomeModule, RouterLink];
   encapsulation: ViewEncapsulation.Emulated,
 })
 export class HeaderComponent implements OnInit {
-  isLogged = false;
-  userName = '';
+  public statusLogin = false;
+  userName = 'Anonimo';
   icons = [faHatWizard, faUser, faRightFromBracket, faBars];
 
   constructor(
     private _router: Router,
     private _serviceUser: AuthUserService,
-    private _localStorageService: LocalStorageService,
   ) { }
 
-
-
-
   ngOnInit() {
-    this.isLogged = this._localStorageService.checkUserLogin('user');
-    this._serviceUser.userLogged$.subscribe((name) => {
-      this.userName = name;
+    statusLogged.subscribe((status) => {
+      if (status !== null) {
+      this.statusLogin = status;
+      }
     });
-    console.log(this.isLogged, 'HEADER');
   }
 
   logout() {
-    this._localStorageService.removeItemStorage('user');
-    this.isLogged = false;
-    this._router.navigate(['/login']);
+    this.statusLogin = false;
+    this._serviceUser.logoutUser();
+    this._router.navigate(['/landing']);
   }
 
 

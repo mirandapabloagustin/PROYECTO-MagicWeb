@@ -5,13 +5,15 @@ import { User } from '@app/core/models/user.model';
 import { v4 as uuidv4 } from 'uuid';
 import { AbstractControl, AsyncValidatorFn } from '@angular/forms';
 import { LocalStorageService } from './local-storage.service';
+import { changeStatusLogged } from '../guard/auth.guard';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthUserService {
-  private _user?: User;
-  private _userLogged = new BehaviorSubject<string>('');
+
+
+  private _userLogged = new BehaviorSubject<User | null>(null);
   public userLogged$ = this._userLogged.asObservable();
 
 
@@ -19,11 +21,6 @@ export class AuthUserService {
     private _serviceUser: UserService,
     private _localStorageService: LocalStorageService
   ) {}
-
-  get user() {
-    return this._user;
-  }
-
 
   async register(user: User): Promise<boolean> {
     try {
@@ -41,18 +38,21 @@ export class AuthUserService {
   async login(nick: string, password: string): Promise<User | null> {
     try {
       const res = await lastValueFrom(this._serviceUser.authUser(nick, password));
-      if (res.length > 0) {
-        this._user = res[0];
-        if (this._user?.id) {
-          this._localStorageService.setItemStorage('user', this._user.id);
-          this._userLogged.next(this._user.nick ?? '');
-        }
-        return this._user;
+      if (res.length > 0 && res[0].id) {
+        this._localStorageService.setItemStorage(res[0].id);
+        this._userLogged.next(res[0]);
+        return res[0];
       }
     } catch (e) {
       console.error(e);
     }
     return null;
+  }
+
+  logoutUser(): void {
+    this._localStorageService.removeItemStorage('user');
+    changeStatusLogged(false);
+    this._userLogged.next(null);
   }
 
   validatorNick(): AsyncValidatorFn {
@@ -77,6 +77,11 @@ export class AuthUserService {
         catchError(() => of(null)) 
       );
     };
+  }
+
+  getUserLogged(): string | null {
+    const userName = this._userLogged.getValue()?.name;
+    return userName !== undefined ? userName : null;
   }
 
 }

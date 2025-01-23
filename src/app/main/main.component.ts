@@ -7,13 +7,16 @@ import { CardsGalleryListComponent } from './components/cards-gallery/cards-gall
 import { AuthApiCardService } from '@app/core/services/card/auth.card.service';
 import { SnackbarService } from '@app/core/services/snackbar/snackbar.service';
 import { ScrollService } from '@app/core/services/scroll/scroll.service';
+import { HeaderComponent } from "../shared/header/header.component";
+import { FooterComponent } from "../shared/footer/footer.component";
+
 
 const MODULES = [FilterPanelComponent, CardsGalleryListComponent];
 
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [...MODULES, ListCardsComponent, DetailsCardComponent],
+  imports: [...MODULES, ListCardsComponent, DetailsCardComponent, HeaderComponent, FooterComponent],
   templateUrl: `./main.component.html`,
   styleUrl: `./main.component.css`,
 })

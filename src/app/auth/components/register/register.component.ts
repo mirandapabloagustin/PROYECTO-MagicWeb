@@ -12,11 +12,13 @@ import { SnackbarService } from '@services/snackbar/snackbar.service';
 import { AuthUserService } from '@services/user/auth-user.service';
 import { User } from '@models/user.model';
 import { Router } from '@angular/router';
+import { HeaderComponent } from "@shared/header/header.component";
+import { FooterComponent } from "@shared/footer/footer.component";
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, FontAwesomeModule],
+  imports: [FormsModule, ReactiveFormsModule, FontAwesomeModule, HeaderComponent, FooterComponent],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css',
   encapsulation: ViewEncapsulation.Emulated,

@@ -1,6 +1,4 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
-
 import {
   FormBuilder,
   FormGroup,
@@ -9,14 +7,16 @@ import {
 } from '@angular/forms';
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { SnackbarService } from '@app/core/services/snackbar/snackbar.service';
-import { AuthUserService } from '@app/core/services/user/auth-user.service';
+import { SnackbarService } from '@services/snackbar/snackbar.service';
+import { AuthUserService } from '@services/user/auth-user.service';
 import { Router } from '@angular/router';
+import { HeaderComponent } from "@shared/header/header.component";
+import { FooterComponent } from "@shared/footer/footer.component";
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule, FontAwesomeModule],
+  imports: [ReactiveFormsModule, FontAwesomeModule, HeaderComponent, FooterComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
   encapsulation: ViewEncapsulation.Emulated,
