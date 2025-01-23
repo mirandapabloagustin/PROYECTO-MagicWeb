@@ -7,7 +7,6 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { Router, RouterLink } from '@angular/router';
-import { LocalStorageService } from '@services/user/local-storage.service';
 import { AuthUserService } from '@services/user/auth-user.service';
 import { statusLogged } from '@services/guard/auth.guard';
 

@@ -21,7 +21,7 @@ export class LocalStorageService {
 
   setItemStorage(value: any): void {
     if (this.isBrowser()) {
-      localStorage.setItem('user', value.toString());
+      localStorage.setItem('user', JSON.stringify(value));
     }
   }
 

@@ -1,29 +1,44 @@
-import { Component } from '@angular/core';
-import { ProfileComponent } from "./profile/profile.component";
+import { Component, OnInit } from '@angular/core';
+import { ProfileComponent } from './profile/profile.component';
 import { User } from '@app/core/models/user.model';
-import { DeckComponent } from "./deck/deck.component";
-import { HeaderComponent } from "@shared/header/header.component";
-import { FooterComponent } from "@shared/footer/footer.component";
+import { DeckComponent } from './deck/deck.component';
+import { HeaderComponent } from '@shared/header/header.component';
+import { FooterComponent } from '@shared/footer/footer.component';
+import { AuthUserService } from '@app/core/services/user/auth-user.service';
+import { LocalStorageService } from '@app/core/services/user/local-storage.service';
+import { SnackbarService } from '@app/core/services/snackbar/snackbar.service';
 
 @Component({
   selector: 'app-user',
   standalone: true,
   imports: [ProfileComponent, DeckComponent, HeaderComponent, FooterComponent],
   templateUrl: './user.component.html',
-  styleUrl: './user.component.css'
+  styleUrl: './user.component.css',
 })
-export class UserComponent {
-  userValues = {
-    id: '1',
-    nick: 'PapasConCheddar',
-    name: 'Agustin Carrasco',
-    email: 'carrasco_a_1997@gmail.com',
-    imgUri: 'https://cards.scryfall.io/art_crop/front/5/1/51710b19-68e3-4853-901f-e618bde61161.jpg?1730489512',
-    password: '12341234',
-    description: '"Amante de Magic: The Gathering, siempre en busca de nuevos mazos y estrategias. Mi color favorito de maná es [Inserta tu color aquí] y disfruto jugando con [tu tipo de mazo o comandante favorito]. ¡Vamos a jugar y compartir ideas sobre este increíble juego!"',
-    country: 'Argentina',
+export class UserComponent implements OnInit {
+  user: User = User.emptyUser();
+
+  constructor(
+    private _localStorageService: LocalStorageService,
+    private _authUserService: AuthUserService,
+    private _snackBar: SnackbarService
+  ) {}
+
+  ngOnInit(): void {
+    this.loadProfile();
+    
+
+  
   }
 
-  user = new User(this.userValues);
+  async loadProfile(){
+    const id = this._localStorageService.getItemStorage();
+    if (id) {
+      this.user = await this._authUserService.getUserById(parseInt(id));
+    }
+    console.log(this.user);
+
+  }
+
 
 }

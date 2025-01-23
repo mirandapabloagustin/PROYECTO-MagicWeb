@@ -12,11 +12,6 @@ import { changeStatusLogged } from '../guard/auth.guard';
 })
 export class AuthUserService {
 
-
-  private _userLogged = new BehaviorSubject<User | null>(null);
-  public userLogged$ = this._userLogged.asObservable();
-
-
   constructor(
     private _serviceUser: UserService,
     private _localStorageService: LocalStorageService
@@ -40,7 +35,6 @@ export class AuthUserService {
       const res = await lastValueFrom(this._serviceUser.authUser(nick, password));
       if (res.length > 0 && res[0].id) {
         this._localStorageService.setItemStorage(res[0].id);
-        this._userLogged.next(res[0]);
         return res[0];
       }
     } catch (e) {
@@ -52,7 +46,6 @@ export class AuthUserService {
   logoutUser(): void {
     this._localStorageService.removeItemStorage('user');
     changeStatusLogged(false);
-    this._userLogged.next(null);
   }
 
   validatorNick(): AsyncValidatorFn {
@@ -79,9 +72,18 @@ export class AuthUserService {
     };
   }
 
-  getUserLogged(): string | null {
-    const userName = this._userLogged.getValue()?.name;
-    return userName !== undefined ? userName : null;
+  async getUserById(id:number): Promise<User> {
+    try {
+      const res = await lastValueFrom(this._serviceUser.getUserById(id));
+      console.log(res[0]);
+      if (res) {
+        return res[0];
+      }
+    } catch (e) {
+      console.error(e);
+    }
+    return User.emptyUser();
   }
+
 
 }
