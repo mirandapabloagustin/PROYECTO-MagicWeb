@@ -11,6 +11,7 @@ import { changeStatusLogged } from '../guard/auth.guard';
   providedIn: 'root',
 })
 export class AuthUserService {
+  public userLogged = User.emptyUser();
 
   constructor(
     private _serviceUser: UserService,
@@ -33,8 +34,9 @@ export class AuthUserService {
   async login(nick: string, password: string): Promise<User | null> {
     try {
       const res = await lastValueFrom(this._serviceUser.authUser(nick, password));
-      if (res.length > 0 && res[0].id) {
-        this._localStorageService.setItemStorage(res[0].id);
+      if (res.length > 0) {
+        this._localStorageService.setItemStorage(res[0]);
+        this.userLogged = res[0];
         return res[0];
       }
     } catch (e) {
@@ -83,6 +85,10 @@ export class AuthUserService {
       console.error(e);
     }
     return User.emptyUser();
+  }
+
+  getUserLogged(): User {
+    return this.userLogged;
   }
 
 

@@ -1,20 +1,35 @@
-<article class="content__profile">
+<section class="content__profile">
+    <div class="content_info-user">
+
+    
     <div class="profile_info-group">
+
         <div class="nick_group">
-            <h2 class="nick_profile">{{user?.nick}}</h2>
+            <p class="nick_profile">{{user?.nick}}</p>
+        </div>
+        <div class="name_group">
+            <h6 class="title_info-group">Nombre</h6>
+            <h2 class="name_profile">{{user?.name}}</h2>
         </div>
         <div class="img_user-group">
             <img class="img_profile" [src]="user?.imgUri" [alt]="user?.nick" />
         </div>
+        <div class="email_group">
+            <h6 class="title_info-group">Email</h6>
+            <p class="email_profile">{{user?.email}}</p>
+        </div>
         <div class="country_group">
-            <img [src]="getFlagImage(user?.country || '')" [alt]="user?.country" class="country_img-profile">
-            <h3 class="country_profile">{{user?.country}}</h3>
+            <h6 class="title_info-group">Pais</h6>
+            <div class="country_info-group">
+                <img [src]="getFlagImage(user?.country || '')" [alt]="user?.country" class="country_img-profile">
+                <h3 class="country_profile">{{getCountrie(user?.country || '')}}</h3>
+            </div>
         </div>
         <div class="img_group"></div>
         <div class="description_group">
+            <h6 class="title_info-group">Descripcion</h6>
             <p class="descp_profile">{{user?.description}}</p>
         </div>
-
         <div class="action_profile-group">
             <div class="btn_group">
                 <button class="btn_edit action_btn-profile" (click)="editProfile()">Editar perfil</button>
@@ -24,5 +39,6 @@
             </div>
         </div>
       </div>
+    </div>
     
-</article>
+</section>

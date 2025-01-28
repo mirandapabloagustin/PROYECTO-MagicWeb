@@ -20,25 +20,20 @@ export class UserComponent implements OnInit {
 
   constructor(
     private _localStorageService: LocalStorageService,
-    private _authUserService: AuthUserService,
-    private _snackBar: SnackbarService
   ) {}
 
   ngOnInit(): void {
     this.loadProfile();
-    
-
-  
   }
 
-  async loadProfile(){
-    const id = this._localStorageService.getItemStorage();
-    if (id) {
-      this.user = await this._authUserService.getUserById(parseInt(id));
+  loadProfile(): void {
+    const userLogged = this._localStorageService.getItemStorage();
+    const flagLogger = this._localStorageService.checkUserLogin('user');
+    if (flagLogger) {
+      this.user = JSON.parse(userLogged) as User;
     }
-    console.log(this.user);
-
   }
+
 
 
 }

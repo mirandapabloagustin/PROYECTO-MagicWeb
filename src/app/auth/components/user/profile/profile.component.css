@@ -1,39 +1,61 @@
 .content__profile {
-    max-width: 1000px;
-    min-height: fit-content;
-    background-color: #0c0f11c7;
-    border-radius: 10px;
-    padding: 2rem 4rem;
+    width: 100%;
+    height: min-content;
+    background-color: var(--fondo);
     color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10rem;
+    padding-bottom: 3rem;
+    
 }
 
 .profile_info-group {
     display: grid;
-    grid-template-columns: repeat(2, auto);
-    grid-template-rows: repeat(auto-fill);
+    grid-template-columns: 800px auto;
+    grid-template-rows: auto;
     row-gap: 1rem;
     column-gap: 2rem;
 
 }
 
-.nick_group {
-    grid-column: span 2 / span 2;
-
+.title_info-group{
+    font-weight: 700;
+    color: var(--bg-hover-green-two);
 }
+
 .nick_profile{
     margin: 0;
+    font-size: 3rem;
     font-weight: 700;
     letter-spacing: 2px;
+    text-transform: uppercase;
 }
+
+.name_group {
+    grid-column-start: 1;
+    grid-row-start: 2;
+    display: flex;
+    flex-direction: column;
+}
+
 
 
 .country_group {
     grid-column-start: 1;
-    grid-row-start: 2;   
+    grid-row-start: 3;
+    display: flex;
+    flex-direction: column;
+}
+
+.country_info-group{
     display: flex;
     flex-direction: row;
     align-items: center;
+    gap: 0.5rem;
 }
+
 .country_profile{
     margin: 0px;
     letter-spacing: 2px;
@@ -45,13 +67,27 @@
     margin-right: 1rem;
 }
 
+.email_group {
+    grid-column-start: 1;
+    grid-row-start: 4;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+   
+.email_profile, .descp_profile,.name_profile{
+    margin: 0;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
 
 .img_user-group {
-    grid-row: span 2 / span 2;
-    grid-column-start: 1;
-    grid-row-start: 3;
-   width: 300px;
-    height: 200px;
+    grid-row: span 3 / span 3;
+    grid-column-start: 2;
+    grid-row-start: 1;
+    width: 350px;
+    height: 250px;
 }
 .img_profile{
     width: 100%;
@@ -60,19 +96,22 @@
 }
 
 
+
+
 .description_group {
-    grid-row-start: 3;
+    grid-column-start: 1;
+    grid-row-start: 5;
 }
 .descp_profile{
-    margin: 0;
-    font-size: 1.2rem;
-    letter-spacing: 1px;
     font-style: italic;
     word-wrap: break-word;
 }
 
 
 .action_profile-group{
+    grid-column-start: 2;
+    grid-row-start: 6;
+    padding-top: 3rem;
     display: grid;
     grid-template-columns: repeat(2, auto);
     column-gap: 2rem;

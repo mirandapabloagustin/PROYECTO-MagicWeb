@@ -43,11 +43,13 @@ export class ProfileComponent {
   }
 
   getFlagImage(countryName: string): string {
-    const country = this.countries.find(country => country.name === countryName);
-    if (country) {
-      return `https://flagcdn.com/w320/${country.code.toLowerCase()}.png`; // URL de la imagen
-    }
-    return '';
+    const flag = this.countries.find(country => country.name == countryName);
+    return `https://flagcdn.com/w320/${countryName.toLocaleLowerCase()}.png`; 
+  }
+
+  getCountrie(codeCountry: string): string{
+    const value = this.countries.find(country => country.code == codeCountry);
+    return value ? value.name : '';
   }
 
 
