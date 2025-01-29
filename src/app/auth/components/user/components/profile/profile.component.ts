@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { User } from '@app/core/models/user.model';
+import { UserEditComponent } from '../user-edit/user-edit.component';
 
 @Component({
   selector: 'app-profile',
@@ -34,9 +36,20 @@ export class ProfileComponent {
     { name: 'Venezuela', code: 'VE' }
   ];
 
+  constructor(
+    private _matDialog: MatDialog,
+  ) { }
+
   editProfile() {
-    console.log('Edit profile');
+        this._matDialog.open(UserEditComponent,{
+          width: '1000px',
+          data: this.user,
+          panelClass: 'custom-dialog-container'
+        });
+
   }
+
+
 
   deleteProfile() {
     console.log('Delete profile');

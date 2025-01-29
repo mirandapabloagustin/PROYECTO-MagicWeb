@@ -66,7 +66,6 @@ export class CardComponent implements OnInit {
       data: this.dataFalsa,
       panelClass: 'custom-dialog-container'
     });
-
   }
   
   transformCard(){
