@@ -1,44 +1,57 @@
-<section class="content__profile">
-    <div class="content_info-user">
+<section class="content_profile">
+   
 
-    
-    <div class="profile_info-group">
+    <!-- PRIMER GRID QUE ACOMODA LA IMAGEN Y LA INFO-->
+    <div class="profile_group">
 
-        <div class="nick_group">
-            <p class="nick_profile">{{user?.nick}}</p>
-        </div>
-        <div class="name_group">
-            <h6 class="title_info-group">Nombre</h6>
-            <h2 class="name_profile">{{user?.name}}</h2>
-        </div>
-        <div class="img_user-group">
-            <img class="img_profile" [src]="user?.imgUri" [alt]="user?.nick" />
-        </div>
-        <div class="email_group">
-            <h6 class="title_info-group">Email</h6>
-            <p class="email_profile">{{user?.email}}</p>
-        </div>
-        <div class="country_group">
-            <h6 class="title_info-group">Pais</h6>
-            <div class="country_info-group">
-                <img [src]="getFlagImage(user?.country || '')" [alt]="user?.country" class="country_img-profile">
-                <h3 class="country_profile">{{getCountrie(user?.country || '')}}</h3>
+        <div class="user-profile"> 
+            <div class="img_group">
+                <img class="img_profile" [src]="user?.imgUri" [alt]="user?.nick" />
+            </div>
+
+            <div class="action_profile-group">
+                <div class="btn_group">
+                    <button class="btn_edit action_btn-profile" (click)="editProfile()">Editar perfil</button>
+                </div>
+                <div class ="btn_group">
+                    <button class="btn_delete action_btn-profile" (click)="deleteProfile()">Dar de baja</button>
+                </div>
             </div>
         </div>
-        <div class="img_group"></div>
-        <div class="description_group">
-            <h6 class="title_info-group">Descripcion</h6>
-            <p class="descp_profile">{{user?.description}}</p>
-        </div>
-        <div class="action_profile-group">
-            <div class="btn_group">
-                <button class="btn_edit action_btn-profile" (click)="editProfile()">Editar perfil</button>
+
+        <!-- SEGUNDO GRID QUE ACOMODA LA INFO-->
+        <div class="info_profile">
+
+            <div class="nick_group">
+                <p class="nick_profile">{{user?.nick}}</p>
             </div>
-            <div class ="btn_group">
-                <button class="btn_delete action_btn-profile" (click)="deleteProfile()">Dar de baja</button>
+
+            <div class="country_group">
+                <div class="country_info-group">
+                    <img [src]="getFlagImage(user?.country || '')" [alt]="user?.country" class="country_img-profile">
+                    <h3 class="country_profile data_user-style">{{getCountrie(user?.country || '')}}</h3>
+                </div>
             </div>
+            
+            <div class="name_group">
+                <h6 class="title_info-group">Nombre:</h6>
+                <h2 class="name_profile data_user-style">{{user?.name}}</h2>
+            </div>
+
+            <div class="email_group">
+                <h6 class="title_info-group">Email:</h6>
+                <p class="email_profile data_user-style">{{user?.email}}</p>
+            </div>
+
+            <div class="description_group">
+                <h6 class="title_info-group">Descripcion:</h6>
+                <p class="descp_profile data_user-style">{{user?.description}}</p>
+            </div>
+
         </div>
-      </div>
+
+
     </div>
+
     
 </section>
