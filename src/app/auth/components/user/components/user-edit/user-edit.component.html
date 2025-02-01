@@ -6,15 +6,108 @@
 
     <form class="edit-profile_form-group" 
         (submit)="onSubmit($event)"
-    >
+        [formGroup]="formEditProfile">
 
-    <button type="submit" class="edit-profile_btn">
-        Guardar Cambios
-    </button>
+        <div class="edit_form-group">
+            <label for="nick" class="lable_form">Usuario</label>
+    
+            <input type="text" 
+            class="input_form" 
+            name="nick" 
+            id="nick" 
+            (input)="checkInput('nick')"
+            [placeholder]="data.nick"
+            formControlName="nick">
+        </div>
+        
 
-    <button type="button" class="edit-profile_btn" (click)="onCancel()">
-        Cancelar
-    </button>
+    <div class="edit_form-group">
+        <label for="name" class="lable_form">Nombre y Apellido</label>
+
+        <input type="text" 
+        class="input_form" 
+        name="name" 
+        id="name" 
+        [placeholder]="data.name"
+        formControlName="name">
+    </div>
+
+    <div class="edit_form-group">
+        <label for="email" class="lable_form">Correo Electrónico</label>
+
+        <input type="email" 
+        class="input_form" 
+        name="email" 
+        id="email" 
+        [placeholder]="data.email"
+        formControlName="email" />
+    </div>
+
+    <div class="edit_form-group">
+        <label for="oldPass" class="lable_form">Anterior Contraseña</label>
+
+        <div class="pass-edit_group">
+            <input type="password" 
+            class="input_form" 
+            name="oldPass" 
+            id="oldPass" 
+            placeholder="{{ transformInvisibility(data.password) }}"
+            formControlName="oldPass" />
+            <div class="img-pass_icon" (click)="changeVisibility()" >
+                @if(visibilityOld){
+                    <img class="pass_icon" src="icons/edit/visible.png" alt="visible">
+                }@else {
+                    <img class="pass_icon" src="icons/edit/invisible.png" alt="invisible">
+                }
+            </div>
+
+        </div>
+    </div>
+
+    <div class="edit_form-group">
+        <label for="newPass" class="lable_form">Nueva Contraseña</label>
+        <div class="pass-edit_group">
+            <input type="password" 
+            class="input_form" 
+            name="newPass" 
+            id="newPass" 
+            formControlName="newPass">
+            <div class="img-pass_icon" (click)="changeVisibilityNew()" >
+                @if(visibilityNew){
+                    <img class="pass_icon" src="icons/edit/visible.png" alt="visible">
+                }@else {
+                    <img class="pass_icon" src="icons/edit/invisible.png" alt="invisible">
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="edit_form-group">
+        <label for="description" class="lable_form">Descripción</label>
+
+        <textarea 
+        class="textarea_form"
+        name="description" 
+        id="description"
+        placeholder="Escribe algo sobre ti"
+        (input)="countWordsDescription()"
+        formControlName="description"
+        ></textarea>
+        <div class="count-words_group">
+            <span class="count-words"> {{countWords }} / {{limitWords}} </span>
+        </div>
+        
+    </div>
+
+    <div class="btn-form_group">
+        <button type="submit" class="edit-profile_btn btn_apply">
+            Guardar Cambios
+        </button>
+        
+        <button type="button" class="edit-profile_btn btn_cancel" (click)="onCancel()">
+            Cancelar
+        </button>
+    </div>
 
     </form>
 

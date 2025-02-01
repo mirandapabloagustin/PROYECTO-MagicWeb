@@ -5,7 +5,7 @@ import { authGuard } from '@services/guard/auth.guard';
 export const routes: Routes = [
     {
         path: '',
-        redirectTo: 'landing',
+        redirectTo: 'profile',
         pathMatch: 'full'
     },
     {
@@ -23,12 +23,12 @@ export const routes: Routes = [
     {
         path: 'main',
         loadComponent: () => import('./main/main.component').then(m => m.MainComponent),
-        canActivate: [authGuard]
+        //canActivate: [authGuard]
     },
     {
         path: 'profile',
         loadComponent: () => import('./auth/components/user/user.component').then(m => m.UserComponent),
-        canActivate: [authGuard]
+        //canActivate: [authGuard]
     },
     {
         path:'**',
