@@ -57,6 +57,10 @@ export class UserService {
     );
   }
 
+  getUserByEmail2(email: string): Observable<User[]> {
+    return this.http.get<User[]>(`${this._ev}/users?email=${email}`)
+  }
+
   getUserByNick(nick: string):  Observable<boolean> {
     return this.http.get<User[]>(`${this._ev}/${this._typeEndpoint[0]}`).pipe(
       map(users => users.some(user => user.nick === nick))

@@ -56,7 +56,10 @@ export class AuthUserService {
         return of(null);
       }
       return this._serviceUser.getUserByNick(control.value).pipe(
-        map(exists => (exists ? { nickExists: true } : null)), 
+        map(exists => (
+          console.log(exists,'Valor Nick'),
+          exists ? { nickExists: true } : null
+        )), 
         catchError(() => of(null)) 
       );
     };
@@ -68,7 +71,9 @@ export class AuthUserService {
         return of(null);
       }
       return this._serviceUser.getUserByEmail(control.value).pipe(
-        map(exists => (exists ? { emailExists: true } : null)), 
+        map(exists => (
+          exists ? { emailExists: true } : null
+        )), 
         catchError(() => of(null)) 
       );
     };

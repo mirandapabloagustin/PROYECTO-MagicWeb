@@ -1,6 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component, Inject } from '@angular/core';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  ValidatorFn,
+  Validators,
+} from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { SnackbarService } from '@app/core/services/snackbar/snackbar.service';
 import { AuthUserService } from '@app/core/services/user/auth-user.service';
@@ -10,10 +18,10 @@ import { AuthUserService } from '@app/core/services/user/auth-user.service';
   standalone: true,
   imports: [FormsModule, ReactiveFormsModule, CommonModule],
   templateUrl: './user-edit.component.html',
-  styleUrls: ['./user-edit.component.css']
+  styleUrls: ['./user-edit.component.css'],
 })
 export class UserEditComponent {
-  formEditProfile : FormGroup;
+  formEditProfile: FormGroup;
   inputTextArea = 'Escribe algo sobre ti';
   visibilityOld = false;
   visibilityNew = false;
@@ -25,103 +33,121 @@ export class UserEditComponent {
     name: /^[a-zA-ZÀ-ÿ\s]{2,30}$/,
   };
 
+
   constructor(
     public dialogRef: MatDialogRef<UserEditComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private _snackbarService: SnackbarService,
     private _serviceUser: AuthUserService,
-    private _builderForm : FormBuilder
+    private _builderForm: FormBuilder
   ) {
-        this.formEditProfile = this._builderForm.group({
-          nick: [
-            '', {
-              validators: [Validators.pattern(this.expresiones.nick)],
-              asyncValidators: [this._serviceUser.validatorNick()],
-            }
-          ],
-          name: [
-            '',
-            [Validators.pattern(this.expresiones.name)],
-          ],
-          email: [
-            '',
-            {
-              validators: [Validators.email],
-              asyncValidators: [this._serviceUser.validatorEmail()]
-            }],
-          oldPass: [''],
-          newPass: ['', [Validators.required]],
-          description: ['', [Validators.minLength(100),Validators.maxLength(300)]],
-        });
+    this.formEditProfile = this._builderForm.group({
+      nick: ['',
+        [Validators.pattern(this.expresiones.nick)],
+        [this._serviceUser.validatorNick()]
+      ],
+      name: ['',
+        [Validators.pattern(this.expresiones.name)],
+      ],
+      email: ['',
+        [Validators.email],
+        [this._serviceUser.validatorEmail()]
+      ],
+      oldPass: ['',
+        [this.checkPassword()]
+      ],
+      newPass: [''],
+      description: ['', [Validators.minLength(100), Validators.maxLength(this.limitWords)]],
+    });
+  }
 
-   }
+  isEmptyFields(form: FormGroup): boolean {
+    let isEmpty = true;
+    Object.keys(form.controls).forEach((key) => {
+      if (form.get(key)?.value !== '') {
+        isEmpty = false;
+      }
+    });
+    return isEmpty;
+  }
 
-   transformInvisibility(pass : string):string {
+  transformInvisibility(pass: string): string {
     return pass.replace(/./g, '*');
-   }
+  }
 
-   transformVisibility(key: string) {
+  transformVisibility(key: string) {
     const pass = document.getElementById(key);
-    if(pass){
-      if(pass.getAttribute('type') === 'password'){
+    if (pass) {
+      if (pass.getAttribute('type') === 'password') {
         pass.setAttribute('type', 'text');
-      }else{
+      } else {
         pass.setAttribute('type', 'password');
       }
     }
-   }
+  }
 
-
-   changeVisibility(){
+  changeVisibility() {
     this.visibilityOld = !this.visibilityOld;
-    this.transformVisibility('oldPass'); 
-   }
+    this.transformVisibility('oldPass');
+  }
 
-   changeVisibilityNew(){
+  changeVisibilityNew() {
     this.visibilityNew = !this.visibilityNew;
     this.transformVisibility('newPass');
   }
 
-  countWordsDescription(){
-    this.checkInput('description');
+  countWordsDescription() {
     const description = this.formEditProfile.get('description')?.value;
     const characters = description ? description.length : 0;
-    if(characters > this.limitWords){
-      this.formEditProfile.get('description')?.setValue(description.slice(0, this.limitWords));
-    }else{
+    if (characters > this.limitWords) {
+      this.formEditProfile
+        .get('description')
+        ?.setValue(description.slice(0, this.limitWords));
+    } else {
       this.countWords = characters;
     }
   }
 
   onSubmit(event: Event) {
     event.preventDefault();
-    if(this.formEditProfile.invalid){
-      this._snackbarService.emitSnackbar('Por favor, rellena los campos correctamente.', 'error', 'Vuelva a intentarlo...');
-    }else{
+    const isempty = this.isEmptyFields(this.formEditProfile);
+    if(!isempty) {
+    if (this.formEditProfile.invalid) {
+      this._snackbarService.emitSnackbar(
+        'Por favor, rellena los campos correctamente.',
+        'error',
+        'Vuelva a intentarlo...'
+      );
+    } else {
       console.log(this.formEditProfile.value);
       this.dialogRef.close();
-      this._snackbarService.emitSnackbar('Los cambios realizados se guardaron correctamente.', 'success', 'Datos Guardados.');
+      this._snackbarService.emitSnackbar(
+        'Los cambios realizados se guardaron correctamente.',
+        'success',
+        'Datos Guardados.'
+      );
     }
-   
+  }else{
+    this.dialogRef.close();
+    this._snackbarService.emitSnackbar('No se han realizado cambios.', 'info', 'Datos sin cambios.');
   }
+}
 
   onCancel() {
     this.dialogRef.close();
   }
 
-
   // VALIDACIONES DE LOS INPUTS
 
-  checkInput( formInput : string){
-    const status = this.formEditProfile.get(formInput)?.valid;
-    const value = document.getElementById(formInput);
-    if(status === false){
-      
-        value?.classList.add('form__status-active');
-      }else{
-        value?.classList.remove('form__status-active');
+  checkPassword() : ValidatorFn {
+    return (control: AbstractControl) => {
+      const password = control.value;
+      if (!password) {
+        return null;
       }
-  }
+      return password === this.data.password ? null : { passwordNotMatch: true };
+    };
+  } 
 
 
 

@@ -37,8 +37,8 @@ export class UserComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.user = this.dataFake;
-    //this.loadProfile();
+    //this.user = this.dataFake;
+    this.loadProfile();
   }
 
   loadProfile(): void {
