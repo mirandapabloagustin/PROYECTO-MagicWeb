@@ -24,4 +24,17 @@ export class ScrollService {
   getPreviosScroll(): number {
     return this._previosScroll;
   }
+
+  scrollToTop(): void {
+    window.scrollTo(0, 0);
+  }
+
+  scrollToComponent(id: string): void {
+    setTimeout(() => {
+     const element = document.getElementsByClassName(id);
+      element[0].scrollIntoView({ behavior: 'smooth' });
+    },500);
+  }
+
+  
 }

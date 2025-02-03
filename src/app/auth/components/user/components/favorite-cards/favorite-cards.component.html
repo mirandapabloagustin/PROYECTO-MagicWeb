@@ -1,0 +1,28 @@
+<section class="favorite-cards_content">
+    <header class="favorite-cards_header">
+        <h2 class="favorite-cards_title">Cartas Favoritas</h2>
+        <div class="content_search">
+            <app-search (searchEvent)="searchFavCards($event)"></app-search>
+        </div>
+
+    </header>
+    <article class="favorite-cards_list">
+        <div class="hover__bg">
+
+            @if(favCards.length === 0){
+                <div class="favorite-cards_empty">
+                    <h4 class="empty_msj-title">
+                        No tienes cartas favoritas
+                    </h4>
+                    <p class="empty_msj-description">
+                        Busca cartas en nuestro buscador y 
+                        añádelas a tu lista de favoritas.
+                    </p>
+                    <button class="btn_favorite" (click)="goToSearch()" >Explorar</button>
+                </div>
+            }
+            
+        </div>
+    </article>
+
+</section>

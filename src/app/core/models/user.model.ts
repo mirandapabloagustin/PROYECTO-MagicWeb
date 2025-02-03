@@ -9,6 +9,7 @@ export class User implements Iuser {
     password: string | null;
     description: string | null;
     country: string | null;
+    favCards: any[] | null;
 
     constructor(user?: Iuser) {
         this.id = user?.id == undefined ? '' : user.id;
@@ -19,6 +20,7 @@ export class User implements Iuser {
         this.password = user?.password == undefined ? '' : user.password;
         this.description = "Amante de Magic: The Gathering, siempre en busca de nuevos mazos y estrategias. Mi color favorito de maná es [Inserta tu color aquí] y disfruto jugando con [tu tipo de mazo o comandante favorito]. ¡Vamos a jugar y compartir ideas sobre este increíble juego!";
         this.country = user?.country == undefined ? '' : user.country;
+        this.favCards = user?.favCards == undefined ? [] : user.favCards;
     }
 
     static emptyUser(): Iuser {
@@ -30,7 +32,8 @@ export class User implements Iuser {
             imgUri: 'https://cards.scryfall.io/art_crop/front/c/f/cf1d17e4-a201-4511-b4bf-7c672728de4b.jpg?1730249713',
             password: '',
             description: '"Amante de Magic: The Gathering, siempre en busca de nuevos mazos y estrategias. Mi color favorito de maná es [Inserta tu color aquí] y disfruto jugando con [tu tipo de mazo o comandante favorito]. ¡Vamos a jugar y compartir ideas sobre este increíble juego!"',
-            country: ''
+            country: '',
+            favCards: []
         }
     }
 

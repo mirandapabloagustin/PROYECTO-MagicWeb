@@ -10,11 +10,29 @@
             </div>
 
             <div class="action_profile-group">
-                <div class="btn_group">
-                    <button class="btn_edit action_btn-profile" (click)="editProfile()">Editar perfil</button>
+                <div class="action_link-group" (click)="goToDecks()">
+                    <div class="content_icon content_normal">
+                        <img class="icon_link " src="favicon.ico" alt="deck">
+                    </div>
+                    <span class="action_link">Mazos</span>
                 </div>
-                <div class ="btn_group">
-                    <button class="btn_delete action_btn-profile" (click)="deleteProfile()">Dar de baja</button>
+                <div class="action_link-group" (click)="goToFavorites()">
+                    <div class="content_icon content_fav">
+                        <img class="icon_link" src="icons/edit/favorito.png" alt="favorito">
+                    </div>
+                    <span class="action_link">Favoritos</span>
+                </div>
+                <div class="action_link-group" (click)="editProfile()">
+                    <div class="content_icon content_edit">
+                        <img class="icon_link change_png" src="icons/edit/people.png" alt="editar">
+                    </div>
+                    <span class="action_link">Editar</span>
+                </div>
+                <div class="action_link-group" (click)="deleteProfile()">
+                    <div class="content_icon content_delete">
+                        <img class="icon_link change_png" src="icons/edit/delete.png" alt="baja">
+                    </div>
+                    <span class="action_link">Baja</span>
                 </div>
             </div>
         </div>

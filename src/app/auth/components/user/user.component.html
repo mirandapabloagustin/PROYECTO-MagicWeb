@@ -1,3 +1,6 @@
 <app-header />
-<app-profile [user]="user"></app-profile>
+<app-profile [user]="user" (showFav)="showFavoriteCards($event)"></app-profile>
+@if(showFavCardsComponent){
+    <app-favorite-cards [favCards]="user.favCards || []"></app-favorite-cards>
+}
 <app-footer />

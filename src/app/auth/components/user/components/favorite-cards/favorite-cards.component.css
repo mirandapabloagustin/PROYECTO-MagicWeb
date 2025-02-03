@@ -1,0 +1,101 @@
+
+.favorite-cards_content{
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+.favorite-cards_header{
+    background-color: var(--bg-green-color);
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+.favorite-cards_title{
+    font-size: 3em;
+    color: var(--text-color);
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.content_search{
+    min-width: 800px;
+}
+.favorite-cards_list{
+    background-image: url('public/magic/magic.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hover__bg{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 7rem;
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: relative;
+    overflow-y: auto;
+}
+
+.favorite-cards_empty{
+    width: 800px;
+    height: 500px;  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:1rem;
+    background-color: var(--text-color);
+    border-radius: 15px;
+    box-shadow: 3px 0px 15px  rgba(59, 59, 59, 0.16);
+}
+.empty_msj-title{
+    font-size: 2em;
+    color: var(--fondo);
+    font-weight: bold;
+}
+.empty_msj-description{
+    font-size: 1em;
+    color: var(--fondo);
+}
+.btn_favorite{
+    margin-top: 2rem;
+    border-radius: 2rem;
+    width: max-content;
+    min-width: 150px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 0.8rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border : 2px solid var(--active-green);
+    color: var(--active-green);
+    transition: all 0.3s;
+}
+
+.btn_favorite:active{
+    scale: 0.98;
+    background-color: var(--bg-hover-green-two);
+    color: white;
+}
+
+.btn_favorite:hover{
+    box-shadow: 3px 0px 10px  rgba(94, 92, 92, 0.692);
+}

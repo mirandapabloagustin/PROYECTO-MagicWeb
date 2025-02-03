@@ -1,0 +1,14 @@
+<div class="confirm_action-group">
+        <div class="header_icon-group">
+            <img src="icons/notification/warning.png" alt="warning" class="icon_header">
+        </div>
+
+    <div class="confirm_info-group">
+        <h3 class="confim_title">{{ data.title }}</h3>
+        <p class="confim_text">{{ data.message }}</p>
+    </div>
+    <div class="confirm_action-group__buttons">
+        <button class="confirm_btn confirm_btn-confirm"  (click)="onConfirm()">Confirmar</button>
+        <button class="confirm_btn confirm_btn-cancel" (click)="onCancel()">Cancelar</button>
+    </div>
+</div>

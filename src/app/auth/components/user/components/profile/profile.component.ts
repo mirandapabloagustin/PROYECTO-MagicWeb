@@ -1,7 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { User } from '@app/core/models/user.model';
 import { UserEditComponent } from '../user-edit/user-edit.component';
+import { ConfirmDialogComponent } from '@app/shared/confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-profile',
@@ -11,8 +12,8 @@ import { UserEditComponent } from '../user-edit/user-edit.component';
   styleUrl: './profile.component.css'
 })
 export class ProfileComponent {
-
   @Input() user: User | undefined; 
+  @Output() showFav = new EventEmitter<boolean>();
 
   countries = [
     { name: 'Argentina', code: 'AR' },
@@ -40,6 +41,15 @@ export class ProfileComponent {
     private _matDialog: MatDialog,
   ) { }
 
+  goToDecks() {
+    console.log('Go to decks');
+  }
+
+  goToFavorites() {
+    console.log('Go to favorites');
+    this.showFav.emit(true);
+  }
+
   editProfile() {
         this._matDialog.open(UserEditComponent,{
           width: '1000px',
@@ -49,10 +59,20 @@ export class ProfileComponent {
 
   }
 
-
-
   deleteProfile() {
-    console.log('Delete profile');
+    const dialogRef = this._matDialog.open(ConfirmDialogComponent, {
+      data: {
+        title: 'Suspender Perfil',
+        message: '¿Estás seguro que deseas suspender tu perfil?'
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        console.log('Perfil eliminado');
+        // COLOCAR CODIGO NECESARIO PARA DAR DE BAJA EL USUARIO
+      }
+    });
   }
 
   getFlagImage(countryName: string): string {
