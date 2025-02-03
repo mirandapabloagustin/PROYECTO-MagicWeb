@@ -41,13 +41,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 3rem 7rem;
     width: 100%;
-    height: auto;
-    min-height: 100vh;
+    height: 100%;
+    max-height: auto;
     background-color: rgba(0, 0, 0, 0.7);
     position: relative;
-    overflow-y: auto;
 }
 
 .favorite-cards_empty{
