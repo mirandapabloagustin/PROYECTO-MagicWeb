@@ -5,109 +5,111 @@
     </h2>
     <p>Para cambiar la imagen de Usuario</p>
 
-    <form class="edit-profile_form-group" 
-        (submit)="onSubmit($event)"
-        [formGroup]="formEditProfile">
+    <form class="edit-profile_form-group" (submit)="onSubmit($event)" [formGroup]="formEditProfile">
 
+        <!--  INPUT NICK  -->
         <div class="edit_form-group">
             <label for="nick" class="lable_form">Usuario</label>
-    
-            <input type="text" 
-            class="input_form" 
-            name="nick" 
-            id="nick" 
-            [placeholder]="data.nick"
-            formControlName="nick">
+
+            <input type="text" class="input_form" name="nick" id="nick" [placeholder]="data.nick"
+                formControlName="nick">
+            @if(hasExistsError('nick','nickExists')) {
+            <small id="error-nick" class="form__error-text" role="alert">* El nick ya está en uso. *</small>
+            }
         </div>
-        
 
-    <div class="edit_form-group">
-        <label for="name" class="lable_form">Nombre y Apellido</label>
+        <!--  INPUT NAME  -->
+        <div class="edit_form-group">
+            <label for="name" class="lable_form">Nombre y Apellido</label>
 
-        <input type="text" 
-        class="input_form" 
-        name="name" 
-        id="name" 
-        [placeholder]="data.name"
-        formControlName="name">
-    </div>
+            <input type="text" class="input_form" name="name" id="name" [placeholder]="data.name"
+                formControlName="name">
+        </div>
 
-    <div class="edit_form-group">
-        <label for="email" class="lable_form">Correo Electrónico</label>
+        <!--  INPUT EMAIL  -->
+        <div class="edit_form-group">
+            <label for="email" class="lable_form">Correo Electrónico</label>
 
-        <input type="email" 
-        class="input_form" 
-        name="email" 
-        id="email" 
-        [placeholder]="data.email"
-        formControlName="email" />
-    </div>
+            <input type="email" class="input_form" name="email" id="email" [placeholder]="data.email"
+                formControlName="email" />
+            @if(hasExistsError('email','emailExists')) {
+            <small id="error-nick" class="form__error-text" role="alert">* El email ya está en uso. *</small>
+            }
+        </div>
 
-    <div class="edit_form-group">
-        <label for="oldPass" class="lable_form">Anterior Contraseña</label>
+        <div class="change-pass_group">
+            <!--  INPUT PASS ANTERIROR  -->
+            <div class="edit_form-group">
+                <label for="oldPass" class="lable_form">Anterior Contraseña</label>
 
-        <div class="pass-edit_group">
-            <input type="password" 
-            class="input_form" 
-            name="oldPass" 
-            id="oldPass"            
-            placeholder="{{ transformInvisibility(data.password) }}"
-            formControlName="oldPass" />
-            <div class="img-pass_icon" (click)="changeVisibility()" >
-                @if(visibilityOld){
-                    <img class="pass_icon" src="icons/edit/visible.png" alt="visible">
-                }@else {
-                    <img class="pass_icon" src="icons/edit/invisible.png" alt="invisible">
+                <div class="pass-edit_group">
+                    <input type="password" class="input_form" name="oldPass" id="oldPass"
+                        placeholder="{{ transformInvisibility(data.password || '') }}" formControlName="oldPass" 
+                        (focus)="cleanInput('newPass')" 
+                        />
+                    <div class="img-pass_icon" (click)="changeVisibility()">
+                        @if(visibilityOld){
+                        <img class="pass_icon" src="icons/edit/visible.png" alt="visible">
+                        }@else {
+                        <img class="pass_icon" src="icons/edit/invisible.png" alt="invisible">
+                        }
+                    </div>
+                </div>
+                @if(hasExistsError('oldPass','passwordNotMatch')) {
+                <small id="error-nick" class="form__error-text" role="alert">* No coincide la contraseña. *</small>
                 }
             </div>
 
-        </div>
-    </div>
+            <!--  INPUT PASS NUEVA  -->
 
-    <div class="edit_form-group">
-        <label for="newPass" class="lable_form">Nueva Contraseña</label>
-        <div class="pass-edit_group">
-            <input type="password" 
-            class="input_form" 
-            name="newPass" 
-            id="newPass" 
-            formControlName="newPass">
-            <div class="img-pass_icon" (click)="changeVisibilityNew()" >
-                @if(visibilityNew){
-                    <img class="pass_icon" src="icons/edit/visible.png" alt="visible">
-                }@else {
-                    <img class="pass_icon" src="icons/edit/invisible.png" alt="invisible">
-                }
+            <div class="edit_form-group">
+                <label for="newPass" class="lable_form">Nueva Contraseña</label>
+                <div class="pass-edit_group">
+                    <input type="password" class="input_form" name="newPass" id="newPass" formControlName="newPass" 
+                   
+                    >
+                    <div class="img-pass_icon" (click)="changeVisibilityNew()">
+                        @if(visibilityNew){
+                        <img class="pass_icon" src="icons/edit/visible.png" alt="visible">
+                        }@else {
+                        <img class="pass_icon" src="icons/edit/invisible.png" alt="invisible">
+                        }
+                    </div>
+                </div>
+                @if(hasExistsError('newPass','enableToChange')) {
+                    <small id="error-nick" class="form__error-text" role="alert">* La antigua no coincide. *</small>
+                    }
             </div>
         </div>
-    </div>
 
-    <div class="edit_form-group">
-        <label for="description" class="lable_form">Descripción</label>
+        <!--  INPUT DESCRIPCION  -->
+        <div class="edit_form-group">
+            <label for="description" class="lable_form">Descripción</label>
 
-        <textarea 
-        class="textarea_form"
-        name="description" 
-        id="description"
-        placeholder="Escribe algo sobre ti"
-        (input)="countWordsDescription()"
-        formControlName="description"
-        ></textarea>
-        <div class="count-words_group">
-            <span class="count-words"> {{countWords }} / {{limitWords}} </span>
+            <textarea class="textarea_form" name="description" id="description" placeholder="Escribe algo sobre ti"
+                (input)="countWordsDescription()" formControlName="description"></textarea>
+            <div class="count-words_group">
+                @if(hasExistsError('description','minlength')) {
+                <small id="error-nick" class="form__error-text" role="alert">* Debe tener al menos 100 caracteres.
+                    *</small>
+                }
+                <div class="count-text">
+                    <span class="count-words"> {{countWords }} / {{limitWords}} </span>
+                </div>
+            </div>
+
         </div>
-        
-    </div>
 
-    <div class="btn-form_group">
-        <button type="submit" class="edit-profile_btn btn_apply">
-            Guardar Cambios
-        </button>
-        
-        <button type="button" class="edit-profile_btn btn_cancel" (click)="onCancel()">
-            Cancelar
-        </button>
-    </div>
+        <!--  BOTONES DE SUBMIT  -->
+        <div class="btn-form_group">
+            <button type="submit" class="edit-profile_btn btn_apply">
+                Guardar Cambios
+            </button>
+
+            <button type="button" class="edit-profile_btn btn_cancel" (click)="onCancel()">
+                Cancelar
+            </button>
+        </div>
 
     </form>
 

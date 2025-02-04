@@ -51,10 +51,16 @@ export class ProfileComponent {
   }
 
   editProfile() {
-        this._matDialog.open(UserEditComponent,{
-          width: '1000px',
+        const dialogRef = this._matDialog.open(UserEditComponent,{
           data: this.user,
           panelClass: 'custom-dialog-container'
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+          if (result) {
+             // COLOCAR CODIGO NECESARIO PARA ACTUALIZAR EL USUARIO
+            console.log("CAMBIOS EN PROFILE:",result);
+          }
         });
 
   }

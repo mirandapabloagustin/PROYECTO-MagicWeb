@@ -57,7 +57,6 @@ export class AuthUserService {
       }
       return this._serviceUser.getUserByNick(control.value).pipe(
         map(exists => (
-          console.log(exists,'Valor Nick'),
           exists ? { nickExists: true } : null
         )), 
         catchError(() => of(null)) 

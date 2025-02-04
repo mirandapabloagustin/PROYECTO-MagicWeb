@@ -10,6 +10,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { User } from '@app/core/models/user.model';
 import { SnackbarService } from '@app/core/services/snackbar/snackbar.service';
 import { AuthUserService } from '@app/core/services/user/auth-user.service';
 
@@ -33,31 +34,27 @@ export class UserEditComponent {
     name: /^[a-zA-ZÀ-ÿ\s]{2,30}$/,
   };
 
-
   constructor(
     public dialogRef: MatDialogRef<UserEditComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,
+    @Inject(MAT_DIALOG_DATA) public data: User,
     private _snackbarService: SnackbarService,
     private _serviceUser: AuthUserService,
     private _builderForm: FormBuilder
   ) {
     this.formEditProfile = this._builderForm.group({
-      nick: ['',
+      nick: [
+        '',
         [Validators.pattern(this.expresiones.nick)],
-        [this._serviceUser.validatorNick()]
+        [this._serviceUser.validatorNick()],
       ],
-      name: ['',
-        [Validators.pattern(this.expresiones.name)],
+      name: ['', [Validators.pattern(this.expresiones.name)]],
+      email: ['', [Validators.email], [this._serviceUser.validatorEmail()]],
+      oldPass: ['', [this.checkPassword()]],
+      newPass: ['', [this.enableToChange()]],
+      description: [
+        '',
+        [Validators.minLength(100), Validators.maxLength(this.limitWords)],
       ],
-      email: ['',
-        [Validators.email],
-        [this._serviceUser.validatorEmail()]
-      ],
-      oldPass: ['',
-        [this.checkPassword()]
-      ],
-      newPass: [''],
-      description: ['', [Validators.minLength(100), Validators.maxLength(this.limitWords)]],
     });
   }
 
@@ -108,47 +105,85 @@ export class UserEditComponent {
     }
   }
 
+  cleanInput(field : string){
+    this.formEditProfile.get(field)?.setValue('');
+  }
+
   onSubmit(event: Event) {
     event.preventDefault();
     const isempty = this.isEmptyFields(this.formEditProfile);
-    if(!isempty) {
-    if (this.formEditProfile.invalid) {
-      this._snackbarService.emitSnackbar(
-        'Por favor, rellena los campos correctamente.',
-        'error',
-        'Vuelva a intentarlo...'
-      );
+    if (!isempty) {
+      if (this.formEditProfile.invalid) {
+        this._snackbarService.emitSnackbar(
+          'Por favor, rellena los campos correctamente.',
+          'error',
+          'Vuelva a intentarlo...'
+        );
+      } else {
+        this.dialogRef.close(this.formEditProfile.value as User);
+        this._snackbarService.emitSnackbar(
+          'Los cambios realizados se guardaron correctamente.',
+          'success',
+          'Datos Guardados.'
+        );
+      }
     } else {
-      console.log(this.formEditProfile.value);
       this.dialogRef.close();
       this._snackbarService.emitSnackbar(
-        'Los cambios realizados se guardaron correctamente.',
-        'success',
-        'Datos Guardados.'
+        'No se han realizado cambios.',
+        'info',
+        'Datos sin cambios.'
       );
     }
-  }else{
-    this.dialogRef.close();
-    this._snackbarService.emitSnackbar('No se han realizado cambios.', 'info', 'Datos sin cambios.');
   }
-}
 
   onCancel() {
     this.dialogRef.close();
   }
 
-  // VALIDACIONES DE LOS INPUTS
 
-  checkPassword() : ValidatorFn {
+
+  // CACHT ERROR
+
+  hasError(field: string, error: string) {
+    const formControl = this.formEditProfile.get(field);
+    return formControl?.hasError(error);
+  }
+
+  hasExistsError(field: string, error: string) {
+    const value = this.hasError(field, error);
+    const element = document.getElementById(field);
+    value ? element?.classList.add('form__error-status') : element?.classList.remove('form__error-status');
+    return value;
+  }
+
+  // VALIDACION PASSWORD
+  checkPassword(): ValidatorFn {
     return (control: AbstractControl) => {
       const password = control.value;
       if (!password) {
         return null;
       }
-      return password === this.data.password ? null : { passwordNotMatch: true };
+      return password === this.data.password
+        ? null
+        : { passwordNotMatch: true };
     };
-  } 
+  }
+
+  enableToChange(): ValidatorFn {
+    return (control: AbstractControl) => {
+      const password = control.value;
+      if (!password) {
+        return null;
+      }
+
+      const value = this.formEditProfile.get('oldPass')?.value;
 
 
+      return value === this.data.password
+        ? null
+        : { enableToChange: true };
 
+    };
+  }
 }

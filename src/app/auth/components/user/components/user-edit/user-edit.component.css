@@ -1,5 +1,5 @@
 .content_edit-profile {
-  padding: 4rem 3rem;
+  padding: 1rem 3rem;
 }
 
 .edit-profile_title{
@@ -19,7 +19,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  margin: 1.3rem 0;
+  margin: 1rem 0;
 }
 
 .lable_form{
@@ -37,6 +37,12 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   outline: none;
+}
+
+.change-pass_group{
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
 }
 
 .textarea_form{
@@ -69,10 +75,14 @@
 }
 
 .count-words_group{
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 8px;
+}
+.count-text{
+  grid-column: 2; 
   display: flex;
-  flex-direction: row;
   justify-content: end;
-  align-items: center;
 }
 
 .btn-form_group{
@@ -123,7 +133,13 @@
   color: white;
 }
 
-.form__status-active{
+.form__error-status{
   background-color: var(--bg-color-error);
-  border: 1px solid var(--border-color-error);
+  border: 2px solid var(--border-color-error);
+}
+
+.form__error-text{
+  color: var(--color-error);
+  font-size: 0.8rem;
+  font-weight: 400;
 }
