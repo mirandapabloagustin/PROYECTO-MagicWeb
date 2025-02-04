@@ -1,0 +1,33 @@
+.show-deck_conteiner{
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+/*  ESTILOS BARRA LATERAL  */
+.filter-deck_group{
+  min-width: 300px;
+  width: 500px;
+  background-color: var(--bg-green-color);
+  border: 1px solid #000;
+  padding-top: 8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title-filter_deck{
+  font-size: 3em;
+  color: var(--text-color);
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+
+
+/*-----------------------------------------*/
+
+.deck-list_group{
+  border: 1px solid red;
+  padding-top: 8rem;
+}
