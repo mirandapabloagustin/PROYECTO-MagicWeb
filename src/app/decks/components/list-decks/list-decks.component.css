@@ -1,0 +1,35 @@
+.show-deck-list_container{
+  position: relative;
+  background-image: url('public/main/bg-list-card.webp');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+
+  display: flex;
+  min-height: 100vh;
+  height: auto;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.hover__bg {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+  background-color: rgba(0, 0, 0, 0.475);
+  position: relative;
+  overflow-y: auto;
+}
+.deck-list_content{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4rem;
+}
+

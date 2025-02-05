@@ -1,1 +1,11 @@
-<p>list-decks works!</p>
+<section class="show-deck-list_container">
+  <div class="hover__bg">
+    <div class="deck-list_content">
+      @for (deck of fakeList; track $index) {
+        <app-deck-card [deckUser]="deck"></app-deck-card>
+      }
+
+    </div>
+  </div>
+
+</section>

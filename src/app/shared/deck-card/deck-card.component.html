@@ -1,1 +1,23 @@
-<p>deck-card works!</p>
+<div class="deck-card_content" (click)="goToDeck(deckUser?.id)">
+  <img class="deck-card_img" [src]="deckUser?.imgDeck" alt="img.deck" >
+  <div class="deck-info_group">
+    <h3 class="deck_title">{{ deckUser?.name }}</h3>
+    <p class="deck_description">{{ deckUser?.description }}</p>
+
+    <div class="tag-deck_group" >
+      @for (item of deckUser?.tags ; track $index) {
+        <span class="tag_item">{{ item }}</span>
+      }
+    </div>
+
+  </div>
+  <div class="deck-color_group">
+    @for (color of deckUser?.colors ; track $index) {
+      <img class="deck-color_img" [src]="getDeckColorImg(color)" alt="color.deck">
+    }
+  </div>
+  <div class="create-date_group">
+    <span class="create-deck_info">{{ transformDate() }}</span>
+  </div>
+
+</div>
