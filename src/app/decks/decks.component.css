@@ -6,17 +6,31 @@
 }
 /*  ESTILOS BARRA LATERAL  */
 .filter-deck_group{
-  min-width: 300px;
-  width: 500px;
-  background-color: var(--bg-green-color);
-  border: 1px solid #000;
+  width: 350px;
+  padding: 0 1rem;
   padding-top: 8rem;
+  background-color: var(--bg-green-color);
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.title-filter_deck{
+.hearder-filter_group{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  justify-content: center;
+}
+
+.title-filter_group{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title_filter{
   font-size: 3em;
   color: var(--text-color);
   font-weight: bold;
