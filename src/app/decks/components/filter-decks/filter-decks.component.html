@@ -4,7 +4,7 @@
         <h2 class="title_filter">Buscar</h2>
   </div>
 
-  <app-search></app-search>
+  <app-search (searchEvent)="deckFilter($event)"></app-search>
 
   <form [formGroup]="formColor" class="form-color_group">
 

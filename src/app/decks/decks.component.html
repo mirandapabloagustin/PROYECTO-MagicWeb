@@ -1,8 +1,8 @@
 <app-header></app-header>
 <section class="show-deck_conteiner">
-  <app-filter-decks></app-filter-decks>
+  <app-filter-decks (filterEvent)="getSearch($event)"></app-filter-decks>
   <div class="list-atr">
-    <app-list-decks></app-list-decks>
+    <app-list-decks [decks]="fakeList"></app-list-decks>
   </div>
 </section>
 <app-footer></app-footer>

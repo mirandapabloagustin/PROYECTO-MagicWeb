@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { User } from '@app/core/models/user.model';
 import { UserEditComponent } from '../user-edit/user-edit.component';
 import { ConfirmDialogComponent } from '@app/shared/confirm-dialog/confirm-dialog.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -38,15 +39,15 @@ export class ProfileComponent {
   ];
 
   constructor(
+    private _routes:Router,
     private _matDialog: MatDialog,
   ) { }
 
   goToDecks() {
-    console.log('Go to decks');
+    this._routes.navigate(['/decks']);
   }
 
   goToFavorites() {
-    console.log('Go to favorites');
     this.showFav.emit(true);
   }
 

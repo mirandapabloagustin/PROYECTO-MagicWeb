@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { SearchComponent } from "../../../shared/search/search.component";
 
@@ -10,6 +10,7 @@ import { SearchComponent } from "../../../shared/search/search.component";
   styleUrl: './filter-decks.component.css'
 })
 export class FilterDecksComponent {
+  @Output() filterEvent = new EventEmitter<any>();
   formColor: any;
   countMana:string [] = ['all', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10','Manadicto'];
   manaColor:string [] = ['white', 'blue', 'black', 'red', 'green', 'all'];
@@ -19,22 +20,28 @@ export class FilterDecksComponent {
     private _formBuilder: FormBuilder,
   ) {
     this.formColor = this._formBuilder.group({
+      search: '',
+      mana: '',
+      tag:'',
       white: false,
       blue: false,
       black: false,
       red: false,
       green: false,
-      all: false,
-      mana: 'all',
-      tag:''
+      all: false
     });
   }
+
+  deckFilter(search:string){
+    this.formColor.get('search').setValue(search);
+    this.filterEvent.emit(this.formColor.value);
+  }
+
 
   toggleCheckboxColor(color:string){
     const value = this.formColor.get(color).value;
     const status = this.formColor.get(color).setValue(!value);
     this.changeStyleToActive(color+'-select', !value);
-    console.log(this.formColor.value);
   }
 
   changeStyleToActive(color:string, flag:boolean){
