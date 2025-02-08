@@ -1,23 +1,44 @@
 <div class="deck-card_content" (click)="goToDeck(deckUser?.id)">
-  <img class="deck-card_img" [src]="deckUser?.imgDeck" alt="img.deck" >
+
+  <div class="img-deck_content">
+    <img class="deck-card_img" [src]="deckUser?.imgDeck" alt="img.deck" >
+  </div>
+
   <div class="deck-info_group">
     <h3 class="deck_title">{{ deckUser?.name }}</h3>
-    <p class="deck_description">{{ deckUser?.description }}</p>
+    <small class="chiquitiñito" >creado el: {{transformDate('create')}}</small>
+    <p class="deck_description">Descripcion:</p>
+    <small class="descripcion-text">{{ deckUser?.description }}</small>
+
 
     <div class="tag-deck_group" >
       @for (item of deckUser?.tags ; track $index) {
-        <span class="tag_item">{{ item }}</span>
+        <small  class="tag_item">{{ item }}</small>
       }
     </div>
 
   </div>
+
   <div class="deck-color_group">
-    @for (color of deckUser?.colors ; track $index) {
-      <img class="deck-color_img" [src]="getDeckColorImg(color)" alt="color.deck">
-    }
+
+
+      <div class="color_content">
+        @for (color of deckUser?.colors ; track $index) {
+          <img class="deck-color_img" [src]="getDeckColorImg(color)" alt="color.deck">
+        }
+      </div>
+
+
   </div>
+
   <div class="create-date_group">
-    <span class="create-deck_info">{{ transformDate() }}</span>
+
+    <div class="creater_content">
+      <span class="create-deck_info">{{ transformDate('update') }}</span>
+    </div>
+
   </div>
 
 </div>
+
+

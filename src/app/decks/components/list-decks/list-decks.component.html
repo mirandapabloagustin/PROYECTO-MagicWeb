@@ -1,11 +1,25 @@
-<section class="show-deck-list_container">
-  <div class="hover__bg">
-    <div class="deck-list_content">
-      @for (deck of fakeList; track $index) {
-        <app-deck-card [deckUser]="deck"></app-deck-card>
-      }
+<section class="deck-list-content_group">
+  <div class="hover-background">
+
+    <div class="top-list_group">
+
+      <div class="title-list_group">
+        <h2 class="title-list">Mis Mazos</h2>
+      </div>
+
+      <div class="create-deck_group">
+        <button class="create-deck_button btn_apply" (click)="createNewDeck()">
+          <span>+ Nuevo Mazo</span>
+        </button>
+      </div>
 
     </div>
-  </div>
 
+    <div class="list-content_group">
+      @for (deck of fakeList; track $index) {
+        <app-deck-card [deckUser]="deck" ></app-deck-card>
+      }
+    </div>
+
+  </div>
 </section>

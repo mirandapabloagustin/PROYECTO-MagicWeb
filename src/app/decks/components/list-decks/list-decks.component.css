@@ -1,35 +1,101 @@
-.show-deck-list_container{
+.deck-list-content_group {
   position: relative;
+  width: auto;
+  height: 100vh;
   background-image: url('public/main/bg-list-card.webp');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
+  overflow: scroll;
 
-  display: flex;
-  min-height: 100vh;
-  height: auto;
-  box-sizing: border-box;
-  overflow: hidden;
 }
-.hover__bg {
+
+.hover-background {
+  padding-top: 7rem;
+  padding-bottom: 5rem;
+  position: absolute;
+  width: 100%;
+  height: auto;
+  background-color: rgba(0, 0, 0, 0.475);
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  padding: 3rem;
-  width: 100%;
-  height: auto;
-  min-height: 100vh;
-  background-color: rgba(0, 0, 0, 0.475);
-  position: relative;
-  overflow-y: auto;
-}
-.deck-list_content{
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 4rem;
+  gap: 5rem;
+  box-sizing: border-box;
 }
 
+.top-list_group{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-columns: max-content;
+  align-items: center;
+}
+.title-list_group{
+  width: 100%;
+  grid-column-start: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title-list{
+  font-size: 4rem;
+  font-weight: bold;
+  color: var(--text-color);
+  margin: 0;
+}
+
+.list-content_group{
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto;
+  gap: 3rem;
+
+}
+
+.create-deck_group{
+  width: 100%;
+  grid-column-start: 3;
+  display: flex;
+  justify-content: center;
+}
+
+.create-deck_button{
+  border-radius: 2rem;
+  width: max-content;
+  min-width: 150px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 0.8rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  gap: 1rem;
+  transition: all 0.3s;
+  box-shadow: 0 7px 8px rgba(0, 0, 0, 0.329);
+}
+
+.btn_apply{
+  border: 2px solid transparent;
+  background-color: var(--active-green);
+  color: var(--text-color);
+}
+
+.btn_apply:active{
+  scale: 0.98;
+  border: 2px solid var(--acid-green-hover);
+  background-color: white;
+  color:  var(--acid-green-hover);
+}
+
+
+@media (max-width: 1440px) {
+  .list-content_group {
+    grid-template-columns: auto;
+  }
+}

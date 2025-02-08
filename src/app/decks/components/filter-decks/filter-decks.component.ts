@@ -1,15 +1,19 @@
 import { Component } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { SearchComponent } from "../../../shared/search/search.component";
 
 @Component({
   selector: 'app-filter-decks',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, SearchComponent],
   templateUrl: './filter-decks.component.html',
   styleUrl: './filter-decks.component.css'
 })
 export class FilterDecksComponent {
   formColor: any;
+  countMana:string [] = ['all', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10','Manadicto'];
+  manaColor:string [] = ['white', 'blue', 'black', 'red', 'green', 'all'];
+  tagDecks:string [] = ['All','Agro', 'Control', 'Combo','Other'];
 
   constructor(
     private _formBuilder: FormBuilder,
@@ -20,10 +24,10 @@ export class FilterDecksComponent {
       black: false,
       red: false,
       green: false,
-      all: true,
-      mana: 'all'
+      all: false,
+      mana: 'all',
+      tag:''
     });
-
   }
 
   toggleCheckboxColor(color:string){
@@ -37,5 +41,8 @@ export class FilterDecksComponent {
     const element = document.getElementById(color);
     flag ? element?.classList.add('active') : element?.classList.remove('active');
   }
+
+
+
 
 }
