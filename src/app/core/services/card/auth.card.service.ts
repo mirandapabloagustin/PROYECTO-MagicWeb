@@ -86,7 +86,8 @@ export class AuthApiCardService {
     const queryParams = this._generateQueryParams(filters);
     try {
       const res = await lastValueFrom(this._service.search(queryParams));
-      this._setListValues(res);
+      const resFilter = this.cardsFilterWithEspecificLayout(res.data);
+      this._setListValues(resFilter);
       if(res.has_more){
         const resMore = await lastValueFrom(this._service.getByUrl(res.next_page));
         this._listCards.next([...this._listCards.getValue(), ...resMore]);
@@ -95,6 +96,10 @@ export class AuthApiCardService {
     } catch (error) {
       console.error('Error al buscar las cartas:', error);
     }
+  }
+
+  cardsFilterWithEspecificLayout(vector : any[]) : any[]{
+   return vector.filter((card) => card.layout === 'normal' || card.layout === 'split' || card.layout === 'flip' || card.layout === 'transform');
   }
 
   private _resetValuesPagination(totalCards: number, base: number, top: boolean, bottom: boolean) {
@@ -106,7 +111,7 @@ export class AuthApiCardService {
 
   private _setListValues(res : any) {
     
-    this._listCards.next(res.data);
+    this._listCards.next(res);
 
     this._updateArraySubj(this._iterator, this._listCards.getValue().slice(0,9));
     const nextPrev = this._listCards.getValue().length > 9 ? false : true; 

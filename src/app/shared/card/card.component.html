@@ -1,5 +1,5 @@
 <article class="card__group">
-  @if(dataCard.layout === 'normal' || dataCard.layout === 'saga' ){
+  @if(dataCard.layout === 'normal'){
   <div class="card_content hover_card" >
     <div class="content_normal-card" (click)="navigateToDetails()">
       <img class="card__img" [src]="dataCard.image_uris?.normal" alt="dataCard.name" />
