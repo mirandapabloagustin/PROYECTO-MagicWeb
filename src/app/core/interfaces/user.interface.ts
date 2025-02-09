@@ -8,5 +8,6 @@ export interface Iuser {
     description: string | null;
     country: string | null;
     favCards: any[] | null;
+    status: boolean | undefined;
   }
   

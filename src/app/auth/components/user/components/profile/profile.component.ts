@@ -6,6 +6,7 @@ import { ConfirmDialogComponent } from '@app/shared/confirm-dialog/confirm-dialo
 import { Router } from '@angular/router';
 import { AuthUserService } from '@app/core/services/user/auth-user.service';
 import { SnackbarService } from '@app/core/services/snackbar/snackbar.service';
+import { LocalStorageService } from '@app/core/services/user/local-storage.service';
 
 @Component({
   selector: 'app-profile',
@@ -44,7 +45,8 @@ export class ProfileComponent {
     private _routes: Router,
     private _matDialog: MatDialog,
     private _serviceUser: AuthUserService,
-    private _snackbarService: SnackbarService
+    private _snackbarService: SnackbarService,
+    private _login: LocalStorageService
   ) { }
 
   reloadProfile() {
@@ -60,47 +62,59 @@ export class ProfileComponent {
   }
 
   editProfile() {
-    const dialogRef = this._matDialog.open(UserEditComponent, {
+    const dialogEditRef = this._matDialog.open(UserEditComponent, {
       data: this.user,
       panelClass: 'custom-dialog-container'
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogEditRef.afterClosed().subscribe(result => {
       if (result) {
-        // COLOCAR CODIGO NECESARIO PARA ACTUALIZAR EL USUARI0
         this.updateProfile(result);
       }
     });
-
   }
 
+  /**
+   * Abre un PopUp de confirmación para suspender el perfil del usuario.
+   * Si el usuario confirma la suspensión, se elimina el perfil.
+   */
   deleteProfile() {
-    const dialogRef = this._matDialog.open(ConfirmDialogComponent, {
+    const dialogConfirmRef = this._matDialog.open(ConfirmDialogComponent, {
       data: {
         title: 'Suspender Perfil',
         message: '¿Estás seguro que deseas suspender tu perfil?'
       }
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogConfirmRef.afterClosed().subscribe(result => {
       if (result) {
-        console.log('Perfil eliminado');
-        // COLOCAR CODIGO NECESARIO PARA DAR DE BAJA EL USUARIO
+        this.changeStatusLogged(result);
       }
     });
   }
-
+  /**
+   * Transforma el nombre de un país en la bandera del país.
+   * @param {string} countryName - Nombre del país.
+   * @returns {string} - URL de la bandera del país.
+   */
   getFlagImage(countryName: string): string {
     const flag = this.countries.find(country => country.name == countryName);
     return `https://flagcdn.com/w320/${countryName.toLocaleLowerCase()}.png`;
   }
-
+  /**
+   * Transforma el código de un país en el nombre del país.
+   * @param {string} codeCountry - Código del país.
+   * @returns {string} - Nombre del país.
+   */
   getCountrie(codeCountry: string): string {
     const value = this.countries.find(country => country.code == codeCountry);
     return value ? value.name : '';
   }
-
-
+  /**
+ * Actualiza las propiedades del usuario obtenidos de popup edicion de usuario.
+ * @param {any} mapeo - Objeto que contiene las claves y valores a actualizar.
+ * @returns {User} - Devuelve el objeto `User` modificado.
+ */
   updateInfo(mapeo: any): User {
     if (this.user) {
       Object.keys(mapeo).forEach(key => {
@@ -108,11 +122,19 @@ export class ProfileComponent {
           (this.user as any)[key] = mapeo[key];
         }
       });
-      
+
     }
     return this.user as User;
   }
-
+/**
+ * Actualiza el perfil del usuario.
+ * Primero, verifica si el objeto `mapeo` contiene valores.
+ * Si es así, intenta actualizar el perfil del usuario.
+ * Si la operación es exitosa, muestra un mensaje de éxito y recarga el perfil.
+ * Si la operación falla, muestra un mensaje de error.
+ * @param mapeo - Objeto que contiene las claves y valores a actualizar.
+ * @returns {void}
+ */
   async updateProfile(mapeo: any) {
     const value = this.updateInfo(mapeo);
     if (value) {
@@ -131,6 +153,15 @@ export class ProfileComponent {
         console.error(error);
         this._snackbarService.emitSnackbar('Error al actualizar el perfil', 'error','Vuelva a intantarlo...');
       }
+    }
+  }
+
+  changeStatusLogged(status: boolean) {
+    if (status && this.user) {
+        this.user.status = false;
+        this._serviceUser.updateUser(this.user);
+        this._serviceUser.logoutUser();
+        this._routes.navigate(['/landing']);
     }
   }
 

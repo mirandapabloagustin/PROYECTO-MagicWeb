@@ -53,15 +53,16 @@ export class LoginComponent implements OnInit {
     return !this.nick?.value || !this.password?.value;
   }
   
-  verifyUser() {
-    this._serviceUser.login(this.nick?.value, this.password?.value).then((res) => {
-      if (res) {
-        this._serviceSnackbar.emitSnackbar(`¡Bienvenido ${res.nick}!`, 'success', 'Disfruta de tu experiencia.');
+  async verifyUser() {
+    try{
+      const res = await this._serviceUser.login(this.nick?.value, this.password?.value);
+      if(res){
         this.router.navigate(['/main']);
-      } else {
-        this.hasError('Usuario o contraseña incorrectos', 'Verifique los datos ingresados.');
+        this._serviceSnackbar.emitSnackbar(`¡ Bienvenido ${res.nick} !`, 'success','¡ Disfruta de Magic: The Gathering !');
       }
-    });
+    }catch(e){
+      console.error(e);
+    }
   }
 
   setErrorTheme() {

@@ -28,7 +28,8 @@ export class UserComponent implements OnInit {
       "password": "1234",
       "description": "Amante de Magic: The Gathering, siempre en busca de nuevos mazos y estrategias. Mi color favorito de maná es [Inserta tu color aquí] y disfruto jugando con [tu tipo de mazo o comandante favorito]. ¡Vamos a jugar y compartir ideas sobre este increíble juego!",
       "country": "AR",
-      "favCards": []
+      "favCards": [],
+      "status": true
     };
 
   constructor(

@@ -6,6 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { AbstractControl, AsyncValidatorFn } from '@angular/forms';
 import { LocalStorageService } from './local-storage.service';
 import { changeStatusLogged } from '../guard/auth.guard';
+import { SnackbarService } from '../snackbar/snackbar.service';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +16,8 @@ export class AuthUserService {
 
   constructor(
     private _serviceUser: UserService,
-    private _localStorageService: LocalStorageService
+    private _localStorageService: LocalStorageService,
+    private _serviceSnackbar: SnackbarService
   ) {}
 
   async register(user: User): Promise<boolean> {
@@ -34,10 +36,17 @@ export class AuthUserService {
   async login(nick: string, password: string): Promise<User | null> {
     try {
       const res = await lastValueFrom(this._serviceUser.authUser(nick, password));
-      if (res.length > 0) {
-        this._localStorageService.setItemStorage(res[0]);
-        this.userLogged = res[0];
-        return res[0];
+      if (res.length > 0 ) {
+        if(res[0].status === false){
+          this._serviceSnackbar.emitSnackbar('Lo sentimos, este usuario esta dado de baja.','error', 'Contactenos por email.');
+          return null;
+        }else{ 
+          this._localStorageService.setItemStorage(res[0]);
+          this.userLogged = res[0];
+          return res[0];
+        }
+      }else{
+        this._serviceSnackbar.emitSnackbar('Usuario o contraseña incorrectos','error', 'Verifique los datos ingresados.');
       }
     } catch (e) {
       console.error(e);
@@ -99,7 +108,6 @@ export class AuthUserService {
     try {
       const res = await lastValueFrom(this._serviceUser.update(user));
       if (res) {
-        this._localStorageService.setItemStorage(user);
         this.userLogged = user;
         return res;
       }
