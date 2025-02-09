@@ -18,7 +18,7 @@ export class UserComponent implements OnInit {
   user: User = User.emptyUser();
   showFavCardsComponent: boolean = false;
 
-  dataFake : User =
+  dataFake: User =
     {
       "id": "1",
       "nick": "Papitas",
@@ -34,11 +34,11 @@ export class UserComponent implements OnInit {
   constructor(
     private _localStorageService: LocalStorageService,
     private _scrollService: ScrollService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
-    this.user = this.dataFake;
-    //this.loadProfile();
+    //this.user = this.dataFake;
+    this.loadProfile();
   }
 
   loadProfile(): void {
@@ -49,7 +49,9 @@ export class UserComponent implements OnInit {
     }
   }
 
-  showFavoriteCards( event : any): void {
+
+
+  showFavoriteCards(event: any): void {
     this.showFavCardsComponent = event;
     this._scrollService.scrollToComponent('favorite-cards_content');
   }

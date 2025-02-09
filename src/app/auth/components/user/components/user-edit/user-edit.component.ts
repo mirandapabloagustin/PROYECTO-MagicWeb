@@ -58,6 +58,21 @@ export class UserEditComponent {
     });
   }
 
+  ToUser(formValues : FormGroup) : User{
+    const user = new User();
+    Object.keys(user).forEach((key) => {
+      if (formValues.get(key)?.value !== '') { 
+        (user as any)[key] = formValues.get(key)?.value;
+      }else if (key === 'description'){
+          user.description = this.data.description;
+        }
+    });
+    if(formValues.get('newPass')?.value !== ''){
+      user.password = formValues.get('newPass')?.value;
+    }
+    return user;
+  }
+
   isEmptyFields(form: FormGroup): boolean {
     let isEmpty = true;
     Object.keys(form.controls).forEach((key) => {
@@ -120,12 +135,8 @@ export class UserEditComponent {
           'Vuelva a intentarlo...'
         );
       } else {
-        this.dialogRef.close(this.formEditProfile.value as User);
-        this._snackbarService.emitSnackbar(
-          'Los cambios realizados se guardaron correctamente.',
-          'success',
-          'Datos Guardados.'
-        );
+        const value = this.ToUser(this.formEditProfile);
+        this.dialogRef.close(value);
       }
     } else {
       this.dialogRef.close();

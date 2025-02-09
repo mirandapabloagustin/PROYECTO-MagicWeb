@@ -95,5 +95,21 @@ export class AuthUserService {
     return this.userLogged;
   }
 
+  async updateUser(user: User): Promise<User> {
+    try {
+      const res = await lastValueFrom(this._serviceUser.update(user));
+      if (res) {
+        this._localStorageService.setItemStorage(user);
+        this.userLogged = user;
+        return res;
+      }
+    } catch (e) {
+      console.error(e);
+    }
+    return this.userLogged;
+  }
+
+
+
 
 }

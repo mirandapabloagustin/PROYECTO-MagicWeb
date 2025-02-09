@@ -5,7 +5,7 @@ import { authGuard } from '@services/guard/auth.guard';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'decks',
+    redirectTo: 'landing',
     pathMatch: 'full'
   },
   {
@@ -23,16 +23,17 @@ export const routes: Routes = [
   {
     path: 'main',
     loadComponent: () => import('./main/main.component').then(m => m.MainComponent),
-    //canActivate: [authGuard]
+    canActivate: [authGuard]
   },
   {
     path: 'profile',
     loadComponent: () => import('./auth/components/user/user.component').then(m => m.UserComponent),
-    //canActivate: [authGuard]
+    canActivate: [authGuard]
   },
   {
     path: 'decks',
     loadComponent: () => import('./decks/decks.component').then(m => m.DecksComponent),
+    canActivate: [authGuard]
   },
   {
     path: '**',

@@ -36,7 +36,7 @@ export class UserService {
 
 
 
-  updateUser(user: User): Observable<User>  {
+  update(user: User): Observable<User>  {
     return this.http.put<User>(`${this._ev}/${this._typeEndpoint[0]}/${user.id}`, user);
   }
 
