@@ -9,14 +9,11 @@ import { enviorment } from 'src/enviroments/enviroment';
 })
 export class CardsService {
   private _ev = enviorment.apiUrl;
-  private _typeEndpoint = [
-    'cards',
-    'sets'
-  ];
+  
   constructor(private http: HttpClient) {}
 
   search(queryParams: string): Observable<any> {
-    return this.http.get<any>(`${this._ev}/${this._typeEndpoint[0]}/search?${queryParams}`);
+    return this.http.get<any>(`${this._ev}/cards/search?${queryParams}`);
   }
 
   getByUrl(url: string): Observable<any[]> {

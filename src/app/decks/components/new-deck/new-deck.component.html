@@ -1,0 +1,70 @@
+<article class="create-deck_container">
+    <div class="create-deck-title_group">
+        <h2 class="title-new-deck">
+            &#9889;Forja tu mazo&#9889;
+        </h2>
+        <p class="subtitle-new-deck">La imagen de tu mazo la puedes seleccionar del conjuntos de cartas que tengas agregadas. </p>
+    </div>
+
+    <form class="new-deck-form_content" (submit)="  createNewDeck($event)" [formGroup]="formCreateDeck">
+
+        <!--  INPUT NAME  -->
+        <div class="inputs-deck_group">
+            <label for="name" class="lable_form">Nombre del Mazo</label>
+            <input type="text" class="input_form" name="name" id="name" formControlName="name">
+            @if(hasExistsError('name','nameExists')) {
+                <small id="error-nick" class="form__error-text" role="alert">* El nick ya está en uso. *</small>
+            }@else if (hasExistsError('name','minlength')) {
+                <small id="error-nick" class="form__error-text" role="alert">* El nombre debe tener al menos 3 caracteres. *</small>
+            }@else if (hasExistsError('name','maxlength')) {
+                <small id="error-nick" class="form__error-text" role="alert">* El nombre debe tener menos de 20 caracteres. *</small>
+            }
+        </div>
+
+        <!--  INPUT DESCRIPTION  -->
+        <div class="inputs-deck_group">
+            <label for="description" class="lable_form">Descripción</label>
+            <textarea class="textarea_form" name="description" id="description" formControlName="description" (input)="countWordsDescription()"></textarea>
+            <div class="count-words_group">
+                @if(hasExistsError('description','minlength')) {
+                <small id="error-nick" class="form__error-text" role="alert">* Debe tener al menos 5 caracteres.
+                    *</small>
+                }@else if (hasExistsError('description','pattern')) {
+                <small id="error-nick" class="form__error-text" role="alert">* No se permiten caracteres especiales. *</small>
+                }
+                <div class="count-text">
+                    <span class="count-words"> {{countWords }} / {{limitWords}} </span>
+                </div>
+            </div>
+        </div>
+
+        <!--  INPUT TAGS  -->
+        <div class="inputs-deck_group">
+            <label for="tags" class="lable_form">Etiquetas</label>
+            @if(formCreateDeck.get('tags')?.value?.length > 0) {
+                <div class="show-tag-select_group">
+                    @for (tag of formCreateDeck.get('tags')?.value; track $index) {
+                        <label for="tag-selected">{{tag}}</label>
+                    }
+                </div>
+            }
+            <div class="tag-select_group">
+                @for (item of tagsDecks; track $index) {
+                    <div class="tag-selected">
+                        <input type="checkbox" name="tag" [id]="item" [value]="item" class="input-opt_tag"
+                        (change)="addTag($event, item)"
+                        >
+                        <label [for]="item" class="label-tag" >{{ item }}</label>
+                    </div>
+                }
+            </div>            
+        </div>
+
+        <!--  BUTTONS  -->
+        <div class="create-deck_buttons">
+            <button class="btn btn-primary" type="submit">Crear Mazo</button>
+            <button class="btn btn-primary" type="submit" (click)="onCancel()">Cancelar</button>
+        </div>
+    </form>
+
+</article>

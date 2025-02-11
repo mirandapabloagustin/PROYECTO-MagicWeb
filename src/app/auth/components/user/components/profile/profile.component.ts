@@ -6,7 +6,6 @@ import { ConfirmDialogComponent } from '@app/shared/confirm-dialog/confirm-dialo
 import { Router } from '@angular/router';
 import { AuthUserService } from '@app/core/services/user/auth-user.service';
 import { SnackbarService } from '@app/core/services/snackbar/snackbar.service';
-import { LocalStorageService } from '@app/core/services/user/local-storage.service';
 
 @Component({
   selector: 'app-profile',
@@ -46,7 +45,6 @@ export class ProfileComponent {
     private _matDialog: MatDialog,
     private _serviceUser: AuthUserService,
     private _snackbarService: SnackbarService,
-    private _login: LocalStorageService
   ) { }
 
   reloadProfile() {

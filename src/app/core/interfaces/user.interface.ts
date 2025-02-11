@@ -7,6 +7,7 @@ export interface Iuser {
     password: string | null;
     description: string | null;
     country: string | null;
+    idDeckRef: string | null;
     favCards: any[] | null;
     status: boolean | undefined;
   }

@@ -9,6 +9,7 @@ export class User implements Iuser {
     password: string | null;
     description: string | null;
     country: string | null;
+    idDeckRef: string | null;
     favCards: any[] | null;
     status: boolean | undefined;
 
@@ -21,6 +22,7 @@ export class User implements Iuser {
         this.password = user?.password == undefined ? '' : user.password;
         this.description = "Amante de Magic: The Gathering, siempre en busca de nuevos mazos y estrategias. Mi color favorito de maná es [Inserta tu color aquí] y disfruto jugando con [tu tipo de mazo o comandante favorito]. ¡Vamos a jugar y compartir ideas sobre este increíble juego!";
         this.country = user?.country == undefined ? '' : user.country;
+        this.idDeckRef = user?.idDeckRef == undefined ? '' : user.idDeckRef;
         this.favCards = user?.favCards == undefined ? [] : user.favCards;
         this.status = user?.status == undefined ? true : user.status;
     }
@@ -35,6 +37,7 @@ export class User implements Iuser {
             password: '',
             description: '',
             country: '',
+            idDeckRef: '',
             favCards: [],
             status: true
         }

@@ -1,0 +1,120 @@
+.create-deck_container{
+    padding: 1rem 3rem;
+
+
+}
+
+.create-deck-title_group{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: start;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.title-new-deck{
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.new-deck-form_content{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    row-gap: 0.5rem;
+    align-items: center;
+    justify-content: start;
+}
+
+.inputs-deck_group{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.lable_form{
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.input_form{
+    width: 100%;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+
+.textarea_form{
+    min-height: 5lh;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    resize: none;
+  }
+  .count-words_group{
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 8px;
+  }
+  .count-text{
+    grid-column: 2; 
+    display: flex;
+    justify-content: end;
+  }
+
+.tag-select_group{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    grid-template-rows: 2;
+    gap: 0.5rem;
+}
+.tag-selected{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.2rem 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 1.5rem;
+    transition: all 0.3s;
+}
+.tag-selected:hover{
+    cursor: pointer;
+    background-color: var(--bg-color);
+    box-shadow: 1px 0px 10px  rgba(85, 85, 85, 0.932);
+}
+
+  .input-opt_tag{
+    display: none;
+  }
+  .label-tag{
+    cursor: pointer;
+    color: var(--fondo);
+  }
+
+/* STYLES ERRORS FORM */
+
+.form__error-status{
+    background-color: var(--bg-color-error);
+    border: 2px solid var(--border-color-error);
+  }
+  
+  .form__error-text{
+    color: var(--color-error);
+    font-size: 0.8rem;
+    font-weight: 400;
+  }

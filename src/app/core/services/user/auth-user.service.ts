@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, catchError, lastValueFrom, map, of } from 'rxjs';
+import { catchError, lastValueFrom, map, of } from 'rxjs';
 import { UserService } from './user.service';
 import { User } from '@app/core/models/user.model';
 import { v4 as uuidv4 } from 'uuid';
@@ -23,6 +23,7 @@ export class AuthUserService {
   async register(user: User): Promise<boolean> {
     try {
       user.id = uuidv4();
+      user.idDeckRef = uuidv4();
       const res = await lastValueFrom(this._serviceUser.createUser(user));
       if (res) {
         return true;
