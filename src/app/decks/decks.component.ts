@@ -1,8 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { HeaderComponent } from "../shared/header/header.component";
 import { FooterComponent } from "../shared/footer/footer.component";
 import { ListDecksComponent } from "./components/list-decks/list-decks.component";
 import { FilterDecksComponent } from "./components/filter-decks/filter-decks.component";
+import { User } from '@app/core/models/user.model';
 
 @Component({
   selector: 'app-decks',
@@ -11,8 +12,8 @@ import { FilterDecksComponent } from "./components/filter-decks/filter-decks.com
   templateUrl: './decks.component.html',
   styleUrl: './decks.component.css'
 })
-export class DecksComponent {
-
+export class DecksComponent implements OnInit {
+  userLogged: User = new User();
   @Input() decksUser: any;
 
   constructor() {}
@@ -80,6 +81,10 @@ export class DecksComponent {
       cards: []
     }
   ]
+
+  ngOnInit() {
+
+  }
 
 
 

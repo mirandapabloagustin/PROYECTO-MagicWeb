@@ -53,7 +53,7 @@
     outline: none;
 }
 
-
+/*  TEXTAREA STYLE  */
 .textarea_form{
     min-height: 5lh;
     padding: 0.5rem 1rem;
@@ -76,11 +76,15 @@
     justify-content: end;
   }
 
+
+  /* TAG SELECTED STYLE */
+
 .tag-select_group{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     grid-template-rows: 2;
     gap: 0.5rem;
+    margin-bottom: 1rem;
 }
 .tag-selected{
     display: flex;
@@ -91,11 +95,18 @@
     border: 1px solid var(--border-color);
     border-radius: 1.5rem;
     transition: all 0.3s;
+    cursor: pointer;
 }
 .tag-selected:hover{
     cursor: pointer;
-    background-color: var(--bg-color);
     box-shadow: 1px 0px 10px  rgba(85, 85, 85, 0.932);
+}
+.selected{
+    background-color: var(--bg-black-color);
+    border: 1px solid transparent;
+    .label-tag{
+        color: var(--text-color);
+    }
 }
 
   .input-opt_tag{
@@ -105,6 +116,58 @@
     cursor: pointer;
     color: var(--fondo);
   }
+
+
+/*  STYLE BOTTONS  */
+
+.confirm-deck-btn_group{
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+  gap: 1rem;
+}
+
+.create-btn-style{
+  border-radius: 2rem;
+  width: max-content;
+  min-width: 150px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 0.8rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  gap: 1rem;
+  transition: all 0.3s;
+}
+
+.create-deck_btn{
+  border: 2px solid var(--active-green);
+  background-color: white;
+  color: var(--active-green);
+}
+
+.create-deck_btn:active{
+  scale: 0.98;
+  background-color: var(--active-green);
+  color: white;
+}
+
+.cancel-deck_btn{
+  background-color: var(--bg-color-buttom-dark-red);
+  color: var(--text-color);
+}
+
+.cancel-deck_btn:active{
+  scale: 0.98;
+  background-color: var(--active-red);
+  color: white;
+}
+
 
 /* STYLES ERRORS FORM */
 

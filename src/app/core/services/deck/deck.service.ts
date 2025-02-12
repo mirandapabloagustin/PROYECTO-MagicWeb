@@ -8,28 +8,28 @@ import { enviorment } from 'src/enviroments/enviroment';
   providedIn: 'root'
 })
 export class DeckService {
-  private _ev = enviorment.apiUrl;
+  private _ev = enviorment.apiUser;
 
   constructor(private http: HttpClient) { }
 
   all() : Observable<Deck[]> {
-    return this.http.get<Deck[]>(`${this._ev}/deck`);
+    return this.http.get<Deck[]>(`${this._ev}/decks`);
   }
 
-  create(deck : Deck) : Observable<Deck> {
-    return this.http.post<Deck>(`${this._ev}/deck`, deck);	
+  create(deck : Deck) : Observable<Deck[]> {
+    return this.http.post<Deck[]>(`${this._ev}/decks`, deck);	
   }
 
   update(deck : Deck) : Observable<Deck> {
-    return this.http.put<Deck>(`${this._ev}/deck/${deck.id}`, deck);
+    return this.http.put<Deck>(`${this._ev}/decks/${deck.id}`, deck);
   }
 
   delete(id : string) : Observable<Deck> {
-    return this.http.delete<Deck>(`${this._ev}/deck/${id}`);
+    return this.http.delete<Deck>(`${this._ev}/decks/${id}`);
   }
 
   getByUserId(id : string) : Observable<Deck[]> {
-    return this.http.get<Deck[]>(`${this._ev}/deck?userId=${id}`);
+    return this.http.get<Deck[]>(`${this._ev}/decks?userId=${id}`);
   }
 
 

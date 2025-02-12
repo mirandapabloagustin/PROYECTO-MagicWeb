@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { Deck } from '@app/core/models/deck.model';
+import { AuthDeckService } from '@app/core/services/deck/auth.deck.service';
 import { DeckService } from '@app/core/services/deck/deck.service';
+import { SnackbarService } from '@app/core/services/snackbar/snackbar.service';
 @Component({
   selector: 'app-new-deck',
   standalone: true,
@@ -18,8 +21,9 @@ export class NewDeckComponent {
 
   constructor(
     public dialogRef: MatDialogRef<NewDeckComponent>,
-    private _deckService: DeckService,
-    private _builderForm: FormBuilder
+    private _deckService: AuthDeckService,
+    private _builderForm: FormBuilder,
+    private _snackbarService: SnackbarService
   ) {
     this.formCreateDeck = this._builderForm.group({
       name: ['',
@@ -29,17 +33,34 @@ export class NewDeckComponent {
         [Validators.required, Validators.minLength(5),Validators.maxLength(300),Validators.pattern(/^[a-zA-ZÀ-ÿ0-9\s.,!?()'":-]/)]
       ],
       tags: [[],
-        [Validators.required]
       ],
     });
   }
 
-  createNewDeck(event: Event) {
-    console.log(this.formCreateDeck.value);
+  async createNewDeck(event: Event) {
+    event.preventDefault(); 
+    const deck = this.toDeckClass();
+    try{
+      const res = await this._deckService.createDeck(deck);
+      res ? this.dialogRef.close(true) : this.dialogRef.close(false);
+    }catch(e){
+      this._snackbarService.emitSnackbar('Tuvimos inconvenientes para poder generar tu mazo.', 'error','Vuele a intentarlo mas tarde...');
+    }
   }
 
   onCancel() {
     this.dialogRef.close();
+  }
+
+  toDeckClass(): Deck{
+    const deck = new Deck();
+    deck.name = this.formCreateDeck.get('name')?.value;
+    deck.description = this.formCreateDeck.get('description')?.value;
+    deck.tags = this.formCreateDeck.get('tags')?.value;
+    deck.imgDeck = 'https://via.placeholder.com/200x150';
+    deck.createdAt = new Date();
+    deck.updatedAt = new Date();
+    return deck;
   }
 
   addTag( event : any,tag: string) {
@@ -50,7 +71,15 @@ export class NewDeckComponent {
       const index = tags.indexOf(tag);
       tags.splice(index,1);
     }
-    console.log(tags);
+    this.formCreateDeck.get('tags')?.setValue(tags);
+  }
+  chageStyleTag(index: number) {
+    const element = document.getElementById(index.toString());
+    if(element?.classList.contains('selected')){
+      element?.classList.remove('selected');
+    }else{
+      element?.classList.add('selected');
+    }
   }
 
     // CACHT ERROR

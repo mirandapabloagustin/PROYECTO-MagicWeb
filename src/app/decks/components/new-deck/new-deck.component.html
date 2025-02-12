@@ -6,7 +6,7 @@
         <p class="subtitle-new-deck">La imagen de tu mazo la puedes seleccionar del conjuntos de cartas que tengas agregadas. </p>
     </div>
 
-    <form class="new-deck-form_content" (submit)="  createNewDeck($event)" [formGroup]="formCreateDeck">
+    <form class="new-deck-form_content" (submit)="createNewDeck($event)" [formGroup]="formCreateDeck">
 
         <!--  INPUT NAME  -->
         <div class="inputs-deck_group">
@@ -18,6 +18,10 @@
                 <small id="error-nick" class="form__error-text" role="alert">* El nombre debe tener al menos 3 caracteres. *</small>
             }@else if (hasExistsError('name','maxlength')) {
                 <small id="error-nick" class="form__error-text" role="alert">* El nombre debe tener menos de 20 caracteres. *</small>
+            }@else if (formCreateDeck.get('name')?.touched) {
+                @if(hasExistsError('name','required')){
+                    <small id="error-nick" class="form__error-text" role="alert">* El nombre es requerido. *</small>
+                }
             }
         </div>
 
@@ -31,6 +35,10 @@
                     *</small>
                 }@else if (hasExistsError('description','pattern')) {
                 <small id="error-nick" class="form__error-text" role="alert">* No se permiten caracteres especiales. *</small>
+                }@else if (formCreateDeck.get('name')?.touched) {
+                    @if(hasExistsError('description','required')){
+                        <small id="error-nick" class="form__error-text" role="alert">* La description es requerido. *</small>
+                    }
                 }
                 <div class="count-text">
                     <span class="count-words"> {{countWords }} / {{limitWords}} </span>
@@ -41,29 +49,22 @@
         <!--  INPUT TAGS  -->
         <div class="inputs-deck_group">
             <label for="tags" class="lable_form">Etiquetas</label>
-            @if(formCreateDeck.get('tags')?.value?.length > 0) {
-                <div class="show-tag-select_group">
-                    @for (tag of formCreateDeck.get('tags')?.value; track $index) {
-                        <label for="tag-selected">{{tag}}</label>
-                    }
-                </div>
-            }
             <div class="tag-select_group">
                 @for (item of tagsDecks; track $index) {
-                    <div class="tag-selected">
+                    <div class="tag-selected" [id]="$index">
                         <input type="checkbox" name="tag" [id]="item" [value]="item" class="input-opt_tag"
-                        (change)="addTag($event, item)"
+                        (change)="addTag($event, item)" (click)="chageStyleTag($index)"
                         >
                         <label [for]="item" class="label-tag" >{{ item }}</label>
                     </div>
                 }
-            </div>            
+            </div>      
         </div>
 
         <!--  BUTTONS  -->
-        <div class="create-deck_buttons">
-            <button class="btn btn-primary" type="submit">Crear Mazo</button>
-            <button class="btn btn-primary" type="submit" (click)="onCancel()">Cancelar</button>
+        <div class="confirm-deck-btn_group">
+            <button class="create-deck_btn create-btn-style" [disabled]="formCreateDeck.invalid" type="submit">Crear Mazo</button>
+            <button class="cancel-deck_btn create-btn-style" (click)="onCancel()">Cancelar</button>
         </div>
     </form>
 
