@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Deck } from '@core/models/deck.model';
 
 @Component({
@@ -11,10 +12,12 @@ import { Deck } from '@core/models/deck.model';
 export class DeckCardComponent {
   @Input() deckUser: Deck | undefined;
 
-  constructor() {}
+  constructor(
+    private _router : Router,
+  ) {}
 
   goToDeck(id: any) {
-    console.log('Go to deck:', id);
+    this._router.navigate(['/decks', id]);
   }
 
   getDeckColorImg(color: string) {
