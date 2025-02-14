@@ -1,0 +1,113 @@
+.view-deck_container {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  border: 3px solid #04ffea;
+}
+.deck-details_container{
+  background-color: var(--bg-green-color);
+  border: 2px solid red;
+  width: 400px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding: 1rem;
+  padding-top: 6rem;
+  gap: 2rem;
+  box-sizing: border-box;
+}
+.view_container{
+  border: 2px solid blue;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* STYLE DETAILS*/
+.detail-deck_group{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.title-details{
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--text-color);
+  margin:0;
+  text-shadow: 0 7px 8px rgba(0, 0, 0, 0.308);
+}
+
+.image-deck_group{
+  width: 100%;
+}
+.image_deck{
+  border: 1px solid rgba(0, 0, 0, 0.216);
+  box-shadow: 0 7px 8px rgba(0, 0, 0, 0.308);
+  width: 100%;
+  height: 100%;
+  border-radius:15px;
+}
+.last-update_group{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: end;
+}
+.text-update{
+  position: absolute;
+  top: -25px;
+  right: -5px;
+  border: 1px solid rgba(0, 0, 0, 0.216);
+  border-radius: 2rem;
+  box-shadow: 0 7px 8px rgba(0, 0, 0, 0.308);
+  padding: 5px 10px;
+  background-color: #eee;
+  color: var(--fondo);
+}
+
+.title-deck{
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: var(--text-color);
+  margin:0;
+  text-shadow: 0 7px 8px rgba(0, 0, 0, 0.308);
+}
+
+.descrip-deck{
+  font-size: 1.2rem;
+  color: var(--text-color);
+  margin:0;
+}
+
+.color-deck_group{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.color-deck_container{
+  width: min-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap : 0.5rem;
+  padding-left: 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.216);
+  border-radius: 2rem;
+  box-shadow: 0 7px 8px rgba(0, 0, 0, 0.308);
+  padding: 5px 10px;
+  background-color: #eee;
+}
+.color-deck{
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.365);
+  box-shadow: 0 7px 8px rgba(0, 0, 0, 0.204);
+}

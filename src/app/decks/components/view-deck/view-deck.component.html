@@ -1,0 +1,37 @@
+<app-header></app-header>
+<div class="view-deck_container">
+  <section class="deck-details_container">
+
+    <div class="image-deck_group">
+      <img class="image_deck" [src]="fake.imgDeck" [alt]="fake.name">
+      <div class="last-update_group">
+        <small class="text-update">update: {{transformDate('update',fake)}}</small>
+      </div>
+      
+    </div>
+    <div class="detail-deck_group">
+      <div class="title-deck_group">
+        <h3 class="title-deck">{{fake.name}}</h3>
+      </div>
+      <div class="descrip-deck_group">
+        <h4 class="title-details">Descripcion</h4>
+        <p class="descrip-deck">{{fake.description}}</p>
+      </div>
+      <div class="color-deck_group">
+        <h4 class="title-details">Colores</h4>
+        <div class="color-deck_container">
+        @for (color of fake.colors ; track $index) {
+          <img class="color-deck" [src]="getDeckColorImg(color)" alt="color">
+        }
+        </div>
+      </div>
+
+    </div>
+
+
+  </section>
+  <section class="view_container">
+
+  </section>
+</div>
+<app-footer></app-footer>
