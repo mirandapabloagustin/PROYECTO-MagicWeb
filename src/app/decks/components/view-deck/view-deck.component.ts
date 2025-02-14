@@ -16,14 +16,14 @@ export class ViewDeckComponent implements OnInit {
   fake: Deck = {
     id: '1234',
     userId: '5678',
-    name: 'Deck Name',
+    name: 'Amorfeus Analalum Rotoruz',
     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas ut consequatur accusantium at facere tempora labore quia exercitationem obcaecati.',
     imgDeck: 'https://cards.scryfall.io/art_crop/front/9/8/98739789-80b5-4224-a2e4-09e00654aa9d.jpg?1637082308',
     tags: ['agro', 'control'],
     createdAt: new Date(),
     updatedAt: new Date(),
     manaRatio: 0,
-    colors: ['R', 'B'],
+    colors: ['R', 'B','U','G','W','MANA'],
     votes: 0,
     cards: []
   }
@@ -38,6 +38,25 @@ export class ViewDeckComponent implements OnInit {
       const id = params.get('id');
       console.log(id);
     })
+  }
+
+  getDeckColorImg(color: string) {
+    return `./icons/cards_icons/${color}.svg`;
+  }
+
+  formartDate(date: Date) {
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
+  }
+
+  transformDate(value : string, deck: Deck):string {
+    if(value === 'create') {
+      return this.formartDate(deck?.createdAt || new Date());
+    } else {
+      return this.formartDate(deck?.updatedAt || new Date());
+    }
   }
 
 
