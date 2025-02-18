@@ -28,7 +28,7 @@ export class DeckService {
     return this.http.delete<Deck>(`${this._ev}/decks/${id}`);
   }
 
-  getByUserId(id : string) : Observable<Deck[]> {
+  getDecks(id : string) : Observable<Deck[]> {
     return this.http.get<Deck[]>(`${this._ev}/decks?userId=${id}`);
   }
 

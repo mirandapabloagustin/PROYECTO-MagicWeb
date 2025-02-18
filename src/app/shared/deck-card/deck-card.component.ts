@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { LocalStorageService } from '@app/core/services/user/local-storage.service';
 import { Deck } from '@core/models/deck.model';
 
 @Component({
@@ -14,10 +15,12 @@ export class DeckCardComponent {
 
   constructor(
     private _router : Router,
+    private _local: LocalStorageService,
   ) {}
 
   goToDeck(id: any) {
-    this._router.navigate(['/decks', id]);
+    const user = this._local.getUserLogged();
+    this._router.navigate(['/',user.id,'decks', id]);
   }
 
   getDeckColorImg(color: string) {

@@ -14,8 +14,8 @@
                 >
             </li>
         <li>
-          <a href="profile" class="link"
-            ><fa-icon class="icon-transform" [icon]="icons[1]"></fa-icon></a
+          <a [routerLink]="['/',userLogged?.id]" class="link"
+            ><fa-icon class="icon-transform" [icon]="icons[1]"></fa-icon> {{userLogged?.nick}}</a
           >
         </li>
         <li>

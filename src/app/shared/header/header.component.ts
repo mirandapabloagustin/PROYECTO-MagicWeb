@@ -9,6 +9,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { Router, RouterLink } from '@angular/router';
 import { AuthUserService } from '@services/user/auth-user.service';
 import { statusLogged } from '@services/guard/auth.guard';
+import { User } from '@app/core/models/user.model';
+import { LocalStorageService } from '@app/core/services/user/local-storage.service';
 
 
 
@@ -24,20 +26,25 @@ const COMPONENTS = [FontAwesomeModule, RouterLink];
   encapsulation: ViewEncapsulation.Emulated,
 })
 export class HeaderComponent implements OnInit {
+  userLogged: User | undefined;
   public statusLogin = false;
-  userName = 'Anonimo';
   icons = [faHatWizard, faUser, faRightFromBracket, faBars];
 
   constructor(
     private _router: Router,
     private _serviceUser: AuthUserService,
+    private _local: LocalStorageService
   ) { }
 
   ngOnInit() {
     statusLogged.subscribe((status) => {
       if (status !== null) {
       this.statusLogin = status;
+      const user = this._local.getItemStorage();
+      if (user) {
+      this.userLogged = JSON.parse(user);
       }
+    }
     });
   }
 

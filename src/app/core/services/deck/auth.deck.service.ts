@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { DeckService } from './deck.service';
-import { lastValueFrom } from 'rxjs';
+import { BehaviorSubject, lastValueFrom } from 'rxjs';
 import { v4 as uuidv4 } from 'uuid';
 import { Deck } from '@app/core/models/deck.model';
 import { AuthUserService } from '../user/auth-user.service';
@@ -11,6 +11,8 @@ import { SnackbarService } from '../snackbar/snackbar.service';
   providedIn: 'root'
 })
 export class AuthDeckService {
+  private _listDecks = new BehaviorSubject<Deck[]>([]);
+  public deckList$ = this._listDecks.asObservable();
 
   constructor(
     private _deckService: DeckService,
@@ -19,6 +21,15 @@ export class AuthDeckService {
 
   ) {
    }
+
+   async getAllDecks() {
+    try {
+      const res = await lastValueFrom(this._deckService.all());
+      this._listDecks.next(res);
+    } catch (e) {
+      console.error(e);
+    }
+  }
 
    /**
     * Metodo para crear un mazo
@@ -33,6 +44,7 @@ export class AuthDeckService {
       const deckFormarted = this.formatDeck(deck);
       const res = await lastValueFrom(this._deckService.create(deckFormarted));
       if (res) {
+        this._listDecks.next([...this._listDecks.getValue(), deckFormarted]);
         return true;
       }
     } catch (e) {
@@ -40,6 +52,24 @@ export class AuthDeckService {
     }
     return false;
   }
+
+  /**
+   * Metodo para obtener todos los mazos de un usuario
+   * Llama al metodo getByUserId del servicio deckService
+   * @returns {Deck[]} - Retorna un arreglo de mazos
+   */
+  async getDecksId(id: string){
+    try {
+      const res = await lastValueFrom(this._deckService.getDecks(id));
+      if(res.length > 0) {
+        this.clearContentDeck();
+        this._listDecks.next(res);
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
 
   async updateDeck(deck: any): Promise<boolean> {
     try {
@@ -61,7 +91,7 @@ export class AuthDeckService {
       name: deck.name,
       description: deck.description,
       tags: deck.tags,
-      imgDeck: 'https://via.placeholder.com/200x150',
+      imgDeck: 'https://cards.scryfall.io/art_crop/front/f/e/feddbdc6-0757-43cb-bb41-dc83c6cf42ea.jpg?1627709701',
       createdAt: deck.createdAt,
       updatedAt: deck.updatedAt,
       manaRatio: 0,
@@ -70,6 +100,10 @@ export class AuthDeckService {
       cards: [],
     };
     return deckFormated;
+  }
+
+  private clearContentDeck() {
+    this._listDecks.next([]);
   }
 
   

@@ -16,8 +16,12 @@
     </div>
 
     <div class="list-content_group">
-      @for (deck of decks; track $index) {
-        <app-deck-card [deckUser]="deck" ></app-deck-card>
+      @if(decks.length === 0){
+        <app-empty [title]="'¡No tienes Mazos aun!'" [message]="'Forja tu primera baraja, reúne cartas poderosas y crea estrategias que desafíen a los más grandes.'"></app-empty>
+      }@else {
+        @for (deck of decks; track $index) {
+          <app-deck-card [deckUser]="deck" ></app-deck-card>
+        }
       }
     </div>
 

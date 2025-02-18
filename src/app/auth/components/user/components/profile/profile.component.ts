@@ -48,11 +48,11 @@ export class ProfileComponent {
   ) { }
 
   reloadProfile() {
-    this._routes.navigate(['/profile']);
+    this._routes.navigate(['/', this.user?.id]);
   }
 
   goToDecks() {
-    this._routes.navigate(['/decks']);
+    this._routes.navigate([this.user?.id, 'decks']);
   }
 
   goToFavorites() {

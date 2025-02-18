@@ -1,0 +1,29 @@
+.empty_container{
+    max-width: 1000px;
+    min-width: 500px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #eee;
+    border-radius: 10px;
+    padding: 20px;
+    gap: 20px;
+}
+
+.title_empty{
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+.empty-message_group{
+    width: 600px;
+    height: auto;
+}
+.message_empty{
+    font-size: 1.3rem;
+    color: #333;
+    text-align: center;
+}
