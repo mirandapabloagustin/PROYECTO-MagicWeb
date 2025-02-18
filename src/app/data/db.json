@@ -16,16 +16,83 @@
   ],
   "decks": [
     {
-      "id": "b0698df4-b680-4042-84b2-dec3f6af704d",
+      "id": "11b8b8b6-76d2-489c-8515-dfbe49e14ae0",
       "userId": "ed73f73c-a663-4b2f-9d28-a13777186d33",
-      "name": "Papitas",
-      "description": "1asd a asda a da ad asd asd asd asd asd as das",
+      "name": "Papitas asdas ",
+      "description": "asdasd asda sda sd asd asd asd asda sdasd asd asdas das da",
+      "tags": [
+        "Combo",
+        "Control",
+        "Aggro"
+      ],
+      "imgDeck": "https://cards.scryfall.io/art_crop/front/f/e/feddbdc6-0757-43cb-bb41-dc83c6cf42ea.jpg?1627709701",
+      "createdAt": "2025-02-18T13:20:41.396Z",
+      "updatedAt": "2025-02-18T13:20:41.396Z",
+      "manaRatio": 0,
+      "colors": [],
+      "votes": 0,
+      "cards": []
+    },
+    {
+      "id": "8d8fb8c0-0e71-486a-8c8f-10638b9ee2d5",
+      "userId": "ed73f73c-a663-4b2f-9d28-a13777186d33",
+      "name": "API Productos",
+      "description": "asdasda asd a asdasdasda asdasdas asd asdas",
+      "tags": [
+        "Combo",
+        "Stax"
+      ],
+      "imgDeck": "https://cards.scryfall.io/art_crop/front/f/e/feddbdc6-0757-43cb-bb41-dc83c6cf42ea.jpg?1627709701",
+      "createdAt": "2025-02-18T13:59:37.391Z",
+      "updatedAt": "2025-02-18T13:59:37.391Z",
+      "manaRatio": 0,
+      "colors": [],
+      "votes": 0,
+      "cards": []
+    },
+    {
+      "id": "59f80a3d-df98-4288-864b-e728a078804a",
+      "userId": "ed73f73c-a663-4b2f-9d28-a13777186d33",
+      "name": "Client Api Producto",
+      "description": "asdasdasdasdasdad",
       "tags": [
         "Aggro"
       ],
       "imgDeck": "https://cards.scryfall.io/art_crop/front/f/e/feddbdc6-0757-43cb-bb41-dc83c6cf42ea.jpg?1627709701",
-      "createdAt": "2025-02-18T13:18:23.898Z",
-      "updatedAt": "2025-02-18T13:18:23.898Z",
+      "createdAt": "2025-02-18T14:01:40.982Z",
+      "updatedAt": "2025-02-18T14:01:40.982Z",
+      "manaRatio": 0,
+      "colors": [],
+      "votes": 0,
+      "cards": []
+    },
+    {
+      "id": "c172a4d8-3848-436c-be73-dfd31f8d2af7",
+      "userId": "ed73f73c-a663-4b2f-9d28-a13777186d33",
+      "name": "API Productos (Test Applicat",
+      "description": "asdasdasdasdasdasd",
+      "tags": [
+        "Tempo"
+      ],
+      "imgDeck": "https://cards.scryfall.io/art_crop/front/f/e/feddbdc6-0757-43cb-bb41-dc83c6cf42ea.jpg?1627709701",
+      "createdAt": "2025-02-18T14:01:50.501Z",
+      "updatedAt": "2025-02-18T14:01:50.501Z",
+      "manaRatio": 0,
+      "colors": [],
+      "votes": 0,
+      "cards": []
+    },
+    {
+      "id": "13625e3c-0a3b-4c04-83b3-23365426fb7b",
+      "userId": "ed73f73c-a663-4b2f-9d28-a13777186d33",
+      "name": "API Productos",
+      "description": "asdasdasdasda",
+      "tags": [
+        "Control"
+      ],
+      "imgDeck": "https://cards.scryfall.io/art_crop/front/f/e/feddbdc6-0757-43cb-bb41-dc83c6cf42ea.jpg?1627709701",
+      "createdAt": "2025-02-18T14:01:56.321Z",
+      "updatedAt": "2025-02-18T14:01:56.321Z",
       "manaRatio": 0,
       "colors": [],
       "votes": 0,

@@ -48,16 +48,11 @@ export class NewDeckComponent {
     }
   }
 
-  onCancel() {
-    this.dialogRef.close();
-  }
-
   toDeckClass(): Deck{
     const deck = new Deck();
     deck.name = this.formCreateDeck.get('name')?.value;
     deck.description = this.formCreateDeck.get('description')?.value;
     deck.tags = this.formCreateDeck.get('tags')?.value;
-    deck.imgDeck = 'https://via.placeholder.com/200x150';
     deck.createdAt = new Date();
     deck.updatedAt = new Date();
     return deck;

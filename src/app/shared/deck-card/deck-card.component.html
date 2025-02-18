@@ -6,7 +6,7 @@
 
   <div class="deck-info_group">
     <h3 class="deck_title">{{ deckUser?.name }}</h3>
-    <small class="chiquitiñito" >creado el: {{transformDate('create')}}</small>
+    <small class="chiquitiñito" >creado el: {{getFormatDate(deckUser!.createdAt!.toString())}}</small>
     <p class="deck_description">Descripcion:</p>
     <small class="descripcion-text">{{ deckUser?.description }}</small>
 
@@ -21,20 +21,24 @@
 
   <div class="deck-color_group">
 
-
+    @if(deckUser?.colors!.length > 1) {
       <div class="color_content">
-        @for (color of deckUser?.colors ; track $index) {
+      @for (color of deckUser?.colors ; track $index) {
           <img class="deck-color_img" [src]="getDeckColorImg(color)" alt="color.deck">
         }
-      </div>
-
+      </div> 
+      }@else {
+        <div class="non_group">
+          <small class="non-content-msj">No contiene cartas</small>
+        </div>
+      }
 
   </div>
 
   <div class="create-date_group">
 
     <div class="creater_content">
-      <span class="create-deck_info">{{ transformDate('update') }}</span>
+      <span class="create-deck_info">{{getFormatDate(deckUser!.updatedAt!.toString())}}</span>
     </div>
 
   </div>

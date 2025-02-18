@@ -1,4 +1,3 @@
-import { DeckService } from '@core/services/deck/deck.service';
 import { DeckCardComponent } from '@shared/deck-card/deck-card.component';
 import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
@@ -24,10 +23,6 @@ export class ListDecksComponent {
       width: '1000px',
       panelClass: 'dialog-new-deck_container',
     })
-
-    dialogNewDeckRef.afterClosed().subscribe((res) => {
-      res ? console.log('Deck created') : console.log('Deck not created');
-    });
   }
 
 }

@@ -157,17 +157,6 @@
   color: white;
 }
 
-.cancel-deck_btn{
-  background-color: var(--bg-color-buttom-dark-red);
-  color: var(--text-color);
-}
-
-.cancel-deck_btn:active{
-  scale: 0.98;
-  background-color: var(--active-red);
-  color: white;
-}
-
 
 /* STYLES ERRORS FORM */
 

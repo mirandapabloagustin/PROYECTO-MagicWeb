@@ -24,6 +24,7 @@
   align-items: center;
   gap: 5rem;
   box-sizing: border-box;
+  overflow-y: auto;
 }
 
 .top-list_group{

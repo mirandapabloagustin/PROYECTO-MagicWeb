@@ -27,19 +27,16 @@ export class DeckCardComponent {
     return `./icons/cards_icons/${color}.svg`;
   }
 
-  transformDate(value : string) {
-    const date = '';
-    if(value === 'create') {
-    const day = this.deckUser?.createdAt?.getDate().toString().padStart(2, '0');
-    const month = this.deckUser?.createdAt ? (this.deckUser.createdAt.getMonth() + 1).toString().padStart(2, '0') : '';
-    const year = this.deckUser?.createdAt?.getFullYear();
-    return `${day}/${month}/${year}`;
-    } else {
-      const day = this.deckUser?.updatedAt?.getDate().toString().padStart(2, '0');
-      const month = this.deckUser?.updatedAt ? (this.deckUser.updatedAt.getMonth() + 1).toString().padStart(2, '0') : '';
-      const year = this.deckUser?.updatedAt?.getFullYear();
-      return `${day}/${month}/${year}`;
-    }
-  }
+formatDate(date: Date): string {
+  const day = date.getDate().toString().padStart(2, '0');
+  const month = (date.getMonth() + 1).toString().padStart(2, '0');
+  const year = date.getFullYear();
+  return `${day}/${month}/${year}`;
+}
+
+getFormatDate(value: string) {
+  const date = new Date(value);
+  return this.formatDate(date);
+}
 
 }
