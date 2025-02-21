@@ -6,6 +6,7 @@ import { Deck } from '@app/core/models/deck.model';
 import { AuthUserService } from '../user/auth-user.service';
 import { LocalStorageService } from '../user/local-storage.service';
 import { SnackbarService } from '../snackbar/snackbar.service';
+import { FilterDeckDTO } from '@app/core/models/dto/filter.deck.dto.model';
 
 @Injectable({
   providedIn: 'root'
@@ -16,13 +17,14 @@ export class AuthDeckService {
 
   constructor(
     private _deckService: DeckService,
-    private _local : LocalStorageService,
+    private _local: LocalStorageService,
     private _snackBar: SnackbarService
 
   ) {
-   }
+  }
 
-   async getAllDecks() {
+
+  async getAllDecks() {
     try {
       const res = await lastValueFrom(this._deckService.all());
       this._listDecks.next(res);
@@ -31,15 +33,15 @@ export class AuthDeckService {
     }
   }
 
-   /**
-    * Metodo para crear un mazo
-    * Primero le asiga una id con la funcion uuidv4
-    * Luego llama al metodo create del servicio deckService
-    * Verifica si se creo el mazo.
-    * @param {deck} deck - Mazo q contiene la informacion del mazo a crear 
-    * @returns {boolean} - Retorna true si se creo el mazo, false si no se pudo crear
-    */
-   async createDeck(deck: Deck): Promise<boolean> {
+  /**
+   * Metodo para crear un mazo
+   * Primero le asiga una id con la funcion uuidv4
+   * Luego llama al metodo create del servicio deckService
+   * Verifica si se creo el mazo.
+   * @param {deck} deck - Mazo q contiene la informacion del mazo a crear 
+   * @returns {boolean} - Retorna true si se creo el mazo, false si no se pudo crear
+   */
+  async createDeck(deck: Deck): Promise<boolean> {
     try {
       const deckFormarted = this.formatDeck(deck);
       const res = await lastValueFrom(this._deckService.create(deckFormarted));
@@ -48,7 +50,7 @@ export class AuthDeckService {
         return true;
       }
     } catch (e) {
-      this._snackBar.emitSnackbar('Tuvimos inconvenientes para poder crear tu mazo.', 'error','Vuelva a intentarlo mas tarde...');
+      this._snackBar.emitSnackbar('Tuvimos inconvenientes para poder crear tu mazo.', 'error', 'Vuelva a intentarlo mas tarde...');
     }
     return false;
   }
@@ -58,10 +60,10 @@ export class AuthDeckService {
    * Llama al metodo getByUserId del servicio deckService
    * @returns {Deck[]} - Retorna un arreglo de mazos
    */
-  async getDecksId(id: string){
+  async getDecksId(id: string) {
     try {
       const res = await lastValueFrom(this._deckService.getDecks(id));
-      if(res.length > 0) {
+      if (res.length > 0) {
         this.clearContentDeck();
         this._listDecks.next(res);
       }
@@ -70,7 +72,41 @@ export class AuthDeckService {
     }
   }
 
+  /**
+   * Metodo para obtener un mazo por parametros
+   * Primero verifica si el filtro esta vacio
+   * Obtiene los mazos de la lista de mazos
+   * Luego filtra los mazos por nombre, mana, tag y colores
+   * Retorna los mazos filtrados
+   * @param {FilterDeckDTO} filter - Filtro para buscar mazos
+   * @returns {Deck} - Retorna un mazo
+   */
+  getDecksByFilter(filter: FilterDeckDTO): Deck[] {
+    if (!this.checkFilterEmpty(filter)) {
+      const decks = this._listDecks.getValue();
 
+      const filterDecks = decks.filter(deck => {
+        const name = deck.name === filter.name;
+        const mana = deck.manaRatio !== null && deck.manaRatio.toString() == filter.mana;
+        const tag = deck.tags && deck.tags.includes(filter.tag);
+        if (filter.colors.length > 0) {
+          const colors = filter.colors.every(color => deck.colors?.includes(color));
+          return name || mana || tag || colors;
+        }
+        return name || mana || tag;
+      });
+      return filterDecks;
+    }
+    return this._listDecks.getValue();
+  }
+
+
+  /**
+   * Metodo para actualizar un mazo
+   * Llama al metodo update del servicio deckService
+   * @param {deck} deck - Mazo q contiene la informacion del mazo a actualizar
+   * @returns {boolean} - Retorna true si se actualizo el mazo, false si no se pudo actualizar
+   */
   async updateDeck(deck: any): Promise<boolean> {
     try {
       const res = await lastValueFrom(this._deckService.update(deck));
@@ -106,8 +142,15 @@ export class AuthDeckService {
     this._listDecks.next([]);
   }
 
-  
-   
+  checkFilterEmpty(filter: FilterDeckDTO): boolean {
+    if (filter.name === '' && filter.mana === '' && filter.tag === '' && filter.colors.length === 0) {
+      return true;
+    }
+    return false;
+  }
+
+
+
 
 
 }

@@ -16,85 +16,80 @@
   ],
   "decks": [
     {
-      "id": "11b8b8b6-76d2-489c-8515-dfbe49e14ae0",
+      "id": "ff152af8-5857-40e3-b413-df7cc02a20a1",
       "userId": "ed73f73c-a663-4b2f-9d28-a13777186d33",
-      "name": "Papitas asdas ",
-      "description": "asdasd asda sda sd asd asd asd asda sdasd asd asdas das da",
+      "name": "Papitas deck",
+      "description": "asdasd asdasd asdasd asdasda asdasda asdasd",
       "tags": [
-        "Combo",
-        "Control",
-        "Aggro"
-      ],
-      "imgDeck": "https://cards.scryfall.io/art_crop/front/f/e/feddbdc6-0757-43cb-bb41-dc83c6cf42ea.jpg?1627709701",
-      "createdAt": "2025-02-18T13:20:41.396Z",
-      "updatedAt": "2025-02-18T13:20:41.396Z",
-      "manaRatio": 0,
-      "colors": [],
-      "votes": 0,
-      "cards": []
-    },
-    {
-      "id": "8d8fb8c0-0e71-486a-8c8f-10638b9ee2d5",
-      "userId": "ed73f73c-a663-4b2f-9d28-a13777186d33",
-      "name": "API Productos",
-      "description": "asdasda asd a asdasdasda asdasdas asd asdas",
-      "tags": [
-        "Combo",
+        "Aggro",
+        "Ramp",
         "Stax"
       ],
       "imgDeck": "https://cards.scryfall.io/art_crop/front/f/e/feddbdc6-0757-43cb-bb41-dc83c6cf42ea.jpg?1627709701",
-      "createdAt": "2025-02-18T13:59:37.391Z",
-      "updatedAt": "2025-02-18T13:59:37.391Z",
-      "manaRatio": 0,
-      "colors": [],
-      "votes": 0,
-      "cards": []
-    },
-    {
-      "id": "59f80a3d-df98-4288-864b-e728a078804a",
-      "userId": "ed73f73c-a663-4b2f-9d28-a13777186d33",
-      "name": "Client Api Producto",
-      "description": "asdasdasdasdasdad",
-      "tags": [
-        "Aggro"
+      "createdAt": "2025-02-21T13:04:39.501Z",
+      "updatedAt": "2025-02-21T13:04:39.501Z",
+      "manaRatio": 2,
+      "colors": [
+        "B",
+        "R"
       ],
-      "imgDeck": "https://cards.scryfall.io/art_crop/front/f/e/feddbdc6-0757-43cb-bb41-dc83c6cf42ea.jpg?1627709701",
-      "createdAt": "2025-02-18T14:01:40.982Z",
-      "updatedAt": "2025-02-18T14:01:40.982Z",
-      "manaRatio": 0,
-      "colors": [],
       "votes": 0,
       "cards": []
     },
     {
-      "id": "c172a4d8-3848-436c-be73-dfd31f8d2af7",
+      "id": "0b5a3069-dfbc-4858-af93-f3a694b8c673",
       "userId": "ed73f73c-a663-4b2f-9d28-a13777186d33",
-      "name": "API Productos (Test Applicat",
-      "description": "asdasdasdasdasdasd",
+      "name": "Oblivion",
+      "description": "sdasdasd asda sdasdasd asdasd",
       "tags": [
+        "Midrange",
         "Tempo"
       ],
       "imgDeck": "https://cards.scryfall.io/art_crop/front/f/e/feddbdc6-0757-43cb-bb41-dc83c6cf42ea.jpg?1627709701",
-      "createdAt": "2025-02-18T14:01:50.501Z",
-      "updatedAt": "2025-02-18T14:01:50.501Z",
+      "createdAt": "2025-02-21T13:04:55.315Z",
+      "updatedAt": "2025-02-21T13:04:55.315Z",
       "manaRatio": 0,
       "colors": [],
       "votes": 0,
       "cards": []
     },
     {
-      "id": "13625e3c-0a3b-4c04-83b3-23365426fb7b",
+      "id": "f12c9a0a-f4b2-4f07-a791-414c2286aa3e",
       "userId": "ed73f73c-a663-4b2f-9d28-a13777186d33",
-      "name": "API Productos",
-      "description": "asdasdasdasda",
+      "name": "Amorchito",
+      "description": "adsa ads asd a asdas da asd asd asd",
       "tags": [
-        "Control"
+        "Tempo",
+        "Stax"
       ],
       "imgDeck": "https://cards.scryfall.io/art_crop/front/f/e/feddbdc6-0757-43cb-bb41-dc83c6cf42ea.jpg?1627709701",
-      "createdAt": "2025-02-18T14:01:56.321Z",
-      "updatedAt": "2025-02-18T14:01:56.321Z",
+      "createdAt": "2025-02-21T13:13:31.772Z",
+      "updatedAt": "2025-02-21T13:13:31.772Z",
       "manaRatio": 0,
-      "colors": [],
+      "colors": [
+        "W"
+      ],
+      "votes": 0,
+      "cards": []
+    },
+    {
+      "id": "4668d2ac-956c-48bc-8852-cf2f979bdd52",
+      "userId": "ed73f73c-a663-4b2f-9d28-a13777186d33",
+      "name": "Agrroponkin",
+      "description": "Agorponking nking Agorponking AgorponkingAgorponkingAgorponking ",
+      "tags": [
+        "Stax",
+        "Aggro"
+      ],
+      "imgDeck": "https://cards.scryfall.io/art_crop/front/f/e/feddbdc6-0757-43cb-bb41-dc83c6cf42ea.jpg?1627709701",
+      "createdAt": "2025-02-21T13:14:05.132Z",
+      "updatedAt": "2025-02-21T13:14:05.132Z",
+      "manaRatio": 0,
+      "colors": [
+        "W",
+        "U",
+        "B"
+      ],
       "votes": 0,
       "cards": []
     }

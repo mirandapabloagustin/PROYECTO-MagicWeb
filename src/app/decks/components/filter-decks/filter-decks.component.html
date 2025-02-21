@@ -30,71 +30,18 @@
       </select>
     </div>
 
-    <div class="color-opt_group" id="white-select" (click)="toggleCheckboxColor('white')" >
-      <input type="checkbox" name="color" id="white" value="white" class="input-opt_color" formControlName="white">
-      <div class="color-select_group">
-        <img class="img-color_icon" src="icons/cards_icons/W.svg" alt="color-color_icon" />
-        <label for="color-select" class="label-color">
-          BLANCO
-        </label>
+    @for (item of manaColor; track $index) {
+
+      <div class="color-opt_group" [id]="item+'-select'" (click)="toggleCheckboxColor(item)" >
+        <input type="checkbox" name="color" [id]="item" [value]="item" [className]="item + ' input-opt_color' ">
+        <div class="color-select_group">
+          <img class="img-color_icon" [src]="getColorImg(item)" alt="color-color_icon" />
+          <label for="color-select" class="label-color">
+            {{ item }}
+          </label>
+        </div>
       </div>
-    </div>
-
-    <div class="color-opt_group"  id="blue-select" (click)="toggleCheckboxColor('blue')">
-      <input type="checkbox" name="color" id="blue" value="blue" class="input-opt_color" formControlName="blue">
-
-      <div class="color-select_group"  id="blue-select" >
-        <img class="img-color_icon" src="icons/cards_icons/U.svg" alt="color-color_icon"  />
-        <label for="color-select" class="label-color">
-          AZUL
-        </label>
-      </div>
-
-    </div>
-
-    <div class="color-opt_group"  id="black-select" (click)="toggleCheckboxColor('black')">
-      <input type="checkbox" name="color" id="black" value="black"
-      class="input-opt_color" formControlName="black">
-      <div class="color-select_group">
-        <img class="img-color_icon" src="icons/cards_icons/B.svg" alt="color-color_icon"  />
-        <label for="color-select" class="label-color">
-          NEGRO
-        </label>
-      </div>
-    </div>
-
-    <div class="color-opt_group"  id="red-select" (click)="toggleCheckboxColor('red')">
-      <input type="checkbox" name="color" id="red" value="red" class="input-opt_color" formControlName="red">
-      <div class="color-select_group">
-        <img class="img-color_icon" src="icons/cards_icons/R.svg" alt="color-color_icon" />
-        <label for="color-select" class="label-color">
-          ROJO
-        </label>
-      </div>
-    </div>
-
-    <div class="color-opt_group"  id="green-select" (click)="toggleCheckboxColor('green')">
-      <input type="checkbox" name="color" id="green" value="green" class="input-opt_color" formControlName="green">
-      <div class="color-select_group">
-        <img class="img-color_icon" src="icons/cards_icons/G.svg" alt="color-color_icon" />
-        <label for="color-select" class="label-color">
-          VERDE
-        </label>
-      </div>
-    </div>
-
-    <div class="color-opt_group"  id="all-select" (click)="toggleCheckboxColor('all')">
-      <input type="checkbox" name="color" id="all" value="all" class="input-opt_color" formControlName="all">
-      <div class="color-select_group">
-        <img class="img-color_icon" src="icons/cards_icons/MANA.svg" alt="color-color_icon" (click)="toggleCheckboxColor('all')" />
-        <label for="color-select" class="label-color">
-          TODOS
-        </label>
-      </div>
-    </div>
-
-
-
+    }
 
   </form>
 

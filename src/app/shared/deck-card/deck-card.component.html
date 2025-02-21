@@ -21,7 +21,7 @@
 
   <div class="deck-color_group">
 
-    @if(deckUser?.colors!.length > 1) {
+    @if(deckUser?.colors!.length >= 1) {
       <div class="color_content">
       @for (color of deckUser?.colors ; track $index) {
           <img class="deck-color_img" [src]="getDeckColorImg(color)" alt="color.deck">
