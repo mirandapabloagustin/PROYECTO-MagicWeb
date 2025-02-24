@@ -7,8 +7,10 @@
   <div class="deck-info_group">
     <h3 class="deck_title">{{ deckUser?.name }}</h3>
     <small class="chiquitiñito" >creado el: {{getFormatDate(deckUser!.createdAt!.toString())}}</small>
-    <p class="deck_description">Descripcion:</p>
-    <small class="descripcion-text">{{ deckUser?.description }}</small>
+    <div class="deck-description_group">
+      <p class="deck_description">Descripcion:</p>
+      <small class="descripcion-text">{{ deckUser?.description }}</small>
+    </div>
 
 
     <div class="tag-deck_group" >

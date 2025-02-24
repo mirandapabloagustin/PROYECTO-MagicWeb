@@ -92,6 +92,24 @@
       ],
       "votes": 0,
       "cards": []
+    },
+    {
+      "id": "e8f2d914-624c-4952-a7fc-9bd7d6882f2c",
+      "userId": "ed73f73c-a663-4b2f-9d28-a13777186d33",
+      "name": "contorlatusbolas",
+      "description": "sadasdasdasdasdasdasdasdasdasdasasdasdasdasdasdasdasdasasdasdasdasdasdasdasdasasdasdasdasdasdasdasdasasdasdasdasdasdasdasdasasdasdasdasdasdasdasdasasd",
+      "tags": [
+        "Combo",
+        "Control",
+        "Tempo"
+      ],
+      "imgDeck": "https://cards.scryfall.io/art_crop/front/f/e/feddbdc6-0757-43cb-bb41-dc83c6cf42ea.jpg?1627709701",
+      "createdAt": "2025-02-24T13:48:38.909Z",
+      "updatedAt": "2025-02-24T13:48:38.909Z",
+      "manaRatio": 0,
+      "colors": [],
+      "votes": 0,
+      "cards": []
     }
   ]
 }

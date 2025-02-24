@@ -32,6 +32,11 @@ export class DeckService {
     return this.http.get<Deck[]>(`${this._ev}/decks?userId=${id}`);
   }
 
+  getDeckById(id : string) : Observable<Deck[]> {
+    return this.http.get<Deck[]>(`${this._ev}/decks?id=${id}`);
+  }
+
+
   getDeckParams(params : string) : Observable<Deck[]> {
     return this.http.get<Deck[]>(`${this._ev}/decks?${params}`);
   }

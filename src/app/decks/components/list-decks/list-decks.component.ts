@@ -13,6 +13,7 @@ import { EmptyComponent } from "../../../shared/empty/empty.component";
 })
 export class ListDecksComponent {
   @Input() decks: any;
+  message = 'Forja tu primera baraja, reúne tus cartas favoritas y crea estrategias que desafíen a contrincantes.';
 
   constructor(
     private _matDialog: MatDialog,   

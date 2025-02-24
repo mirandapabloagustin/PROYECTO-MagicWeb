@@ -7,7 +7,6 @@ import { AuthDeckService } from '@core/services/deck/auth.deck.service';
 import { LocalStorageService } from '@core/services/user/local-storage.service';
 import { Deck } from '@models/deck.model';
 import { FilterDeckDTO } from '@models/dto/filter.deck.dto.model';
-import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-decks',
@@ -41,7 +40,7 @@ export class DecksComponent implements OnInit {
     try{
       const user = this._local.getUserLogged();
       if(user.id){
-        await this._service.getDecksId(user.id);
+        await this._service.getDecksUserId(user.id);
       }
     }catch(e){
       console.error(e);

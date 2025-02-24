@@ -37,7 +37,6 @@ export class FilterDecksComponent {
   deckFilter(search:string){
     this.formColor.get('name').setValue(search);
     const filter = new FilterDeckDTO(this.formColor.value);
-    console.log(filter);
     this.filterEvent.emit(filter);
   }
 

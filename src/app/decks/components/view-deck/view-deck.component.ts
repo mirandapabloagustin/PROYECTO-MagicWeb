@@ -3,16 +3,17 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Deck } from '@app/core/models/deck.model';
 import { HeaderComponent } from '@shared/header/header.component';
 import { FooterComponent } from "@shared/footer/footer.component";
-
+import { AuthDeckService } from '@app/core/services/deck/auth.deck.service';
+import { EmptyComponent } from '@app/shared/empty/empty.component';
 @Component({
   selector: 'app-view-deck',
   standalone: true,
-  imports: [FooterComponent, HeaderComponent],
+  imports: [FooterComponent, HeaderComponent, EmptyComponent],
   templateUrl: './view-deck.component.html',
   styleUrl: './view-deck.component.css'
 })
 export class ViewDeckComponent implements OnInit {
-  deckDetails: Deck | undefined;
+  deckDetails!: Deck;
   fake: Deck = {
     id: '1234',
     userId: '5678',
@@ -31,13 +32,25 @@ export class ViewDeckComponent implements OnInit {
 
   constructor(
     private _router: ActivatedRoute,
+    private _service : AuthDeckService
   ) { }
 
   ngOnInit(): void {
     this._router.paramMap.subscribe(params => {
-      const id = params.get('id');
-      console.log(id);
+      const id = params.get('idDeck');
+      if(id) {
+        this.getDeckById(id);
+      }
     })
+  }
+
+  async getDeckById(id: string):Promise<void>{
+    try {
+      const deck = await this._service.getDeckById(id);
+      this.deckDetails = deck;
+    } catch (e) {
+      console.error(e);
+    }
   }
 
   getDeckColorImg(color: string) {

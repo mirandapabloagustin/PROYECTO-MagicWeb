@@ -3,10 +3,10 @@ import { DeckService } from './deck.service';
 import { BehaviorSubject, lastValueFrom } from 'rxjs';
 import { v4 as uuidv4 } from 'uuid';
 import { Deck } from '@app/core/models/deck.model';
-import { AuthUserService } from '../user/auth-user.service';
 import { LocalStorageService } from '../user/local-storage.service';
 import { SnackbarService } from '../snackbar/snackbar.service';
 import { FilterDeckDTO } from '@app/core/models/dto/filter.deck.dto.model';
+
 
 @Injectable({
   providedIn: 'root'
@@ -60,7 +60,7 @@ export class AuthDeckService {
    * Llama al metodo getByUserId del servicio deckService
    * @returns {Deck[]} - Retorna un arreglo de mazos
    */
-  async getDecksId(id: string) {
+  async getDecksUserId(id: string) {
     try {
       const res = await lastValueFrom(this._deckService.getDecks(id));
       if (res.length > 0) {
@@ -73,6 +73,25 @@ export class AuthDeckService {
   }
 
   /**
+   * Metodo para obtener un mazo por id
+   * Llama al metodo getDeckById del servicio deckService
+   * @param {string} id - Id del mazo a buscar
+   * @returns {Deck} - Retorna un mazo
+   */
+  async getDeckById(id: string): Promise<Deck> {
+    let deck!: Deck;
+    try {
+      const res = await lastValueFrom(this._deckService.getDeckById(id));
+      if (res.length > 0) {
+        deck = res[0];
+      }
+    } catch (e) {
+      console.error(e);
+    }
+    return deck;
+  }
+
+  /**
    * Metodo para obtener un mazo por parametros
    * Primero verifica si el filtro esta vacio
    * Obtiene los mazos de la lista de mazos
@@ -82,6 +101,7 @@ export class AuthDeckService {
    * @returns {Deck} - Retorna un mazo
    */
   getDecksByFilter(filter: FilterDeckDTO): Deck[] {
+    
     if (!this.checkFilterEmpty(filter)) {
       const decks = this._listDecks.getValue();
 

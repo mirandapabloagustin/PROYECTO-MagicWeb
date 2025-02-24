@@ -21,20 +21,20 @@
 
 
 /* INFO STYLE */
-.chiquitiñito{
-  padding-bottom: 0.3rem;
-}
-
-.descripcion-text{
-  height: 72px;
-  padding-bottom: 0.3rem;
-}
-
 .deck-info_group{
   display: grid;
   grid-template-rows: repeat(auto);
   row-gap: 0.3rem;
+  box-sizing: border-box;
 }
+
+.chiquitiñito{
+  padding-bottom: 0.3rem;
+}
+
+
+
+
 .deck_title{
   font-size: 1.5rem;
   font-weight: bold;
@@ -42,12 +42,20 @@
   margin: 0;
   text-shadow: 0 7px 8px rgba(0, 0, 0, 0.329);
 }
+.deck-description_group{
+  word-break: break-word; 
+  overflow-wrap: break-word; 
+}
 .deck_description{
   text-transform: capitalize;
   color: var(--fondo);
   font-weight: bold;
   font-size: 1rem;
   margin: 0;
+}
+.descripcion-text{
+  height: 72px;
+  padding-bottom: 0.3rem;
 }
 
 /* IMG CONTENT STYLE */
