@@ -13,7 +13,7 @@
 }
 
 .dialog-content {
-    padding: 8px;
+    padding: 1rem;
     background-color: var(--text-color);
 }
 
@@ -46,19 +46,3 @@
     transform: scale(0.97);
 }
 
-.dialog-action{
-    background-color: var(--text-color);
-    margin-bottom: 0.5rem;
-    padding: 0.5rem;
-
-}
-
-.btn_new-deck{
-    border-radius: 1.5rem;
-}
-
-.icon_add{
-    filter: brightness(0) invert(1);
-    width: 25px;
-    height: 25px;
-}

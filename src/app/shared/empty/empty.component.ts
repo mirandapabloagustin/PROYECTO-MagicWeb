@@ -10,4 +10,5 @@ import { Component, Input } from '@angular/core';
 export class EmptyComponent {
   @Input() message: string | undefined;
   @Input() title: string | undefined;
+
 }

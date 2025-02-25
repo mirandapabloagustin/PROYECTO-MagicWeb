@@ -22,8 +22,11 @@ export class AuthDeckService {
 
   ) {
   }
-
-
+  /**
+   * Metodo para obtener todos los mazos
+   * Llama al metodo all del servicio deckService
+   * @returns {Deck[]} - Retorna un arreglo de mazos
+   */
   async getAllDecks() {
     try {
       const res = await lastValueFrom(this._deckService.all());

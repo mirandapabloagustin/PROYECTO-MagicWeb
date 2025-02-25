@@ -21,13 +21,17 @@
         </div>
         <div class="color-deck_group">
           <h4 class="title-details">Colores</h4>
+          @if(deckDetails.colors!.length > 0){
           <div class="color-deck_container">
-            @if(deckDetails?.colors!.length > 0){
               @for (color of deckDetails.colors ; track $index) {
                 <img class="color-deck" [src]="getDeckColorImg(color)" alt="color">
               }
+            </div>
+            }@else {
+              <div class="non-color-deck_container">
+                <small class="non-colors-on-deck">No contiene.</small>
+              </div>
             }
-          </div>
         </div>
         
       </div>
@@ -45,7 +49,7 @@
       }@else {
         <app-empty 
         [title]="'No contiente Cartas'" 
-        [message]="'asdasdasdasdasdasd'"> 
+        [message]="'Tu mazo no contiene cartas, agrega cartas para poder visualizarlas.'"> 
       </app-empty>
       }
     </div>

@@ -102,6 +102,18 @@
   border: 1px solid rgba(0, 0, 0, 0.365);
   box-shadow: 0 7px 8px rgba(0, 0, 0, 0.204);
 }
+.non-color-deck_container{
+  display: flex;
+  width: max-content;
+  border: 1px solid rgba(0, 0, 0, 0.216);
+  border-radius: 2rem;
+  box-shadow: 0 7px 8px rgba(0, 0, 0, 0.308);
+  padding: 5px 10px;
+  background-color: #eee;
+}
+.non-colors-on-deck{
+
+}
 /* ================================ */
 .view_container{
   position: relative;

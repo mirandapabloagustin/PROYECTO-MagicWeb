@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import { Component, EventEmitter, Input, Output} from '@angular/core';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatDialog } from '@angular/material/dialog';
@@ -14,56 +14,30 @@ const MODULES = [FontAwesomeModule];
   templateUrl: './card.component.html',
   styleUrl: './card.component.css'
 })
-export class CardComponent implements OnInit {
+export class CardComponent  {
   iconPlus = faPlus;
 
   isFlipped = false;
   isRotated = false;
   isRotatedRight = false;
 
-  @Input() dataCard!: any;
+  @Input() dataCard: any;
   @Output() cardClicked = new EventEmitter<any>();
-
-
-  dataFalsa = {
-    user: 'user1',
-    decks:[
-      {
-        name: 'Deck 1',
-        id: '1'
-      },
-      {
-        name: 'Deck 2',
-        id: '2'
-      },
-      {
-        name: 'Deck 3',
-        id: '3'
-      }
-    ]
-  }
 
   constructor(private _matDialog: MatDialog,
     private _scrollService: ScrollService,
   ) { }
-  
-  ngOnInit(): void {
-    
-  }
-
 
   navigateToDetails(){
     this.cardClicked.emit(this.dataCard);
     this._scrollService.saveScroll(window.scrollY);
   }
   
-  
-
-  
   addCardInDeck(){
+    console.log(this.dataCard);
     this._matDialog.open(AddToDeckComponent,{
       width: '300px',
-      data: this.dataFalsa,
+      data: this.dataCard,
       panelClass: 'custom-dialog-container'
     });
   }
