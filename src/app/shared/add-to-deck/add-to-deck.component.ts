@@ -5,6 +5,7 @@ import { DeckService } from '@services/deck/deck.service';
 import { SnackbarService } from '@services/snackbar/snackbar.service';
 import { AuthDeckService } from '@app/core/services/deck/auth.deck.service';
 import { Deck } from '@app/core/models/deck.model';
+import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-add-to-deck',
@@ -44,14 +45,7 @@ export class AddToDeckComponent implements OnInit {
   }
 
   selectDeck(deck : Deck) {
-    console.log(this.card);
-    /*
-    deck.cards ? deck.cards.push(this.card) : deck.cards = [this.card];
-    const confirm = this._service.updateDeck(deck);
-    console.log(confirm);
-    console.log(deck);
-  */
-    this._snackbarService.emitSnackbar('La carta se guardo correctamente', 'success');
+    this.updateDeck(deck);
   }
 
 
@@ -59,5 +53,22 @@ export class AddToDeckComponent implements OnInit {
     this._matDialogRef.close();
   }
 
+  async updateDeck(deck: Deck) {
+    try{
+      deck.cards ? deck.cards.push(this.card) : deck.cards = [this.card];
+      deck = this._service.checkColorsDeck(this.card,deck);
+      deck.manaRatio = this._service.avarageMana(deck);
+      const confirm = await  this._service.updateDeck(deck);
+      if(confirm){
+        this._snackbarService.emitSnackbar('La carta se guardo correctamente', 'success');
+        this.closeDialog();
+      }
+    }catch(e){
+      console.error(e);
+      this._snackbarService.emitSnackbar('Tuvimos inconvenientes para poder guardar la carta.', 'error', 'Vuelva a intentarlo mas tarde...');
+    }
+  }
+
+  
 
 }

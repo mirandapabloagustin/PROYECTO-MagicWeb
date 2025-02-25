@@ -34,7 +34,6 @@ export class CardComponent  {
   }
   
   addCardInDeck(){
-    console.log(this.dataCard);
     this._matDialog.open(AddToDeckComponent,{
       width: '300px',
       data: this.dataCard,

@@ -142,6 +142,25 @@ export class AuthDeckService {
     return false;
   }
 
+  checkColorsDeck(card:any, deck: Deck): Deck {
+    if(card.color_identity){
+      card.color_identity.forEach((color: string) => {
+        if (!deck.colors!.includes(color)) {
+          deck.colors!.push(color);
+        }
+      });
+    }
+    return deck;
+  }
+
+  avarageMana(deck: Deck): number {
+    let sum = 0;
+    deck.cards!.forEach(card => {
+      sum += card.cmc;
+    });
+    return Math.round((sum / deck.cards!.length) * 100) / 100;
+  }
+
   formatDeck(deck: Deck): Deck {
     const user = this._local.getUserLogged();
     const deckFormated = {

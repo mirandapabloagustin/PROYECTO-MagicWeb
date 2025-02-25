@@ -55,6 +55,8 @@ export class DetailsCardComponent implements OnInit{
     this.formatLegalities(this.cardData?.legalities);
   }
 
+
+
   formatMana(...manaData :string[]){
     this.manaFaces = manaData.map((manaCost) => {
       return manaCost
@@ -92,7 +94,7 @@ export class DetailsCardComponent implements OnInit{
   addCardToDeck(): void {
        this._matDialog.open(AddToDeckComponent,{
          width: '300px',
-         data: this.dataFalsa,
+         data: this.cardData,
          panelClass: 'custom-dialog-container'
        });
   }
