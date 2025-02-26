@@ -1,9 +1,99 @@
 <app-header></app-header>
 <div class="view-deck_container">
-  <section class="deck-details_container">
-    @if(deckDetails){
+  <div class="hover-background">
 
+  
+  @if(deckDetails){
+      <header class="deck-header_group" >
+        <div class="title-deck-header_group">
+          <h1 class="deck-header_title titles-styles-dom font-style">{{deckDetails.name}}</h1>
+        </div>
+        <div class="img-deck-header_group">
+          <img class="deck-header_img" [src]="deckDetails.imgDeck" [alt]="deckDetails.name">
+          <button class="change-img_btn">
+            <img class="btn-change_img" src="icons/boton-editar.png" alt="boton-editar">
+          </button>
+        </div>
+        <div class="description-deck_group">
+          <p class="deck-header_description font-style">Creado por: {{deckDetails.creator}}</p>
+          <h4 class="descripcion-title font-style">Descripcion:</h4>
+          <p class="deck-header_description font-style">{{deckDetails.description}}</p>
+        </div>
+        <div class="update-deck_group">
+          <small class="date-update_text font-style">creado el: {{getFormatDate(deckDetails.updatedAt!.toString())}}</small>
+        </div>
+        <div class="votes-deck_group">
+          <img class="vote-deck_img" src="icons/dado.png" alt="like">
+          <span class="vote_text font-style">Votos de la comunidad:</span>
+          <div class="comunity-votes_group">
+            <span class="vote_deck">{{deckDetails.votes}}</span>
+          </div>
+        </div>
+      </header>
+
+
+      <div class="view-decks-btn_content">
+        <button class="view-decks_btn">Descargar Mazo</button>
+        @if(isPublic){
+          <button class="view-decks_btn">Votar</button>
+          <button class="view-decks_btn">Copiar Mazo</button>
+
+        }@else {
+          <button class="view-decks_btn share-deck_btn">Compartir</button>
+          <button class="view-decks_btn edit-deck_btn">Editar</button>
+          <button class="view-decks_btn delete-deck_btn">Eliminar<img class="detele-btn_img" src="icons/eliminar.png" alt="detele png"></button>
+        }
+      </div>
+
+
+
+      <div class="cards-deck_content">
+        <div class="cards-title_group">
+          <h2 class="cards-title titles-styles-dom font-style">Cartas</h2>
+        </div>
+        @if(deckDetails.cards!.length > 0){
+
+          @for (card of deckDetails.cards; track $index) {
+            <div class="card-deck_group">
+              <p class="card-name_text font-style">{{card.name}}</p>
+              <div class="colors-card_group">
+                @for (color of card.colors; track $index) {
+                  <img class="deck-color_img" [src]="getDeckColorImg(color)" [alt]="color">
+                }
+              </div>
+              <div class="delete-card_group">
+                <button class="delete-card-btn_group delete-deck_btn">
+                  <img class="detele-btn_img" src="icons/eliminar.png" alt="detele png">
+                </button>
+              </div>
+            </div>
+          }
+        }@else {
+          <p>No hay cartas en el mazo</p>
+        }
+      </div>
+
+      <div class="deck-comments_content">
+        <div class="comments-title_group">
+          <h2 class="comments-title titles-styles-dom font-style">Comentarios</h2>
+        </div>
+        @if(isPublic){
+          <div class="input-comment-deck_group">
+            <span class="text-comment_top">Deja tu comentario:</span>
+            <div class="textarea-comment_group">
+              <textarea class="input-comment_deck" placeholder="Escribe tu comentario"></textarea>
+              <div class="letter-count_group">
+                <span class="letter-count_text">0/200</span>
+              </div>
+            </div>
+            <div class="btn-comment_group">
+              <button class="send-comment_btn">Enviar</button>
+            </div>
+          </div>
+        }
+        <p>COMENTARIOS DEL DECK</p>
+      </div>
     }
-  </section>
+  </div>
 </div>
 <app-footer></app-footer>

@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Deck } from '@app/core/models/deck.model';
+import { User } from '@app/core/models/user.model';
 import { AuthDeckService } from '@app/core/services/deck/auth.deck.service';
-import { DeckService } from '@app/core/services/deck/deck.service';
 import { SnackbarService } from '@app/core/services/snackbar/snackbar.service';
+import { LocalStorageService } from '@app/core/services/user/local-storage.service';
 @Component({
   selector: 'app-new-deck',
   standalone: true,
@@ -12,8 +13,7 @@ import { SnackbarService } from '@app/core/services/snackbar/snackbar.service';
   templateUrl: './new-deck.component.html',
   styleUrl: './new-deck.component.css'
 })
-export class NewDeckComponent {
-
+export class NewDeckComponent  {
   formCreateDeck : FormGroup;
   countWords = 0;
   limitWords = 150;
@@ -23,7 +23,8 @@ export class NewDeckComponent {
     public dialogRef: MatDialogRef<NewDeckComponent>,
     private _deckService: AuthDeckService,
     private _builderForm: FormBuilder,
-    private _snackbarService: SnackbarService
+    private _snackbarService: SnackbarService,
+    private _local : LocalStorageService
   ) {
     this.formCreateDeck = this._builderForm.group({
       name: ['',
@@ -36,6 +37,7 @@ export class NewDeckComponent {
       ],
     });
   }
+
 
   async createNewDeck(event: Event) {
     event.preventDefault(); 

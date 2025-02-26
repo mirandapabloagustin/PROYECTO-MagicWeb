@@ -2,10 +2,11 @@ import { Injectable } from '@angular/core';
 import { DeckService } from './deck.service';
 import { BehaviorSubject, lastValueFrom } from 'rxjs';
 import { v4 as uuidv4 } from 'uuid';
-import { Deck } from '@app/core/models/deck.model';
+import { Deck } from '@models/deck.model';
 import { LocalStorageService } from '../user/local-storage.service';
 import { SnackbarService } from '../snackbar/snackbar.service';
-import { FilterDeckDTO } from '@app/core/models/dto/filter.deck.dto.model';
+import { FilterDeckDTO } from '@models/dto/filter.deck.dto.model';
+import { DeckStatus } from '@enums/status.deck';
 
 
 @Injectable({
@@ -18,8 +19,7 @@ export class AuthDeckService {
   constructor(
     private _deckService: DeckService,
     private _local: LocalStorageService,
-    private _snackBar: SnackbarService
-
+    private _snackBar: SnackbarService,
   ) {
   }
   /**
@@ -166,6 +166,7 @@ export class AuthDeckService {
     const deckFormated = {
       id: uuidv4(),
       userId: user.id,
+      creator: user.nick,
       name: deck.name,
       description: deck.description,
       tags: deck.tags,
@@ -175,6 +176,7 @@ export class AuthDeckService {
       manaRatio: 0,
       colors: [],
       votes: 0,
+      status: DeckStatus.Private,
       cards: [],
     };
     return deckFormated;

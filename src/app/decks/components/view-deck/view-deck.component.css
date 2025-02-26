@@ -1,10 +1,252 @@
 .view-deck_container {
+  position: relative;
+  width: auto;
+  height: 100vh;
+  background-image: url('public/main/bg-list-card.webp');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  overflow: scroll;
+}
+
+.hover-background {
+  padding-top: 7rem;
+  padding-bottom: 5rem;
+  position: absolute;
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  background-color: rgba(0, 0, 0, 0.475);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5rem;
+  box-sizing: border-box;
+  overflow-y: auto;
+  border: 2px solid blue;
+}
+.font-style{
+  color: var(--text-color);
+}
+.titles-styles-dom{
+  font-size: 4rem;
+  font-weight: bold;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  margin: 0;
+}
+/*  HEADER STYLES   */
+.deck-header_group{
+  padding: 1rem 3rem;
+  background-color: var(--bg-fondo);
+  border-radius: 15px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto;
+  column-gap: 2rem;
+  row-gap: 3rem;
+  box-shadow: 0 7px 8px rgba(0, 0, 0, 0.329);
+}
+.title-deck-header_group{
+  grid-column: span 2 / span 2;
+}
+.img-deck-header_group{
+  position: relative;
+  width: 300px;
+  grid-row-start: 2;
+}
+.deck-header_img{
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  border: 1px solid #a5a3a341;
+  box-shadow: 0 7px 8px rgba(0, 0, 0, 0.329);
+}
+.change-img_btn{
+  position: absolute;
+  bottom: 14px;
+  right: 7px;
+  background-color: var(--text-color);
+  border: none;
+  border-radius: 9px;
+  padding-top: 0.2rem;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.change-img_btn:hover{
+  transform:  scale(1.1);
+}
+.btn-change_img{
+  width: 30px;
+  height: auto;
+}
+.description-deck_group{
+  grid-row-start: 2;
+  width: 900px;
+  min-width: 800px;
+}
+.descripcion-title{
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+.deck-header_description{
+  font-size: 1.5rem;
+}
+
+.update-deck_group{
+  grid-row-start: 3;
+}
+.votes-deck_group{
+  position: relative;
+  grid-row-start: 3;
+  display: flex;
+  justify-content: end;
+}
+.vote-deck_img{
+  position: absolute;
+  top: -15px;
+  right: -100px;
+  width: 100px;
+  height: auto;
+}
+.comunity-votes_group{
+  width: 40px;
+  position: absolute;
+  top: 25px;
+  right: -68px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.vote_deck{
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--bg-fondo);
+}
+/*================================================================================*/
+
+/*  BUTTONS STYLES  */
+.view-decks-btn_content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+}
+
+.view-decks_btn{
+  border-radius: 2rem;
+  width: max-content;
+  min-width: 150px;
+  cursor: pointer;
   display: flex;
   flex-direction: row;
-  height: 100%;
-  width: 100%;
-  border: 3px solid #04ffea;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 0.8rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  gap: 1rem;
+  transition: all 0.3s;
+  box-shadow: 0 7px 8px rgba(0, 0, 0, 0.329);
 }
-.deck-details_container{
+
+.view-decks_btn:hover{
+  transform: scale(1.1);
+}
+
+.edit-deck_btn{
+  border: 2px solid transparent;
+  background-color: var(--bg-color-buttom-winter);
+  color: var(--text-color);
+}
+.delete-deck_btn{
+  border: 2px solid transparent;
+  background-color: var(--bg-color-buttom-dark-red);
+  color: var(--text-color);
+}
+.share-deck_btn{
+  border: 2px solid transparent;
+  background-color: var(--bg-color-buttom-emeralt);
+  color: var(--text-color);
+}
+/*================================================================================*/
+/*   CARDS STYLES   */
+.cards-deck_content{
+  width: 1300px;
+  height: auto;
+  padding: 1rem 3rem;
+  background-color: var(--bg-fondo);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: 0 7px 8px rgba(0, 0, 0, 0.329);
+}
+.card-deck_group{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 2rem;
+  align-items: center;
 
 }
+.card-name_text{
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+.colors-card_group{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.329);
+  border-radius: 2rem;
+  box-shadow: 0 7px 8px rgba(0, 0, 0, 0.329);
+  padding: 5px 10px;
+  background-color: #eee;
+}
+.deck-color_img{
+  width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.158);
+    box-shadow: 0 7px 8px rgba(0, 0, 0, 0.204);
+}
+
+.delete-card-btn_group{
+  border-radius: 2rem;
+  width: min-content;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 0.8rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  gap: 1rem;
+  transition: all 0.3s;
+  box-shadow: 0 7px 8px rgba(0, 0, 0, 0.329);
+}
+
+.delete-card-btn_group:hover{
+  transform: scale(1.1);
+}
+
+.detele-btn_img{
+  width: 20px;
+  height: auto;
+  filter: invert(1);
+}
+
+/*================================================================================*/
+/*   COMMENTS STYLES   */
+.deck-comments_content{
+  border: 2px solid purple;
+}
+/*================================================================================*/

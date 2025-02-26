@@ -1,8 +1,10 @@
 import { IDeck } from '@interfaces/deck.interface';
+import { DeckStatus } from '@enums/status.deck';
 
 export class Deck implements IDeck {
     id: string | null;
     userId: string | null;
+    creator: string | null;
     name: string | null;
     description: string | null;
     imgDeck: string | null;
@@ -12,11 +14,13 @@ export class Deck implements IDeck {
     manaRatio: number | null;
     colors: string[] | null;
     votes: number | null;
+    status: DeckStatus;
     cards: any[] | null;
 
     constructor(deck?: Deck) {
       this.id = deck?.id ?? '';
       this.userId = deck?.userId ?? '';
+      this.creator = deck?.creator ?? '';
       this.name = deck?.name ?? '';
       this.description = deck?.description ?? '';
       this.imgDeck = deck?.imgDeck ?? '';
@@ -26,6 +30,7 @@ export class Deck implements IDeck {
       this.manaRatio = deck?.manaRatio ?? 0;
       this.colors = deck?.colors ?? [];
       this.votes = deck?.votes ?? 0;
+      this.status = deck?.status ?? DeckStatus.Private;
       this.cards = deck?.cards ?? [];
     }
 }

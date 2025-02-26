@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Deck } from '@app/core/models/deck.model';
 import { HeaderComponent } from '@shared/header/header.component';
 import { FooterComponent } from "@shared/footer/footer.component";
 import { AuthDeckService } from '@app/core/services/deck/auth.deck.service';
 import { EmptyComponent } from '@app/shared/empty/empty.component';
+
 @Component({
   selector: 'app-view-deck',
   standalone: true,
@@ -12,24 +13,10 @@ import { EmptyComponent } from '@app/shared/empty/empty.component';
   templateUrl: './view-deck.component.html',
   styleUrl: './view-deck.component.css'
 })
+
 export class ViewDeckComponent implements OnInit {
   deckDetails!: Deck;
-  fake: Deck = {
-    id: '1234',
-    userId: '5678',
-    name: 'Amorfeus Analalum Rotoruz',
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas ut consequatur accusantium at facere tempora labore quia exercitationem obcaecati.',
-    imgDeck: 'https://cards.scryfall.io/art_crop/front/9/8/98739789-80b5-4224-a2e4-09e00654aa9d.jpg?1637082308',
-    tags: ['agro', 'control'],
-    createdAt: new Date(),
-    updatedAt: new Date(),
-    manaRatio: 0,
-    colors: ['R', 'B','U','G','W','MANA'],
-    votes: 0,
-    cards: []
-  }
-
-
+  @Input() isPublic: boolean = false;
   constructor(
     private _router: ActivatedRoute,
     private _service : AuthDeckService
@@ -53,23 +40,33 @@ export class ViewDeckComponent implements OnInit {
     }
   }
 
+  organizeByTypes(deck: Deck): any[][] {
+    const types = deck.cards!.reduce((acc, card) => {
+      if (!acc[card.type]) {
+        acc[card.type] = [];
+      }
+      acc[card.type].push(card);
+      return acc;
+    }, {});
+    return Object.entries(types);
+  }
+
+
+
   getDeckColorImg(color: string) {
     return `./icons/cards_icons/${color}.svg`;
   }
 
-  formartDate(date: Date) {
+  formatDate(date: Date): string {
     const day = date.getDate().toString().padStart(2, '0');
     const month = (date.getMonth() + 1).toString().padStart(2, '0');
     const year = date.getFullYear();
     return `${day}/${month}/${year}`;
   }
-
-  transformDate(value : string, deck: Deck):string {
-    if(value === 'create') {
-      return this.formartDate(deck?.createdAt || new Date());
-    } else {
-      return this.formartDate(deck?.updatedAt || new Date());
-    }
+  
+  getFormatDate(value: string) {
+    const date = new Date(value);
+    return this.formatDate(date);
   }
 
 
