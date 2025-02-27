@@ -177,26 +177,47 @@
 .cards-deck_content{
   width: 1300px;
   height: auto;
-  padding: 1rem 3rem;
+  padding: 2rem 3rem;
   background-color: var(--bg-fondo);
   border-radius: 15px;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.5rem;
   box-shadow: 0 7px 8px rgba(0, 0, 0, 0.329);
+}
+.show-cards_group{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.type-title{
+  margin:0;
+}
+.cards-of-the-deck_group{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
 }
 .card-deck_group{
   width: 100%;
   display: grid;
   grid-template-columns: 1fr auto auto;
   gap: 2rem;
+  justify-content: center;
   align-items: center;
-
+  background: var(--text-color);
+  box-shadow: 0 7px 8px rgba(0, 0, 0, 0.329);
+  border-radius: 10px;
+  padding: 0.3rem 1rem;
 }
 .card-name_text{
+  
   font-size: 1rem;
   font-weight: bold;
   text-transform: capitalize;
+  margin: 0;
 }
 .colors-card_group{
   display: flex;
@@ -242,6 +263,12 @@
   width: 20px;
   height: auto;
   filter: invert(1);
+}
+
+.empty-deck_group{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /*================================================================================*/

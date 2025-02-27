@@ -16,6 +16,7 @@ import { EmptyComponent } from '@app/shared/empty/empty.component';
 
 export class ViewDeckComponent implements OnInit {
   deckDetails!: Deck;
+  types: any[] = [];
   @Input() isPublic: boolean = false;
   constructor(
     private _router: ActivatedRoute,
@@ -27,6 +28,7 @@ export class ViewDeckComponent implements OnInit {
       const id = params.get('idDeck');
       if(id) {
         this.getDeckById(id);
+       
       }
     })
   }
@@ -35,23 +37,30 @@ export class ViewDeckComponent implements OnInit {
     try {
       const deck = await this._service.getDeckById(id);
       this.deckDetails = deck;
+      if(this.deckDetails.cards!.length > 0) {
+        this.types = this.organizeByTypes(this.deckDetails);
+      }
     } catch (e) {
       console.error(e);
     }
   }
 
-  organizeByTypes(deck: Deck): any[][] {
+  organizeByTypes(deck: Deck): any[] {
     const types = deck.cards!.reduce((acc, card) => {
-      if (!acc[card.type]) {
-        acc[card.type] = [];
+      if (!card.type_line) return acc; 
+      const mainType = card.type_line.split("—")[0].trim();
+      if (!acc[mainType]) {
+        acc[mainType] = [];
       }
-      acc[card.type].push(card);
-      return acc;
-    }, {});
+      acc[mainType].push(card);
+      return acc; 
+    }, {} as Record<string, any[]>); // indico que 
     return Object.entries(types);
   }
 
-
+  contentTypes(type: string): boolean {
+    return  this.types.some(t => t.includes(type));  
+  }
 
   getDeckColorImg(color: string) {
     return `./icons/cards_icons/${color}.svg`;

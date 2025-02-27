@@ -2,7 +2,7 @@
   "users": [
     {
       "id": "ed73f73c-a663-4b2f-9d28-a13777186d33",
-      "nick": "SuperAdmin",
+      "nick": "Admin",
       "name": "Miranda Pablo Agustin",
       "email": "admin@admin.com",
       "imgUri": "https://cards.scryfall.io/art_crop/front/c/f/cf1d17e4-a201-4511-b4bf-7c672728de4b.jpg?1730249713",
@@ -2000,6 +2000,25 @@
           }
         }
       ]
+    },
+    {
+      "id": "afd0089f-ecb0-41d2-a18c-b1c0e19189af",
+      "userId": "ed73f73c-a663-4b2f-9d28-a13777186d33",
+      "creator": "SuperAdmin",
+      "name": "RedHoyo ",
+      "description": "Deck preparado para hacer sentir el inmenso poder viril de los dragones a nuestros contrincante, de manera carnal. No apto para gente con hemorroides",
+      "tags": [
+        "Control",
+        "Aggro"
+      ],
+      "imgDeck": "https://cards.scryfall.io/art_crop/front/f/e/feddbdc6-0757-43cb-bb41-dc83c6cf42ea.jpg?1627709701",
+      "createdAt": "2025-02-27T14:15:48.421Z",
+      "updatedAt": "2025-02-27T14:15:48.421Z",
+      "manaRatio": 0,
+      "colors": [],
+      "votes": 0,
+      "status": "private",
+      "cards": []
     }
   ]
 }
