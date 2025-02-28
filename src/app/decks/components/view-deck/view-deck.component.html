@@ -66,11 +66,13 @@
               @for( card of type[1]; track $index) {
                 <div class="card-deck_group">
                   <p class="card-name_text">{{ card.name }}</p>
+                  @if(card.colors.length > 0){
                   <div class="colors-card_group">
                     @for (color of card.colors; track $index) {
                       <img class="deck-color_img" [src]="getDeckColorImg(color)" [alt]="color" />
                     }
                   </div>
+                }
                   <div class="delete-card_group">
                     <button class="delete-card-btn_group delete-deck_btn">
                       <img class="detele-btn_img" src="icons/eliminar.png" alt="detele png" />
@@ -84,8 +86,11 @@
       }@else{
         <div class="empty-deck_group">
           <app-empty 
-          [title]="'No hay cartas en este mazo'"
-          [message]="'Agrega cartas para poder verlas.'"
+          [title]="titleEmpty"
+          [message]="messageEmpty"
+          [buttonLabel] = "buttonLabelEmpty" 
+          [habilited]="true"
+          [redirectLinkFuntion]="redirectToCards"
           ></app-empty>
         </div>
       }

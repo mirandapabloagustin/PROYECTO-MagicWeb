@@ -1,4 +1,4 @@
-.empty_container{
+.empty_container {
     max-width: 1000px;
     min-width: 500px;
     height: auto;
@@ -12,18 +12,46 @@
     gap: 20px;
 }
 
-.title_empty{
+.title_empty {
     font-size: 2.5rem;
     font-weight: bold;
     color: #333;
     margin-bottom: 20px;
 }
-.empty-message_group{
+
+.empty-message_group {
     width: 600px;
     height: auto;
 }
-.message_empty{
+
+.message_empty {
     font-size: 1.3rem;
     color: #333;
     text-align: center;
+}
+
+.empty-btn {
+    border-radius: 2rem;
+    width: max-content;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 0.8rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border: 2px solid transparent;
+    gap: 1rem;
+    transition: all 0.3s;
+    box-shadow: 0 7px 8px rgba(0, 0, 0, 0.329);
+    background-color: var(--bg-color-buttom-emeralt);
+    color: var(--text-color);
+}
+
+.empty-btn:hover {
+    border: 2px solid var(--bg-color-buttom-emeralt);
+    background-color: var(--text-color);
+    color: var(--bg-color-buttom-emeralt);
+    transform: scale(1.03);
 }

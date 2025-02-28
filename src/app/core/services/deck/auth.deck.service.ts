@@ -130,19 +130,19 @@ export class AuthDeckService {
    * @param {deck} deck - Mazo q contiene la informacion del mazo a actualizar
    * @returns {boolean} - Retorna true si se actualizo el mazo, false si no se pudo actualizar
    */
-  async updateDeck(deck: any): Promise<boolean> {
+  async updateDeck(deck: Deck): Promise<Deck> {
     try {
+      deck = this.checkColorDeck(deck);
+      deck.manaRatio = this.avarageMana(deck);
       const res = await lastValueFrom(this._deckService.update(deck));
-      if (res) {
-        return true;
-      }
+      return res;
     } catch (e) {
       console.error(e);
     }
-    return false;
+    return deck;
   }
 
-  checkColorsDeck(card:any, deck: Deck): Deck {
+  addColorOnDeck(card:any, deck: Deck): Deck {
     if(card.color_identity){
       card.color_identity.forEach((color: string) => {
         if (!deck.colors!.includes(color)) {
@@ -152,6 +152,22 @@ export class AuthDeckService {
     }
     return deck;
   }
+
+  checkColorDeck(deck: Deck): Deck {
+    deck.cards!.forEach(card => {
+      if(card.color_identity){
+        card.color_identity.forEach((color: string) => {
+          if (!deck.colors!.includes(color)) {
+            deck.colors!.push(color);
+          }
+        });
+      }
+    });
+    return deck;
+  }
+
+ 
+
 
   avarageMana(deck: Deck): number {
     let sum = 0;

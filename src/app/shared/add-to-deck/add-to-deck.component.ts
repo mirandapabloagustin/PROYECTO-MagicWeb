@@ -5,7 +5,6 @@ import { DeckService } from '@services/deck/deck.service';
 import { SnackbarService } from '@services/snackbar/snackbar.service';
 import { AuthDeckService } from '@app/core/services/deck/auth.deck.service';
 import { Deck } from '@app/core/models/deck.model';
-import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-add-to-deck',
@@ -32,6 +31,7 @@ export class AddToDeckComponent implements OnInit {
       this.decks = decks;
     }); 
   }
+  
 
   async loadDecks(){
     try{
@@ -56,7 +56,7 @@ export class AddToDeckComponent implements OnInit {
   async updateDeck(deck: Deck) {
     try{
       deck.cards ? deck.cards.push(this.card) : deck.cards = [this.card];
-      deck = this._service.checkColorsDeck(this.card,deck);
+      deck = this._service.addColorOnDeck(this.card,deck);
       deck.manaRatio = this._service.avarageMana(deck);
       const confirm = await  this._service.updateDeck(deck);
       if(confirm){

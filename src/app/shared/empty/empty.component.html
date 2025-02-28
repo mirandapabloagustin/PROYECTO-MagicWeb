@@ -5,4 +5,9 @@
     <div class="empty-message_group">
         <p class="message_empty">{{ message }}</p>
     </div>
+    @if(habilited){
+    <div class="empty-btn_group">
+        <button class="empty-btn" (click)="redirectLinkFuntion()">{{buttonLabel}}</button>
+    </div>
+    }
 </article>
