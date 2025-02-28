@@ -154,6 +154,7 @@ export class AuthDeckService {
   }
 
   checkColorDeck(deck: Deck): Deck {
+    deck.colors = [];
     deck.cards!.forEach(card => {
       if(card.color_identity){
         card.color_identity.forEach((color: string) => {

@@ -56,6 +56,26 @@ export class ViewDeckComponent implements OnInit {
     }
   }
 
+  async deleteCard(type: any, index: number) {
+    try{
+
+      type[1].splice(index, 1);
+      const value = this.getCardsOfTypes();
+      this.deckDetails.cards = value;
+      const res = await this._service.updateDeck(this.deckDetails);
+    }catch(e){
+      console.error(e);
+    } 
+  }
+
+  getCardsOfTypes(): any[] {
+    let cards: any[] = [];
+    this.types.forEach(type => {
+      cards = cards.concat(type[1]);
+    });
+    return cards;
+  }
+
   redirectToCards=()=> {
     this._redirect.navigate(['/main']);
   }
