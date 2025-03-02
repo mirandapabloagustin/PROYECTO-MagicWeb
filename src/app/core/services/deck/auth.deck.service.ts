@@ -66,6 +66,7 @@ export class AuthDeckService {
    * - Llama al metodo getByUserId del servicio deckService que recibe el id del usuario como referencia de busqueda, permite obtener los mazos de un usuario.
    * - Carga carga un arreglo Observable con los mazos obtenidos.
    * @param {string} id Id del usuario como referencia de busqueda.
+   * @returns {void} No retorna nada.
    */
   async getDecksUserId(id: string) {
     try {

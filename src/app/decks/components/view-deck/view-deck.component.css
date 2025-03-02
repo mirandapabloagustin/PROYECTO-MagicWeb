@@ -24,7 +24,6 @@
   gap: 5rem;
   box-sizing: border-box;
   overflow-y: auto;
-  border: 2px solid blue;
 }
 .font-style{
   color: var(--text-color);
@@ -207,6 +206,7 @@
   width: 20px;
   height: auto;
 }
+
 
 /*================================================================================*/
 /*   CARDS STYLES   */

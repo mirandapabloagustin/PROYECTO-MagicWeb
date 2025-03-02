@@ -56,9 +56,11 @@
             <img class="detele-btn_img" src="icons/no-compartir.png" alt="descargar-deck_png" />
           </button>
         }
-      <button class="view-decks_btn edit-deck_btn" (click)="editDeckInfo()">Editar</button>
-      <button class="view-decks_btn delete-deck_btn">
-        Eliminar<img class="detele-btn_img" src="icons/eliminar.png" alt="detele png" />
+      <button class="view-decks_btn edit-deck_btn" (click)="editDeckInfo()">Editar
+        <img class="detele-btn_img" src="icons/boton-editar.png" alt="boton-editar" />
+      </button>
+      <button class="view-decks_btn delete-deck_btn" (click)="deleteDeck()">
+        Eliminar<img class="detele-btn_img" src="icons/eliminar.png" alt="detele-png" />
       </button>
       }
     </div>
@@ -87,7 +89,7 @@
                 }
                   <div class="delete-card_group">
                     <button class="delete-card-btn_group delete-deck_btn" (click)="deleteCard(type, $index)">
-                      <img class="detele-btn_img" src="icons/eliminar.png" alt="detele png" />
+                      <img class="detele-btn_img" src="icons/eliminar.png" alt="detele-png" />
                     </button>
                   </div>
                 </div>

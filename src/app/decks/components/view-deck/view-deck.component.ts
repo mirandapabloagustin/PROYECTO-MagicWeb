@@ -8,10 +8,9 @@ import { EmptyComponent } from '@app/shared/empty/empty.component';
 import { DeckStatus } from '@enums/status.deck';
 import { MatDialog } from '@angular/material/dialog';
 import { ChanceImgComponent } from '@app/shared/chance-img/chance-img.component';
-import { get } from 'http';
 import { SnackbarService } from '@app/core/services/snackbar/snackbar.service';
-import e from 'express';
 import { EditDeckComponent } from '../edit-deck/edit-deck.component';
+import { ConfirmDialogComponent } from '@shared/confirm-dialog/confirm-dialog.component'; 
 
 interface TypeCards {
   name: string;
@@ -131,10 +130,11 @@ export class ViewDeckComponent implements OnInit {
   }
 
   /**
+   * @description
    * Metodo para cambiar la imagen de un mazo.
-   * Abre un dialogo con las imagenes de las cartas del mazo.
-   * Actualiza la imagen del mazo con la imagen seleccionada.
-   * Llama al metodo updateDeck para actualizar el mazo.
+   * - Abre un dialogo con las imagenes de las cartas del mazo.
+   * - Actualiza la imagen del mazo con la imagen seleccionada.
+   * - Llama al metodo updateDeck para actualizar el mazo.
    * @returns {void} - No retorna nada.
    */
   async changeImgDeck() {
@@ -155,12 +155,39 @@ export class ViewDeckComponent implements OnInit {
     });
   }
 
+  /**
+   * @description
+   * Metodo para abrir un dialogo para editar un mazo.
+   * - Abre un dialogo con el componente EditDeckComponent
+   * - Envia la informacion del mazo al componente.
+   * @returns {void} - No retorna nada.
+   */
   editDeckInfo() {
     const dialogRef = this._matDialog.open(EditDeckComponent, {
       data: this.deckDetails,
       width: '1000px',
     });
   }
+
+  deleteDeck(){
+    const dialogConfirmRef = this._matDialog.open(ConfirmDialogComponent, {
+      data: {
+        title: 'Eliminar Mazo',
+        message: '¿Estas seguro que deseas eliminar este mazo?'
+      }
+    });
+
+    dialogConfirmRef.afterClosed().subscribe(result => {
+      if(result) {
+      console.log('Mazo Eliminado');
+      this._redirect.navigate(['/',this.deckDetails.id,'decks']);
+      this._snackBar.emitSnackbar('El Mazo fue eliminado correctamente.', 'success', 'Mazo eliminado.');
+      }
+    });
+
+  }
+
+
 
   /**
    * Metodo para eliminar una carta de un mazo.
