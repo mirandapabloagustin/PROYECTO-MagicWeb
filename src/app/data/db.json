@@ -26,7 +26,7 @@
         "Stax",
         "Combo"
       ],
-      "imgDeck": "https://cards.scryfall.io/art_crop/front/9/6/96916db2-5121-4ff1-880c-369744f11ecf.jpg?1562201594",
+      "imgDeck": "https://cards.scryfall.io/art_crop/front/9/8/980135d5-dfaa-4beb-b4b3-1e256bb46e61.jpg?1562638311",
       "createdAt": "2025-02-26T11:45:29.060Z",
       "updatedAt": "2025-02-26T11:45:29.060Z",
       "manaRatio": 3.07,
@@ -36,7 +36,7 @@
         "G"
       ],
       "votes": 3,
-      "status": "private",
+      "status": "privado",
       "cards": [
         {
           "object": "card",
@@ -2005,13 +2005,14 @@
       "id": "afd0089f-ecb0-41d2-a18c-b1c0e19189af",
       "userId": "ed73f73c-a663-4b2f-9d28-a13777186d33",
       "creator": "SuperAdmin",
-      "name": "RedHoyo ",
-      "description": "Deck preparado para hacer sentir el inmenso poder viril de los dragones a nuestros contrincante, de manera carnal. No apto para gente con hemorroides",
+      "name": "Red Dragon",
+      "description": "Mazo preparado para dejar un dolor carnal igualada a las llamas lanzadas por los dragones de este mago agresivo. Disfruta ver si cara de dolor >:D",
       "tags": [
-        "Control",
-        "Aggro"
+        "Aggro",
+        "Combo",
+        "Control"
       ],
-      "imgDeck": "https://cards.scryfall.io/art_crop/front/7/a/7a43870a-ff5c-42a9-830d-3c8f2411c004.jpg?1592672787",
+      "imgDeck": "https://cards.scryfall.io/art_crop/front/4/d/4d8a5bab-813a-488a-ab65-3286582ef595.jpg?1631587038",
       "createdAt": "2025-02-27T14:15:48.421Z",
       "updatedAt": "2025-02-27T14:15:48.421Z",
       "manaRatio": 4.5,

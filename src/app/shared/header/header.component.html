@@ -13,6 +13,16 @@
                   >Explorador</a
                 >
             </li>
+            <li>
+                <a [routerLink]="['/',userLogged?.id,'decks']"  class="link"
+                  >Mis Mazos</a
+                >
+            </li>
+            <li>
+                <a href="community" class="link"
+                  >Comunidad</a
+                >
+            </li>
         <li>
           <a [routerLink]="['/',userLogged?.id]" class="link"
             ><fa-icon class="icon-transform" [icon]="icons[1]"></fa-icon> {{userLogged?.nick}}</a

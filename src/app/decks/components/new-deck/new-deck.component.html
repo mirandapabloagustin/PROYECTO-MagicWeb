@@ -1,7 +1,7 @@
 <article class="create-deck_container">
     <div class="create-deck-title_group">
         <h2 class="title-new-deck">
-            &#9889;Forja tu mazo&#9889;
+            Forja tu mazo &#9889;
         </h2>
         <p class="subtitle-new-deck">La imagen de tu mazo la puedes seleccionar del conjuntos de cartas que tengas agregadas. </p>
     </div>
@@ -13,7 +13,7 @@
             <label for="name" class="lable_form">Nombre del Mazo</label>
             <input type="text" class="input_form" name="name" id="name" formControlName="name">
             @if(hasExistsError('name','nameExists')) {
-                <small id="error-nick" class="form__error-text" role="alert">* El nick ya está en uso. *</small>
+                <small id="error-nick" class="form__error-text" role="alert">* El nombre ya está en uso. *</small>
             }@else if (hasExistsError('name','minlength')) {
                 <small id="error-nick" class="form__error-text" role="alert">* El nombre debe tener al menos 3 caracteres. *</small>
             }@else if (hasExistsError('name','maxlength')) {

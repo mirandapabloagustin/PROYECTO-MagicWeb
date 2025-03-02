@@ -146,7 +146,7 @@ export class ViewDeckComponent implements OnInit {
         this.deckDetails.imgDeck = result;
         this.updateDeck().then(res => {
           if(res) {
-            this._snackBar.emitSnackbar('La imagen de tu mazo fue actualizada.', 'success', 'Se actualizo tu mazo');
+            this._snackBar.emitSnackbar('La imagen de tu mazo fue actualizada.', 'success', 'Mazo actualizado');
           }
         }).catch(e => {
           this._snackBar.errorSave();
@@ -157,7 +157,8 @@ export class ViewDeckComponent implements OnInit {
 
   editDeckInfo() {
     const dialogRef = this._matDialog.open(EditDeckComponent, {
-      data: this.deckDetails
+      data: this.deckDetails,
+      width: '1000px',
     });
   }
 
@@ -174,7 +175,7 @@ export class ViewDeckComponent implements OnInit {
     this.deckDetails.cards = value;
     this.updateDeck().then(res => {
       if(res) {
-        this._snackBar.emitSnackbar('La Carta fue eliminada de tu mazo.', 'success', 'Se actualizo tu mazo');
+        this._snackBar.emitSnackbar('La Carta fue eliminada de tu mazo.', 'success', 'Mazo actualizado');
       }
     });
 }
