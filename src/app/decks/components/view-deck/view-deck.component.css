@@ -135,6 +135,12 @@
   gap: 4rem;
 }
 
+.a-link{
+  text-decoration: none;
+  color: var(--bg-fondo);
+  background: var(--text-color);
+}
+
 .view-decks_btn{
   border-radius: 2rem;
   width: max-content;
@@ -168,10 +174,40 @@
   color: var(--text-color);
 }
 .share-deck_btn{
+  position: relative;
   border: 2px solid transparent;
   background-color: var(--bg-color-buttom-emeralt);
   color: var(--text-color);
 }
+
+.view-decks_btn:hover .description-action_span{
+  visibility: visible;
+  opacity: 1;
+}
+
+.description-action_span{
+  width: 150px;
+  position: absolute;
+  text-align: center;
+  top: 130%;
+  left: 90%;
+  padding: 5px;
+  font-size: small;
+  border-radius: 5px;
+  background-color: #eee;
+  color: var(--bg-fondo);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.5s;
+  z-index: 100;
+  box-shadow: 0 7px 8px rgba(0, 0, 0, 0.329);
+}
+
+.icon-btn_img{
+  width: 20px;
+  height: auto;
+}
+
 /*================================================================================*/
 /*   CARDS STYLES   */
 .cards-deck_content{

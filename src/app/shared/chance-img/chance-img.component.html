@@ -1,0 +1,14 @@
+<article class="change-img_content">
+    <div class="title-change_group">
+
+        <h3 class="title-chan_img">Cambiar imagen </h3>
+        <p class="sub_text">Selecciona una imagen de tu carta favorita para el mazo:</p>
+    </div>
+    <div class="img-decks_group">
+        @for (img of data; track $index) {
+            <div class="img-decks_item" (click)="selectImg(img)">
+                <img class="img-decks_img" [src]="img" [alt]="'image deck ' + $index" >
+            </div>
+        }
+    </div>
+</article>

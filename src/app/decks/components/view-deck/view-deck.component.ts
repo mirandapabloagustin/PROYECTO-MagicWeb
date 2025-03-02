@@ -5,6 +5,13 @@ import { HeaderComponent } from '@shared/header/header.component';
 import { FooterComponent } from "@shared/footer/footer.component";
 import { AuthDeckService } from '@app/core/services/deck/auth.deck.service';
 import { EmptyComponent } from '@app/shared/empty/empty.component';
+import { DeckStatus } from '@enums/status.deck';
+import { MatDialog } from '@angular/material/dialog';
+import { ChanceImgComponent } from '@app/shared/chance-img/chance-img.component';
+import { get } from 'http';
+import { SnackbarService } from '@app/core/services/snackbar/snackbar.service';
+import e from 'express';
+import { EditDeckComponent } from '../edit-deck/edit-deck.component';
 
 interface TypeCards {
   name: string;
@@ -30,7 +37,9 @@ export class ViewDeckComponent implements OnInit {
   constructor(
     private _router: ActivatedRoute,
     private _redirect: Router,
-    private _service : AuthDeckService
+    private _service : AuthDeckService,
+    private _snackBar: SnackbarService,
+    private _matDialog: MatDialog,
   ) { }
 
   ngOnInit(): void {
@@ -43,38 +52,146 @@ export class ViewDeckComponent implements OnInit {
     })
   }
 
-  async getDeckById(id: string):Promise<void>{
+  /**
+   * Metodo para actualizar mazo.
+   * Llama al metodo updateDeck del servicio deckService.
+   * @returns {boolean} - Retorna true si se actualizo el mazo, false si no se pudo actualizar.
+   */
+  private async updateDeck(): Promise<boolean> {
+    try {
+      const res = await this._service.updateDeck(this.deckDetails);
+      if(res) {
+        return true;
+      }
+    } catch (e) {
+      console.error(e);
+    }
+    return false;
+  }
+
+  /**
+   * Metodo para obtener un mazo por su id de mazo.
+   * Llama al metodo getDeckById del servicio deckService.
+   * @param {string} id - Id del mazo a obtener.
+   * @returns {void} - No retorna nada.
+   */
+  private async getDeckById(id: string):Promise<void>{
     try {
       const deck = await this._service.getDeckById(id);
       this.deckDetails = deck;
       if(this.deckDetails.cards!.length > 0) {
         this.types = this.organizeByTypes(this.deckDetails);
-
       }
     } catch (e) {
       console.error(e);
     }
   }
 
-  async deleteCard(type: any, index: number) {
-    try{
-
-      type[1].splice(index, 1);
-      const value = this.getCardsOfTypes();
-      this.deckDetails.cards = value;
-      const res = await this._service.updateDeck(this.deckDetails);
-    }catch(e){
-      console.error(e);
-    } 
+  /**
+   * Metodo para descargar un mazo en formato de texto.
+   * Crea un archivo de texto con los nombres y tipos de las cartas.
+   * @returns {void} - No retorna nada.
+   */
+  downloadFormatDeck() {
+    const deck = this.deckDetails.cards!.map(card => {
+      return `Name: ${card.name}, Type: ${card.type_line}`;
+    }).join('\n');
+    const fileFormat = new Blob([deck], { type: 'text/plain' });
+    const element = document.getElementById('downloadLink');
+    element!.setAttribute('href', URL.createObjectURL(fileFormat));
   }
 
-  getCardsOfTypes(): any[] {
+    /**
+   * Metodo para cambiar el estado de un mazo.
+   * Llama al metodo updateDeck para actualizar el estado del mazo.
+   * @returns {void} - No retorna nada.
+   */
+    toggleDeckState(){
+      this.deckDetails.status === DeckStatus.Public ? this.deckDetails.status = DeckStatus.Private : this.deckDetails.status = DeckStatus.Public;
+      this.updateDeck().then(res => {
+        if(res) {
+          this._snackBar.emitSnackbar(`El estado de tu mazo fue actualizado. Ahora es ${this.deckDetails.status}`, 'info', 'Se actualizo tu mazo');
+        }
+      })
+    }
+
+  /**
+   * Metodo para obtener las imagenes de las cartas de un mazo.
+   * @param {Deck} deck - Mazo a obtener las imagenes de las cartas.
+   * @returns {string[]} - Retorna un arreglo de imagenes de las cartas.
+   */
+  private getDeckImgs(deck: Deck): string[] {
+    const imgsUrl: string[] = [];
+    deck.cards!.forEach(card => {
+      if(!imgsUrl.includes(card.image_uris.art_crop)){
+        imgsUrl.push(card.image_uris.art_crop);
+      }
+    });
+    return imgsUrl;
+  }
+
+  /**
+   * Metodo para cambiar la imagen de un mazo.
+   * Abre un dialogo con las imagenes de las cartas del mazo.
+   * Actualiza la imagen del mazo con la imagen seleccionada.
+   * Llama al metodo updateDeck para actualizar el mazo.
+   * @returns {void} - No retorna nada.
+   */
+  async changeImgDeck() {
+    const dialogConfirmRef = this._matDialog.open(ChanceImgComponent, {
+      data: this.getDeckImgs(this.deckDetails)
+    });
+    dialogConfirmRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.deckDetails.imgDeck = result;
+        this.updateDeck().then(res => {
+          if(res) {
+            this._snackBar.emitSnackbar('La imagen de tu mazo fue actualizada.', 'success', 'Se actualizo tu mazo');
+          }
+        }).catch(e => {
+          this._snackBar.errorSave();
+      });
+      }
+    });
+  }
+
+  editDeckInfo() {
+    const dialogRef = this._matDialog.open(EditDeckComponent, {
+      data: this.deckDetails
+    });
+  }
+
+  /**
+   * Metodo para eliminar una carta de un mazo.
+   * Llama al metodo updateDeck para actualizar el mazo.
+   * @param {any} type - Tipo de carta a eliminar.
+   * @param {number} index - Posicion de la carta a eliminar.
+   * @returns {void} - No retorna nada.
+   */
+  deleteCard(type: any, index: number) {
+    type[1].splice(index, 1);
+    const value = this.getCardsOfTypes();
+    this.deckDetails.cards = value;
+    this.updateDeck().then(res => {
+      if(res) {
+        this._snackBar.emitSnackbar('La Carta fue eliminada de tu mazo.', 'success', 'Se actualizo tu mazo');
+      }
+    });
+}
+
+  /**
+   * Metodo para obtener todas las cartas de un mazo.
+   * @returns {any[]} - Retorna un arreglo de cartas.
+   */
+  private getCardsOfTypes(): any[] {
     let cards: any[] = [];
     this.types.forEach(type => {
       cards = cards.concat(type[1]);
     });
     return cards;
   }
+
+
 
   redirectToCards=()=> {
     this._redirect.navigate(['/main']);
@@ -123,6 +240,9 @@ export class ViewDeckComponent implements OnInit {
     const date = new Date(value);
     return this.formatDate(date);
   }
+
+
+
 
 
 }

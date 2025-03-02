@@ -1,0 +1,57 @@
+.change-img_content{
+    background:  var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.title-change_group{
+    padding: 0.5rem 2rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+}
+.title-chan_img{
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--bg-fondo);
+    text-shadow: var(--text-shadow-white);
+}
+
+.img-decks_group{
+    padding: 0.5rem 2rem;
+    padding-bottom: 2rem;
+    height: 300px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    gap: 2rem;
+    overflow-y: auto;
+}
+
+.img-decks_item{
+    width: 300px;
+    height: auto;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.img-decks_item:hover{
+    transform: scale(1.03);
+    .img-decks_img{
+        border: 5px solid var(--border-winter-color);
+    }
+}
+.img-decks_img{
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    border: transparent;
+    object-fit: cover;
+    box-shadow: 0 7px 8px rgba(0, 0, 0, 0.329);
+}

@@ -1,4 +1,4 @@
 export enum DeckStatus {
-    Public = 'public',
-    Private = 'private',
+    Public = 'publico',
+    Private = 'privado',
 }

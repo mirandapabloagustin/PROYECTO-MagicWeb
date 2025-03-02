@@ -23,4 +23,18 @@ export class SnackbarService {
     });
   }
 
+  errorSave(){
+    this._snackbar.openFromComponent(NotificationComponent, {
+      data: {
+        message: 'Tuvimos inconvenientes y ocurrio un error al guardar.',
+        type: 'warning',
+        whisper: 'Intenta de nuevo mas tarde'
+      },
+      duration: 5000,
+      horizontalPosition: 'end'
+    });
+  }
+
+
+
 }

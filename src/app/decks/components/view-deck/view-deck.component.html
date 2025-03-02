@@ -10,7 +10,7 @@
       </div>
       <div class="img-deck-header_group">
         <img class="deck-header_img" [src]="deckDetails.imgDeck" [alt]="deckDetails.name" />
-        <button class="change-img_btn">
+        <button class="change-img_btn" (click)="changeImgDeck()">
           <img class="btn-change_img" src="icons/boton-editar.png" alt="boton-editar" />
         </button>
       </div>
@@ -37,14 +37,26 @@
     </header>
 
     <div class="view-decks-btn_content">
-      <button class="view-decks_btn">Descargar Mazo</button>
+      <a class="view-decks_btn a-link" id="downloadLink" href="#" (click)="downloadFormatDeck()" [download]="deckDetails.name+'.txt'">Descargar 
+        <img class="icon-btn_img" src="icons/flecha-hacia-abajo.png" alt="descargar-deck_png" />
+        <small class="description-action_span">Descarga tu mazo en formato txt.</small>
+      </a>
       @if(isPublic){
       <button class="view-decks_btn">Votar</button>
       <button class="view-decks_btn">Copiar Mazo</button>
 
       }@else {
-      <button class="view-decks_btn share-deck_btn">Compartir</button>
-      <button class="view-decks_btn edit-deck_btn">Editar</button>
+        @if(deckDetails.status === 'privado'){
+          <button class="view-decks_btn share-deck_btn" (click)="toggleDeckState()">Compartir
+            <img class="detele-btn_img" src="icons/comunity-compartir.png" alt="descargar-deck_png" />
+            <small class="description-action_span">Comparte tu mazo con la comunidad.</small>
+          </button>
+        }@else {
+          <button class="view-decks_btn share-deck_btn" (click)="toggleDeckState()">Dejar de Compartir
+            <img class="detele-btn_img" src="icons/no-compartir.png" alt="descargar-deck_png" />
+          </button>
+        }
+      <button class="view-decks_btn edit-deck_btn" (click)="editDeckInfo()">Editar</button>
       <button class="view-decks_btn delete-deck_btn">
         Eliminar<img class="detele-btn_img" src="icons/eliminar.png" alt="detele png" />
       </button>
