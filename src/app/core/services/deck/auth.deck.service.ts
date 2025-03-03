@@ -132,10 +132,10 @@ export class AuthDeckService {
 
   /**
    * @description
-   * Metodo para actualizar un mazo
-   * - Llama al metodo update del servicio deckService
-   * @param {deck} deck - Mazo q contiene la informacion del mazo a actualizar
-   * @returns {boolean} - Retorna true si se actualizo el mazo, false si no se pudo actualizar
+   * Metodo para actualizar un mazo.
+   * - Llama al metodo update del servicio deckService.
+   * @param {deck} deck - Mazo q contiene la informacion del mazo a actualizar.
+   * @returns {boolean} - Retorna true si se actualizo el mazo, false si no se pudo actualizar.
    */
   async updateDeck(deck: Deck): Promise<Boolean> {
     try {
@@ -145,6 +145,29 @@ export class AuthDeckService {
       return res ? true : false;
     } catch (e) {
       this._snackBar.errorSave();
+      console.error(e);
+    }
+    return false;
+  }
+
+  /**
+   * @description
+   * Metodo para eliminar un mazo.
+   * - Llama al metodo delete del servicio deckService.
+   * - Obtiene la respuesta del servicio y si se elimino el mazo lo elimina del arreglo Observable.
+   * - Se actualiza el arreglo Observable.
+   * @param {string} id - Id del mazo a eliminar.
+   * @returns {boolean} - Retorna true si se elimino el mazo, false si no se pudo eliminar.
+   */
+  async deleteDeck(id: string): Promise<boolean> {
+    try {
+      const res = await lastValueFrom(this._deckService.delete(id));
+      if (res) {
+        const decks = this._listDecks.getValue().filter(deck => deck.id !== id);
+        this._listDecks.next(decks);
+        return true;
+      }
+    } catch (e) {
       console.error(e);
     }
     return false;

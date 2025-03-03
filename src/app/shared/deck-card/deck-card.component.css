@@ -146,3 +146,32 @@
 }
 
 /*  -------------------------------  */
+
+.votes-deck_group{
+  position: relative;
+  grid-row-start: 3;
+  display: flex;
+  justify-content: end;
+
+}
+.vote-deck_img{
+  position: absolute;
+  top: -300px;
+  right: -534px;
+  width: 90px;
+  height: auto;
+}
+.comunity-votes_group{
+  width: 40px;
+  position: absolute;
+  top: -265px;
+  right: -509px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.vote_deck{
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--bg-fondo);
+}
