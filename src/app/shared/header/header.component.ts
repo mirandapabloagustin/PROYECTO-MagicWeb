@@ -3,7 +3,10 @@ import {
   faHatWizard,
   faRightFromBracket,
   faBars,
-  faUser
+  faUser,
+  faToolbox,
+  faUsers,
+  faMagnifyingGlass
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { Router, RouterLink } from '@angular/router';
@@ -28,7 +31,7 @@ const COMPONENTS = [FontAwesomeModule, RouterLink];
 export class HeaderComponent implements OnInit {
   userLogged: User | undefined;
   public statusLogin = false;
-  icons = [faHatWizard, faUser, faRightFromBracket, faBars];
+  icons = [faHatWizard, faUser, faRightFromBracket, faBars, faToolbox,faUsers,faMagnifyingGlass];
 
   constructor(
     private _router: Router,

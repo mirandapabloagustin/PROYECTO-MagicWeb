@@ -49,9 +49,7 @@
         "G"
       ],
       "votes": 2,
-      "votesUser": [
-        "88bc2710-1e71-4f3d-84c2-f89c3dbfb396"
-      ],
+      "votesUser": [],
       "status": "publico",
       "cards": [
         {
@@ -2036,8 +2034,10 @@
         "R"
       ],
       "votes": 0,
-      "votesUser": [],
-      "status": "publico",
+      "votesUser": [
+        "ed73f73c-a663-4b2f-9d28-a13777186d33"
+      ],
+      "status": "privado",
       "cards": [
         {
           "object": "card",
@@ -2585,7 +2585,10 @@
         "B"
       ],
       "votes": 0,
-      "status": "privado",
+      "votesUser": [
+        "88bc2710-1e71-4f3d-84c2-f89c3dbfb396"
+      ],
+      "status": "publico",
       "cards": [
         {
           "object": "card",

@@ -10,9 +10,11 @@
       </div>
       <div class="img-deck-header_group">
         <img class="deck-header_img" [src]="deckDetails.imgDeck" [alt]="deckDetails.name" />
-        <button class="change-img_btn" (click)="changeImgDeck()">
-          <img class="btn-change_img" src="icons/boton-editar.png" alt="boton-editar" />
-        </button>
+        @if(!isPublic){
+          <button class="change-img_btn" (click)="changeImgDeck()">
+            <img class="btn-change_img" src="icons/boton-editar.png" alt="boton-editar" />
+          </button>
+        }
       </div>
       <div class="description-deck_group">
         <p class="deck-header_description font-style">
@@ -31,7 +33,7 @@
         <img class="vote-deck_img" src="icons/dado.png" alt="like" />
         <span class="vote_text font-style">Votos de la comunidad:</span>
         <div class="comunity-votes_group">
-          <span class="vote_deck">{{ deckDetails.votes }}</span>
+          <span class="vote_deck">{{ deckDetails.votesUser?.length }}</span>
         </div>
       </div>
     </header>
@@ -42,9 +44,7 @@
         <small class="description-action_span">Descarga tu mazo en formato txt.</small>
       </a>
       @if(isPublic){
-      <button class="view-decks_btn">Votar</button>
       <button class="view-decks_btn">Copiar Mazo</button>
-
       }@else {
         @if(deckDetails.status === 'privado'){
           <button class="view-decks_btn share-deck_btn" (click)="toggleDeckState()">Compartir

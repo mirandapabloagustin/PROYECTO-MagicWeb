@@ -44,11 +44,12 @@ export class ViewDeckComponent implements OnInit {
   ngOnInit(): void {
     this._router.paramMap.subscribe(params => {
       const id = params.get('idDeck');
-      if(id) {
-        this.getDeckById(id);
-       
-      }
-    })
+      if (id) this.getDeckById(id);
+    });
+    this._router.queryParams.subscribe(params => {
+      this.isPublic = params['public']; 
+      
+    });
   }
 
   /**

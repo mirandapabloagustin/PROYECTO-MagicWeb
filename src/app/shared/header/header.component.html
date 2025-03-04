@@ -10,17 +10,17 @@
         @if(statusLogin){
             <li>
                 <a href="main" class="link"
-                  >Explorador</a
+                  ><fa-icon class="icon-transform" [icon]="icons[6]"></fa-icon> Buscador</a
                 >
             </li>
             <li>
                 <a [routerLink]="['/',userLogged?.id,'decks']"  class="link"
-                  >Mis Mazos</a
+                  ><fa-icon class="icon-transform" [icon]="icons[4]"></fa-icon> Mis Mazos</a
                 >
             </li>
             <li>
                 <a href="community" class="link"
-                  >Comunidad</a
+                  ><fa-icon class="icon-transform" [icon]="icons[5]"></fa-icon> Comunidad</a
                 >
             </li>
         <li>
@@ -29,7 +29,7 @@
           >
         </li>
         <li>
-            <button (click)="logout()">
+            <button class="logout-btn" (click)="logout()">
                 <fa-icon [icon]="icons[2]"></fa-icon>
             </button>
         </li>

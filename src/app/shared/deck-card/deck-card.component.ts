@@ -30,13 +30,11 @@ export class DeckCardComponent implements OnInit {
 
   }
 
-
   goToDeck(id: any) {
-    if(!this.publicActive){
-      this._router.navigate(['/',this._userLogged.id,'decks', id]);
-    }else{
-      this._router.navigate(['/', this.deckUser?.userId,'decks', id]);
-    }
+    const userId = this.publicActive ? this.deckUser?.userId : this._userLogged.id;
+    this._router.navigate(['/', userId, 'decks', id], {
+      queryParams: { public: this.publicActive }
+    });
   }
 
   likeDeck(deck: Deck) {
@@ -49,7 +47,6 @@ export class DeckCardComponent implements OnInit {
       if(res){
         this.deckUser = deck;
         this._snackBar.emitSnackbar('Gracias por participar en la comunidad', 'success','Tu voto ha sido registrado');
-
       }
     });
   }
