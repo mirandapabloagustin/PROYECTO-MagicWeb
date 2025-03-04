@@ -35,6 +35,18 @@ export class SnackbarService {
     });
   }
 
+  errorServer(){
+    this._snackbar.openFromComponent(NotificationComponent, {
+      data: {
+        message: 'Tuvimos inconvenientes con el servidor.',
+        type: 'error',
+        whisper: 'Intenta de nuevo mas tarde'
+      },
+      duration: 5000,
+      horizontalPosition: 'end'
+    });
+  }
+
 
 
 }

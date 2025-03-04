@@ -1,0 +1,13 @@
+<section class="decks-list-community_content">
+    <div class="hover-background">
+        <div class="title-community_group">
+            <h2 class="title-community">Mazos de la Comunidad</h2>
+        </div>
+
+        <div class="list-content_group">
+            @for (deck of decks; track $index) {
+                <app-deck-card [deckUser]="deck" [publicActive]="getIsPublic()"></app-deck-card>
+            }
+        </div>
+    </div>
+</section>

@@ -24,6 +24,7 @@ export const routes: Routes = [
   {
     path:'community',
     loadComponent: () => import('./deck-community/deck-community.component').then(m => m.DeckCommunityComponent),
+    canActivate: [authGuard]
   },
   {
     path: ':idUser',

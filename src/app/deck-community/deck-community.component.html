@@ -1,8 +1,8 @@
 <app-header></app-header>
 <section class="show-deck_conteiner">
   <app-filter-decks (filterEvent)="getSearch($event)"></app-filter-decks>
-  <div class="list-atr">
-    <app-list-decks></app-list-decks>
+  <div class="list-decks-community_group">
+    <app-list-decks-community [decks]="decks"></app-list-decks-community>
   </div>
 </section>
 <app-footer></app-footer>

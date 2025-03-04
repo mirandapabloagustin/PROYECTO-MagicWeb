@@ -1,56 +1,67 @@
-<div class="deck-card_content" (click)="goToDeck(deckUser?.id)">
+<div class="card_container">
 
-  <div class="img-deck_content">
-    <img class="deck-card_img" [src]="deckUser?.imgDeck" alt="img.deck" >
-  </div>
 
-  <div class="deck-info_group">
-    <h3 class="deck_title">{{ deckUser?.name }}</h3>
-    <small class="chiquitiñito" >creado el: {{getFormatDate(deckUser!.createdAt!.toString())}}</small>
-    <div class="deck-description_group">
-      <p class="deck_description">Descripcion:</p>
-      <small class="descripcion-text">{{ deckUser?.description }}</small>
+  <div class="deck-card_content" (click)="goToDeck(deckUser?.id)">
+
+    <div class="img-deck_content">
+      <img class="deck-card_img" [src]="deckUser?.imgDeck" alt="img.deck">
     </div>
 
+    <div class="deck-info_group">
+      <h3 class="deck_title">{{ deckUser?.name }}</h3>
+      <small class="chiquitiñito">creado el: {{getFormatDate(deckUser!.createdAt!.toString())}}</small>
+      <div class="deck-description_group">
+        <p class="deck_description">Descripcion:</p>
+        <small class="descripcion-text">{{ deckUser?.description }}</small>
+      </div>
 
-    <div class="tag-deck_group" >
-      @for (item of deckUser?.tags ; track $index) {
-        <small  class="tag_item">{{ item }}</small>
-      }
-    </div>
 
-  </div>
-
-  <div class="deck-color_group">
-
-    @if(deckUser?.colors!.length >= 1) {
-      <div class="color_content">
-      @for (color of deckUser?.colors ; track $index) {
-          <img class="deck-color_img" [src]="getDeckColorImg(color)" alt="color.deck">
+      <div class="tag-deck_group">
+        @for (item of deckUser?.tags ; track $index) {
+        <small class="tag_item">{{ item }}</small>
         }
-      </div> 
+      </div>
+
+    </div>
+
+    <div class="deck-color_group">
+
+      @if(deckUser?.colors!.length >= 1) {
+      <div class="color_content">
+        @for (color of deckUser?.colors ; track $index) {
+        <img class="deck-color_img" [src]="getDeckColorImg(color)" alt="color.deck">
+        }
+      </div>
       }@else {
-        <div class="non_group">
-          <small class="non-content-msj">No contiene cartas</small>
-        </div>
+      <div class="non_group">
+        <small class="non-content-msj">No contiene cartas</small>
+      </div>
       }
 
-  </div>
+    </div>
 
-  <div class="create-date_group">
+    <div class="create-date_group">
 
-    <div class="creater_content">
-      <span class="create-deck_info">{{getFormatDate(deckUser!.updatedAt!.toString())}}</span>
+      <div class="creater_content">
+        <span class="create-deck_info">{{getFormatDate(deckUser!.updatedAt!.toString())}}</span>
+      </div>
+
+    </div>
+
+    <div class="votes-deck_group">
+      <img class="vote-deck_img" src="icons/dado.png" alt="like" />
+      <div class="comunity-votes_group">
+        <span class="vote_deck">{{ deckUser?.votesUser?.length }}</span>
+      </div>
+
     </div>
 
   </div>
-
-  <div class="votes-deck_group">
-    <img class="vote-deck_img" src="icons/dado.png" alt="like" />
-    <div class="comunity-votes_group">
-      <span class="vote_deck">{{ deckUser?.votes }}</span>
-    </div>
-
+  @if(publicActive){
+  <div class="like-deck_group">
+    <button class="like-deck_btn" (click)="likeDeck(deckUser!)" [class.liked]="checkLikeUser(deckUser!)">
+      <img class="like-deck_img" src="icons/like.png" alt="like" />
+    </button>
+  </div>
+  }
 </div>
-
-

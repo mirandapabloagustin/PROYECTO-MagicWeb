@@ -14,6 +14,7 @@ export class Deck implements IDeck {
     manaRatio: number | null;
     colors: string[] | null;
     votes: number | null;
+    votesUser: string[] | null;
     status: DeckStatus;
     cards: any[] | null;
 
@@ -30,6 +31,7 @@ export class Deck implements IDeck {
       this.manaRatio = deck?.manaRatio ?? 0;
       this.colors = deck?.colors ?? [];
       this.votes = deck?.votes ?? 0;
+      this.votesUser = deck?.votesUser ?? [];
       this.status = deck?.status ?? DeckStatus.Private;
       this.cards = deck?.cards ?? [];
     }

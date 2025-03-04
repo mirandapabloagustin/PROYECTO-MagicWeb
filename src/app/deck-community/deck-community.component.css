@@ -1,0 +1,16 @@
+.show-deck_conteiner{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+  .list-decks-community_group{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+  

@@ -29,10 +29,19 @@ export class AuthDeckService {
    * @returns {Deck[]} - Retorna un arreglo de mazos
    */
   async getAllDecks() {
+    let decks: Deck[] = [];
     try {
       const res = await lastValueFrom(this._deckService.all());
-      this._listDecks.next(res);
+      if(res.length > 0){
+        res.forEach(deck => {
+          if(deck.status === DeckStatus.Public){
+            decks.push(deck);
+          }
+        });
+        this._listDecks.next(decks);
+      }
     } catch (e) {
+      this._snackBar.errorServer();
       console.error(e);
     }
   }
@@ -55,7 +64,8 @@ export class AuthDeckService {
         return true;
       }
     } catch (e) {
-      this._snackBar.emitSnackbar('Tuvimos inconvenientes para poder crear tu mazo.', 'error', 'Vuelva a intentarlo mas tarde...');
+      this._snackBar.errorSave();
+      console.error(e);
     }
     return false;
   }
@@ -76,6 +86,7 @@ export class AuthDeckService {
         this._listDecks.next(res);
       }
     } catch (e) {
+      this._snackBar.errorServer();
       console.error(e);
     }
   }
@@ -95,6 +106,7 @@ export class AuthDeckService {
         deck = res[0];
       }
     } catch (e) {
+      this._snackBar.errorServer();
       console.error(e);
     }
     return deck;
@@ -142,9 +154,11 @@ export class AuthDeckService {
       deck = this.checkColorDeck(deck);
       deck.manaRatio = this.avarageMana(deck);
       const res = await lastValueFrom(this._deckService.update(deck));
-      return res ? true : false;
+      if (res){
+        return true;
+      }
     } catch (e) {
-      this._snackBar.errorSave();
+      this._snackBar.errorServer();
       console.error(e);
     }
     return false;
@@ -168,6 +182,7 @@ export class AuthDeckService {
         return true;
       }
     } catch (e) {
+      this._snackBar.errorServer();
       console.error(e);
     }
     return false;
@@ -225,6 +240,7 @@ export class AuthDeckService {
       manaRatio: 0,
       colors: [],
       votes: 0,
+      votesUser: [],
       status: DeckStatus.Private,
       cards: [],
     };

@@ -1,3 +1,10 @@
+.card_container{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
 .deck-card_content{
   width: 700px;
   height: 100%;
@@ -175,3 +182,41 @@
   font-weight: bold;
   color: var(--bg-fondo);
 }
+
+/*  -------------------------------  */
+.like-deck_group{
+  position: absolute;
+  bottom: -25px;
+}
+.like-deck_btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #eee;
+  border: 1px solid rgba(0, 0, 0, 0.11);
+  box-shadow: 0 7px 8px rgba(0, 0, 0, 0.204);
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.like-deck_btn:hover{
+  transform: scale(1.1);
+  background: var(--acid-green);
+  .like-deck_img{
+    filter: invert(1);
+  }
+}
+.like-deck_img{
+  width: 40px;
+  height: auto;
+}
+
+.liked{
+  background: var(--acid-green);
+  .like-deck_img{
+    filter: invert(1);
+  }
+}
+

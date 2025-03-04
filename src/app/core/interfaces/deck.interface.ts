@@ -13,6 +13,7 @@ export interface IDeck {
   manaRatio: number | null;
   colors: string[] | null;
   votes: number | null;
+  votesUser: string[] | null;
   status: DeckStatus;
   cards: any[] | null;
 }

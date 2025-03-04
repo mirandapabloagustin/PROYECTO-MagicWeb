@@ -1,4 +1,4 @@
-import { Component, input, Input, OnInit } from '@angular/core';
+import { Component,Input, OnInit } from '@angular/core';
 import { HeaderComponent } from "@shared/header/header.component";
 import { FooterComponent } from "@shared/footer/footer.component";
 import { ListDecksComponent } from "./components/list-decks/list-decks.component";
@@ -16,8 +16,10 @@ import { FilterDeckDTO } from '@models/dto/filter.deck.dto.model';
   styleUrl: './decks.component.css'
 })
 export class DecksComponent implements OnInit {
-  
   decks: Deck[] = [];
+
+
+
   constructor(
     private _service: AuthDeckService,
     private _local : LocalStorageService,
