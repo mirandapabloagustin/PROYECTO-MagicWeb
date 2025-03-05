@@ -1,5 +1,6 @@
 import { IDeck } from '@interfaces/deck.interface';
 import { DeckStatus } from '@enums/status.deck';
+import { CopiedDeck } from '../enums/copied.deck.enum';
 
 export class Deck implements IDeck {
     id: string | null;
@@ -13,7 +14,7 @@ export class Deck implements IDeck {
     updatedAt: Date | null;
     manaRatio: number | null;
     colors: string[] | null;
-    votes: number | null;
+    copied: CopiedDeck;
     votesUser: string[] | null;
     status: DeckStatus;
     cards: any[] | null;
@@ -30,7 +31,7 @@ export class Deck implements IDeck {
       this.updatedAt = deck?.updatedAt ?? new Date();
       this.manaRatio = deck?.manaRatio ?? 0;
       this.colors = deck?.colors ?? [];
-      this.votes = deck?.votes ?? 0;
+      this.copied = deck?.copied ?? CopiedDeck.Original;
       this.votesUser = deck?.votesUser ?? [];
       this.status = deck?.status ?? DeckStatus.Private;
       this.cards = deck?.cards ?? [];

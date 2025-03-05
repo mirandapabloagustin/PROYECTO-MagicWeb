@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { SearchComponent } from "@shared/search/search.component";
 import { FilterDeckDTO } from '@models/dto/filter.deck.dto.model';

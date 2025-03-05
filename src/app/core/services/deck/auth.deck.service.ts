@@ -7,6 +7,7 @@ import { LocalStorageService } from '../user/local-storage.service';
 import { SnackbarService } from '../snackbar/snackbar.service';
 import { FilterDeckDTO } from '@models/dto/filter.deck.dto.model';
 import { DeckStatus } from '@enums/status.deck';
+import { CopiedDeck } from '@app/core/enums/copied.deck.enum';
 
 
 @Injectable({
@@ -34,7 +35,7 @@ export class AuthDeckService {
       const res = await lastValueFrom(this._deckService.all());
       if(res.length > 0){
         res.forEach(deck => {
-          if(deck.status === DeckStatus.Public){
+          if(deck.status === DeckStatus.Public && deck.copied === CopiedDeck.Original){
             decks.push(deck);
           }
         });
@@ -119,26 +120,23 @@ export class AuthDeckService {
    * - Obtiene los mazos de la lista de mazos
    * - Luego filtra los mazos por nombre, mana, tag y colores
    * @param {FilterDeckDTO} filter Filtro para buscar mazos
-   * @returns {Deck} Retorna un mazo
+   * @returns {Deck[]} Retorna un arreglo de mazos
    */
   getDecksByFilter(filter: FilterDeckDTO): Deck[] {
-    
-    if (!this.checkFilterEmpty(filter)) {
-      const decks = this._listDecks.getValue();
-
-      const filterDecks = decks.filter(deck => {
-        const name = deck.name === filter.name;
-        const mana = deck.manaRatio !== null && deck.manaRatio.toString() == filter.mana;
-        const tag = deck.tags && deck.tags.includes(filter.tag);
-        if (filter.colors.length > 0) {
-          const colors = filter.colors.every(color => deck.colors?.includes(color));
-          return name || mana || tag || colors;
-        }
-        return name || mana || tag;
-      });
-      return filterDecks;
+    if (this.checkFilterEmpty(filter)) {
+      return this._listDecks.getValue();
     }
-    return this._listDecks.getValue();
+  
+    const decks = this._listDecks.getValue();
+  
+    return decks.filter(deck => {
+      const nameMatch = filter.name ? deck.name?.toLowerCase().includes(filter.name.toLowerCase()) : true;
+      const manaMatch = filter.mana ? deck.manaRatio !== null && deck.manaRatio.toString() === filter.mana : true;
+      const tagMatch = filter.tag ? deck.tags?.includes(filter.tag) : true;
+      const colorsMatch = filter.colors.length > 0 ? filter.colors.every(color => deck.colors?.includes(color)) : true;
+  
+      return nameMatch && manaMatch && tagMatch && colorsMatch;
+    });
   }
 
 
@@ -188,6 +186,35 @@ export class AuthDeckService {
     return false;
   }
 
+  /**
+   * @description
+   * Metodo para copiar un mazo.
+   * - Se establecen los valores del mazo a copiar.
+   * - Llama al metodo create del servicio deckService.
+   * @param {deck} deck - Mazo q contiene la informacion del mazo a copiar.
+   * @param {string} userID - Id del usuario que copia el mazo.
+   * @returns {boolean} - Retorna true si se copio el mazo, false si no se pudo copiar.
+   */
+  async copyDeck(deck: Deck, userID : string): Promise<boolean> {
+    try{
+      deck.id = uuidv4();
+      deck.userId = userID;
+      deck.copied = CopiedDeck.Copied;
+      deck.status = DeckStatus.Private;
+      deck.votesUser = [];
+      deck.createdAt = new Date();
+      deck.updatedAt = new Date();
+      const res = await lastValueFrom(this._deckService.create(deck));
+      if(res){
+        return true;
+      }
+    }catch(e){
+      this._snackBar.errorServer();
+      console.error(e);
+    }
+    return false;
+  }
+
   
   addColorOnDeck(card:any, deck: Deck): Deck {
     if(card.color_identity){
@@ -214,9 +241,6 @@ export class AuthDeckService {
     return deck;
   }
 
- 
-
-
   avarageMana(deck: Deck): number {
     let sum = 0;
     deck.cards!.forEach(card => {
@@ -239,7 +263,7 @@ export class AuthDeckService {
       updatedAt: deck.updatedAt,
       manaRatio: 0,
       colors: [],
-      votes: 0,
+      copied: CopiedDeck.Original,
       votesUser: [],
       status: DeckStatus.Private,
       cards: [],
@@ -274,6 +298,19 @@ export class AuthDeckService {
       const decks = this._listDecks.getValue();
       return decks.some(deck => deck.name === name);
     }catch(e){
+      console.error(e);
+    }
+    return false;
+  }
+
+  async checkDeckExists(userID: string, deck:Deck): Promise<boolean> {
+    try {
+      const res = await lastValueFrom(this._deckService.getDecks(userID));
+      if (res.length > 0) {
+        return res.some(deckDB => deckDB.id === deck.id);
+      }
+    } catch (e) {
+      this._snackBar.errorServer();
       console.error(e);
     }
     return false;

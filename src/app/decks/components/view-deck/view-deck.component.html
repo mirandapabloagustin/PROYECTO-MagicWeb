@@ -44,13 +44,22 @@
         <small class="description-action_span">Descarga tu mazo en formato txt.</small>
       </a>
       @if(isPublic){
-      <button class="view-decks_btn">Copiar Mazo</button>
+        <button class="view-decks_btn " (click)="likeDeck(deckDetails)" [class.liked]="checkLikeUser(deckDetails)">Votar
+          <img class="icon-btn_img" src="icons/like.png" alt="like-deck_png" />
+              <small class="description-action_span">Deja tu marca en la comunidad.</small>
+        </button>
+      <button class="view-decks_btn edit-deck_btn" (click)="copieDeck()">Copiar Mazo
+        <img class="detele-btn_img" src="icons/copiar.png" alt="copiar-deck_png" />
+            <small class="description-action_span">Agrega este mazo a tus lista.</small>
+      </button>
       }@else {
         @if(deckDetails.status === 'privado'){
-          <button class="view-decks_btn share-deck_btn" (click)="toggleDeckState()">Compartir
-            <img class="detele-btn_img" src="icons/comunity-compartir.png" alt="descargar-deck_png" />
-            <small class="description-action_span">Comparte tu mazo con la comunidad.</small>
-          </button>
+          @if(deckDetails.copied === 'original'){
+            <button class="view-decks_btn share-deck_btn" (click)="toggleDeckState()">Compartir
+              <img class="detele-btn_img" src="icons/comunity-compartir.png" alt="descargar-deck_png" />
+              <small class="description-action_span">Comparte tu mazo con la comunidad.</small>
+            </button>
+          }
         }@else {
           <button class="view-decks_btn share-deck_btn" (click)="toggleDeckState()">Dejar de Compartir
             <img class="detele-btn_img" src="icons/no-compartir.png" alt="descargar-deck_png" />
@@ -112,28 +121,29 @@
       }
 
     </div>
-
-    <div class="deck-comments_content">
-      <div class="comments-title_group">
-        <h2 class="comments-title titles-styles-dom font-style">Comentarios</h2>
-      </div>
-      @if(isPublic){
-      <div class="input-comment-deck_group">
-        <span class="text-comment_top">Deja tu comentario:</span>
-        <div class="textarea-comment_group">
-          <textarea class="input-comment_deck" placeholder="Escribe tu comentario"></textarea>
-          <div class="letter-count_group">
-            <span class="letter-count_text">0/200</span>
+    @if(deckDetails.copied === 'original'){
+      <div class="deck-comments_content">
+        <div class="comments-title_group">
+          <h2 class="comments-title titles-styles-dom font-style">Comentarios</h2>
+        </div>
+        @if(isPublic){
+          <div class="input-comment-deck_group">
+            <span class="text-comment_top">Deja tu comentario:</span>
+            <div class="textarea-comment_group">
+              <textarea class="input-comment_deck" placeholder="Escribe tu comentario"></textarea>
+              <div class="letter-count_group">
+                <span class="letter-count_text">0/200</span>
+              </div>
+            </div>
+            <div class="btn-comment_group">
+              <button class="send-comment_btn">Enviar</button>
+            </div>
           </div>
-        </div>
-        <div class="btn-comment_group">
-          <button class="send-comment_btn">Enviar</button>
-        </div>
+        }
+        <p>COMENTARIOS DEL DECK</p>
       </div>
-      }
-      <p>COMENTARIOS DEL DECK</p>
-    </div>
     }
+  }
   </div>
 </div>
 <app-footer></app-footer>

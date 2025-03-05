@@ -5,9 +5,9 @@
         </div>
 
         <div class="list-content_group">
-            @for (deck of decks; track $index) {
-                <app-deck-card [deckUser]="deck" [publicActive]="getIsPublic()"></app-deck-card>
-            }
+                @for (deck of decks; track $index) {
+                    <app-deck-card [deckUser]="deck" [publicActive]="getIsPublic()"></app-deck-card>
+                 }
         </div>
     </div>
 </section>

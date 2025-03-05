@@ -25,6 +25,19 @@
       "idDeckRef": "005006ca-7e1a-4e6a-8cd1-16d8a2dbd143",
       "favCards": [],
       "status": true
+    },
+    {
+      "id": "10f40f0d-d571-4e63-9126-ed064996821b",
+      "nick": "master",
+      "name": "juan pedro",
+      "email": "deck@gmail.com",
+      "imgUri": "https://cards.scryfall.io/art_crop/front/c/f/cf1d17e4-a201-4511-b4bf-7c672728de4b.jpg?1730249713",
+      "password": "1234",
+      "description": "Amante de Magic: The Gathering, siempre en busca de nuevos mazos y estrategias. Mi color favorito de maná es [Inserta tu color aquí] y disfruto jugando con [tu tipo de mazo o comandante favorito]. ¡Vamos a jugar y compartir ideas sobre este increíble juego!",
+      "country": "AR",
+      "idDeckRef": "388a1e1d-603c-49c9-a4dd-73e67a9b2a89",
+      "favCards": [],
+      "status": true
     }
   ],
   "decks": [
@@ -48,8 +61,10 @@
         "R",
         "G"
       ],
-      "votes": 2,
-      "votesUser": [],
+      "copied": "original",
+      "votesUser": [
+        "ed73f73c-a663-4b2f-9d28-a13777186d33"
+      ],
       "status": "publico",
       "cards": [
         {
@@ -2033,11 +2048,11 @@
       "colors": [
         "R"
       ],
-      "votes": 0,
+      "copied": "original",
       "votesUser": [
         "ed73f73c-a663-4b2f-9d28-a13777186d33"
       ],
-      "status": "privado",
+      "status": "publico",
       "cards": [
         {
           "object": "card",
@@ -2584,9 +2599,10 @@
         "W",
         "B"
       ],
-      "votes": 0,
+      "copied": "original",
       "votesUser": [
-        "88bc2710-1e71-4f3d-84c2-f89c3dbfb396"
+        "88bc2710-1e71-4f3d-84c2-f89c3dbfb396",
+        "ed73f73c-a663-4b2f-9d28-a13777186d33"
       ],
       "status": "publico",
       "cards": [

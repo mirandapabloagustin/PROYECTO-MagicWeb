@@ -42,11 +42,11 @@ export class DeckCardComponent implements OnInit {
       deck.votesUser = deck.votesUser?.filter(id => id !== this._userLogged.id) || [];
     }else{
       deck.votesUser?.push(this._userLogged.id!);
+      this._snackBar.emitSnackbar('Gracias por participar en la comunidad', 'success','Tu voto ha sido registrado');
     }
     this._deckService.updateDeck(deck).then(res => {
       if(res){
         this.deckUser = deck;
-        this._snackBar.emitSnackbar('Gracias por participar en la comunidad', 'success','Tu voto ha sido registrado');
       }
     });
   }

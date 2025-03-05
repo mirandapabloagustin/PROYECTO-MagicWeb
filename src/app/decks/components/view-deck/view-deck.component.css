@@ -321,3 +321,13 @@
   border-radius: 15px;
 }
 /*================================================================================*/
+
+/*   LIKES STYLES   */
+
+.liked{
+  background: var(--acid-green);
+  color: var(--text-color);
+  .icon-btn_img{
+    filter: invert(1);
+  }
+}

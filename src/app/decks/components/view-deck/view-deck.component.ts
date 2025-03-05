@@ -11,6 +11,8 @@ import { ChanceImgComponent } from '@app/shared/chance-img/chance-img.component'
 import { SnackbarService } from '@app/core/services/snackbar/snackbar.service';
 import { EditDeckComponent } from '../edit-deck/edit-deck.component';
 import { ConfirmDialogComponent } from '@shared/confirm-dialog/confirm-dialog.component'; 
+import { LocalStorageService } from '@app/core/services/user/local-storage.service';
+import { User } from '@app/core/models/user.model';
 
 interface TypeCards {
   name: string;
@@ -27,6 +29,7 @@ interface TypeCards {
 
 
 export class ViewDeckComponent implements OnInit {
+  private _userLogged! : User;
   deckDetails!: Deck;
   types: any[] = [];
   titleEmpty: string = 'No hay cartas en tu mazo';
@@ -36,23 +39,25 @@ export class ViewDeckComponent implements OnInit {
   constructor(
     private _router: ActivatedRoute,
     private _redirect: Router,
+    private _local: LocalStorageService,
     private _service : AuthDeckService,
     private _snackBar: SnackbarService,
     private _matDialog: MatDialog,
   ) { }
 
   ngOnInit(): void {
+    this._userLogged = this._local.getUserLogged();
     this._router.paramMap.subscribe(params => {
       const id = params.get('idDeck');
       if (id) this.getDeckById(id);
     });
     this._router.queryParams.subscribe(params => {
       this.isPublic = params['public']; 
-      
     });
   }
 
   /**
+   * @description
    * Metodo para actualizar mazo.
    * Llama al metodo updateDeck del servicio deckService.
    * @returns {boolean} - Retorna true si se actualizo el mazo, false si no se pudo actualizar.
@@ -70,6 +75,7 @@ export class ViewDeckComponent implements OnInit {
   }
 
   /**
+   * @description
    * Metodo para obtener un mazo por su id de mazo.
    * Llama al metodo getDeckById del servicio deckService.
    * @param {string} id - Id del mazo a obtener.
@@ -88,6 +94,7 @@ export class ViewDeckComponent implements OnInit {
   }
 
   /**
+   * @description
    * Metodo para descargar un mazo en formato de texto.
    * Crea un archivo de texto con los nombres y tipos de las cartas.
    * @returns {void} - No retorna nada.
@@ -101,7 +108,63 @@ export class ViewDeckComponent implements OnInit {
     element!.setAttribute('href', URL.createObjectURL(fileFormat));
   }
 
+  /**
+   * @description
+   * Metodo para verificar si un usuario le dio like a un mazo.
+   * @param {Deck} deck - Mazo a verificar si el usuario le dio like.
+   * @returns {boolean} - Retorna true si el usuario le dio like al mazo, false si no le dio like.
+   */
+  checkLikeUser(deck: Deck):boolean {
+    return deck.votesUser!.includes(this._userLogged.id!);
+  }
+
+  /**
+   * @description
+   * Metodo para dar like a un mazo.
+   * - Verifica si el usuario ya le dio like al mazo.
+   * - Si el usuario ya le dio like al mazo, lo elimina del arreglo de likes, si no lo agrega.
+   * - Llama al metodo updateDeck del servicio deckAuthService para actualizar el mazo.
+   * @param {Deck} deck - Mazo a dar like.
+   * @returns {void} - No retorna nada.
+   */
+  likeDeck(deck: Deck) {
+    if(this.checkLikeUser(deck)){
+      deck.votesUser = deck.votesUser?.filter(id => id !== this._userLogged.id) || [];
+    }else{
+      deck.votesUser?.push(this._userLogged.id!);
+      this._snackBar.emitSnackbar('Gracias por participar en la comunidad', 'success','Tu voto ha sido registrado');
+    }
+    this._service.updateDeck(deck).then(res => {
+      if(res){
+        this.deckDetails = deck;
+      }
+    });
+  }
+
+  /**
+   * @description
+   * Metodo para copiar un mazo.
+   * - Verifica si el mazo ya existe en la lista de mazos del usuario.
+   * - Si el mazo no existe, lo copia y muestra un mensaje de exito.
+   * - Si el mazo ya existe, muestra un mensaje de advertencia.
+   * @returns {void} - No retorna nada.
+   */
+  copieDeck() {
+    this._service.checkDeckExists(this._userLogged.id!,this.deckDetails).then(res => {
+      if(!res) {
+        this._service.copyDeck(this.deckDetails, this._userLogged.id!).then(res => {
+          if(res) {
+            this._snackBar.emitSnackbar('El mazo fue copiado correctamente.', 'success', 'Mazo copiado');
+          }
+        });
+      }else {
+        this._snackBar.emitSnackbar('Ya tienes este mazo en tu lista.', 'info', 'Verifica tus mazos !');
+      }
+    });
+  }
+
     /**
+     * @description
    * Metodo para cambiar el estado de un mazo.
    * Llama al metodo updateDeck del servicio deckAuthService para actualizar el estado del mazo.
    * @returns {void} - No retorna nada.
@@ -116,6 +179,7 @@ export class ViewDeckComponent implements OnInit {
     }
 
   /**
+   * @description
    * Metodo para obtener las imagenes de las cartas de un mazo.
    * @param {Deck} deck - Mazo a obtener las imagenes de las cartas.
    * @returns {string[]} - Retorna un arreglo de imagenes de las cartas.
@@ -201,6 +265,7 @@ export class ViewDeckComponent implements OnInit {
 
 
   /**
+   * @description
    * Metodo para eliminar una carta de un mazo.
    * Llama al metodo updateDeck del servivio deckAuthService para actualizar el mazo.
    * @param {any} type - Tipo de carta a eliminar.
@@ -332,9 +397,6 @@ export class ViewDeckComponent implements OnInit {
     const date = new Date(value);
     return this.formatDate(date);
   }
-
-
-
 
 
 }

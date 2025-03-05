@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:web-magic": "node dist/web-magic/server/server.mjs",
-    "server": "json-server --watch src/app/data/db.json"
+    "server": "json-server --watch src/app/data/db.json --port 3000 --host 0.0.0.0"
   },
   "private": true,
   "dependencies": {
