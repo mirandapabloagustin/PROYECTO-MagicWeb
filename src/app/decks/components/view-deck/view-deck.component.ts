@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Deck } from '@app/core/models/deck.model';
 import { HeaderComponent } from '@shared/header/header.component';
@@ -13,6 +13,8 @@ import { EditDeckComponent } from '../edit-deck/edit-deck.component';
 import { ConfirmDialogComponent } from '@shared/confirm-dialog/confirm-dialog.component'; 
 import { LocalStorageService } from '@app/core/services/user/local-storage.service';
 import { User } from '@app/core/models/user.model';
+import { FormBuilder, FormGroup,ReactiveFormsModule, Validators } from '@angular/forms';
+import { CommentDeck } from '@app/core/models/comment.deck.model';
 
 interface TypeCards {
   name: string;
@@ -22,14 +24,23 @@ interface TypeCards {
 @Component({
   selector: 'app-view-deck',
   standalone: true,
-  imports: [FooterComponent, HeaderComponent, EmptyComponent],
+  imports: [FooterComponent, HeaderComponent, EmptyComponent,ReactiveFormsModule],
   templateUrl: './view-deck.component.html',
   styleUrl: './view-deck.component.css'
 })
 
 
 export class ViewDeckComponent implements OnInit {
+  formComment! : FormGroup;
+  countWords = 0;
+  limitWords = 1000;
   private _userLogged! : User;
+  scroll: number = 0;
+  previewCard: any;
+  moveMouse = {
+    x: 0,
+    y: 0
+  }
   deckDetails!: Deck;
   types: any[] = [];
   titleEmpty: string = 'No hay cartas en tu mazo';
@@ -37,13 +48,18 @@ export class ViewDeckComponent implements OnInit {
   buttonLabelEmpty: string = 'Buscar cartas';
   @Input() isPublic: boolean = false;
   constructor(
+    private _formBuilder: FormBuilder,
     private _router: ActivatedRoute,
     private _redirect: Router,
     private _local: LocalStorageService,
     private _service : AuthDeckService,
     private _snackBar: SnackbarService,
     private _matDialog: MatDialog,
-  ) { }
+  ) {
+    this.formComment = this._formBuilder.group({
+      comment: ['',[Validators.required,Validators.minLength(5),Validators.maxLength(1000),Validators.pattern(/^[a-zA-ZÀ-ÿ0-9\s.,!?()'":-]/)]]
+    });
+   }
 
   ngOnInit(): void {
     this._userLogged = this._local.getUserLogged();
@@ -398,5 +414,126 @@ export class ViewDeckComponent implements OnInit {
     return this.formatDate(date);
   }
 
+  /**
+   * @description
+   * Metodo para mostrar la vista previa de una carta.
+   * - Obtiene la carta y la asigna a la variable previewCard.
+   * - Obtiene el elemento de la carta y le agrega la clase visibility, posicionandolo en la posicion del mouse.
+   * @param { any } - Carta a mostrar la vista previa.
+   * @returns {void} - No retorna nada.
+   */
+  showPreviewImg(card: any) {
+    this.previewCard = card;
+    const element = document.getElementById(card.id);
+    if(element){
+      element.classList.add('visibility');
+      element.style.top = `${this.moveMouse.y + 10}px`;
+      element.style.left = `${this.moveMouse.x + 10}px`;
+    }
+  }
+  
+  /**
+   * @description
+   * Metodo para ocultar la vista previa de una carta.
+   * - Elimina la variable previewCard, asignandole un valor nulo.
+   * - Obtiene el elemento de la carta y le quita la clase visibility.
+   * @param { any } - Carta a ocultar la vista previa.
+   * @returns {void} - No retorna nada.
+   */
+  hidePreviewImg(card:any) {
+    this.previewCard = null;
+    const element = document.getElementById(card.id);
+    if(element){
+      element.classList.remove('visibility');
+    }
+  }
+  
+  /**
+   * @description
+   * Metodo para mover la vista previa de una carta.
+   * - Llama al HostListener del evento mousemove, para obtener la posicion del mouse.
+   * - Asigna la posicion del mouse a la variable moveMouse.
+   * @param {MouseEvent} e - Evento del mouse.
+   * @returns {void} - No retorna nada.
+  */
+  @HostListener('document:mousemove', ['$event'])
+  onMouseMove(e: MouseEvent) {
+    this.moveMouse.x = e.clientX;
+    this.moveMouse.y = e.clientY + window.scrollY;
+  }
+  
 
+  /**
+   * @description
+   * Metodo para enviar un comentario.
+   * - Obtiene el valor del formulario y lo muestra en consola.
+   * @returns {void} - No retorna nada.
+   */
+  sendComment() {
+    const user = this._local.getUserLogged();
+    const comment = new CommentDeck();
+    if(user){
+      comment.deckId = this.deckDetails.id!;
+      comment.userId = user.id!;
+      comment.userName = user.nick!;
+      comment.userImage = user.imgUri!;
+      comment.comment = this.formComment.get('comment')?.value;
+      comment.createdAt = new Date();
+    }
+    console.log(comment);
+
+  }
+
+
+  /**
+   * @description
+   * Metodo para contar las palabras del comentario.
+   * - Obtiene el comentario ingresado y cuenta la cantidad de caracteres.
+   * - Si la cantidad de caracteres es mayor a la cantidad de palabras permitidas, corta el comentario.
+   * - Si no, asigna la cantidad de caracteres a la variable countWords.
+   * @returns {void} - No retorna nada.
+   */
+  countWordsDescription() {
+    const comment = this.formComment.get('comment')?.value;
+    const characters = comment ? comment.length : 0;
+    if (characters > this.limitWords) {
+      this.formComment
+        .get('comment')
+        ?.setValue(comment.slice(0, this.limitWords));
+    } else {
+      this.countWords = characters;
+    }
+  }
+    
+    /**
+   * @description 
+   * Metodo para validar si existe un error en el campo.
+   * - Obtiene el campo del formulario y llama al metodo hasError del campo, que recibe el nombre del error.
+   * @param field 
+   * @param error 
+   * @returns {boolean} - Retorna un true si existe un error en el campo
+   */
+    hasError(field: string, error: string) {
+      const formControl = this.formComment.get(field);
+      return formControl?.hasError(error);
+    }
+  
+    /**
+     * @description
+     * Metodo para validar si existe un error en el campo.
+     * - Llama al metodo hasError, que recibe el nombre del campo y el nombre del error.
+     * Si existe un error, agrega la clase form__error-status al campo, de lo contrario la elimina.
+     * @param {string} field - Nombre del campo 
+     * @param {string} error - Nombre del error 
+     * @returns {boolean} Retorna un true si existe un error en el campo
+     */
+    hasExistsError(field: string, error: string): boolean {
+      const value = this.hasError(field, error);
+      const element = document.getElementById(field);
+      value ? element?.classList.add('form__error-status') : element?.classList.remove('form__error-status');
+      return value!;
+    }
+   
+
+   
 }

@@ -88,7 +88,10 @@
             <div class="cards-of-the-deck_group">
               @for( card of type[1]; track $index) {
                 <div class="card-deck_group">
-                  <p class="card-name_text">{{ card.name }}</p>
+                  <p class="card-name_text" (mouseenter)="showPreviewImg(card)" (mouseleave)="hidePreviewImg(card)">{{ card.name }}</p> <!-- Hover donde mostrar la carta -->
+
+                    <img class="show-card-preview_img" [id]="card.id" [src]="card.image_uris.normal" [alt]="card.name">
+
                   @if(card.colors.length > 0){
                   <div class="colors-card_group">
                     @for (color of card.colors; track $index) {
@@ -127,20 +130,36 @@
           <h2 class="comments-title titles-styles-dom font-style">Comentarios</h2>
         </div>
         @if(isPublic){
-          <div class="input-comment-deck_group">
-            <span class="text-comment_top">Deja tu comentario:</span>
+          <!-- INPUT TEXTAREA COMMENT -->
+           <form class="input-comment-deck_group" (submit)="sendComment()" [formGroup]="formComment">
+
+            <h3 class="text-comment_top">
+              Deja tu comentario:
+            </h3>
+
             <div class="textarea-comment_group">
-              <textarea class="input-comment_deck" placeholder="Escribe tu comentario"></textarea>
+              <textarea class="input-comment_deck" name="comment" id="comment" formControlName="comment" (input)="countWordsDescription()"></textarea>
+              
+              @if(hasExistsError('comment','minlength')) {
+                <small id="error-nick" class="form__error-text" role="alert">* Debe tener al menos 5 caracteres. *</small>
+              }@else if (hasExistsError('comment','maxlength')) {
+                <small id="error-nick" class="form__error-text" role="alert">* Ha excedido el límite permitido de caracteres. *</small>
+              }@else if (hasExistsError('comment','pattern')) {
+                <small id="error-nick" class="form__error-text" role="alert">* No se permiten caracteres especiales. *</small>
+              }
               <div class="letter-count_group">
-                <span class="letter-count_text">0/200</span>
+                <span class="letter-count">{{countWords}} / {{limitWords}}</span>
               </div>
             </div>
             <div class="btn-comment_group">
-              <button class="send-comment_btn">Enviar</button>
+              <button class="send-comment_btn" type="submit" [disabled]="formComment.invalid">Enviar</button>
             </div>
-          </div>
+           </form>
+          
         }
-        <p>COMENTARIOS DEL DECK</p>
+        <div class="comments-community_content">
+          <p>COMENTARIOS DEL DECK</p>
+        </div>
       </div>
     }
   }
