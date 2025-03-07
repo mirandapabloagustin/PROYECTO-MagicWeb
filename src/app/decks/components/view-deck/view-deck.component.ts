@@ -10,11 +10,12 @@ import { MatDialog } from '@angular/material/dialog';
 import { ChanceImgComponent } from '@app/shared/chance-img/chance-img.component';
 import { SnackbarService } from '@app/core/services/snackbar/snackbar.service';
 import { EditDeckComponent } from '../edit-deck/edit-deck.component';
-import { ConfirmDialogComponent } from '@shared/confirm-dialog/confirm-dialog.component'; 
+import { ConfirmDialogComponent } from '@shared/confirm-dialog/confirm-dialog.component';
 import { LocalStorageService } from '@app/core/services/user/local-storage.service';
 import { User } from '@app/core/models/user.model';
 import { FormBuilder, FormGroup,ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommentDeck } from '@app/core/models/comment.deck.model';
+import { AuthCommentService } from '@app/core/services/comment/auth.comment.service';
 
 interface TypeCards {
   name: string;
@@ -42,6 +43,7 @@ export class ViewDeckComponent implements OnInit {
     y: 0
   }
   deckDetails!: Deck;
+  listComments: CommentDeck[] = [];
   types: any[] = [];
   titleEmpty: string = 'No hay cartas en tu mazo';
   messageEmpty: string = 'Parece que aún no has agregado ninguna carta. Agrega nuevas cartas para comenzar a armar tu mazo y usarlas en tus partidas.';
@@ -53,6 +55,7 @@ export class ViewDeckComponent implements OnInit {
     private _redirect: Router,
     private _local: LocalStorageService,
     private _service : AuthDeckService,
+    private _cService : AuthCommentService,
     private _snackBar: SnackbarService,
     private _matDialog: MatDialog,
   ) {
@@ -63,13 +66,20 @@ export class ViewDeckComponent implements OnInit {
 
   ngOnInit(): void {
     this._userLogged = this._local.getUserLogged();
+
+    this._cService.listComments$.subscribe(comments => {
+      this.listComments = comments;
+    });
+
     this._router.paramMap.subscribe(params => {
       const id = params.get('idDeck');
       if (id) this.getDeckById(id);
     });
+
     this._router.queryParams.subscribe(params => {
       this.isPublic = params['public']; 
     });
+
   }
 
   /**
@@ -480,8 +490,8 @@ export class ViewDeckComponent implements OnInit {
       comment.comment = this.formComment.get('comment')?.value;
       comment.createdAt = new Date();
     }
-    console.log(comment);
-
+    this._cService.createComment(comment)
+    this.formComment.reset();
   }
 
 
