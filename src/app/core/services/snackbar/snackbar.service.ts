@@ -24,29 +24,20 @@ export class SnackbarService {
   }
 
   errorSave(){
-    this._snackbar.openFromComponent(NotificationComponent, {
-      data: {
-        message: 'Tuvimos inconvenientes y ocurrio un error al guardar.',
-        type: 'warning',
-        whisper: 'Intenta de nuevo mas tarde'
-      },
-      duration: 5000,
-      horizontalPosition: 'end'
-    });
+    this.emitSnackbar('Tuvimos inconvenientes y ocurrio un error al guardar.','warning','Intenta de nuevo mas tarde');
   }
 
   errorServer(){
-    this._snackbar.openFromComponent(NotificationComponent, {
-      data: {
-        message: 'Tuvimos inconvenientes con el servidor.',
-        type: 'error',
-        whisper: 'Intenta de nuevo mas tarde'
-      },
-      duration: 5000,
-      horizontalPosition: 'end'
-    });
+    this.emitSnackbar('Tuvimos inconvenientes y ocurrio un error en el servidor.','warning','Intenta de nuevo mas tarde');
   }
 
+  commentSave(){
+    this.emitSnackbar('Comentario guardado correctamente.','success','Gracias por tu comentario.');
+  }
+
+  commentDelete(){
+    this.emitSnackbar('Comentario eliminado correctamente.','success','Igual no lo queriamos...');
+  }
 
 
 }

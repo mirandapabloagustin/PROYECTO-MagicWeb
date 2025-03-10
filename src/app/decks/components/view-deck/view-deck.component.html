@@ -129,7 +129,6 @@
         <div class="comments-title_group">
           <h2 class="comments-title titles-styles-dom font-style">Comentarios</h2>
         </div>
-        @if(isPublic){
           <!-- INPUT TEXTAREA COMMENT -->
            <form class="input-comment-deck_group" (submit)="sendComment()" [formGroup]="formComment">
 
@@ -155,14 +154,16 @@
               <button class="send-comment_btn" type="submit" [disabled]="formComment.invalid">Enviar</button>
             </div>
            </form>
-          
+        @if(listComments.length > 0){
+          <div class="comments-community_content">
+            @for (item of listComments; track $index) {
+              <app-comment-card [comment]="item" [isPrivate]="isPublic" (delete)="deleteComment($event)" ></app-comment-card>
+            }
+          </div>
         }
-        <div class="comments-community_content">
-          <p>COMENTARIOS DEL DECK</p>
-        </div>
       </div>
     }
   }
   </div>
 </div>
-<app-footer></app-footer>
+<app-footer></app-footer> 

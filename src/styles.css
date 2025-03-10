@@ -79,3 +79,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 
 
+.mat-mdc-snack-bar-container .mat-mdc-snackbar-surface{
+  border: none !important;
+  background-color: transparent !important;
+}
+
+.mdc-snackbar__label{
+  padding: 0 !important;
+}

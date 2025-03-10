@@ -7,7 +7,6 @@
     border-radius: 10px;
     background-color: var(--text-color);
     border-left: 10px solid #28a745; 
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
 }
 
 .icon_noti-group{

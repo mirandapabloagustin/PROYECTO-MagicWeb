@@ -1,0 +1,24 @@
+@if(comment!){
+<div class="comment-deck_content">
+
+        <div class="img-user-comment_group">
+            <img class="img_user-comment" [src]="comment.userImage" [alt]="comment.userName">
+        </div>
+        <div class="info-comment_group">
+            <div class="info-user-commnet_group">
+                <p class="user-comment_name">{{comment.userName}}</p>
+                <p class="date-comment">{{getDays()}}</p>
+            </div>
+            <div class="comment_group">
+                <p class="comment">{{comment.comment}}</p>
+            </div>
+        </div>
+        @if(!isPrivate || isOwner()){
+            <div class="delete-comment_btn">
+                <button class="btn btn-danger" (click)="deleteComment(comment.id)">
+                    <img class="detele-btn_img" src="icons/eliminar.png" alt="detele-png" />
+                </button>
+            </div>
+        }
+    </div>
+}

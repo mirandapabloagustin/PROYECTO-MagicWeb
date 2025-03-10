@@ -16,6 +16,7 @@ import { User } from '@app/core/models/user.model';
 import { FormBuilder, FormGroup,ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommentDeck } from '@app/core/models/comment.deck.model';
 import { AuthCommentService } from '@app/core/services/comment/auth.comment.service';
+import { CommentCardComponent } from '@shared/comment-card/comment-card.component';
 
 interface TypeCards {
   name: string;
@@ -25,7 +26,7 @@ interface TypeCards {
 @Component({
   selector: 'app-view-deck',
   standalone: true,
-  imports: [FooterComponent, HeaderComponent, EmptyComponent,ReactiveFormsModule],
+  imports: [FooterComponent, HeaderComponent, EmptyComponent,ReactiveFormsModule, CommentCardComponent],
   templateUrl: './view-deck.component.html',
   styleUrl: './view-deck.component.css'
 })
@@ -44,6 +45,7 @@ export class ViewDeckComponent implements OnInit {
   }
   deckDetails!: Deck;
   listComments: CommentDeck[] = [];
+
   types: any[] = [];
   titleEmpty: string = 'No hay cartas en tu mazo';
   messageEmpty: string = 'Parece que aún no has agregado ninguna carta. Agrega nuevas cartas para comenzar a armar tu mazo y usarlas en tus partidas.';
@@ -66,10 +68,11 @@ export class ViewDeckComponent implements OnInit {
 
   ngOnInit(): void {
     this._userLogged = this._local.getUserLogged();
-
+    
     this._cService.listComments$.subscribe(comments => {
       this.listComments = comments;
     });
+
 
     this._router.paramMap.subscribe(params => {
       const id = params.get('idDeck');
@@ -79,6 +82,7 @@ export class ViewDeckComponent implements OnInit {
     this._router.queryParams.subscribe(params => {
       this.isPublic = params['public']; 
     });
+    console.log(this.listComments);
 
   }
 
@@ -113,6 +117,8 @@ export class ViewDeckComponent implements OnInit {
       this.deckDetails = deck;
       if(this.deckDetails.cards!.length > 0) {
         this.types = this.organizeByTypes(this.deckDetails);
+        this._cService.getCommentsByDeckId(this.deckDetails.id!);
+
       }
     } catch (e) {
       console.error(e);
@@ -479,7 +485,7 @@ export class ViewDeckComponent implements OnInit {
    * - Obtiene el valor del formulario y lo muestra en consola.
    * @returns {void} - No retorna nada.
    */
-  sendComment() {
+  async sendComment() {
     const user = this._local.getUserLogged();
     const comment = new CommentDeck();
     if(user){
@@ -490,8 +496,33 @@ export class ViewDeckComponent implements OnInit {
       comment.comment = this.formComment.get('comment')?.value;
       comment.createdAt = new Date();
     }
-    this._cService.createComment(comment)
-    this.formComment.reset();
+    await this._cService.createComment(comment).then(res => {
+      if(res){
+        this.formComment.reset();
+        this.listComments.push(comment);
+        this._snackBar.commentSave();
+      }
+    });
+  }
+
+  /**
+   * @description
+   * Metodo para eliminar un comentario.
+   * - Llama al metodo deleteComment del servicio de comentarios.
+   * - Si la respuesta es correcta, filtra el comentario del arreglo de comentarios.
+   * @param {string} id - Id del comentario a eliminar
+   * @returns {void} - No retorna nada.
+   */
+  async deleteComment(id : string) {
+    await this._cService.deleteComment(id).then(res => {
+      if(res){
+        this.listComments = this.listComments.filter(comment => {
+          return comment !== undefined && comment.id !== id;
+        });
+        this._snackBar.commentDelete();
+      }
+    });
+
   }
 
 

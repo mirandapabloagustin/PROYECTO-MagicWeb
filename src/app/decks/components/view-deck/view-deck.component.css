@@ -317,7 +317,6 @@
 /*================================================================================*/
 /*   COMMENTS STYLES   */
 .deck-comments_content{
-  border: 2px solid purple;
   width: 1300px;
   padding: 2rem 3rem;
   background-color: var(--bg-fondo);
@@ -394,6 +393,12 @@
   scale: 0.98;
   background-color: var(--active-green);
   color: white;
+}
+
+.comments-community_content{
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 /* STYLES ERRORS FORM */

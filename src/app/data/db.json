@@ -62,7 +62,9 @@
         "G"
       ],
       "copied": "original",
-      "votesUser": [],
+      "votesUser": [
+        "ed73f73c-a663-4b2f-9d28-a13777186d33"
+      ],
       "status": "publico",
       "cards": [
         {
@@ -2047,7 +2049,9 @@
         "R"
       ],
       "copied": "original",
-      "votesUser": [],
+      "votesUser": [
+        "ed73f73c-a663-4b2f-9d28-a13777186d33"
+      ],
       "status": "publico",
       "cards": [
         {
@@ -4172,5 +4176,14 @@
     }
   ],
   "comments": [
+    {
+      "id": "10898e40-f764-4283-95f0-90f5a2fe50c4",
+      "deckId": "afd0089f-ecb0-41d2-a18c-b1c0e19189af",
+      "userId": "ed73f73c-a663-4b2f-9d28-a13777186d33",
+      "userName": "Admin",
+      "userImage": "https://cards.scryfall.io/art_crop/front/c/f/cf1d17e4-a201-4511-b4bf-7c672728de4b.jpg?1730249713",
+      "comment": "Vamos a probar las cantidad de palabras:\nLorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam, molestias quasi aspernatur ipsam minus velit odit dolorum molestiae itaque! Officiis eum enim fugit voluptatibus vel assumenda cupiditate doloribus eveniet at eligendi nam voluptatem, necessitatibus ullam, magni laboriosam asperiores, nostrum fugiat culpa porro ipsam eius! Voluptatum eius veritatis corrupti fugiat cumque laborum ex nulla quasi placeat, voluptatem maiores? Reiciendis et facere voluptate commodi, accusamus earum amet libero? Laboriosam minima culpa, natus architecto aperiam explicabo, fugit quas maxime quo hic velit excepturi alias nam necessitatibus inventore nemo nihil nesciunt. Porro, quasi eius! At earum numquam obcaecati reprehenderit doloremque debitis ipsum. Illum officia sit porro, perspiciatis, nam nemo excepturi neque saepe laborum quis, consequuntur autem repellendus ad nihil quidem vel esse dolor aspernatur. Doloremque unde inventore adipisci dolore?",
+      "createdAt": "2025-03-10T11:48:12.953Z"
+    }
   ]
 }

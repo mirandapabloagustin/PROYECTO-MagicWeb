@@ -48,8 +48,8 @@ export class AuthCommentService {
   async createComment(comment: CommentDeck): Promise<boolean> {
     try {
       comment.id = uuidv4();
-      const res = await lastValueFrom(this._cService.create(comment));
-      if(res.length > 0) {
+      const res = await lastValueFrom(this._cService.create(comment))
+      if(res) {
         this._listComments.next([...this._listComments.getValue(), res[0]]);
         return true;
       }
@@ -89,18 +89,16 @@ export class AuthCommentService {
    * @param {string} id - Id del comentario a eliminar.
    * @returns {void} No retorna ningun valor.
    */
-  async deleteComment(id: string) {
+  async deleteComment(id: string): Promise<boolean> {
     try {
       const res = await lastValueFrom(this._cService.delete(id));
-      if(res.length > 0) {
-        const comments = this._listComments.getValue();
-        const index = comments.findIndex(c => c.id === id);
-        comments.splice(index, 1);
-        this._listComments.next(comments);
+      if(res.id) {
+        return true;
       }
     } catch (error) {
       this._snackBar.errorServer();
     }
+    return false;
   }
 
   /**
@@ -116,7 +114,6 @@ export class AuthCommentService {
     try {
       const res = await lastValueFrom(this._cService.getCommentsByUserId(id));
       if(res.length > 0) {
-        this.clearListComments();
         this._listComments.next(comments);
       }
     } catch (error) {
@@ -138,7 +135,6 @@ export class AuthCommentService {
       const res = await lastValueFrom(this._cService.getCommentByDeckId(id));
       if(res.length > 0) {
         comments = res;
-        this.clearListComments();
         this._listComments.next(comments);
       }
     } catch (error) {
@@ -146,8 +142,8 @@ export class AuthCommentService {
     }
   }
 
-  private clearListComments() {
-    this._listComments.next([]);
+  getComments() {
+    return this._listComments.getValue();
   }
 
 

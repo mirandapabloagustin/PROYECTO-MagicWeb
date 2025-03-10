@@ -18,7 +18,6 @@ export class CommentService {
     return this.http.get<CommentDeck[]>(`${this._ev}/comments`);
   }
 
-
   create(comment: CommentDeck): Observable<CommentDeck[]> {
     return this.http.post<CommentDeck[]>(`${this._ev}/comments`, comment);
   }
@@ -27,8 +26,8 @@ export class CommentService {
     return this.http.put<CommentDeck[]>(`${this._ev}/comments/${comment.id}`, comment);
   }
 
-  delete(id: string): Observable<CommentDeck[]> {
-    return this.http.delete<CommentDeck[]>(`${this._ev}/comments/${id}`);
+  delete(id: string): Observable<CommentDeck> {
+    return this.http.delete<CommentDeck>(`${this._ev}/comments/${id}`);
   }
 
   getCommentsByUserId(id: string): Observable<CommentDeck[]> {
