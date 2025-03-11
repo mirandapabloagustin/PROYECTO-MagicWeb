@@ -325,23 +325,24 @@
     </div>
 
       <div class="action_buttons">
+
         <div class="group_btn">
-          <button class="btn__add">
-            <img class="icons_btn" src="icons/download.png" alt="Dowload" />
+          <button class="btn__add" >
+            <img class="icons_btn" src="icons/edit/people.png" alt="favorite" />
           </button>
-          <span class="text_btn">Descargar Imagen</span>
+          <span class="text_btn">Poner de perfil</span>
         </div>
 
         <div class="group_btn">
-          <button class="btn__add">
-            <img class="icons_btn" src="icons/copy.png" alt="Dowload" />
+          <button class="btn__add" (click)="addCardToFavorites()" [class.isFav]="checkFavorite()"  >
+            <img class="icons_btn" src="icons/edit/favorito.png" alt="favorite" />
           </button>
-          <span class="text_btn">Copiar Json</span>
+          <span class="text_btn">Agregar a favorito</span>
         </div>
 
         <div class="group_btn">
           <button class="btn__add" (click)="addCardToDeck()">
-            <img class="icons_btn" src="icons/plus.png" alt="Dowload" />
+            <img class="icons_btn" src="icons/plus.png" alt="to-deck" />
           </button>
           <span class="text_btn">Agregar al mazo</span>
         </div>

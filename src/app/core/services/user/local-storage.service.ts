@@ -20,7 +20,7 @@ export class LocalStorageService {
     return false;
   }
 
-  setItemStorage(value: any): void {
+  setItemStorage(value: User): void {
     if (this.isBrowser()) {
       localStorage.setItem('user', JSON.stringify(value));
     }

@@ -93,12 +93,34 @@ export class AuthCommentService {
     try {
       const res = await lastValueFrom(this._cService.delete(id));
       if(res.id) {
+
         return true;
       }
     } catch (error) {
       this._snackBar.errorServer();
     }
     return false;
+  }
+
+  /**
+   * @description
+   * Metodo que elimina todos los comentarios de un deck
+   * - Llama al metodo getCommentByDeckId() del servicio de comentarios.
+   * - Si la respuesta es correcta, se eliminan los comentarios.
+   * @param {string} deckID - Id del deck.
+   * @returns {void} No retorna ningun valor.
+   */
+  async deleteAllCommentsByDeckID(deckID: string) {
+    try {
+      const res = await lastValueFrom(this._cService.getCommentByDeckId(deckID));
+      if(res.length > 0) {
+        res.forEach(async (comment) => {
+          await this.deleteComment(comment.id);
+        });
+      }
+    } catch (error) {
+      this._snackBar.errorServer();
+    }
   }
 
   /**

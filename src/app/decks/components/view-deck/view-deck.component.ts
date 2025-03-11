@@ -286,7 +286,8 @@ export class ViewDeckComponent implements OnInit {
         if(result) {
           this._service.deleteDeck(this.deckDetails.id!).then(res => {
             if(res) {
-              this._redirect.navigate(['/',this.deckDetails.id,'decks']);
+              this._cService.deleteAllCommentsByDeckID(this.deckDetails.id!);
+              this._redirect.navigate(['/',this._userLogged.id,'decks']);
               this._snackBar.emitSnackbar('El Mazo fue eliminado correctamente.', 'success', 'Mazo eliminado.');
             }
           });

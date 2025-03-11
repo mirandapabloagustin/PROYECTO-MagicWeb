@@ -2,6 +2,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Mana } from '@app/core/models/manaCost.model';
 import { AddToDeckComponent } from '../add-to-deck/add-to-deck.component';
+import { User } from '@models/user.model';
+import { LocalStorageService } from '@services/user/local-storage.service';
+import { AuthUserService } from '@app/core/services/user/auth-user.service';
+import { SnackbarService } from '@app/core/services/snackbar/snackbar.service';
 
 @Component({
   selector: 'app-details-card',
@@ -14,6 +18,7 @@ import { AddToDeckComponent } from '../add-to-deck/add-to-deck.component';
 export class DetailsCardComponent implements OnInit{
   isTransformed = false;
   @Input() cardData?:any;
+  private userLogged! : User;
 
   manaFaces: Mana[][] = [];
 
@@ -23,28 +28,16 @@ export class DetailsCardComponent implements OnInit{
     index?: number;
   }[] = [];
 
-  dataFalsa = {
-    user: 'user1',
-    decks:[
-      {
-        name: 'Deck 1',
-        id: '1'
-      },
-      {
-        name: 'Deck 2',
-        id: '2'
-      },
-      {
-        name: 'Deck 3',
-        id: '3'
-      }
-    ]
-  }
-
-    constructor(private _matDialog: MatDialog) { }
+    constructor(
+      private _matDialog: MatDialog,
+      private _local: LocalStorageService,
+      private _sService: AuthUserService,
+      private _snackBar: SnackbarService
+    ) { }
 
 
   ngOnInit(): void {
+    this.userLogged = this._local.getUserLogged();
     window.scrollTo(0, 0);
     if(this.cardData?.layout !== 'normal'){
       this.formatMana(this.cardData?.card_faces[0].mana_cost, this.cardData?.card_faces[1].mana_cost);
@@ -90,6 +83,32 @@ export class DetailsCardComponent implements OnInit{
   transformCard(): void {
     this.isTransformed = !this.isTransformed;
   }
+
+  checkFavorite(): boolean {
+    return this.userLogged.favCards!.some(
+      (card) => card.id === this.cardData.id
+    );
+  }
+
+  async addCardToFavorites(){
+    if(this.checkFavorite() ){
+      this.userLogged.favCards = this.userLogged.favCards!.filter(
+        (card) => card.id !== this.cardData.id
+      ) 
+    }else{
+      this.userLogged.favCards?.push(this.cardData);
+    }
+
+    try{
+      this._sService.updateUser(this.userLogged).then((res) => {
+        if(res){
+          this._local.setItemStorage(this.userLogged);
+        }
+      });
+    }catch(error){
+      this._snackBar.errorServer();
+    }
+  } 
 
   addCardToDeck(): void {
        this._matDialog.open(AddToDeckComponent,{

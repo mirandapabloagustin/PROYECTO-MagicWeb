@@ -6,6 +6,7 @@
   background-position: center;
   background-attachment: fixed;
   display: flex;
+  width: 100%;
   height: auto;
   box-sizing: border-box;
   overflow: hidden;
@@ -14,9 +15,8 @@
 .hover__bg {
   width: 100%;
   height: auto;
-  padding: 3rem 0;
- 
-  background-color: rgba(112, 112, 112, 0.16);
+  padding: 3rem;
+  background-color: rgba(0, 0, 0, 0.7);
   position: relative;
 }
 
@@ -457,4 +457,8 @@
 
 .legal_ok, .legal_error{
   color: var(--text-color);
+}
+
+.isFav{
+  background: #f3ff4e;
 }

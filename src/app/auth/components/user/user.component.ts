@@ -54,8 +54,12 @@ export class UserComponent implements OnInit {
 
 
   showFavoriteCards(event: any): void {
-    this.showFavCardsComponent = event;
-    this._scrollService.scrollToComponent('favorite-cards_content');
+    if(!this.showFavCardsComponent){
+      this.showFavCardsComponent = event;
+      this._scrollService.scrollToComponent('favorite-cards_content');
+    }else{
+      this.showFavCardsComponent = false;
+    }
   }
 
 
