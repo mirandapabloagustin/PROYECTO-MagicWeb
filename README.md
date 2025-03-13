@@ -1,27 +1,55 @@
-# WebMagic
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.0.
+# WebMagic 🧙‍♂️  
 
-## Development server
+**WebMagic** es una aplicación web que permite a los usuarios interactuar con una API de cartas de *Magic: The Gathering*, proporcionando varias caracteristicas.  
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 🚀 Características  
+- **Búsqueda avanzada** de cartas de *Magic: The Gathering*.  
+- **Gestion y Personalización de usuario** edita, perzonaliza y adapta el enctorno a gusto del usuario.  
+- **Gestión de mazos**: crea, edita y organiza tus mazos favoritos.  
+- **Comentarios en mazos**: comparte estrategias y recibe opiniones.  
+- **Votación de mazos**: califica los mazos de otros jugadores.  
+- **Filtros avanzados** para encontrar cartas por atributos específicos.  
+- **Interfaz intuitiva y dinámica** para una navegación fluida.  
 
-## Code scaffolding
+# Tecnologías Utilizadas 🛠️
+**Cliente**: 
+- Angular
+- TypeScript
+- Html
+- Css
+** Server **:
+- Json-server
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Deployment
 
-## Build
+Este proyecto fue generado en [Angular CLI](https://github.com/angular/angular-cli) version 18.1.0.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Instalacion de dependecias:
 
-## Running unit tests
+```bash
+  npm install
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Para ejecutar el proyecto, usa el siguiente comando:
 
-## Running end-to-end tests
+```bash
+  ng serve
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Esto iniciará la aplicación en `http://localhost:4200/` y recargará automáticamente los cambios realizados en los archivos.
 
-## Further help
+Para ejecutar el backend con JSON Server, usa el siguiente comando:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+```bash
+  npm run server
+```
+
+Esto iniciará el backend en http://localhost:3000/, desde donde podrás acceder a los siguientes endpoints:
+
+-`users` - Obtiene la informacion de los usuarios registrados.
+-`decks` - Obtiene la informacion de los mazos creados por los usuarios.
+-`comments` - Obtiene la informacion de los comentarios creados por los usuarios.
+
+
+
