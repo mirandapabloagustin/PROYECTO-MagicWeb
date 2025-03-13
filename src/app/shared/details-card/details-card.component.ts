@@ -149,8 +149,8 @@ export class DetailsCardComponent implements OnInit{
    * @returns {void} - No retorna ningun valor.
    */
   async setCardAsProfile(){
-    this.userLogged.imgUri = this.cardData.image_uris.art_crop;
     try{
+      this.userLogged.imgUri = this.checkTypeCard(this.cardData);
       const res = await this._sService.updateUser(this.userLogged);
       if(res){
         this._local.setItemStorage(this.userLogged);
@@ -159,6 +159,22 @@ export class DetailsCardComponent implements OnInit{
     }catch(error){
       this._snackBar.errorServer();
     }
+  }
+
+/**
+ * @description
+ * Metodo que verifica si la carta es de doble cara y retorna la imagen correspondiente.
+ * @param {any} card - Objeto con la informacion de la carta. 
+ * @returns {string} - Retorna la ruta de la imagen de la carta.
+ */
+  private checkTypeCard(card : any ):string{
+    let imgCard = '';
+    if(card.layout === 'transform'){
+      this.isTransformed ? imgCard = card.card_faces[1].image_uris.art_crop : imgCard = card.card_faces[0].image_uris.art_crop;
+    }else{
+      imgCard = card.image_uris.art_crop;
+    }
+    return imgCard;
   }
 
   /**

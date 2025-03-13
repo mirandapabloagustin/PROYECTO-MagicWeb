@@ -1,8 +1,15 @@
 <h1 class="dialog-title">SELECCIONAR MAZO</h1>
 <div class="dialog-content">
-  @for (deck of decks; track $index) {
-    <div class="deck_name-group" (click)="selectDeck(deck)">
-      <span class="name_deck">{{deck.name}}</span>
+  @if (decks.length === 0) {
+    <div class="no-decks">
+      <span class="no-decks_txt">No tienes mazos</span>
+      <button class="no-decks_btn" (click)="createDeck()">+ Crear mazo</button>
     </div>
+  }@else {
+    @for (deck of decks; track $index) {
+      <div class="deck_name-group" (click)="selectDeck(deck)">
+        <span class="name_deck">{{deck.name}}</span>
+      </div>
+    }
   }
 </div>

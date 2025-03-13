@@ -94,8 +94,6 @@ export class RegisterComponent {
         if (res) {
           this.router.navigate(['/login']);
           this._serviceSnackbar.emitSnackbar('Usuario registrado correctamente.', 'success', '¡Bienvenido!');
-        } else {
-          this.hasError('Ocurrió un error al registrar el usuario.', 'Intenta nuevamente.');
         }
       });
     }

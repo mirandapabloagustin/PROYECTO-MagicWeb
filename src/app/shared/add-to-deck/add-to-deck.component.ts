@@ -1,10 +1,11 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { LocalStorageService } from '@services/user/local-storage.service';
 import { DeckService } from '@services/deck/deck.service';
 import { SnackbarService } from '@services/snackbar/snackbar.service';
 import { AuthDeckService } from '@app/core/services/deck/auth.deck.service';
 import { Deck } from '@app/core/models/deck.model';
+import { NewDeckComponent } from '@app/decks/components/new-deck/new-deck.component';
 
 @Component({
   selector: 'app-add-to-deck',
@@ -20,6 +21,7 @@ export class AddToDeckComponent implements OnInit {
     private _local: LocalStorageService,
     private _service: AuthDeckService,
     private _matDialogRef: MatDialogRef<AddToDeckComponent>,
+    private _matDialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public card: any,
     private _snackbarService: SnackbarService
   ) {
@@ -59,6 +61,18 @@ export class AddToDeckComponent implements OnInit {
    */
   selectDeck(deck : Deck) {
     this.updateDeck(deck);
+  }
+
+  /**
+   * @description
+   * Metodo que se encarga de abrir el dialogo para crear un nuevo mazo.
+   * @returns {void} - No retorna ningun valor
+   */
+  createDeck(){
+        const dialogNewDeckRef = this._matDialog.open(NewDeckComponent,{
+          width: '1000px',
+          panelClass: 'dialog-new-deck_container',
+        })
   }
 
   /**

@@ -46,3 +46,41 @@
     transform: scale(0.97);
 }
 
+.no-decks{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+}
+.no-decks_txt{
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--bg-fondo);
+}
+.no-decks_btn{
+    border-radius: 2rem;
+    width: max-content;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 0.8rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border: 2px solid transparent;
+    gap: 1rem;
+    transition: all 0.3s;
+    box-shadow: 0 7px 8px rgba(0, 0, 0, 0.329);
+    background-color: var(--bg-color-buttom-emeralt);
+    color: var(--text-color);
+}
+
+.no-decks_btn:hover{
+    border: 2px solid var(--bg-color-buttom-emeralt);
+    background-color: var(--text-color);
+    color: var(--bg-color-buttom-emeralt);
+    transform: scale(1.03);
+}

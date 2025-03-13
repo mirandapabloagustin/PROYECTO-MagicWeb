@@ -17,7 +17,7 @@
 
     <div class="list-content_group">
       @if(decks.length === 0){
-        <app-empty [title]="'¡No se encontraron Mazos!'" [message]="message"></app-empty>
+        <app-empty [title]="'¡No se encontraron Mazos!'" [message]="message" [habilited]="false"></app-empty>
       }@else {
         @for (deck of decks; track $index) {
           <app-deck-card [deckUser]="deck" ></app-deck-card>

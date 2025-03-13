@@ -49,7 +49,7 @@ export class DeckCardComponent implements OnInit {
    * @param {Deck} deck - Mazo al que se le quiere verificar si el usuario ha dado like.
    * @returns {boolean} - Retorna un valor booleano.
    */
-  private checkLikeUser(deck: Deck):boolean {
+  checkLikeUser(deck: Deck):boolean {
     return deck.votesUser!.includes(this._userLogged.id!);
   }
 

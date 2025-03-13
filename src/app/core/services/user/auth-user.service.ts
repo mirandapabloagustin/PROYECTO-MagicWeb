@@ -38,6 +38,7 @@ export class AuthUserService {
       }
     } catch (e) {
       console.error(e);
+      this._serviceSnackbar.errorServer();
     }
     return false;
   }
@@ -68,6 +69,7 @@ export class AuthUserService {
       }
     } catch (e) {
       console.error(e);
+      this._serviceSnackbar.errorServer();
     }
     return null;
   }
@@ -170,6 +172,7 @@ export class AuthUserService {
       }
     } catch (e) {
       console.error(e);
+      this._serviceSnackbar.errorServer();
     }
     return this.userLogged;
   }
