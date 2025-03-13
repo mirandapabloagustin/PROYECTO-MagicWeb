@@ -55,9 +55,9 @@ Para ejecutar el backend con JSON Server, usa el siguiente comando:
 
 Esto iniciará el backend en `http://localhost:3000/`, desde donde podrás acceder a los siguientes endpoints:
 
--`users` - Obtiene la informacion de los usuarios registrados.
--`decks` - Obtiene la informacion de los mazos creados por los usuarios.
--`comments` - Obtiene la informacion de los comentarios creados por los usuarios.
+- `users` Obtiene la informacion de los usuarios registrados.
+- `decks` Obtiene la informacion de los mazos creados por los usuarios.
+- `comments` Obtiene la informacion de los comentarios creados por los usuarios.
 
 
 
