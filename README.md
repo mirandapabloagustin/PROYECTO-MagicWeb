@@ -13,11 +13,13 @@
 - **Interfaz intuitiva y dinámica** para una navegación fluida.  
 
 # Tecnologías Utilizadas 🛠️
+
 **Cliente**: 
 - Angular
 - TypeScript
 - Html
 - Css
+- 
 ** Server **:
 - Json-server
 
