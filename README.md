@@ -27,6 +27,12 @@
 
 Este proyecto fue generado en [Angular CLI](https://github.com/angular/angular-cli) version 18.1.0.
 
+Instalacion angular:
+
+```bash
+  npm install -g @angular/cli
+```
+
 Instalacion de dependecias:
 
 ```bash
@@ -47,7 +53,7 @@ Para ejecutar el backend con JSON Server, usa el siguiente comando:
   npm run server
 ```
 
-Esto iniciará el backend en http://localhost:3000/, desde donde podrás acceder a los siguientes endpoints:
+Esto iniciará el backend en `http://localhost:3000/`, desde donde podrás acceder a los siguientes endpoints:
 
 -`users` - Obtiene la informacion de los usuarios registrados.
 -`decks` - Obtiene la informacion de los mazos creados por los usuarios.
