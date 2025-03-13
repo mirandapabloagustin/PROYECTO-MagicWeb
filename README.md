@@ -19,8 +19,8 @@
 - TypeScript
 - Html
 - Css
-- 
-** Server **:
+
+**Server**:
 - Json-server
 
 ## Deployment
