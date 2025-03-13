@@ -13,10 +13,16 @@ const MODULES_IMPORTS = [FontAwesomeModule, FormsModule];
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent {
+  @Output() searchEvent = new EventEmitter<string>();
   iconMagnifyingGlass = faMagnifyingGlass;
   searchCard = '';
-  @Output() searchEvent = new EventEmitter<string>();
 
+  /**
+   * @description
+   * Metodo que emite un evento con el valor del input de búsqueda
+   * y limpia el input de búsqueda.
+   * @returns { void } - No retorna nada.
+   */
   onSearch() {
     this.searchEvent.emit(this.searchCard);
     this.searchCard = '';

@@ -50,6 +50,12 @@ export class DetailsCardComponent implements OnInit{
 
 
 
+  /**
+   * @description
+   * Metodo que recibe un array de strings con los simbolos de mana y los formatea para mostrarlos en la vista.
+   * @param {string[]} manaData - Array de strings con los simbolos de mana.
+   * @returns {void} - No retorna ningun valor.
+   */
   formatMana(...manaData :string[]){
     this.manaFaces = manaData.map((manaCost) => {
       return manaCost
@@ -68,6 +74,14 @@ export class DetailsCardComponent implements OnInit{
     );
   }
 
+  /**
+   * @description
+   * Metodo que recibe un objeto con los formatos y sus legalidades.
+   *  - Filtra los formatos 'StandardBrawl' y 'PauperCommander'.
+   *  - Mapea los formatos y legalidades a un nuevo objeto.
+   * @param {any} legalities - Objeto con los formatos y sus legalidades.
+   * @returns {void} - No retorna ningun valor.
+   */
   formatLegalities(legalities: any): void {
     this.formattedLegalities = Object.keys(legalities)
       .filter(format => format.toLowerCase() !== 'standardbrawl' && format.toLowerCase() !== 'paupercommander')
@@ -80,16 +94,34 @@ export class DetailsCardComponent implements OnInit{
       });
   }
 
+  /**
+   * @description
+   * Metodo que cambia el estado de la variable 'isTransformed' para mostrar la carta en su estado original o transformada.
+   * @returns {void} - No retorna ningun valor.
+   */
   transformCard(): void {
     this.isTransformed = !this.isTransformed;
   }
 
+  /**
+   * @description
+   * Metodo que verifica si la carta esta en la lista de favoritos del usuario.
+   * @returns {boolean} - Retorna un valor booleano.
+   */
   checkFavorite(): boolean {
     return this.userLogged.favCards!.some(
       (card) => card.id === this.cardData.id
     );
   }
 
+  /**
+   * @description
+   * Metodo que agrega o elimina la carta de la lista de favoritos del usuario.
+   * - Si la carta esta en la lista de favoritos, la elimina.
+   * - Si la carta no esta en la lista de favoritos, la agrega.
+   * - Actualiza la informacion del usuario en la base de datos.
+   * @returns {Promise<void>} - Retorna una promesa vacia.
+   */
   async addCardToFavorites(){
     if(this.checkFavorite() ){
       this.userLogged.favCards = this.userLogged.favCards!.filter(
@@ -110,6 +142,31 @@ export class DetailsCardComponent implements OnInit{
     }
   } 
 
+  /**
+   * @description
+   * Metodo que permite al usuario establecer la carta como imagen de perfil.
+   * - Actualiza la informacion del usuario en la base de datos.
+   * @returns {void} - No retorna ningun valor.
+   */
+  async setCardAsProfile(){
+    this.userLogged.imgUri = this.cardData.image_uris.art_crop;
+    try{
+      const res = await this._sService.updateUser(this.userLogged);
+      if(res){
+        this._local.setItemStorage(this.userLogged);
+        this._snackBar.emitSnackbar('Imagen de perfil actualizada','success','La imagen ha sido actualizada.');
+      }
+    }catch(error){
+      this._snackBar.errorServer();
+    }
+  }
+
+  /**
+   * @description
+   * Metodo que abre un dialogo para agregar la carta a un mazo.
+   * - Envia la informacion de la carta al dialogo.
+   * @returns {void} - No retorna ningun valor.
+   */
   addCardToDeck(): void {
        this._matDialog.open(AddToDeckComponent,{
          width: '300px',

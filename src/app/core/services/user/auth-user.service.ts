@@ -20,6 +20,14 @@ export class AuthUserService {
     private _serviceSnackbar: SnackbarService
   ) {}
 
+  /**
+   * @description
+   * Metodo que registra un usuario
+   * - Al usuario se le asigna un id y un idDeckRef.
+   * - Se llama al servicio de usuario para crear un usuario.
+   * @param {User} user - Usuario a registrar.
+   * @returns {boolean} Retorna un booleano.
+   */
   async register(user: User): Promise<boolean> {
     try {
       user.id = uuidv4();
@@ -34,6 +42,15 @@ export class AuthUserService {
     return false;
   }
 
+  /**
+   * @description
+   * Metodo que loguea un usuario
+   * - Se llama al servicio de usuario para obtener un usuario por su nick y contraseña.
+   * - Si el usuario existe y no esta dado de baja se guarda en el local storage y se cambia el estado de logueado.
+   * @param {string} nick - Nick del usuario.
+   * @param {string} password - Contraseña del usuario.
+   * @returns {User | null} Retorna un usuario o null.
+   */
   async login(nick: string, password: string): Promise<User | null> {
     try {
       const res = await lastValueFrom(this._serviceUser.authUser(nick, password));
@@ -55,11 +72,23 @@ export class AuthUserService {
     return null;
   }
 
+  /**
+   * @description
+   * Metodo que desloguea un usuario
+   * - Se remueve el usuario del local storage y se cambia el estado de logueado.
+   */
   logoutUser(): void {
     this._localStorageService.removeItemStorage('user');
     changeStatusLogged(false);
   }
 
+  /**
+   * @description
+   * Metodo que valida si un nick ya existe
+   * - Se llama al servicio de usuario para obtener un usuario por su nick.
+   * - Si el usuario existe retorna un objeto con un mensaje, sino retorna null.
+   * @returns { AsyncValidatorFn || null } Retorna un validador asincrono o null.
+   */
   validatorNick(): AsyncValidatorFn {
     return (control: AbstractControl) => {
       if (!control.value) {
@@ -74,6 +103,13 @@ export class AuthUserService {
     };
   }
 
+  /**
+   * @description
+   * Metodo que valida si un email ya existe
+   * - Se llama al servicio de usuario para obtener un usuario por su email.
+   * - Si el usuario existe retorna un objeto con un mensaje, sino retorna null.
+   * @returns { AsyncValidatorFn || null } Retorna un validador asincrono o null.
+   */
   validatorEmail(): AsyncValidatorFn {
     return (control: AbstractControl) => {
       if (!control.value) {
@@ -88,6 +124,13 @@ export class AuthUserService {
     };
   }
 
+  /**
+   * @description
+   * Metodo que obtiene un usuario por su id
+   * - Se llama al servicio de usuario para obtener un usuario por su id.
+   * @param {number} id - Id del usuario.
+   * @returns {Promise<User>} Retorna un usuario.
+   */
   async getUserById(id:number): Promise<User> {
     try {
       const res = await lastValueFrom(this._serviceUser.getUserById(id));
@@ -101,10 +144,23 @@ export class AuthUserService {
     return User.emptyUser();
   }
 
+  /**
+   * @description
+   * Metodo que obtiene el usuario logueado
+   * @returns {User} Retorna un usuario.
+   */
   getUserLogged(): User {
     return this.userLogged;
   }
 
+  /**
+   * @description
+   * Metodo que actualiza un usuario
+   * - Se llama al servicio de usuario para actualizar un usuario.
+   * - Si se actualiza correctamente se guarda en el local storage.
+   * @param {User} user - Usuario a actualizar.
+   * @returns {User} Retorna un usuario.
+   */
   async updateUser(user: User): Promise<User> {
     try {
       const res = await lastValueFrom(this._serviceUser.update(user));

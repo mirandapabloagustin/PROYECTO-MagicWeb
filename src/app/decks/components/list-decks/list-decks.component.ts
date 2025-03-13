@@ -19,6 +19,11 @@ export class ListDecksComponent {
     private _matDialog: MatDialog,   
   ) {}
 
+  /**
+   * @description
+   * Metodo que se encarga de abrir el dialogo para crear un nuevo mazo.
+   * @returns {void} - No retorna nada.
+   */
   createNewDeck() {
     const dialogNewDeckRef = this._matDialog.open(NewDeckComponent,{
       width: '1000px',

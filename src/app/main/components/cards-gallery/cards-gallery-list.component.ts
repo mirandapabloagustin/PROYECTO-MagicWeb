@@ -46,6 +46,13 @@ export class CardsGalleryListComponent implements OnInit {
     @Inject(PLATFORM_ID) private platformId: Object
   ) {}
 
+  /**
+   * @description
+   * Metodo que se encarga de cargar las cartas al iniciar el componente.
+   * - Si no hay cartas, se cargan nuevas cartas aleatorias.
+   * - Si hay cartas, se cargan las cartas guardadas.
+   * @returns {void} - No retorna nada.
+   */
   async ngOnInit(): Promise<void> {
 
     this.cards = this._service.getCards();
@@ -89,16 +96,27 @@ export class CardsGalleryListComponent implements OnInit {
           this._swpElement()?.initialize();
         }
       }
-
-
 }
 
+  /**
+   * @description
+   * Metodo que se encarga de enviar la informacion de la carta seleccionada al componente padre.
+   * - Emite la informacion de la carta seleccionada.
+   * @param {any} card - Objeto con la informacion de la carta seleccionada.
+   * @returns {void} - No retorna nada.
+   */
   cardClick( card: any){
     this.cardSelected.emit(card);
   }
 
 
-
+  /**
+   * @description
+   * Metodo que se encarga de cargar nuevas cartas aleatorias.
+   * - Llama al servicio para obtener una nueva carta aleatoria.
+   * - Actualiza la lista de cartas.
+   * @returns {void} - No retorna nada.
+   */
   private async anotherRandom(): Promise<void> {
     this.cards = [];
     try {
@@ -113,12 +131,24 @@ export class CardsGalleryListComponent implements OnInit {
   }
 
 
+  /**
+   * @description
+   * Metodo que se encarga de cambiar de cambiar las cartas mostradas.
+   * - Llama al servicio para obtener nuevas cartas aleatorias.
+   * @returns {void} - No retorna nada.
+   */
   sendFlag(){
     this.changeFlag();
     this.anotherRandom();
     this._service.updateCards(this.cards);
   }
 
+  /**
+   * @description
+   * Metodo que se encarga de cambiar el estado de la bandera.
+   * - Cambia el estado de la bandera.
+   * @returns {void} - No retorna nada.
+   */
   changeFlag(){
     this.flip = !this.flip;
   }

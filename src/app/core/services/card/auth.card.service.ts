@@ -27,11 +27,19 @@ export class AuthApiCardService {
 
 
 
-  constructor(private _service: CardsService) {
-  }
+  constructor(
+    private _service: CardsService
+  ) {}
 
 
 
+  /**
+   * @description
+   * Metodo que obtiene las cartas aleatorias.
+   * - Obtiene 5 cartas aleatorias.
+   * - Actualiza el listado de cartas.
+   * @returns {Promise<any>} - Retorna un array con las cartas aleatorias
+   */
   async getCardsRandoms(): Promise<any> {
     this._randomCards = [];
     for (let i = 0; i < 5; i++) {
@@ -45,19 +53,43 @@ export class AuthApiCardService {
     return this._randomCards;
   }
 
+  /**
+   * @description
+   * Metodo que actualiza el listado de cartas.
+   * @param {any[]} Cards - Listado de cartas
+   * @returns {void} - No retorna nada
+   */
   updateCards(Cards: any[]) {
     this.clearCards();
     this._cardSubject.next(Cards);
   }
 
+  /**
+   * @description
+   * Metodo que obtiene las cartas.
+   * @returns {any[]} - Retorna un array con las cartas
+   */
   getCards() {
     return this._cardSubject.getValue();
   }
+
+  /**
+   * @description
+   * Metodo que limpia el listado de cartas.
+   * @returns {void} - No retorna nada
+   */
 
   clearCards() {
     this._cardSubject.next([]);
   }
 
+
+  /**
+   * @description
+   * Metodo que prepara los parametros de busqueda.
+   * @param {FilterSearchDto} filters - Filtros de busqueda
+   * @returns {string} - Retorna un string con los parametros de busqueda
+   */
   private _generateQueryParams(filters: FilterSearchDto): string {
     let query = 'q=';
     if (filters.q) {
@@ -67,7 +99,7 @@ export class AuthApiCardService {
       query += `color:${filters.color} `;
     }
     if (filters.mana) {
-      query += `mana:${filters.mana} `;
+      query += `cmc:${filters.mana} `;
     }
     if (filters.type) {
       query += `type:${filters.type} `;
@@ -81,6 +113,16 @@ export class AuthApiCardService {
 
 
 
+  /**
+   * @description
+   * Metodo que busca las cartas en la api de scryfall.
+   * - Recibe los filtros de busqueda y los parametros de busqueda.
+   * - Verifica si existen mas paginas y las obtiene hasta que no hallan mas.
+   * - Filtra las cartas que no son de tipo normal, split, flip o transform.
+   * - Actualiza el listado de cartas.
+   * @param {FilterSearchDto} filters - Filtros de busqueda
+   * @returns {void} - No retorna nada
+   */
 
   async searchCards(filters: FilterSearchDto): Promise<void> {
     const queryParams = this._generateQueryParams(filters);
@@ -98,10 +140,25 @@ export class AuthApiCardService {
     }
   }
 
-  cardsFilterWithEspecificLayout(vector : any[]) : any[]{
+  /**
+   * @description
+   * Metodo que filtra las cartas que no son de tipo normal, split, flip o transform.
+   * @param vector 
+   * @returns 
+   */
+  private cardsFilterWithEspecificLayout(vector : any[]) : any[]{
    return vector.filter((card) => card.layout === 'normal' || card.layout === 'split' || card.layout === 'flip' || card.layout === 'transform');
   }
 
+  /**
+   * @description
+   * Metodo que resetea los valores de la paginacion.
+   * @param {number} totalCards - Total de cartas
+   * @param {number} base - Base de la paginacion
+   * @param {boolean} top - Top de la paginacion
+   * @param {boolean} bottom - Bottom de la paginacion
+   * @returns {void} - No retorna nada
+   */
   private _resetValuesPagination(totalCards: number, base: number, top: boolean, bottom: boolean) {
     this._base = base;
     this._top = top;
@@ -109,10 +166,14 @@ export class AuthApiCardService {
     this._total = totalCards;
   }
 
+  /**
+   * @description
+   * Metodo que actualiza el listado de cartas.
+   * @param { any } res - Listado de cartas
+   * @returns {void} - No retorna nada
+   */
   private _setListValues(res : any) {
-    
     this._listCards.next(res);
-
     this._updateArraySubj(this._iterator, this._listCards.getValue().slice(0,9));
     const nextPrev = this._listCards.getValue().length > 9 ? false : true; 
     this._nextPageStatus.next(nextPrev);
@@ -120,14 +181,31 @@ export class AuthApiCardService {
     this._resetValuesPagination(this._listCards.getValue().length, 0, false, true);
   }
 
+  /**
+   * @description 
+   * Metodo que actualiza el listado de cartas.
+   * @param {BehaviorSubject<any>} list - Listado de cartas.
+   * @param {any[]} data - Listado de cartas nuevas.
+   */
   private _updateArraySubj(list: BehaviorSubject<any>, data: any[]) {
     list.next(data);
   }
 
+  /**
+   * @description
+   * Metodo que limpia el listado de cartas.
+   * @param {BehaviorSubject<any>} list - Listado de cartas.
+   */
   private _cleanList(list: BehaviorSubject<any>) {
     list.next([]);
   }
 
+  /**
+   * @description
+   * Metodo que obtiene las cartas de la siguiente pagina.
+   * - Limpia el listado de cartas, actualiza el listado de cartas y verifica si existen mas paginas.
+   * @returns {void} - No retorna nada
+   */
   next() {
     this._base += this._limit;
     this._cleanList(this._iterator);
@@ -143,9 +221,14 @@ export class AuthApiCardService {
         this._bottom = false;
       }
     }
-    console.log('cartas:', this._iterator.getValue());
   }
 
+  /**
+   * @description
+   * Metodo que obtiene las cartas de la pagina anterior.
+   * - Limpia el listado de cartas, actualiza el listado de cartas y verifica si existen mas paginas.
+   * @returns {void} - No retorna nada
+   */
   prev() {
     this._base = this._base - this._limit;
       if(!this._bottom){

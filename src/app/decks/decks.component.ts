@@ -26,10 +26,7 @@ export class DecksComponent implements OnInit {
   ) {}
 
 
-  getSearch(params: FilterDeckDTO) {
-    this.decks = [];
-    this.decks = this._service.getDecksByFilter(params);
-  }
+
 
   ngOnInit() {
     this.loadDecks();
@@ -38,6 +35,12 @@ export class DecksComponent implements OnInit {
     });
   }
 
+  /**
+   * @description
+   * Metodo que se encarga de cargar los mazos del usuario.
+   * - Si el usuario esta logueado, se cargan los mazos del usuario.
+   * @returns {void} - No retorna nada.
+   */
   async loadDecks(){
     try{
       const user = this._local.getUserLogged();
@@ -47,6 +50,18 @@ export class DecksComponent implements OnInit {
     }catch(e){
       console.error(e);
     }
+  }
+
+  /**
+   * @description
+   * Metodo que se encarga de recibir la busqueda del usuario.
+   * - Recibe la busqueda del usuario y la envia al servicio.
+   * @param {FilterDeckDTO} params - Objeto con los parametros de busqueda.
+   * @returns {void} - No retorna nada.
+   */
+  getSearch(params: FilterDeckDTO) {
+    this.decks = [];
+    this.decks = this._service.getDecksByFilter(params);
   }
 
 

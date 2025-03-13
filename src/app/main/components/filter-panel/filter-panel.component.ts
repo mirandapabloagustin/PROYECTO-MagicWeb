@@ -65,6 +65,13 @@ export class FilterPanelComponent {
     }
   ]
 
+  /**
+   * @description
+   * Metodo que se encarga de recibir la busqueda del usuario.
+   * - Recibe la busqueda del usuario y la envia al servicio.
+   * @param {string} searchCard - Cadena de texto con la busqueda del usuario.
+   * @returns {void} - No retorna nada.
+   */
   handleSearch(searchCard: string) {
     this.cardSearch.q = searchCard;
     this.searchUserEvent.emit(this.cardSearch);

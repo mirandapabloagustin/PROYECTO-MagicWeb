@@ -51,6 +51,14 @@ export class HeaderComponent implements OnInit {
     });
   }
 
+  /**
+   * @description
+   * Metodo que desloguea al usuario
+   * - Cambia el estado de la variable statusLogin a false
+   * - Llama al metodo logoutUser del servicio AuthUserService
+   * - Navega a la ruta /landing
+   * @returns {void} - No retorna nada
+   */
   logout() {
     this.statusLogin = false;
     this._serviceUser.logoutUser();

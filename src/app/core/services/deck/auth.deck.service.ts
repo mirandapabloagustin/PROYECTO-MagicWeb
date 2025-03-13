@@ -215,7 +215,14 @@ export class AuthDeckService {
     return false;
   }
 
-  
+  /**
+   * @description
+   * Metodo para agregar un color al mazo.
+   * - Recorre los colores del mazo y si no existe lo agrega.
+   * @param {any} card - Carta a agregar al mazo.
+   * @param {Deck} deck - Mazo al que se le agregara el color.
+   * @returns {Deck} - Retorna el mazo con el color agregado.
+   */
   addColorOnDeck(card:any, deck: Deck): Deck {
     if(card.color_identity){
       card.color_identity.forEach((color: string) => {
@@ -227,6 +234,13 @@ export class AuthDeckService {
     return deck;
   }
 
+  /**
+   * @description
+   * Metodo para verificar los colores del mazo.
+   * - Recorre las cartas del mazo y si no existe el color lo agrega.
+   * @param {Deck} deck - Mazo a verificar los colores.
+   * @returns {Deck} - Retorna el mazo con los colores verificados.
+   */
   private checkColorDeck(deck: Deck): Deck {
     deck.colors = [];
     deck.cards!.forEach(card => {
@@ -241,6 +255,14 @@ export class AuthDeckService {
     return deck;
   }
 
+  /**
+   * @description
+   * Metodo para calcular el promedio de mana del mazo.
+   * - Recorre las cartas del mazo y suma el mana de cada carta.
+   * - Calcula el promedio de mana del mazo.
+   * @param {Deck} deck - Mazo a calcular el promedio de mana.
+   * @returns {number} - Retorna el promedio de mana del mazo.
+   */
   avarageMana(deck: Deck): number {
     let sum = 0;
     deck.cards!.forEach(card => {
@@ -249,6 +271,13 @@ export class AuthDeckService {
     return Math.round((sum / deck.cards!.length) * 100) / 100;
   }
 
+  /**
+   * @description
+   * Metodo para formatear un mazo.
+   * - Se establecen los valores del mazo.
+   * @param {Deck} deck - Mazo a formatear.
+   * @returns {Deck} - Retorna el mazo formateado.
+   */
   private formatDeck(deck: Deck): Deck {
     const user = this._local.getUserLogged();
     const deckFormated = {
@@ -271,10 +300,23 @@ export class AuthDeckService {
     return deckFormated;
   }
 
+  /**
+   * @description
+   * Metodo para limpiar el arreglo Observable de mazos.
+   * - Llama al metodo next del BehaviorSubject y le asigna un arreglo vacio.
+   * @returns {void} - No retorna nada.
+   */
   private clearContentDeck() {
     this._listDecks.next([]);
   }
 
+  /**
+   * @description
+   * Metodo para verificar si el filtro esta vacio.
+   * - Verifica si el nombre, mana, tag y colores estan vacios.
+   * @param {FilterDeckDTO} filter - Filtro a verificar.
+   * @returns {boolean} - Retorna true si el filtro esta vacio.
+   */
   private checkFilterEmpty(filter: FilterDeckDTO): boolean {
     if (filter.name === '' && filter.mana === '' && filter.tag === '' && filter.colors.length === 0) {
       return true;
@@ -303,6 +345,15 @@ export class AuthDeckService {
     return false;
   }
 
+  /**
+   * @description
+   * Metodo para verificar si un mazo existe.
+   * - Llama al metodo getDecks del servicio deckService, que recibe el id del usuario como referencia de busqueda.
+   * - Obtiene los mazos de la lista de mazos y verifica si el mazo ya existe.
+   * @param {string} userID - Id del usuario como referencia de busqueda.
+   * @param {Deck} deck - Mazo a verificar si existe.
+   * @returns {boolean} - Retorna true si el mazo ya existe.
+   */
   async checkDeckExists(userID: string, deck:Deck): Promise<boolean> {
     try {
       const res = await lastValueFrom(this._deckService.getDecks(userID));

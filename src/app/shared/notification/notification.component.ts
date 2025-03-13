@@ -12,9 +12,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './notification.component.css'
 })
 export class NotificationComponent {
-
   snackBarRef = inject(MatSnackBarRef);
-
   msgNotification: Notification;
 
   msgIcons = [
@@ -31,6 +29,14 @@ export class NotificationComponent {
 
 
 
+  /**
+   * @description
+   * Método que retorna un objeto de tipo Notification con los datos de la notificación.
+   * @param {string} msg - Mensaje de la notificación.
+   * @param {string} type - Tipo de notificación.
+   * @param {string} whisper - Mensaje secundario opcional.
+   * @returns {Notification} - Retorna un objeto de tipo Notification.
+   */
   private _iconMsg(msg:string, type: string, whisper?:string): Notification {
     let notiData = new Notification();
     notiData.message = msg;

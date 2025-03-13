@@ -18,6 +18,12 @@ export class ChanceImgComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   * @description
+   * Metodo que se encarga de cerrar el dialogo y retornar la imagen seleccionada.
+   * - Se realiza una autoreferencia al dialog para que cuando se finalize el componente retorne un valor string.
+   * @param img 
+   */
   selectImg(img: string) {
     this.dialogRef.close(img);
   }

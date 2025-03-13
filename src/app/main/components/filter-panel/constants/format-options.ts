@@ -9,5 +9,4 @@ export const FORMAT_OPTIONS = [
     { key: 'pauper', value: 'Pauper' },
     { key: 'pioneer', value: 'Pioneer' },
     { key: 'standard', value: 'Standard' },
-    { key: 'vintage', value: 'Vintage' },
 ];

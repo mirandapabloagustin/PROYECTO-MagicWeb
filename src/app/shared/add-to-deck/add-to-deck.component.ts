@@ -33,6 +33,13 @@ export class AddToDeckComponent implements OnInit {
   }
   
 
+  /**
+   * @description
+   * Metodo que se encarga de cargar los mazos del usuario logueado.
+   * - Se obtiene el usuario logueado.
+   * - Se llama al servicio getDecksUserId para obtener los mazos del usuario.
+   * @returns {void} - No retorna ningun valor.
+   */
   async loadDecks(){
     try{
       const user = this._local.getUserLogged();
@@ -44,15 +51,26 @@ export class AddToDeckComponent implements OnInit {
     }
   }
 
+  /**
+   * @description
+   * Metodo que se encarga de seleccionar un mazo y agregar la carta.
+   * @param {Deck} deck - Mazo al que se le quiere agregar la carta.
+   * @returns {void} - No retorna ningun valor.
+   */
   selectDeck(deck : Deck) {
     this.updateDeck(deck);
   }
 
-
-  closeDialog() {
-    this._matDialogRef.close();
-  }
-
+  /**
+   * @description
+   * Metodo que se encarga de agregar la carta al mazo seleccionado.
+   * - Se agrega la carta al mazo.
+   * - Se llama al servicio addColorOnDeck para agregar el color de la carta al mazo.
+   * - Se llama al servicio avarageMana para calcular el promedio de mana del mazo.
+   * - Se llama al servicio updateDeck para actualizar el mazo.
+   * @param { Deck } deck - Mazo al que se le quiere agregar la carta.
+   * @returns {void} - No retorna ningun valor.
+   */
   async updateDeck(deck: Deck) {
     try{
       deck.cards ? deck.cards.push(this.card) : deck.cards = [this.card];
@@ -69,6 +87,10 @@ export class AddToDeckComponent implements OnInit {
     }
   }
 
+
+  closeDialog() {
+    this._matDialogRef.close();
+  }
   
 
 }

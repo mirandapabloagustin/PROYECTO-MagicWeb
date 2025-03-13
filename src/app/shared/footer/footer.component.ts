@@ -18,7 +18,7 @@ const COMPONENTS = [FontAwesomeModule];
         <nav>
           <div class="web">
             <div class="web-info">
-              <h4>DESCKFORGE</h4>
+              <h4>DECKFORGE</h4>
               <span
                 >Tu plataforma ideal para explorar el magnífico mundo de Magic:
                 The Gathering.</span
@@ -30,10 +30,8 @@ const COMPONENTS = [FontAwesomeModule];
           <div class="web-links">
             <h4>Enlaces</h4>
             <ul>
-              <li><a href="#">Sobre Magic</a></li>
-              <li><a href="about">Nosotros</a></li>
-              <li><a href="#">Registrarse</a></li>
-              <li><a href="#">Ingresar</a></li>
+              <li><a href="register">Registrarse</a></li>
+              <li><a href="login">Ingresar</a></li>
             </ul>
           </div>
 

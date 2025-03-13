@@ -22,10 +22,20 @@ export class FlipCardComponent {
     }
   }
 
+  /**
+   * @description
+   * Metodo que se encarga de cambiar el estado de la carta
+   * @returns { void} - No retorna nada
+   */
   toggleFlip() {
     this.isFlipped = !this.isFlipped;
   }
 
+  /**
+   * @description
+   * Metodo que envia la informacion de la carta al componente padre.
+   * @returns { void} - No retorna nada
+   */
   showMessage(){
     this.clickCard.emit(this.infoCards);
   }

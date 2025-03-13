@@ -40,6 +40,12 @@ export class DeckCommunityComponent implements OnInit {
     }
   }
 
+  /**
+   * @description
+   * Metodo que se encarga de obtener los mazos por filtro.
+   * @param {FilterDeckDTO} search - Objeto con los valores del formulario.
+   * @returns {void} - No retorna nada.
+   */
   getSearch(search: FilterDeckDTO) {
     const response = this._service.getDecksByFilter(search);
     if(response.length > 0){
@@ -50,8 +56,14 @@ export class DeckCommunityComponent implements OnInit {
     }
   }
 
+  /**
+   * @description
+   * Metodo que se encarga de ordenar los mazos por votos.
+   * @param {Deck[]} deck - Lista de mazos.
+   * @returns {Deck[]} - Retorna la lista de mazos ordenada por votos.
+   */
   private orderByVotes(deck: Deck[]): Deck[] {
-    return deck.sort((a, b) => (a.votesUser! < b.votesUser!) ? 1 : -1);
+    return deck.sort((a, b) => (a.votesUser! < b.votesUser!) ? 1 : -1); // Ordena de mayor a menor
   }
 
 }

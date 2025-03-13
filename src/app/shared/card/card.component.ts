@@ -28,11 +28,24 @@ export class CardComponent  {
     private _scrollService: ScrollService,
   ) { }
 
+  /**
+   * @description
+   * Metodo que se encarga de emitir un evento al componente padre con la informacion de la carta seleccionada.
+   * - Se emite un evento con la informacion de la carta seleccionada.
+   * - Se guarda la posicion del scroll de la ventana para no perder la poscion ubicada.
+   */
   navigateToDetails(){
     this.cardClicked.emit(this.dataCard);
     this._scrollService.saveScroll(window.scrollY);
   }
   
+  /**
+   * @description
+   * Metodo que se encarga de abrir un dialogo para agregar la carta al deck.
+   * - Se abre un dialogo con el componente AddToDeckComponent.
+   * - Se envia la informacion de la carta seleccionada al dialogo.
+   * @returns {void} - No retorna nada.
+   */
   addCardInDeck(){
     this._matDialog.open(AddToDeckComponent,{
       width: '300px',
@@ -41,14 +54,32 @@ export class CardComponent  {
     });
   }
   
+  /**
+   * @description
+   * Metodo que se encarga de rotar la carta.
+   * - Se cambia el valor de la propiedad isRotated.
+   * @returns {void} - No retorna nada.
+   */
   transformCard(){
     this.isFlipped = !this.isFlipped;
   }
 
+  /**
+   * @description
+   * Metodo que se encarga de rotar la carta.
+   * - Se cambia el valor de la propiedad isRotatedRight.
+   * @returns {void} - No retorna nada.
+   */
   rotateCard() {
     this.isRotated = !this.isRotated;
   }
 
+  /**
+   * @description
+   * Metodo que se encarga de rotar la carta hacia la derecha.
+   * - Se cambia el valor de la propiedad isRotatedRight.
+   * @returns {void} - No retorna nada.
+   */
   rotateRightCard() {
     this.isRotatedRight = !this.isRotatedRight;
   }

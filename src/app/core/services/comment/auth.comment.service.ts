@@ -164,6 +164,11 @@ export class AuthCommentService {
     }
   }
 
+  /**
+   * @description
+   * Metodo que obtiene los comentarios de la lista BehaviorSubject listComments.
+   * @returns { CommentDeck[] } Retorna la lista de comentarios.
+   */
   getComments() {
     return this._listComments.getValue();
   }

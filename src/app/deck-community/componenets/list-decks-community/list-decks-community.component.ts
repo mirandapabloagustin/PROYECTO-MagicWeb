@@ -13,6 +13,7 @@ export class ListDecksCommunityComponent {
   private isPublic: boolean = true;
   @Input() decks: Deck[] = [];
 
+  
   getIsPublic(): boolean {
     return this.isPublic;
   }

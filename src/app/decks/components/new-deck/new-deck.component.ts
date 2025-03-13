@@ -58,6 +58,15 @@ export class NewDeckComponent {
     });
   }
 
+  /**
+   * @description
+   * Metodo para crear un nuevo mazo.
+   * - Obtiene los valores del formulario y los asigna a un objeto Deck.
+   * - Llama al servicio para crear un nuevo mazo.
+   * - Si la respuesta es correcta, cierra el dialogo, de lo contrario muestra un mensaje de error.
+   * @param { Event } event - Evento del formulario.
+   * @returns {void} - No retorna nada.
+   */
   async createNewDeck(event: Event) {
     event.preventDefault();
     const deck = this.toDeckClass();
@@ -73,6 +82,12 @@ export class NewDeckComponent {
     }
   }
 
+  /**
+   * @description
+   * Metodo para convertir el formulario en un objeto Deck.
+   * - Obtiene los valores del formulario y los asigna a un objeto Deck.
+   * @returns {Deck} - Retorna un objeto Deck.
+   */
   toDeckClass(): Deck {
     const deck = new Deck();
     deck.name = this.formCreateDeck.get('name')?.value;
@@ -103,6 +118,13 @@ export class NewDeckComponent {
     this.formCreateDeck.get('tags')?.setValue(tags);
   }
 
+  /**
+   * @description
+   * Metodo para cambiar el estilo de la Etiqueta seleccionada.
+   * - Obtiene el indice de la Etiqueta seleccionada y cambia el estilo de la Etiqueta.
+   * @param {number} index Indice de la Etiqueta seleccionada.
+   * @returns {void} - No retorna nada. 
+   */
   chageStyleTag(index: number) {
     const element = document.getElementById(index.toString());
     if (element?.classList.contains('selected')) {
