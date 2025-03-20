@@ -14,6 +14,7 @@ import { User } from '@models/user.model';
 import { Router } from '@angular/router';
 import { HeaderComponent } from "@shared/header/header.component";
 import { FooterComponent } from "@shared/footer/footer.component";
+import { RoleUser } from '@enums/access.user.enum';
 
 @Component({
   selector: 'app-register',
@@ -210,6 +211,7 @@ export class RegisterComponent {
     this.userRegister = new User();
     this.userRegister.id = '';
     this.userRegister.nick = form.get('nick')?.value;
+    this.userRegister.role = RoleUser.USER;
     this.userRegister.name = form.get('name')?.value;
     this.userRegister.email = form.get('email')?.value;
     this.userRegister.country = form.get('country')?.value;

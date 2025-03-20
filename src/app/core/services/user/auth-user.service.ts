@@ -20,6 +20,18 @@ export class AuthUserService {
     private _serviceSnackbar: SnackbarService
   ) {}
 
+  async getAllUsers(): Promise<User[]> {
+    try {
+      const res = await lastValueFrom(this._serviceUser.all());
+      if (res.length > 0) {
+        return res;
+      }
+    } catch (e) {
+      console.error(e);
+    }
+    return [];
+  }
+
   /**
    * @description
    * Metodo que registra un usuario
@@ -31,7 +43,6 @@ export class AuthUserService {
   async register(user: User): Promise<boolean> {
     try {
       user.id = uuidv4();
-      user.idDeckRef = uuidv4();
       const res = await lastValueFrom(this._serviceUser.createUser(user));
       if (res) {
         return true;

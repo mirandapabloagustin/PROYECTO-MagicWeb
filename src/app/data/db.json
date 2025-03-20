@@ -3,6 +3,7 @@
     {
       "id": "ed73f73c-a663-4b2f-9d28-a13777186d33",
       "nick": "Admin",
+      "role": "admin",
       "name": "Miranda Pablo Agustin",
       "email": "admin@admin.com",
       "imgUri": "https://cards.scryfall.io/art_crop/front/0/7/0777c9e1-0c21-44a1-93ce-bbac00e4cff3.jpg?1696638438",
@@ -690,6 +691,7 @@
     },
     {
       "id": "88bc2710-1e71-4f3d-84c2-f89c3dbfb396",
+      "role":"usuario",
       "nick": "Papitas",
       "name": "Juan Perez",
       "email": "desk@desckforge.com",
@@ -703,6 +705,7 @@
     },
     {
       "id": "10f40f0d-d571-4e63-9126-ed064996821b",
+      "role":"usuario",
       "nick": "master",
       "name": "juan pedro",
       "email": "deck@gmail.com",
@@ -716,6 +719,7 @@
     },
     {
       "id": "5e54b36c-7f6c-4ff5-97fe-80f0dffbf0cf",
+      "role":"usuario",
       "nick": "PapasConCheddar",
       "name": "Miranda Pablo Agustin",
       "email": "oagustin@gmail.com",

@@ -26,8 +26,8 @@ export class UserService {
    * Metodo que obtiene todos los usuarios
    * @returns {Observable<User>} Retorna un observable con un array de usuarios.
    */
-  getUsers(): Observable<User>  {
-    return this.http.get<User>(`${this._ev}/${this._typeEndpoint[0]}`);
+  all(): Observable<User[]>  {
+    return this.http.get<User[]>(`${this._ev}/${this._typeEndpoint[0]}`);
   }
 
   /**

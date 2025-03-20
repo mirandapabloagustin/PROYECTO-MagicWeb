@@ -18,21 +18,6 @@ export class UserComponent implements OnInit {
   user: User = User.emptyUser();
   showFavCardsComponent: boolean = false;
 
-  dataFake: User =
-    {
-      "id": "1",
-      "nick": "Papitas",
-      "name": "Miranda Pablo Agustin",
-      "email": "mirandapabloagustin@gmail.com",
-      "imgUri": "https://cards.scryfall.io/art_crop/front/c/f/cf1d17e4-a201-4511-b4bf-7c672728de4b.jpg?1730249713",
-      "password": "1234",
-      "description": "Amante de Magic: The Gathering, siempre en busca de nuevos mazos y estrategias. Mi color favorito de maná es [Inserta tu color aquí] y disfruto jugando con [tu tipo de mazo o comandante favorito]. ¡Vamos a jugar y compartir ideas sobre este increíble juego!",
-      "country": "AR",
-      "idDeckRef": "1",
-      "favCards": [],
-      "status": true
-    };
-
   constructor(
     private _localStorageService: LocalStorageService,
     private _scrollService: ScrollService
