@@ -187,14 +187,10 @@ export class UserEditComponent {
       if (!password) {
         return null;
       }
-
       const value = this.formEditProfile.get('oldPass')?.value;
-
-
       return value === this.data.password
         ? null
         : { enableToChange: true };
-
     };
   }
 }

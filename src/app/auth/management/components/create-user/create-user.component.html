@@ -1,0 +1,125 @@
+<section class="create-new-user_container">
+    <div class="title-top_group">
+        <h1 class="title-top family-font_text">CREAR</h1>
+    </div>
+
+    <form (submit)="onSubmit($event)" class="form-new-user_group" [formGroup]="formCreateUser">
+
+        <!--  INPUT NICK  -->
+        <div class="manager_form-group">
+            <label for="nick" class="lable_form family-font_text">USUARIO</label>
+
+            <input type="text" class="input_form family-font_text" name="nick" id="nick" formControlName="nick">
+            @if(hasExistsError('nick','nickExists')) {
+            <small id="error-nick" class="form__error-text" role="alert">* El nick ya está en uso. *</small>
+            }
+        </div>
+
+        <!--  INPUT NAME  -->
+        <div class="manager_form-group">
+            <label for="name" class="lable_form family-font_text">NOMBRE</label>
+
+            <input type="text" class="input_form family-font_text" name="name" id="name" formControlName="name">
+            @if(hasExistsError('name','pattern')) {
+            <small id="error-nick" class="form__error-text" role="alert">
+                * El nombre no puede contener números. *
+            </small>
+            }
+        </div>
+
+        <!--  INPUT EMAIL  -->
+        <div class="manager_form-group">
+            <label for="email" class="lable_form family-font_text">CORRREO ELECTRONICO</label>
+
+            <input type="email" class="input_form" name="email" id="email" formControlName="email" />
+            @if(hasExistsError('email','emailExists')) {
+            <small id="error-nick" class="form__error-text" role="alert">* El email ya está en uso. *</small>
+            }
+        </div>
+
+        <!--  INPUT COUNTRY -->
+        <div class="manager_form-group">
+            <label for="country" class="lable_form family-font_text">PAIS</label>
+
+            <select class="input_form" name="country" id="country" formControlName="country">
+                @for (item of countries; track $index) {
+                <option value="{{item.code}}">{{item.name}}</option>
+                }
+
+            </select>
+            @if(formCreateUser.get('country')!.touched){
+                @if(hasExistsError('country','required')) {
+                    <small id="error-nick" class="form__error-text" role="alert">* No selecciono pais de origen. *</small>
+                }
+            }
+        </div>
+
+        <!--  INPUT ROLE -->
+        <div class="manager_form-group">
+            <label for="country" class="lable_form family-font_text">TIPO DE USUARIO</label>
+
+            <select class="input_form" name="role" id="role" formControlName="role">
+                <option value="usuario">Usuario</option>
+                <option value="admin">Administrador</option>
+            </select>
+            @if(formCreateUser.get('role')!.touched){
+                @if(hasExistsError('role','required')) {
+                    <small id="error-nick" class="form__error-text" role="alert">* No selecciono pais de origen. *</small>
+                }
+            }
+        </div>
+
+
+
+
+        <div class="pass_group">
+            <!--  INPUT PASS -->
+            <div class="manager_form-group">
+                <label for="password" class="lable_form family-font_text">CONTRASEÑA</label>
+
+                <div class="pass-edit_group">
+                    <input type="password" class="input_form family-font_text" name="password" id="password"
+                        placeholder="{{ transformInvisibility('password')}}" formControlName="password"
+                        (focus)="cleanInput('compare_pass')" />
+                    <div class="img-pass_icon" (click)="changeVisibility('password')">
+                        @if(viewPass){
+                        <img class="pass_icon" src="icons/edit/visible.png" alt="visible">
+                        }@else {
+                        <img class="pass_icon" src="icons/edit/invisible.png" alt="invisible">
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <!--  INPUT COMPARE PASS  -->
+
+            <div class="manager_form-group">
+                <label for="compare_pass" class="lable_form family-font_text">REPETIR</label>
+                <div class="pass-edit_group">
+                    <input type="password" class="input_form family-font_text" name="compare_pass"
+                        placeholder="********" id="compare_pass" formControlName="compare_pass">
+                    <div class="img-pass_icon" (click)="changeVisibility('compare_pass')">
+                        @if(viewComparePass){
+                        <img class="pass_icon" src="icons/edit/visible.png" alt="visible">
+                        }@else {
+                        <img class="pass_icon" src="icons/edit/invisible.png" alt="invisible">
+                        }
+                    </div>
+                </div>
+                @if(hasExistsError('compare_pass','notEqual')) {
+                <small id="error-nick" class="form__error-text" role="alert">* Las contraseñas no coinciden. *</small>
+                }
+            </div>
+        </div>
+
+
+        <div class="btn-form_group">
+            <button type="submit" class="create-user_btn btn_confim" [disabled]="!formCreateUser.valid">
+                Confirmar
+            </button>
+        </div>
+
+
+
+    </form>
+</section>

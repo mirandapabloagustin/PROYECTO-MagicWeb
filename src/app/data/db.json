@@ -10,7 +10,6 @@
       "password": "1234",
       "description": "Amante de Magic: The Gathering, siempre en busca de nuevos mazos y estrategias. Mi color favorito de maná es [Inserta tu color aquí] y disfruto jugando con [tu tipo de mazo o comandante favorito]. ¡Vamos a jugar y compartir ideas sobre este increíble juego!",
       "country": "AR",
-      "idDeckRef": "bfbd2263-176d-48ae-825d-d2a40dea7845",
       "favCards": [
         {
           "object": "card",
@@ -699,7 +698,6 @@
       "password": "1234",
       "description": "Amante de Magic: The Gathering, siempre en busca de nuevos mazos y estrategias. Mi color favorito de maná es [Inserta tu color aquí] y disfruto jugando con [tu tipo de mazo o comandante favorito]. ¡Vamos a jugar y compartir ideas sobre este increíble juego!",
       "country": "AR",
-      "idDeckRef": "005006ca-7e1a-4e6a-8cd1-16d8a2dbd143",
       "favCards": [],
       "status": true
     },
@@ -713,7 +711,6 @@
       "password": "1234",
       "description": "Amante de Magic: The Gathering, siempre en busca de nuevos mazos y estrategias. Mi color favorito de maná es [Inserta tu color aquí] y disfruto jugando con [tu tipo de mazo o comandante favorito]. ¡Vamos a jugar y compartir ideas sobre este increíble juego!",
       "country": "AR",
-      "idDeckRef": "388a1e1d-603c-49c9-a4dd-73e67a9b2a89",
       "favCards": [],
       "status": true
     },
@@ -727,7 +724,6 @@
       "password": "1234",
       "description": "Amante de Magic: The Gathering, siempre en busca de nuevos mazos y estrategias. Mi color favorito de maná es [Inserta tu color aquí] y disfruto jugando con [tu tipo de mazo o comandante favorito]. ¡Vamos a jugar y compartir ideas sobre este increíble juego!",
       "country": "AR",
-      "idDeckRef": "f3552b77-eaaa-4b32-a88a-c3cf14dfe786",
       "favCards": [
         {
           "object": "card",

@@ -6,6 +6,8 @@ import { AuthUserService } from '@app/core/services/user/auth-user.service';
 import { User } from '@app/core/models/user.model';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
+import { MatDialog } from '@angular/material/dialog';
+import { CreateUserComponent } from './components/create-user/create-user.component';
 
 @Component({
   selector: 'app-management',
@@ -26,7 +28,7 @@ export class ManagementComponent implements OnInit {
   
   constructor(
     private _serviceUser: AuthUserService,
-    
+    private modal: MatDialog
 
   ) { 
   }
@@ -47,11 +49,12 @@ export class ManagementComponent implements OnInit {
   }
 
   generateNewUser(){
-    console.log("Generate new user");
-    // Primero generamos un model donde se pedira ingresar los datos del usuario
-    // luego se agrega a los datos ya mostrados por la tabla
-    // se actualiza la tabla
-    // entre medio del proceso se manda la solicitud al servidor en caso que falle se muestra un mensaje de error y se elimina el usuario creado.
+    const dialogRef = this.modal.open(CreateUserComponent,
+      {
+        width: '800px',
+      }
+    );
+
   }
 
   /**
@@ -71,14 +74,14 @@ export class ManagementComponent implements OnInit {
   }
 
   editUser(user: User){
-    console.log("Edit user");
+    console.log("Edit user", user);
     // Abre el modal de edicion
     // Se actualiza la tabla
     // en caso de error se muestra un mensaje de error
   }
 
   deleteUser(user: User){
-    console.log("Delete user");
+    console.log("Delete user", user);
     // Abre el modal de confirmacion
     // Se elimina el usuario de la base de datos
     // se actualiza la tabla
