@@ -8,6 +8,7 @@ import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateUserComponent } from './components/create-user/create-user.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-management',
@@ -27,6 +28,7 @@ export class ManagementComponent implements OnInit {
 
   
   constructor(
+    private router: Router,
     private _serviceUser: AuthUserService,
     private modal: MatDialog
 
@@ -55,6 +57,12 @@ export class ManagementComponent implements OnInit {
       }
     );
 
+    dialogRef.afterClosed().subscribe(result => {
+      if(result){
+        this.updateDataSource();
+      }
+    });
+
   }
 
   /**
@@ -69,8 +77,7 @@ export class ManagementComponent implements OnInit {
   }
 
   handleUserClick(event: User){
-    console.log(event);
-    // redirecciona a una nueva ruta donde se le pasara la id del usuario la cual mostrara toda la informacion del usuario
+    this.router.navigate(['/management', event.id]);
   }
 
   editUser(user: User){

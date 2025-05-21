@@ -36,7 +36,7 @@ export class UserService {
    * @param { number } id - Id del usuario a obtener.
    * @returns { Observable<User[]> } Retorna un observable con un array de usuarios.
    */
-  getUserById(id: number): Observable<User[]>  {
+  getById(id: string): Observable<User[]>  {
     return this.http.get<User[]>(`${this._ev}/users?id=${id}`);
   }
 

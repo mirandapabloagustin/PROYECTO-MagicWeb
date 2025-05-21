@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ValidatorFn, Validators, ReactiveFormsModule, AbstractControl } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { User } from '@app/core/models/user.model';
+import { SnackbarService } from '@app/core/services/snackbar/snackbar.service';
 import { AuthUserService } from '@core/services/user/auth-user.service';
 import { RoleUser } from '@enums/access.user.enum';
 
@@ -46,6 +48,7 @@ export class CreateUserComponent {
     private dialogRef: MatDialogRef<CreateUserComponent>,
     private _builderForm: FormBuilder,
     private _serviceUser: AuthUserService,
+    private _serviceSnackbar: SnackbarService
   ) {
     this.formCreateUser = this._builderForm.group({
       nick : ['', 
@@ -74,11 +77,34 @@ export class CreateUserComponent {
     });
   }
 
+
+/**
+ * @description
+ * Metodo que se ejecuta al enviar el formulario
+ * - Si el formulario es valido se crea un nuevo usuario.
+ * - Se llama al servicio de usuario para registrar un usuario.
+ * - Si el usuario se registro correctamente se cierra el modal.
+ * @param {Event} event - Evento del formulario.
+ * @returns {void} No retorna nada.
+ */
   onSubmit(event : Event) {
-    event.preventDefault();
-    console.log('onSubmit', this.formCreateUser.value);
+    if (this.formCreateUser.valid) {
+      const newUser :User = new User(this.formCreateUser.value);
+      this._serviceUser.register(newUser).then((res) => {
+        if(res) {
+          this._serviceSnackbar.userCreated();
+          this.dialogRef.close(newUser);
+        }
+      });
+    }
   }
 
+  /**
+   * @description
+   * Metodo que compara las contraseñas
+   * - Se compara la contraseña con la contraseña de comparacion.
+   * @returns {ValidatorFn} Retorna una funcion que valida si las contraseñas son iguales.
+   */
   comparePasswords() : ValidatorFn {
     return (control: AbstractControl) => {
       if(!this.formCreateUser) {
@@ -93,15 +119,25 @@ export class CreateUserComponent {
     };
   }
 
-  enablePassword() {
-    console.log('enablePassword');
-  }
-
+  /**
+   * @description
+   * Metodo que cambia el estado de visibilidad de un campo
+   * - Se obtiene el campo a traves de su llave, en el caso que se cambie la visibilidad de la contraseña se cambia el estado de la variable.
+   * @param {string} key - Llave del campo.
+   * @returns {void} No retorna nada.
+   */
   changeVisibility(key :string) {
     key === 'password' ? this.viewPass = !this.viewPass : this.viewComparePass = !this.viewComparePass;
     this.transformVisibility(key);
   }
 
+  /**
+   * @description
+   * Metodo que transforma la visibilidad de un campo
+   * - Se obtiene el campo a traves de su llave, si el campo es de tipo password se cambia a texto y viceversa.
+   * @param {string} key - Llave del campo.
+   * @returns {void} No retorna nada.
+   */
   transformVisibility(key: string) {
     const pass = document.getElementById(key);
     if (pass) {
@@ -113,19 +149,45 @@ export class CreateUserComponent {
     }
   }
 
+  /**
+   * @description
+   * Metodo que transforma la visibilidad de un campo a invisibilidad
+   * @param {string} pass - Contraseña a transformar. 
+   * @returns {string} Retorna la contraseña transformada.
+   */
   transformInvisibility(pass: string): string {
     return pass.replace(/./g, '*');
   }
 
+/**
+ * @description
+ * Metodo que limpia un campo del formulario
+ * @param {string} field  - Campo a limpiar.
+ * @returns {void} No retorna nada.
+ */
   cleanInput(field : string){
     this.formCreateUser.get(field)?.setValue('');
   }
 
+  /**
+   * @description
+   * Metodo que valida si un campo tiene un error.
+   * @param {string} field - Campo a validar. 
+   * @param {string} error - Error a validar. 
+   * @returns {boolean} Retorna un booleano.
+   */
   hasError(field: string, error: string) {
     const formControl = this.formCreateUser.get(field);
     return formControl?.hasError(error);
   }
 
+  /**
+   * @description
+   * Metodo que valida si un campo tiene un error y le agrega una clase.
+   * @param {string} field - Campo a validar. 
+   * @param {string} error - Error a validar. 
+   * @returns {boolean} Retorna un booleano.
+   */
   hasExistsError(field: string, error: string) {
     const value = this.hasError(field, error);
     const element = document.getElementById(field);

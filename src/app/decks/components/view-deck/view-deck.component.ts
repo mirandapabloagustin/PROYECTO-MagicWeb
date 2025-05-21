@@ -82,7 +82,6 @@ export class ViewDeckComponent implements OnInit {
     this._router.queryParams.subscribe(params => {
       this.isPublic = params['public']; 
     });
-    console.log(this.listComments);
 
   }
 

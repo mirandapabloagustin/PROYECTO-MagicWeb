@@ -690,7 +690,7 @@
     },
     {
       "id": "88bc2710-1e71-4f3d-84c2-f89c3dbfb396",
-      "role":"usuario",
+      "role": "usuario",
       "nick": "Papitas",
       "name": "Juan Perez",
       "email": "desk@desckforge.com",
@@ -703,7 +703,7 @@
     },
     {
       "id": "10f40f0d-d571-4e63-9126-ed064996821b",
-      "role":"usuario",
+      "role": "usuario",
       "nick": "master",
       "name": "juan pedro",
       "email": "deck@gmail.com",
@@ -716,7 +716,7 @@
     },
     {
       "id": "5e54b36c-7f6c-4ff5-97fe-80f0dffbf0cf",
-      "role":"usuario",
+      "role": "usuario",
       "nick": "PapasConCheddar",
       "name": "Miranda Pablo Agustin",
       "email": "oagustin@gmail.com",
@@ -847,6 +847,97 @@
           }
         }
       ],
+      "status": true
+    },
+    {
+      "id": "2d26bd5d-d8fc-45dd-9447-8b643b8147d5",
+      "role": "usuario",
+      "nick": "ElCacas",
+      "name": "Roberto Bonavide",
+      "email": "rderoberto@gmail.com",
+      "imgUri": "https://cards.scryfall.io/art_crop/front/c/f/cf1d17e4-a201-4511-b4bf-7c672728de4b.jpg?1730249713",
+      "password": "1234",
+      "description": "Amante de Magic: The Gathering, siempre en busca de nuevos mazos y estrategias. Mi color favorito de maná es [Inserta tu color aquí] y disfruto jugando con [tu tipo de mazo o comandante favorito]. ¡Vamos a jugar y compartir ideas sobre este increíble juego!",
+      "country": "PE",
+      "favCards": [],
+      "status": true
+    },
+    {
+      "id": "7645d44f-ff77-4ce5-8be6-ec59ae9b79a3",
+      "role": "usuario",
+      "nick": "Nazos",
+      "name": "Juan Genova",
+      "email": "jdejuan@gmail.com",
+      "imgUri": "https://cards.scryfall.io/art_crop/front/c/f/cf1d17e4-a201-4511-b4bf-7c672728de4b.jpg?1730249713",
+      "password": "1234",
+      "description": "Amante de Magic: The Gathering, siempre en busca de nuevos mazos y estrategias. Mi color favorito de maná es [Inserta tu color aquí] y disfruto jugando con [tu tipo de mazo o comandante favorito]. ¡Vamos a jugar y compartir ideas sobre este increíble juego!",
+      "country": "AR",
+      "favCards": [],
+      "status": true
+    },
+    {
+      "id": "0b84b358-fc82-473a-adc6-ab8e814f49bd",
+      "role": "usuario",
+      "nick": "whitequeen",
+      "name": "Belen Chenal",
+      "email": "bdebelen@gmail.com",
+      "imgUri": "https://cards.scryfall.io/art_crop/front/c/f/cf1d17e4-a201-4511-b4bf-7c672728de4b.jpg?1730249713",
+      "password": "1234",
+      "description": "Amante de Magic: The Gathering, siempre en busca de nuevos mazos y estrategias. Mi color favorito de maná es [Inserta tu color aquí] y disfruto jugando con [tu tipo de mazo o comandante favorito]. ¡Vamos a jugar y compartir ideas sobre este increíble juego!",
+      "country": "AR",
+      "favCards": [],
+      "status": true
+    },
+    {
+      "id": "8f197ee1-7977-4a5e-924c-7b6c7588a859",
+      "role": "admin",
+      "nick": "Dommir",
+      "name": "Matias Latorre",
+      "email": "mirandapabloagustin@gmail.com",
+      "imgUri": "https://cards.scryfall.io/art_crop/front/c/f/cf1d17e4-a201-4511-b4bf-7c672728de4b.jpg?1730249713",
+      "password": "1234",
+      "description": "Amante de Magic: The Gathering, siempre en busca de nuevos mazos y estrategias. Mi color favorito de maná es [Inserta tu color aquí] y disfruto jugando con [tu tipo de mazo o comandante favorito]. ¡Vamos a jugar y compartir ideas sobre este increíble juego!",
+      "country": "AR",
+      "favCards": [],
+      "status": true
+    },
+    {
+      "id": "c53e468c-02d2-4356-b538-3b7cbd5410eb",
+      "role": "usuario",
+      "nick": "monti",
+      "name": "Ramiro Montiel",
+      "email": "monti@gmail.com",
+      "imgUri": "https://cards.scryfall.io/art_crop/front/c/f/cf1d17e4-a201-4511-b4bf-7c672728de4b.jpg?1730249713",
+      "password": "1234",
+      "description": "Amante de Magic: The Gathering, siempre en busca de nuevos mazos y estrategias. Mi color favorito de maná es [Inserta tu color aquí] y disfruto jugando con [tu tipo de mazo o comandante favorito]. ¡Vamos a jugar y compartir ideas sobre este increíble juego!",
+      "country": "AR",
+      "favCards": [],
+      "status": true
+    },
+    {
+      "id": "9b374638-085e-425e-af5a-75b4445843cb",
+      "role": "usuario",
+      "nick": "Depredator",
+      "name": "Ariel Fretes",
+      "email": "adeariel@gmail.com",
+      "imgUri": "https://cards.scryfall.io/art_crop/front/c/f/cf1d17e4-a201-4511-b4bf-7c672728de4b.jpg?1730249713",
+      "password": "1234",
+      "description": "Amante de Magic: The Gathering, siempre en busca de nuevos mazos y estrategias. Mi color favorito de maná es [Inserta tu color aquí] y disfruto jugando con [tu tipo de mazo o comandante favorito]. ¡Vamos a jugar y compartir ideas sobre este increíble juego!",
+      "country": "AR",
+      "favCards": [],
+      "status": true
+    },
+    {
+      "id": "37081cd4-7507-4cdb-801a-1a1e71f8b908",
+      "role": "usuario",
+      "nick": "Eltoppo",
+      "name": "Pablo Latessa",
+      "email": "ldelatessa@gmail.com",
+      "imgUri": "https://cards.scryfall.io/art_crop/front/c/f/cf1d17e4-a201-4511-b4bf-7c672728de4b.jpg?1730249713",
+      "password": "1234",
+      "description": "Amante de Magic: The Gathering, siempre en busca de nuevos mazos y estrategias. Mi color favorito de maná es [Inserta tu color aquí] y disfruto jugando con [tu tipo de mazo o comandante favorito]. ¡Vamos a jugar y compartir ideas sobre este increíble juego!",
+      "country": "BO",
+      "favCards": [],
       "status": true
     }
   ],

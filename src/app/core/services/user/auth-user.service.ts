@@ -144,10 +144,9 @@ export class AuthUserService {
    * @param {number} id - Id del usuario.
    * @returns {Promise<User>} Retorna un usuario.
    */
-  async getUserById(id:number): Promise<User> {
+  async getUserById(id:string): Promise<User> {
     try {
-      const res = await lastValueFrom(this._serviceUser.getUserById(id));
-      console.log(res[0]);
+      const res = await lastValueFrom(this._serviceUser.getById(id));
       if (res) {
         return res[0];
       }

@@ -34,7 +34,9 @@
                 formControlName="email" />
             @if(hasExistsError('email','emailExists')) {
             <small id="error-nick" class="form__error-text" role="alert">* El email ya está en uso. *</small>
-            }
+            }@else if (hasExistsError('email','email')) {
+                <small id="error-nick" class="form__error-text" role="alert">* El email no es valido. *</small>
+                }
         </div>
 
         <div class="change-pass_group">

@@ -64,5 +64,34 @@ export class SnackbarService {
     this.emitSnackbar('Comentario eliminado correctamente.','success','Igual no lo queriamos...');
   }
 
+/**
+ * @description
+ * Metodo que emite un snackbar de succes al crear un usuario.
+ */
+  userCreated(){
+    this.emitSnackbar('Usuario creado correctamente.','success','La operacion fue exitosa.');
+  }
+
+  /**
+   * @description
+   * Metodo que emite un snackbar de warnin al no poder obtener acceso a la info de un usuario.
+   */
+  cantGetAccessToUser(){
+    this.emitSnackbar('No pudimos accerder al usuario seleccionado.','warning','Vuelva a intentarlo.');
+  }
+
+  /**
+   * @description
+   * Metodo que emite un snackbar de error al no poder guardar los cambios en el usuario.
+   */
+  cantSaveChanges(){
+    this.emitSnackbar('No se han guardado los cambios.','warning','Vuelva a intentarlo.');
+  }
+
+  nonChanges(){
+    this.emitSnackbar('No se han detectado cambios en el Perfil','info','Ni te hubieras gastado...');
+  }
+
+
 
 }
