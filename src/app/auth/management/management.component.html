@@ -21,15 +21,7 @@
                 @for (column of displayedColumns; track $index) {
                     <ng-container matColumnDef="{{column}}">
                         <th mat-header-cell *matHeaderCellDef>{{column}}</th>
-                        @if(column == 'edit') {
-                            <td mat-cell *matCellDef="let element">
-                                <button class="btn-edit btn-action_style" (click)="editUser(element)">
-                                    <div class="action-icon_group">
-                                    <img src="icons/boton-editar.png" alt="delete" class="action-btn_icon" />
-                                </div>
-                            </button>
-                        </td>
-                        }@else if (column == 'delete') {
+                        @if (column == 'delete') {
                         <td mat-cell *matCellDef="let element">
                                 <button class="btn-delete btn-action_style" (click)="deleteUser(element)">
                                     <div class="action-icon_group">

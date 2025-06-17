@@ -23,7 +23,7 @@ export class ManagementComponent implements OnInit {
   paginator!: MatPaginator;
 
   users: User[] = [];
-  displayedColumns: string[] = ['id','name', 'email', 'role','status','edit','delete'];
+  displayedColumns: string[] = ['id','name', 'email', 'role','status','delete'];
   dataSource = new MatTableDataSource<User>(this.users);
 
   
@@ -80,13 +80,7 @@ export class ManagementComponent implements OnInit {
     this.router.navigate(['/management', event.id]);
   }
 
-  editUser(user: User){
-    console.log("Edit user", user);
-    // Abre el modal de edicion
-    // Se actualiza la tabla
-    // en caso de error se muestra un mensaje de error
-  }
-
+  
   deleteUser(user: User){
     console.log("Delete user", user);
     // Abre el modal de confirmacion

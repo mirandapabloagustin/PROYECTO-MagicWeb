@@ -14,11 +14,12 @@ import {
 import { RoleUser } from '@app/core/enums/access.user.enum';
 import { SnackbarService } from '@app/core/services/snackbar/snackbar.service';
 import { MatDialog } from '@angular/material/dialog';
+import { ManagementCommentsUserDecksComponent } from '../management.comments.user.decks/management.comments.user.decks.component';
 
 @Component({
   selector: 'app-management.info.user',
   standalone: true,
-  imports: [HeaderComponent, FooterComponent, ReactiveFormsModule],
+  imports: [HeaderComponent, FooterComponent, ReactiveFormsModule, ManagementCommentsUserDecksComponent],
   templateUrl: './management.info.user.component.html',
   styleUrl: './management.info.user.component.css',
 })
@@ -26,7 +27,7 @@ export class ManagementInfoUserComponent {
   formInfo!: FormGroup;
   user!: User;
   edit = false;
-  visibility= false;
+  visibility = false;
   countWords = 0;
   limitWords = 300;
 
@@ -70,9 +71,7 @@ export class ManagementInfoUserComponent {
           if (res.id) {
             this.user = res;
             this.formInfo = this._fb.group({
-              role: [
-                { value: '', disabled: !this.edit },
-              ],
+
               nick: [
                 { value: '', disabled: !this.edit },
                 [
@@ -81,18 +80,21 @@ export class ManagementInfoUserComponent {
                 [this._serviceUser.validatorNick()],
               ],
               name: [{ value: '', disabled: !this.edit },
-                [Validators.pattern(/^[a-zA-ZÀ-ÿ\s]{2,30}$/)],
+              [Validators.pattern(/^[a-zA-ZÀ-ÿ\s]{2,30}$/)],
               ],
               email: [{ value: '', disabled: !this.edit },
-                [Validators.email],
-                [this._serviceUser.validatorEmail()],
+              [Validators.email],
+              [this._serviceUser.validatorEmail()],
               ],
-              country: [{ value: '', disabled: !this.edit }],
+              country: [{ value: this.user.country, disabled: !this.edit }],
               password: [this.user.password],
               description: [{ value: this.user.description, disabled: !this.edit },
-                [Validators.minLength(100), Validators.maxLength(this.limitWords)],
+              [Validators.minLength(100), Validators.maxLength(this.limitWords)],
               ],
-              status: [{ value: '', disabled: !this.edit }],
+              role: [
+                { value: this.user.role, disabled: !this.edit },
+              ],
+              status: [{ value: this.user.status, disabled: !this.edit }],
             });
           } else {
             this.route.navigate(['/management']);
@@ -138,8 +140,15 @@ export class ManagementInfoUserComponent {
       this.edit ? this.formInfo.enable() : this.formInfo.disable();
       this._setStyles();
       if (result) {
-        console.log(this.formInfo.value);
-      }else{
+        const updatedUser = this.formInfo.value;
+        if (this._hasRealChanges(updatedUser, this.user)) {
+          console.log('hubiera cambios');
+
+          //una vez validados los campos, se procede a actualizar el usuario
+          
+        }
+
+      } else {
         this._snackbar.nonChanges();
       }
     });
@@ -157,7 +166,7 @@ export class ManagementInfoUserComponent {
     return this.user.role!.toUpperCase();
   }
 
-  changeVisibility(){
+  changeVisibility() {
     this.visibility = !this.visibility;
     this.transformVisibility('password');
   }
@@ -173,21 +182,21 @@ export class ManagementInfoUserComponent {
     }
   }
 
-  setImgVisibility(status : boolean):string {
+  setImgVisibility(status: boolean): string {
     return this.visibility ? 'icons/edit/visible.png' : 'icons/edit/invisible.png';
   }
 
   countWordsDescription() {
     let description = this.formInfo.get('description')?.value;
     const words = description.length;
-    if (words >= this.limitWords-1) {
+    if (words >= this.limitWords - 1) {
       description = description.slice(0, this.limitWords);
-      this.formInfo.get('description')?.setValue(description,{ emitEvent: false }); 
+      this.formInfo.get('description')?.setValue(description, { emitEvent: false });
     }
     this.countWords = description.length;
   }
 
-  private _setStyles(){
+  private _setStyles() {
     this.changeSelect('country');
     this.changeSelect('role_user');
     this.changeSelect('status');
@@ -232,5 +241,24 @@ export class ManagementInfoUserComponent {
       ? element?.classList.add('form__error-status')
       : element?.classList.remove('form__error-status');
     return value;
+  }
+
+  private _hasRealChanges(formData: any, originalData: User): boolean {
+    let hasChanges = false;
+    const composVacios = ['nick', 'name', 'email'];
+
+    for (const campo of composVacios) {
+      if (formData[campo] !== '') {
+        hasChanges = true;
+      }
+    }
+    if(formData['role'] !== originalData.role || 
+       formData['status'] !== originalData.status ||
+       formData['country'] !== originalData.country ||
+       formData['description'] !== originalData.description) {
+      hasChanges = true;
+    }
+    console.log(formData);
+    return hasChanges;
   }
 }

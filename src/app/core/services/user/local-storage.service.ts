@@ -1,6 +1,7 @@
 import { isPlatformBrowser } from '@angular/common';
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { User } from '@app/core/models/user.model';
+import { RoleUser } from '@enums/access.user.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -81,5 +82,9 @@ export class LocalStorageService {
     const user = localStorage.getItem('user');
     return user ? JSON.parse(user) : new User();
   }
+
+
+
+
 
 }

@@ -1,1 +1,25 @@
-<p>management.comments.user.decks works!</p>
+<section class="comments-section">
+
+    <h2 class="title-section " >COMENTARIOS</h2>
+    
+    <div class="comments-container">
+        @if (comments.length === 0) {
+            <p class="no-comments">El usuario no tiene comentarios.</p>
+        }
+        @for (coment of comments; track $index) {
+            <div class="comment">
+                <div class="comment-deck-id">
+                    <span class="deck-id-label">Deck ID:</span>
+                    <span class="deck-id-value"> {{ coment.deckId }}</span>
+                </div>
+                <div class="comment-header">
+                    <span class="comment-author">{{ coment.userName }}</span>
+                    <span class="comment-date">{{ coment.createdAt}}</span>
+                </div>
+                <div class="comment-body">
+                    {{ coment.comment }}
+                </div>
+            </div>
+        }
+    </div>
+</section>

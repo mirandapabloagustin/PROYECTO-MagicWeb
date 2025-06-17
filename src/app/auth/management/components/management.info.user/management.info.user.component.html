@@ -11,8 +11,8 @@
             @if(edit){
               <select id="status" class="select-edit_form" formControlName="status">
                   <option disabled selected >Estado del Usuario</option>
-                  <option [value]="user.status">✅ Activo</option>
-                  <option [value]="!user.status">🚫 Baja</option>
+                  <option [value]="true">✅ Activo</option>
+                  <option [value]="false">🚫 Baja</option>
               </select>
             }@else {
               <label class="data-user-show_text">{{getUserStatus()}}</label>
@@ -24,9 +24,8 @@
             @if(edit){
                 <select id="role_user" class="select-edit_form" formControlName="role">
                   <option disabled selected >Rol del Usuario</option>
-                @for (item of getRoles() ; track $index) {
-                  <option [value]="item" >{{ item }}</option>
-                  }
+                  <option [value]="'usuario'">Usuario</option>
+                  <option [value]="'admin'">Administrador</option>
                 </select>
             }@else {
                 <label class="data-user-show_text">{{getUserRoleUpper()}}</label>
@@ -126,6 +125,10 @@
                 }
             </div>
         </form>
+
+        <div class="comments-user_group">
+          <app-management-user [userId]="user.id!" ></app-management-user>
+        </div>
 
         
     }

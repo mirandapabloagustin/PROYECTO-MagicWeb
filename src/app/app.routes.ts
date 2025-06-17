@@ -29,10 +29,12 @@ export const routes: Routes = [
   {
     path: 'management',
     loadComponent: () => import('./auth/management/management.component').then(m => m.ManagementComponent),
+    canActivate: [authGuard]
   },
   {
     path: 'management/:id',
     loadComponent: () => import('./auth/management/components/management.info.user/management.info.user.component').then(m => m.ManagementInfoUserComponent),
+    canActivate: [authGuard]
   },
   {
     path: ':idUser',

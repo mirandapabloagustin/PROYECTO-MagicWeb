@@ -8,6 +8,13 @@
 
       <ul>
         @if(statusLogin){
+          @if(getRoleAdmin()){
+            <li>
+                <a href="management" class="link"
+                  ><fa-icon class="icon-transform" [icon]="icons[5]"></fa-icon> Usuarios</a
+                >
+            </li>
+          }
             <li>
                 <a href="main" class="link"
                   ><fa-icon class="icon-transform" [icon]="icons[6]"></fa-icon> Buscador</a

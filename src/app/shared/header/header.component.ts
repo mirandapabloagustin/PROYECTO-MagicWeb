@@ -39,17 +39,24 @@ export class HeaderComponent implements OnInit {
     private _local: LocalStorageService
   ) { }
 
-  ngOnInit() {
+ngOnInit() {
+  const checkUserLogin = this._local.getItemStorage();
+  const statusUser = JSON.parse(checkUserLogin || '{}');
+  if (Object.keys(statusUser).length > 0) {
+    this.statusLogin = true;
+    this.userLogged = statusUser;
+  } else { 
     statusLogged.subscribe((status) => {
       if (status !== null) {
-      this.statusLogin = status;
-      const user = this._local.getItemStorage();
-      if (user) {
-      this.userLogged = JSON.parse(user);
+        this.statusLogin = status;
+        const user = this._local.getItemStorage();
+        if (user) {
+          this.userLogged = JSON.parse(user);
+        }
       }
-    }
     });
   }
+}
 
   /**
    * @description
@@ -63,6 +70,15 @@ export class HeaderComponent implements OnInit {
     this.statusLogin = false;
     this._serviceUser.logoutUser();
     this._router.navigate(['/landing']);
+  }
+
+  getRoleAdmin(): boolean {
+    const user = this._local.getItemStorage();
+    if (user) {
+      const userData = JSON.parse(user);
+      return userData.role === 'admin' ? true : false;
+    }
+    return false;
   }
 
 
