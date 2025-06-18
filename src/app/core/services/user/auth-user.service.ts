@@ -188,6 +188,26 @@ export class AuthUserService {
   }
 
 
+  /**
+   * @description
+   * Metodo que elimina un usuario
+   * - Se llama al servicio de usuario para eliminar un usuario.
+   * @param {string} id - Id del usuario a eliminar.
+   * @returns {boolean} Retorna un booleano.
+   */
+  async deleteUser(id: string): Promise<boolean> {
+    try {
+      const res = await lastValueFrom(this._serviceUser.deleteUser(id));
+      if (res) {
+        this._localStorageService.removeItemStorage('user');
+        return true;
+      }
+    } catch (e) {
+      console.error(e);
+      this._serviceSnackbar.errorServer();
+    }
+    return false;
+  }
 
 
 }

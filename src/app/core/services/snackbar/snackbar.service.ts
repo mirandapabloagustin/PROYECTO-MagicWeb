@@ -74,6 +74,14 @@ export class SnackbarService {
 
   /**
    * @description
+   * Metodo que emite un snackbar de succes al eliminar un usuario.
+   */
+  userDeleted(){
+    this.emitSnackbar('Usuario eliminado correctamente.','success','La operacion fue exitosa.');
+  }
+
+  /**
+   * @description
    * Metodo que emite un snackbar de warnin al no poder obtener acceso a la info de un usuario.
    */
   cantGetAccessToUser(){

@@ -1,14 +1,17 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { HeaderComponent } from "@shared/header/header.component";
-import { FooterComponent } from '@app/shared/footer/footer.component';
-import { ListUserComponent } from './components/list.user/list.user.component';
-import { AuthUserService } from '@app/core/services/user/auth-user.service';
-import { User } from '@app/core/models/user.model';
+import { FooterComponent } from '@shared/footer/footer.component';
+import { AuthUserService } from '@services/user/auth-user.service';
+import { User } from '@models/user.model';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateUserComponent } from './components/create-user/create-user.component';
 import { Router } from '@angular/router';
+import { ConfirmDialogComponent } from '@shared/confirm-dialog/confirm-dialog.component';
+import { AuthCommentService } from '@services/comment/auth.comment.service';
+import { AuthDeckService } from '@services/deck/auth.deck.service';
+import { SnackbarService } from '@app/core/services/snackbar/snackbar.service';
 
 @Component({
   selector: 'app-management',
@@ -29,8 +32,11 @@ export class ManagementComponent implements OnInit {
   
   constructor(
     private router: Router,
+    private _modal: MatDialog,
     private _serviceUser: AuthUserService,
-    private modal: MatDialog
+    private _serviceComment: AuthCommentService,
+    private _serviceUserDeck: AuthDeckService,
+    private _snackbar: SnackbarService
 
   ) { 
   }
@@ -51,7 +57,7 @@ export class ManagementComponent implements OnInit {
   }
 
   generateNewUser(){
-    const dialogRef = this.modal.open(CreateUserComponent,
+    const dialogRef = this._modal.open(CreateUserComponent,
       {
         width: '800px',
       }
@@ -82,11 +88,26 @@ export class ManagementComponent implements OnInit {
 
   
   deleteUser(user: User){
-    console.log("Delete user", user);
-    // Abre el modal de confirmacion
-    // Se elimina el usuario de la base de datos
-    // se actualiza la tabla
-    // en caso de error se muestra un mensaje de error
+
+
+    const dialogConfirmRef = this._modal.open(ConfirmDialogComponent, {
+      data: {
+        title: 'Confirmar eliminación',
+        message: `¿Estás seguro de que quieres eliminar al usuario ${user.name}?`,
+        whisper: true,
+        whisperText: 'Esta acción no se puede deshacer.',
+      }
+    });
+
+    dialogConfirmRef.afterClosed().subscribe(result => {
+      if (result) {
+        if (user.id !== null && user.id !== undefined) {
+          this._serviceUser.deleteUser(user.id);
+          this.updateDataSource();
+          this._snackbar.userDeleted();
+        }
+      }
+    });
   }
 
 

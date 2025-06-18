@@ -6,6 +6,9 @@
     <div class="confirm_info-group">
         <h3 class="confim_title">{{ data.title }}</h3>
         <p class="confim_text">{{ data.message }}</p>
+        @if(data.whisper === true) {
+            <small class="alert-action">{{ data.whisperText }}</small>
+        }
     </div>
     <div class="confirm_action-group__buttons">
         <button class="confirm_btn confirm_btn-confirm"  (click)="onConfirm()">Confirmar</button>
