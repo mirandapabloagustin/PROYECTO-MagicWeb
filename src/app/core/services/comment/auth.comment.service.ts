@@ -81,6 +81,21 @@ export class AuthCommentService {
     }
   }
 
+  async updateNameComment(nick: string, id: string) {
+    try {
+      const res = await lastValueFrom(this._cService.getCommentsByUserId(id));
+      if(res.length > 0) {
+        res.forEach(async (comment) => {
+          comment.userName = nick;
+          await lastValueFrom(this._cService.update(comment));
+        });
+        this.updateListComments(res);
+      }
+    } catch (error) {
+      this._snackBar.errorServer();
+    }
+  }
+
   /**
    * @description
    * Metodo que elimina un comentario
@@ -152,11 +167,10 @@ export class AuthCommentService {
    * @returns {void} No retorna ningun valor.
    */
   async getCommentsByUserId(id: string) {
-    let comments: CommentDeck[] = [];
     try {
       const res = await lastValueFrom(this._cService.getCommentsByUserId(id));
       if(res.length > 0) {
-        this._listComments.next(comments);
+        this._listComments.next(res);
       }
     } catch (error) {
       this._snackBar.errorServer();
@@ -193,5 +207,16 @@ export class AuthCommentService {
     return this._listComments.getValue();
   }
 
+  /**
+   * @description
+   * Metodo que actualiza la lista de comentarios.
+   * - Asigna una nueva lista de comentarios al BehaviorSubject listComments.
+   * @param {CommentDeck[]} comments - Lista de comentarios a actualizar.
+   * @returns {void} No retorna ningun valor.
+   */
+  updateListComments(comments: CommentDeck[]) {
+    this._listComments.next([]);
+    this._listComments.next(comments);
+  }
 
 }

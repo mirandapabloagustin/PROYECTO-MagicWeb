@@ -3,10 +3,10 @@
     <h2 class="title-section " >COMENTARIOS</h2>
     
     <div class="comments-container">
-        @if (comments.length === 0) {
+        @if (commentsLoaded?.length === 0) {
             <p class="no-comments">El usuario no tiene comentarios.</p>
         }
-        @for (coment of comments; track $index) {
+        @for (coment of commentsLoaded; track $index) {
             <div class="comment">
                 <div class="comment-deck-id">
                     <span class="deck-id-label">Deck ID:</span>

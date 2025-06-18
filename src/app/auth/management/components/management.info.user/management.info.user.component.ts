@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '@app/core/models/user.model';
 import { AuthUserService } from '@app/core/services/user/auth-user.service';
@@ -15,6 +15,8 @@ import { RoleUser } from '@app/core/enums/access.user.enum';
 import { SnackbarService } from '@app/core/services/snackbar/snackbar.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ManagementCommentsUserDecksComponent } from '../management.comments.user.decks/management.comments.user.decks.component';
+import { AuthCommentService } from '@app/core/services/comment/auth.comment.service';
+import { CommentDeck } from '@app/core/models/comment.deck.model';
 
 @Component({
   selector: 'app-management.info.user',
@@ -23,13 +25,14 @@ import { ManagementCommentsUserDecksComponent } from '../management.comments.use
   templateUrl: './management.info.user.component.html',
   styleUrl: './management.info.user.component.css',
 })
-export class ManagementInfoUserComponent {
+export class ManagementInfoUserComponent implements OnInit {
   formInfo!: FormGroup;
   user!: User;
   edit = false;
   visibility = false;
   countWords = 0;
   limitWords = 300;
+  comments: CommentDeck[] = [];
 
   countries = [
     { name: 'Argentina', code: 'AR' },
@@ -57,9 +60,11 @@ export class ManagementInfoUserComponent {
     private route: Router,
     private router: ActivatedRoute,
     private _serviceUser: AuthUserService,
+    private _serviceComment: AuthCommentService,
     private _snackbar: SnackbarService,
     private _matDialog: MatDialog,
     private _fb: FormBuilder
+
   ) {
     this.router.params.subscribe(async (params) => {
       const id = params['id'];
@@ -105,6 +110,21 @@ export class ManagementInfoUserComponent {
     });
   }
 
+  ngOnInit(): void {
+    this.router.params.subscribe(async (params) => {
+      const id = params['id'];
+      await this._serviceComment.getCommentsByUserId(id);
+      this._serviceComment.listComments$.subscribe({
+      next: (comments) => {
+        this.comments = comments.filter(comment => comment.userId === this.user.id);
+      },
+      error: () => {
+        this._snackbar.errorServer();
+      }
+    });
+    });
+  }
+
 
 
 
@@ -141,13 +161,13 @@ export class ManagementInfoUserComponent {
       this._setStyles();
       if (result) {
         const updatedUser = this.formInfo.value;
-        if (this._hasRealChanges(updatedUser, this.user)) {
-          console.log('hubiera cambios');
-
-          //una vez validados los campos, se procede a actualizar el usuario
-          
+        if (this.nameHasChanged(updatedUser, this.user.name!)) {
+          this._serviceComment.updateNameComment(updatedUser.nick, this.user.id!);
         }
-
+        if (this._hasRealChanges(updatedUser, this.user)) {
+          this.user = this.applyChanges(updatedUser, this.user);
+          this._serviceUser.updateUser(this.user);
+        }
       } else {
         this._snackbar.nonChanges();
       }
@@ -258,7 +278,20 @@ export class ManagementInfoUserComponent {
        formData['description'] !== originalData.description) {
       hasChanges = true;
     }
-    console.log(formData);
     return hasChanges;
   }
+
+  private applyChanges(form: any, user: User): User {
+    for (const key in form) {
+      if (form[key] !== '' && form[key] !== null && key in user) {
+        (user as any)[key] = form[key];
+      }
+    }
+    return user;
+  }
+
+  private nameHasChanged(formData: any, name: string): boolean {
+    return formData['nick'] !== name && formData['nick'] !== '' && formData['nick'] !== null;
+  }
+
 }

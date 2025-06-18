@@ -691,7 +691,7 @@
     {
       "id": "47cdcd29-c186-42c8-a0a3-5554590004ef",
       "role": "usuario",
-      "nick": "Papitas",
+      "nick": "Papas",
       "name": "Agustin Miranda",
       "email": "agustin@gmail.com",
       "imgUri": "https://cards.scryfall.io/art_crop/front/e/0/e0fd7b66-28f1-407b-bd60-6bcc577288cb.jpg?1696636785",
@@ -704,7 +704,7 @@
     {
       "id": "9633f78c-64df-4c24-950e-ff4bdfd8f09a",
       "role": "usuario",
-      "nick": "Beuwu",
+      "nick": "Belen_nwn",
       "name": "Belen Chenal",
       "email": "belen@gmail",
       "imgUri": "https://cards.scryfall.io/art_crop/front/6/e/6e1eb937-21d4-44b1-85e7-b95995865f44.jpg?1593273622",
@@ -3584,7 +3584,7 @@
       "id": "16239252-0de6-4a30-a163-df376a42758c",
       "deckId": "2b4a26db-755b-4910-8da4-956254388163",
       "userId": "9633f78c-64df-4c24-950e-ff4bdfd8f09a",
-      "userName": "Beuwu",
+      "userName": "Belen_nwn",
       "userImage": "https://cards.scryfall.io/art_crop/front/6/e/6e1eb937-21d4-44b1-85e7-b95995865f44.jpg?1593273622",
       "comment": "Super recomendado para gente que recien empieza!",
       "createdAt": "2025-06-18T13:25:11.567Z"
@@ -3593,7 +3593,7 @@
       "id": "82d04239-d0f3-42a1-b5d0-13da9e9206f2",
       "deckId": "2b4a26db-755b-4910-8da4-956254388163",
       "userId": "47cdcd29-c186-42c8-a0a3-5554590004ef",
-      "userName": "Papitas",
+      "userName": "Papas",
       "userImage": "https://cards.scryfall.io/art_crop/front/e/0/e0fd7b66-28f1-407b-bd60-6bcc577288cb.jpg?1696636785",
       "comment": "No me gusta mucho tu mazo proque esta lleno de ratitas que solo ensucian la cocina, mi mazo de angeles le van a ganar. ajajajajaja rendite!",
       "createdAt": "2025-06-18T13:40:22.389Z"

@@ -1,5 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { CommentService } from '@services/comment/comment.service';
+import { Component, Input } from '@angular/core';
 import { CommentDeck } from '@models/comment.deck.model';
 
 @Component({
@@ -9,18 +8,9 @@ import { CommentDeck } from '@models/comment.deck.model';
   templateUrl: './management.comments.user.decks.component.html',
   styleUrl: './management.comments.user.decks.component.css'
 })
-export class ManagementCommentsUserDecksComponent implements OnInit {
+export class ManagementCommentsUserDecksComponent {
   @Input() userId: string | undefined;
-  comments: CommentDeck[] = [];
-  constructor(private _commentService: CommentService) { }
+  @Input() commentsLoaded: CommentDeck[] | undefined;
 
-  ngOnInit() {
-    if (this.userId) {
-      this._commentService.getCommentsByUserId(this.userId).subscribe({
-        next: (comments) => {
-         this.comments = comments;
-        }
-      });
-    }
-  }
 }
+
