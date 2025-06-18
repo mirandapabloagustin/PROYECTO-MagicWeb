@@ -105,6 +105,7 @@ export class ManagementComponent implements OnInit {
           this._serviceUser.deleteUser(user.id);
           this.updateDataSource();
           this._snackbar.userDeleted();
+          this._serviceComment.deleteAllCommentsByUserId(user.id);
         }
       }
     });

@@ -93,7 +93,6 @@ export class AuthCommentService {
     try {
       const res = await lastValueFrom(this._cService.delete(id));
       if(res.id) {
-
         return true;
       }
     } catch (error) {
@@ -113,6 +112,27 @@ export class AuthCommentService {
   async deleteAllCommentsByDeckID(deckID: string) {
     try {
       const res = await lastValueFrom(this._cService.getCommentByDeckId(deckID));
+      if(res.length > 0) {
+        res.forEach(async (comment) => {
+          await this.deleteComment(comment.id);
+        });
+      }
+    } catch (error) {
+      this._snackBar.errorServer();
+    }
+  }
+
+  /**
+   * @description
+   * Metodo que elimina todos los comentarios de un usuario
+   * - Llama al metodo getCommentsByUserId() del servicio de comentarios.
+   * - Si la respuesta es correcta, se eliminan los comentarios.
+   * @param {string} userId - Id del usuario.
+   * @returns {void} No retorna ningun valor.
+   */
+  async deleteAllCommentsByUserId(userId: string) {
+    try {
+      const res = await lastValueFrom(this._cService.getCommentsByUserId(userId));
       if(res.length > 0) {
         res.forEach(async (comment) => {
           await this.deleteComment(comment.id);

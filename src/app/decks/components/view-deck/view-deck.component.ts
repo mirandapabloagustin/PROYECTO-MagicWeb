@@ -514,14 +514,13 @@ export class ViewDeckComponent implements OnInit {
    * @returns {void} - No retorna nada.
    */
   async deleteComment(id : string) {
-    await this._cService.deleteComment(id).then(res => {
-      if(res){
-        this.listComments = this.listComments.filter(comment => {
-          return comment !== undefined && comment.id !== id;
-        });
-        this._snackBar.commentDelete();
-      }
-    });
+    await this._cService.deleteComment(id)
+      .then(res => {
+        if(res) {
+          this.listComments = this.listComments.filter(comment => comment.id !== id);
+          this._snackBar.commentDelete();
+        }
+      });
 
   }
 

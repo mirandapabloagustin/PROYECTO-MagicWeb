@@ -82,8 +82,8 @@ export class AuthDeckService {
   async getDecksUserId(id: string) {
     try {
       const res = await lastValueFrom(this._deckService.getDecks(id));
+      this.clearContentDeck();
       if (res.length > 0) {
-        this.clearContentDeck();
         this._listDecks.next(res);
       }
     } catch (e) {
