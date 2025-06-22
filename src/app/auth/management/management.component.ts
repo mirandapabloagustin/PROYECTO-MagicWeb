@@ -35,7 +35,6 @@ export class ManagementComponent implements OnInit {
     private _modal: MatDialog,
     private _serviceUser: AuthUserService,
     private _serviceComment: AuthCommentService,
-    private _serviceUserDeck: AuthDeckService,
     private _snackbar: SnackbarService
 
   ) { 
@@ -83,8 +82,6 @@ export class ManagementComponent implements OnInit {
 
   
   deleteUser(user: User){
-
-
     const dialogConfirmRef = this._modal.open(ConfirmDialogComponent, {
       data: {
         title: 'Confirmar eliminación',

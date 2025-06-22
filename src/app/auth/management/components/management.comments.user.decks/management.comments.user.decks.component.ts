@@ -25,9 +25,17 @@ export class ManagementCommentsUserDecksComponent {
     private _snackbar: SnackbarService,
     private _dialog: MatDialog,
     private _router: Router,
-    private _loggedUser: LocalStorageService
   ) {}
 
+  /**
+   * @description
+   * Metodo que elimina un comentario.
+   * - Abre un dialog de confirmacion.
+   * - Si el usuario confirma, se llama al servicio de comentarios para eliminar el comentario.
+   * - Se muestra un snackbar de confirmacion.
+   * @param {CommentDeck} comment - Comentario a eliminar.
+   * @returns {void} No retorna ningun valor.
+   */
   async deleteComment(comment: CommentDeck) {
         const dialogConfirmRef = this._dialog.open(ConfirmDialogComponent, {
           data: {
@@ -44,6 +52,14 @@ export class ManagementCommentsUserDecksComponent {
         });
   }
 
+  /**
+   * @description
+   * Metodo que redirige al usuario a la vista del deck del comentario.
+   * - Llama al servicio de decks para obtener el deck por su id.
+   * - Si el deck existe, redirige al usuario a la vista del deck.
+   * @param {CommentDeck} comment - Comentario del deck al que se quiere ir.
+   * @returns {void} No retorna ningun valor.
+   */
   async goToDeck(comment: CommentDeck) {
     try {
       const res = await this._sDecks.getDeckById(comment.deckId!);

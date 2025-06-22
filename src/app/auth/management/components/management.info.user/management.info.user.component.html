@@ -119,9 +119,9 @@
             
             <div class="btn-profile_group">
                 @if(!edit){
-                    <button (click)="editUser()">Editar</button>
+                    <button class="btn-edit_user" (click)="editUser()">Editar</button>
                 }@else{
-                    <button (click)="saveEditUser()">Guardar</button>
+                    <button class="btn-save_user" (click)="saveEditUser()">Guardar</button>
                 }
             </div>
         </form>

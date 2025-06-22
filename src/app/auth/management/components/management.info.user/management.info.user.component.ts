@@ -17,6 +17,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ManagementCommentsUserDecksComponent } from '../management.comments.user.decks/management.comments.user.decks.component';
 import { AuthCommentService } from '@app/core/services/comment/auth.comment.service';
 import { CommentDeck } from '@app/core/models/comment.deck.model';
+import { LocalStorageService } from '@app/core/services/user/local-storage.service';
 
 @Component({
   selector: 'app-management.info.user',
@@ -28,6 +29,7 @@ import { CommentDeck } from '@app/core/models/comment.deck.model';
 export class ManagementInfoUserComponent implements OnInit {
   formInfo!: FormGroup;
   user!: User;
+  userLogged!: User;
   edit = false;
   visibility = false;
   countWords = 0;
@@ -57,10 +59,11 @@ export class ManagementInfoUserComponent implements OnInit {
   ];
 
   constructor(
-    private route: Router,
-    private router: ActivatedRoute,
     private _serviceUser: AuthUserService,
     private _serviceComment: AuthCommentService,
+    private _local: LocalStorageService,
+    private route: Router,
+    private router: ActivatedRoute,
     private _snackbar: SnackbarService,
     private _matDialog: MatDialog,
     private _fb: FormBuilder
@@ -123,6 +126,7 @@ export class ManagementInfoUserComponent implements OnInit {
       }
     });
     });
+    this.userLogged = this._local.getUserLogged();
   }
 
 
@@ -163,7 +167,7 @@ export class ManagementInfoUserComponent implements OnInit {
         const updatedUser = this.formInfo.value;
         if (this.nameHasChanged(updatedUser, this.user.name!)) {
           this._serviceComment.updateNameComment(updatedUser.nick, this.user.id!);
-          
+          this._serviceUser.updateUser(this.user);
         }
         if (this._hasRealChanges(updatedUser, this.user)) {
           this.user = this.applyChanges(updatedUser, this.user);
@@ -176,7 +180,7 @@ export class ManagementInfoUserComponent implements OnInit {
   }
 
   getUserStatus() {
-    return this.user.status ? '✅' : '🚫';
+    return this.user.status ? '✅ Activo' : '🚫 Baja';
   }
 
   getRoles() {
@@ -284,8 +288,15 @@ export class ManagementInfoUserComponent implements OnInit {
 
   private applyChanges(form: any, user: User): User {
     for (const key in form) {
-      if (form[key] !== '' && form[key] !== null && key in user) {
+      if (form[key] !== '' && form[key] !== null && key in user && key!== "status") {
         (user as any)[key] = form[key];
+      }
+      if( key === 'status') {
+        user.status = form[key] === 'true' ? true : false;
+        if (user.id == this.userLogged.id) {
+          this._local.clearStorage();
+          this.route.navigate(['/management']);
+        }
       }
     }
     return user;
