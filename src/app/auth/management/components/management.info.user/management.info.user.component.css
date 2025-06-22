@@ -2,7 +2,7 @@
 
 .main-info_container{
     height: min-content;
-    margin: auto 4rem;
+    padding-left: 4rem;
     padding-top: 7rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -10,6 +10,7 @@
     gap: 1rem;
     align-items: center;
     justify-content: center;
+    background-color: #f8f9fa;
 }
 
 .family-font_text{
@@ -32,6 +33,7 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    
 
 }
 
@@ -41,6 +43,7 @@
     gap: 0.3rem;
     justify-content: center;
     align-items: end;
+    
 }
 
 .data-user_group{

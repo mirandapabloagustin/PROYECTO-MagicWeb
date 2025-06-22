@@ -3,6 +3,7 @@
 .main_container{
     display: grid;
     grid-template-rows: auto 1fr auto;
+    
 }
 
 .family-font_text{

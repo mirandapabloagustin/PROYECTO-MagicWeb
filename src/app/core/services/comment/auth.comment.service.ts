@@ -105,6 +105,15 @@ export class AuthCommentService {
     }
   }
 
+  /**
+   * @description
+   * Metodo que actualiza la imagen de un usuario en los comentarios
+   * - Llama al metodo getCommentsByUserId() del servicio de comentarios.
+   * - Si la respuesta es correcta, se actualiza la imagen de usuario en los comentarios.
+   * @param {string} image - Nueva imagen de usuario.
+   * @param {string} id - Id del usuario.
+   * @returns {void} No retorna ningun valor.
+   */
   async updateImageComment(image: string, id: string) {
     try {
       const res = await lastValueFrom(this._cService.getCommentsByUserId(id));
@@ -133,6 +142,9 @@ export class AuthCommentService {
     try {
       const res = await lastValueFrom(this._cService.delete(id));
       if(res.id) {
+        this._listComments.next(
+          this._listComments.getValue().filter(comment => comment.id !== id)
+        );
         return true;
       }
     } catch (error) {
