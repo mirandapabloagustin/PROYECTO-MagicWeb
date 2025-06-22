@@ -11,6 +11,7 @@ import { SnackbarService } from '../snackbar/snackbar.service';
 @Injectable({
   providedIn: 'root',
 })
+
 export class AuthUserService {
   public userLogged = User.emptyUser();
 

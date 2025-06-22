@@ -163,6 +163,7 @@ export class ManagementInfoUserComponent implements OnInit {
         const updatedUser = this.formInfo.value;
         if (this.nameHasChanged(updatedUser, this.user.name!)) {
           this._serviceComment.updateNameComment(updatedUser.nick, this.user.id!);
+          
         }
         if (this._hasRealChanges(updatedUser, this.user)) {
           this.user = this.applyChanges(updatedUser, this.user);

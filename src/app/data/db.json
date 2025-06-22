@@ -6,7 +6,7 @@
       "role": "admin",
       "name": "Miranda Pablo Agustin",
       "email": "admin@admin.com",
-      "imgUri": "https://cards.scryfall.io/art_crop/front/0/3/03835e3e-9fd1-47c7-86a5-a5481420f2d3.jpg?1593092579",
+      "imgUri": "https://cards.scryfall.io/art_crop/front/0/8/0877c7da-e606-4c24-822a-2af987527361.jpg?1675646410",
       "password": "1234",
       "description": "Amante de Magic: The Gathering, siempre en busca de nuevos mazos y estrategias. Mi color favorito de maná es [Inserta tu color aquí] y disfruto jugando con [tu tipo de mazo o comandante favorito]. ¡Vamos a jugar y compartir ideas sobre este increíble juego!",
       "country": "AR",
@@ -706,9 +706,9 @@
       "role": "usuario",
       "nick": "Belen_nwn",
       "name": "Belen Chenal",
-      "email": "belen@gmail",
+      "email": "belen@gmail.com",
       "imgUri": "https://cards.scryfall.io/art_crop/front/6/e/6e1eb937-21d4-44b1-85e7-b95995865f44.jpg?1593273622",
-      "password": "Y7NTO7",
+      "password": "1234",
       "description": "Amante de Magic: The Gathering, siempre en busca de nuevos mazos y estrategias. Mi color favorito de maná es [Inserta tu color aquí] y disfruto jugando con [tu tipo de mazo o comandante favorito]. ¡Vamos a jugar y compartir ideas sobre este increíble juego!",
       "country": "AR",
       "favCards": [],
@@ -3563,20 +3563,11 @@
   ],
   "comments": [
     {
-      "id": "27aee37f-6e48-472a-8ee3-6486c36acda6",
-      "deckId": "4a05c91d-3fd2-441c-b982-0dbb6ce21a0f",
-      "userId": "ed73f73c-a663-4b2f-9d28-a13777186d33",
-      "userName": "Admin",
-      "userImage": "https://cards.scryfall.io/art_crop/front/0/3/03835e3e-9fd1-47c7-86a5-a5481420f2d3.jpg?1593092579",
-      "comment": "cacaacacaacaca",
-      "createdAt": "2025-06-18T13:17:23.237Z"
-    },
-    {
       "id": "ce297685-7226-4798-b6f9-9bbc9cf56bb6",
       "deckId": "2b4a26db-755b-4910-8da4-956254388163",
       "userId": "ed73f73c-a663-4b2f-9d28-a13777186d33",
       "userName": "Admin",
-      "userImage": "https://cards.scryfall.io/art_crop/front/0/3/03835e3e-9fd1-47c7-86a5-a5481420f2d3.jpg?1593092579",
+      "userImage": "https://cards.scryfall.io/art_crop/front/0/8/0877c7da-e606-4c24-822a-2af987527361.jpg?1675646410",
       "comment": "Este mazo es espelunantemente bueno! No podemos contra tantas ratitas cocineras",
       "createdAt": "2025-06-18T13:24:26.757Z"
     },
@@ -3597,6 +3588,15 @@
       "userImage": "https://cards.scryfall.io/art_crop/front/e/0/e0fd7b66-28f1-407b-bd60-6bcc577288cb.jpg?1696636785",
       "comment": "No me gusta mucho tu mazo proque esta lleno de ratitas que solo ensucian la cocina, mi mazo de angeles le van a ganar. ajajajajaja rendite!",
       "createdAt": "2025-06-18T13:40:22.389Z"
+    },
+    {
+      "id": "42108c2e-cd46-46c2-b1ab-391ab4df5a36",
+      "deckId": "1198281e-d557-4a0a-811d-a936f5c77e83",
+      "userId": "ed73f73c-a663-4b2f-9d28-a13777186d33",
+      "userName": "Admin",
+      "userImage": "https://cards.scryfall.io/art_crop/front/0/8/0877c7da-e606-4c24-822a-2af987527361.jpg?1675646410",
+      "comment": "Increible mazo!",
+      "createdAt": "2025-06-22T13:10:12.623Z"
     }
   ]
 }

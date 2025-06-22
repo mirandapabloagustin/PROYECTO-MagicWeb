@@ -81,12 +81,21 @@ export class AuthCommentService {
     }
   }
 
-  async updateNameComment(nick: string, id: string) {
+  /**
+   * @description
+   * Metodo que actualiza el nombre de un usuario en los comentarios
+   * - Llama al metodo getCommentsByUserId() del servicio de comentarios.
+   * - Si la respuesta es correcta, se actualiza el nombre de usuario en los comentarios.
+   * @param {string} nick - Nuevo nombre de usuario.
+   * @param {string} id - Id del usuario.
+   * @returns {void} No retorna ningun valor.
+   */
+  async updateNameComment(name: string, id: string) {
     try {
       const res = await lastValueFrom(this._cService.getCommentsByUserId(id));
       if(res.length > 0) {
         res.forEach(async (comment) => {
-          comment.userName = nick;
+          comment.userName = name;
           await lastValueFrom(this._cService.update(comment));
         });
         this.updateListComments(res);
@@ -95,6 +104,22 @@ export class AuthCommentService {
       this._snackBar.errorServer();
     }
   }
+
+  async updateImageComment(image: string, id: string) {
+    try {
+      const res = await lastValueFrom(this._cService.getCommentsByUserId(id));
+      if(res.length > 0) {
+        res.forEach(async (comment) => {
+          comment.userImage = image;
+          await lastValueFrom(this._cService.update(comment));
+        });
+        this.updateListComments(res);
+      }
+    } catch (error) {
+      this._snackBar.errorServer();
+    }
+  }
+
 
   /**
    * @description

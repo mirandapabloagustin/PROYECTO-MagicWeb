@@ -71,12 +71,7 @@ export class ManagementComponent implements OnInit {
 
   }
 
-  /**
-   * @description
-   * Filtra los usuarios
-   * 
-   * @param event 
-   */
+  
   filterUser(event: any){
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim();

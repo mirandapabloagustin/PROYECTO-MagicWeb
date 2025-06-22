@@ -6,6 +6,7 @@ import { User } from '@models/user.model';
 import { LocalStorageService } from '@services/user/local-storage.service';
 import { AuthUserService } from '@app/core/services/user/auth-user.service';
 import { SnackbarService } from '@app/core/services/snackbar/snackbar.service';
+import { AuthCommentService } from '@app/core/services/comment/auth.comment.service';
 
 @Component({
   selector: 'app-details-card',
@@ -32,6 +33,7 @@ export class DetailsCardComponent implements OnInit{
       private _matDialog: MatDialog,
       private _local: LocalStorageService,
       private _sService: AuthUserService,
+      private _sComment: AuthCommentService,
       private _snackBar: SnackbarService
     ) { }
 
@@ -152,7 +154,9 @@ export class DetailsCardComponent implements OnInit{
     try{
       this.userLogged.imgUri = this.checkTypeCard(this.cardData);
       const res = await this._sService.updateUser(this.userLogged);
+
       if(res){
+        await this._sComment.updateImageComment(this.userLogged.imgUri,this.userLogged.id!);
         this._local.setItemStorage(this.userLogged);
         this._snackBar.emitSnackbar('Imagen de perfil actualizada','success','La imagen ha sido actualizada.');
       }
