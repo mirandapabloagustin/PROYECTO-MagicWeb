@@ -123,6 +123,7 @@ export class AuthDeckService {
    * @returns {Deck[]} Retorna un arreglo de mazos
    */
   getDecksByFilter(filter: FilterDeckDTO): Deck[] {
+    console.log('Filter applied:', filter);
     if (this.checkFilterEmpty(filter)) {
       return this._listDecks.getValue();
     }

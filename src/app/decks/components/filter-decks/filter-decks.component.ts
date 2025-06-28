@@ -47,6 +47,7 @@ export class FilterDecksComponent {
     this.formColor.get('name').setValue(search);
     const filter = new FilterDeckDTO(this.formColor.value);
     this.filterEvent.emit(filter);
+    this.resetStates();
   }
 
   /**
@@ -109,6 +110,19 @@ export class FilterDecksComponent {
       ? [...vector, firstLetter] 
       : vector.filter((item: string) => item !== firstLetter); 
     this.formColor.get('colors').setValue(newColors);
+  }
+
+  resetStates(){
+    this.formColor.get('colors').setValue([]);
+    this.formColor.get('name').setValue('');
+    this.formColor.get('mana').setValue('');
+    this.formColor.get('tag').setValue('');
+    this.changeStyleToActive('white-select', false);
+    this.changeStyleToActive('blue-select', false);
+    this.changeStyleToActive('black-select', false);
+    this.changeStyleToActive('red-select', false);
+    this.changeStyleToActive('green-select', false);
+    this.changeStyleToActive('all-select', false);
   }
 
 

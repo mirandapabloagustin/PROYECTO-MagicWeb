@@ -3,6 +3,7 @@ import { BehaviorSubject, lastValueFrom } from 'rxjs';
 import { CardsService } from './cards.service';
 import { Cards } from 'scryfall-api';
 import { FilterSearchDto } from '@app/core/models/dto/filter.search.dto.model';
+import { SnackbarService } from '../snackbar/snackbar.service';
 
 @Injectable({
   providedIn: 'root',
@@ -28,7 +29,8 @@ export class AuthApiCardService {
 
 
   constructor(
-    private _service: CardsService
+    private _service: CardsService,
+    private _snackbarService: SnackbarService,
   ) {}
 
 
@@ -47,7 +49,7 @@ export class AuthApiCardService {
         const card = await Cards.random();
         this._randomCards.push(card);
       } catch (error) {
-        console.error('Error al obtener las cartas aleatorias:', error);
+        this._snackbarService.errorFoundCards();
       }
     }
     return this._randomCards;
@@ -136,7 +138,7 @@ export class AuthApiCardService {
         this._total = this._listCards.getValue().length;
       }
     } catch (error) {
-      console.error('Error al buscar las cartas:', error);
+      this._snackbarService.errorFoundCards();
     }
   }
 

@@ -2,7 +2,7 @@
   <div class="hover__bg">
 
     @if(listCards.length === 0){
-    <mat-spinner></mat-spinner>
+      <app-empty [title]="'¡No se encontraron cartas!'" [message]="'Prueba con otros filtros.'" [habilited]="false"></app-empty>
     }@else {
     <div class="content__list">
       @for (data of listCards; track $index){

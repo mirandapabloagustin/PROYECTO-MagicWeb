@@ -62,6 +62,7 @@ export class DecksComponent implements OnInit {
   getSearch(params: FilterDeckDTO) {
     this.decks = [];
     this.decks = this._service.getDecksByFilter(params);
+    
   }
 
 

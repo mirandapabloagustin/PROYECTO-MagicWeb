@@ -12,6 +12,7 @@ import { ConfirmDialogComponent } from '@shared/confirm-dialog/confirm-dialog.co
 import { AuthCommentService } from '@services/comment/auth.comment.service';
 import { AuthDeckService } from '@services/deck/auth.deck.service';
 import { SnackbarService } from '@app/core/services/snackbar/snackbar.service';
+import { LocalStorageService } from '@app/core/services/user/local-storage.service';
 
 @Component({
   selector: 'app-management',
@@ -26,6 +27,7 @@ export class ManagementComponent implements OnInit {
   paginator!: MatPaginator;
 
   users: User[] = [];
+  userLogged!: User;
   displayedColumns: string[] = ['id','name', 'email', 'role','status','delete'];
   dataSource = new MatTableDataSource<User>(this.users);
 
@@ -35,6 +37,7 @@ export class ManagementComponent implements OnInit {
     private _modal: MatDialog,
     private _serviceUser: AuthUserService,
     private _serviceComment: AuthCommentService,
+    private _local: LocalStorageService,
     private _snackbar: SnackbarService
 
   ) { 
@@ -42,6 +45,7 @@ export class ManagementComponent implements OnInit {
 
   ngOnInit() {
     this.updateDataSource();
+    this.userLogged = this._local.getUserLogged();
   }
 
 
@@ -81,7 +85,7 @@ export class ManagementComponent implements OnInit {
   }
 
   
-  deleteUser(user: User){
+  async deleteUser(user: User){
     const dialogConfirmRef = this._modal.open(ConfirmDialogComponent, {
       data: {
         title: 'Confirmar eliminación',
@@ -93,11 +97,17 @@ export class ManagementComponent implements OnInit {
 
     dialogConfirmRef.afterClosed().subscribe(result => {
       if (result) {
-        if (user.id !== null && user.id !== undefined) {
+        if (user.id !== null && user.id !== undefined && user.id !== this.userLogged.id) {
           this._serviceUser.deleteUser(user.id);
           this.updateDataSource();
           this._snackbar.userDeleted();
           this._serviceComment.deleteAllCommentsByUserId(user.id);
+        } else if (user.id === this.userLogged.id) {
+          this.router.navigate(['//main']);
+          this._serviceUser.deleteUser(user.id!);
+          this._local.clearStorage();
+        }else{
+          this._snackbar.errorServer();
         }
       }
     });

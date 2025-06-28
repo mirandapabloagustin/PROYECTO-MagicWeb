@@ -5,9 +5,13 @@
         </div>
 
         <div class="list-content_group">
-                @for (deck of decks; track $index) {
-                    <app-deck-card [deckUser]="deck" [publicActive]="getIsPublic()"></app-deck-card>
-                 }
+        @if(decks.length === 0){
+            <app-empty [title]="'¡No se encontraron Mazos!'" [message]="message" [habilited]="false"></app-empty>
+        }@else{
+          @for (deck of decks; track $index) {
+              <app-deck-card [deckUser]="deck" [publicActive]="getIsPublic()"></app-deck-card>
+            }
+        }
         </div>
     </div>
 </section>

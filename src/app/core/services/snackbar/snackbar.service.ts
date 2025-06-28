@@ -31,7 +31,11 @@ export class SnackbarService {
       horizontalPosition: 'end'
     });
   }
+  
 
+  errorFoundCards() {
+    this.emitSnackbar('Tuvimos inconvenientes al buscar las cartas esperadas.','warning','Intenta con otro tipo de busqueda');
+  }
   /**
    * @description
    * Metodo que emite un snackbar de error al guardar.

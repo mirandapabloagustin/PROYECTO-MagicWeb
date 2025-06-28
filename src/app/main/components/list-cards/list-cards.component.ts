@@ -6,13 +6,14 @@ import {
   faArrowUp
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { EmptyComponent } from "../../../shared/empty/empty.component";
 
 const MODULES = [CardComponent, MatProgressSpinnerModule, FontAwesomeModule];
 
 @Component({
   selector: 'app-list-cards',
   standalone: true,
-  imports: [...MODULES],
+  imports: [...MODULES, EmptyComponent],
   templateUrl: `./list-cards.component.html`,
   styleUrls: [`./list-cards.component.css`],
 })
