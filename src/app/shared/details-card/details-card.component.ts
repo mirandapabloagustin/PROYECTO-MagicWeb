@@ -128,15 +128,18 @@ export class DetailsCardComponent implements OnInit{
     if(this.checkFavorite() ){
       this.userLogged.favCards = this.userLogged.favCards!.filter(
         (card) => card.id !== this.cardData.id
-      ) 
+      );
+      this._snackBar.emitSnackbar('La carta ha sido eliminada de tus favoritos.','warning','¡Vaya!');
     }else{
       this.userLogged.favCards?.push(this.cardData);
+      this._snackBar.emitSnackbar('La carta ha sido agregada a tus favoritos.','success','¡Genial!');
     }
 
     try{
       this._sService.updateUser(this.userLogged).then((res) => {
         if(res){
           this._local.setItemStorage(this.userLogged);
+          
         }
       });
     }catch(error){

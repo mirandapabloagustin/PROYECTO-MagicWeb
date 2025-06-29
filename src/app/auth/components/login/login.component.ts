@@ -40,6 +40,9 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
 
+  /**
+   * 
+   */
   loginUser() {
     if (this.areFieldsEmpty()) {
       this.setErrorTheme();
