@@ -46,7 +46,7 @@ export class ViewDeckComponent implements OnInit {
   deckDetails!: Deck;
   listComments: CommentDeck[] = [];
 
-  types: any[] = [];
+  types: TypeCards[] = [];
   titleEmpty: string = 'No hay cartas en tu mazo';
   messageEmpty: string = 'Parece que aún no has agregado ninguna carta. Agrega nuevas cartas para comenzar a armar tu mazo y usarlas en tus partidas.';
   buttonLabelEmpty: string = 'Buscar cartas';
@@ -294,39 +294,21 @@ export class ViewDeckComponent implements OnInit {
       });
   }
 
-
-
-  /**
-   * @description
-   * Metodo para eliminar una carta de un mazo.
-   * Llama al metodo updateDeck del servivio deckAuthService para actualizar el mazo.
-   * @param {any} type - Tipo de carta a eliminar.
-   * @param {number} index - Posicion de la carta a eliminar.
-   * @returns {void} - No retorna nada.
-   */
-  deleteCard(type: any, index: number) {
-    type[1].splice(index, 1);
-    const value = this.getCardsOfTypes();
-    this.deckDetails.cards = value;
-    this.updateDeck().then(res => {
-      if(res) {
-        this._snackBar.emitSnackbar('La Carta fue eliminada de tu mazo.', 'success', 'Mazo actualizado');
-      }
-    });
-}
-
-  /**
-   * @description
-   * Metodo para  obtener todas las cartas del arreglo de tipos.
-   * - Recorre el arreglo de tipos y concatena las cartas de cada tipo.
-   * @returns {any[]} - Retorna un arreglo de cartas.
-   */
-  private getCardsOfTypes(): any[] {
-    let cards: any[] = [];
-    this.types.forEach(type => {
-      cards = cards.concat(type[1]);
-    });
-    return cards;
+  deleteCard2(card: any) {
+    console.log(card);
+    const index = this.deckDetails.cards!.findIndex(c => c.id === card.id);
+    if (index !== -1) {
+      this.deckDetails.cards!.splice(index, 1);
+      this.updateDeck().then(res => {
+        if(res) {
+          this.types = this.organizeByTypes(this.deckDetails);
+          this._snackBar.emitSnackbar('La Carta fue eliminada de tu mazo.', 'success', 'Mazo actualizado');
+        }
+      });
+    } else {
+      this._snackBar.emitSnackbar('Carta no encontrada en el mazo.', 'error', 'Error al eliminar');
+    }
+  
   }
 
 /**
@@ -339,17 +321,8 @@ export class ViewDeckComponent implements OnInit {
     this._redirect.navigate(['/main']);
   }
 
-  /**
-   * @description
-   * Metodo para agrupar las cartas de un mazo por tipo.
-   * - Recorre el arreglo de cartas, si la carta no tiene un tipo, no la agrega al arreglo.
-   * - Toma el primer tipo de la carta y lo agrega como llave de tipo.
-   * - Si el arreglo del tipo no existe, lo crea y agrega la carta al arreglo.
-   * - Se le asigana el un interface TypeCards, con el nombre del tipo y las cartas del tipo.
-   * @param {Deck} deck - Mazo a agrupar por tipo.
-   * @returns {any[]} - Retorna un objeto arreglo de cartas agrupadas por tipo.
-   */
-  groupCardsByType(deck: Deck): any[] {
+
+  groupCardsByType(deck: Deck) : TypeCards {
     const types = deck.cards!.reduce((acc, card) => {
       if (!card.type_line) return acc; 
       const mainType = card.type_line.split("—")[0].trim();
@@ -359,36 +332,19 @@ export class ViewDeckComponent implements OnInit {
       acc[mainType].push(card);
       return acc; 
     }, {} as TypeCards);
-    return Object.entries(types);
+
+    return types
   }
 
-  /**
-   * @description
-   * Metodo para ordenar las cartas de un mazo por nombre.
-   * - Recorre el arreglo de tipos y ordena las cartas por nombre.
-   * @param {[string, any[]][]} types - Arreglo de tipos de cartas.
-   * @returns {[string, any[]][]} - Retorna un arreglo de tipos de cartas ordenadas por nombre.
-   */
-  orderByName(types: [string, any[]][]): [string, any[]][] {
-    return types.map(([type, cards]) => {
-      return [
-        type,
-        cards.sort((a, b) => a.name.localeCompare(b.name)) 
-      ];
-    });
-  }
-
-  /**
-   * @description
-   * Metodo para organizar las cartas de un mazo por tipo y ordenarlas por nombre.
-   * - Llama a los metodos groupCardsByType y orderByName.
-   * @param {Deck} deck - Mazo a organizar.
-   * @returns {any[]} - Retorna un arreglo de cartas organizadas por tipo y ordenadas por nombre.
-   */
-  organizeByTypes(deck: Deck): any[] {
-    const groupByTypes =  this.groupCardsByType(deck);
-    const orderByName = this.orderByName(groupByTypes);
-    return orderByName;
+  
+  organizeByTypes(deck: Deck): TypeCards[] {
+    const groupByTypes = this.groupCardsByType(deck);
+    const typesArray: TypeCards[] = Object.entries(groupByTypes).map(([name, cards]) => ({
+      name,
+      cards
+    }));
+    console.log(typesArray);
+    return typesArray;
   }
 
   /**

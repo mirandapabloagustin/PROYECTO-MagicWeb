@@ -84,9 +84,9 @@
       @if(deckDetails.cards!.length > 0){ 
         @for (type of types; track $index) {
             <div class="show-cards_group">
-            <h4 class="type-title descripcion-title font-style">{{ type[0] }}</h4>
+            <h4 class="type-title descripcion-title font-style">{{ type.name }}</h4>
             <div class="cards-of-the-deck_group">
-              @for( card of type[1]; track $index) {
+              @for( card of type.cards; track $index) {
                 <div class="card-deck_group">
                   <p class="card-name_text" (mouseenter)="showPreviewImg(card)" (mouseleave)="hidePreviewImg(card)">{{ card.name }}</p> <!-- Hover donde mostrar la carta -->
 
@@ -101,7 +101,7 @@
                 }
                 @if(!isPublic){
                   <div class="delete-card_group">
-                    <button class="delete-card-btn_group delete-deck_btn" (click)="deleteCard(type, $index)">
+                    <button class="delete-card-btn_group delete-deck_btn" (click)="deleteCard2(card)">
                       <img class="detele-btn_img" src="icons/eliminar.png" alt="detele-png" />
                     </button>
                   </div>
