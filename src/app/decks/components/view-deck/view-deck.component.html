@@ -88,7 +88,7 @@
             <div class="cards-of-the-deck_group">
               @for( card of type.cards; track $index) {
                 <div class="card-deck_group">
-                  <p class="card-name_text" (mouseenter)="showPreviewImg(card)" (mouseleave)="hidePreviewImg(card)">{{ card.name }}</p> <!-- Hover donde mostrar la carta -->
+                  <p class="card-name_text" (mouseenter)="showPreviewImg(card)" (mouseleave)="hidePreviewImg(card)">{{ card.name }}</p> 
 
                     <img class="show-card-preview_img" [id]="card.id" [src]="card.image_uris.normal" [alt]="card.name">
 

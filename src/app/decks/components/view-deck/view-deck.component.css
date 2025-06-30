@@ -432,6 +432,7 @@
 
 .visibility{
   position: absolute;
+  z-index: 9999;
   display: block;
   width: var(--card-width);
   height: auto;

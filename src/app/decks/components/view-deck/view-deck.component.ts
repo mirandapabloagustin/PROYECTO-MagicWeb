@@ -186,6 +186,7 @@ export class ViewDeckComponent implements OnInit {
         this._service.copyDeck(this.deckDetails, this._userLogged.id!).then(res => {
           if(res) {
             this._snackBar.emitSnackbar('El mazo fue copiado correctamente.', 'success', 'Mazo copiado');
+            this._redirect.navigate(['/',this._userLogged.id,'decks']);
           }
         });
       }else {
@@ -399,8 +400,8 @@ export class ViewDeckComponent implements OnInit {
     const element = document.getElementById(card.id);
     if(element){
       element.classList.add('visibility');
-      element.style.top = `${this.moveMouse.y + 10}px`;
-      element.style.left = `${this.moveMouse.x + 10}px`;
+      element.style.top = `${this.moveMouse.y + -250}px`;
+      element.style.left = `${this.moveMouse.x + 20}px`;
     }
   }
   
